@@ -1,0 +1,640 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 5-b}
+
+\title{Capital Asset Pricing Model (CAPM)}
+\subtitle{Reference: Bodie et al, Ch 9}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item CAPM Review
+        \item Linear Regression
+        \item Applied CAPM: Disney (DIS)
+        \item Intuition of CAPM: Volatility and Expected Returns
+        \item Tests of CAPM
+        \item More practice problems
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Material So Far}
+
+    \begin{table}
+        \begin{tabular}{llrrr}
+        \toprule
+         Week & Subject & Chapter in \textit{Bodi et al} \\
+        \midrule
+        1 & Intro  &  - \\
+        2 & Measuring Returns & 5 \\
+        3 & Capital Allocation & 6 \\
+        4 & Optimal Portfolios & 7 \\
+        \textcolor{red}{5} & \textcolor{red}{CAPM} & \textcolor{red}{9} \\
+        6 & Index Model & 8 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. CAPM Review}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item Under certain admittedly unrealistically assumptions, the market portfolio 
+        is optimal (no better portfolo exists) and is an equilibrium (what prices should be).
+        \item The equilibrium condition is that 
+        $\frac{\mathbb{E}[R_{xyz}]}{Cov(R_{xyz},R_m)} = \frac{\mathbb{E}[R_{m}]}{\sigma_m^2}$, 
+        where $R_{xyz}$ is the risk premium given by $r_{xyz}-r_f$.
+        \item All securities should lie on the Security Market Line (SML).   If a security does not 
+        lie on the SML, investors will sell (buy) that security, causing the price to fall (rise), and 
+        the expected return to rise (fall), until the security lies on the SML.
+        \item The equilibrium condition can be rearranged to give the usual formulation of CAPM:
+        $$\boxed{\mathbb{E}[r_{xyz}] = r_f + \beta_{xyz} (\mathbb{E}[r_m - r_f])}$$
+        and $\beta_{xyz} = \frac{Cov(R_{xzy},R_m)}{\sigma_m^2}$
+    \end{enumerate}
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{1. Practice from Last Class}
+    \framesubtitle{Beta, SML and Price Changes}
+
+    Consider the following
+    \footnotesize
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{cccc}
+    \toprule
+    \textbf{Scenario} & \textbf{Market Return} & \textbf{Aggressive Stock} & \textbf{Defensive Stock} \\
+    \midrule
+    Low & 5\% & -2\% & 6\% \\
+    \hline
+    High & 25\% & 38\% & 12\% \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    Questions:
+    \begin{enumerate}
+        \item What is the expected rate of return for each stock, if the two scenarios are equally likely?
+        \item What is the Var-Cov matrix, if the two scenarios are equally likely?
+        \item What are the betas of the aggressive and defensive stock?
+        \item Draw the SML if T-Bill rate is 6\% and the two scenarios are equally likely.
+        \item Plot the two securities relative to the SML. What is the alpha?
+        \item What is likely to happen to the \textit{price} of the two stocks?
+    \end{enumerate}
+
+    \blfootnote{Example from Bodi et al, p308}
+
+\end{practiceframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{}
+
+    Linear regression is a statistical method of finding an equation to best fit observed data.   The 'linear' part specifies that the equation is linear.\\
+    \vspace{1em}
+    Ordinary Least Squares is the most common way to estimate a linear regression.\\
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_regression_example.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_regression_labeled_errors.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares}
+
+    Ordinary Least Squares can be estimated using the following (matrix notation):
+
+    $$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$$
+
+    Where:
+    \begin{itemize}
+        \item $\mathbf{X}$ is the matrix of independent variables
+        \item $\mathbf{y}$ is the vector of dependent variables  
+        \item $\hat{\boldsymbol{\beta}}$ is the vector of estimated coefficients
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares}
+
+    Equivalently, we can write the Ordinary Least Squares estimates using covariance and variance as follows:
+
+    $$\hat{\beta} = \frac{\text{Cov}(X,Y)}{\text{Var}(X)}$$
+
+    And the intercept:
+    $$\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$$
+
+    Where:
+    \begin{itemize}
+        \item $\text{Cov}(X,Y)$ is the covariance between X and Y
+        \item $\text{Var}(X)$ is the variance of X
+        \item $\bar{X}$ and $\bar{Y}$ are the sample means
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares - Standard Errors}
+
+    The \textbf{standard error} of an estimate provides a measure of how precisely that estimate is measured. For simple linear regression, the standard errors are:
+
+    \begin{align*}
+    SE(\hat{\beta}) &= \sqrt{\frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}}\\[0.5em]
+    SE(\hat{\alpha}) &= \sqrt{\sigma^2 \left(\frac{1}{n} + \frac{\bar{X}^2}{\sum_{i=1}^n (X_i - \bar{X})^2}\right)}
+    \end{align*}
+
+    Where $\sigma^2$ is the error variance, estimated by:
+    $$\hat{\sigma}^2 = \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{n-2}$$
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares - Standard Errors}
+
+    Observations regarding standard errors:
+
+    \begin{itemize}
+        \item \textbf{More data} (larger $n$) → smaller standard errors
+        \item \textbf{More variation in X} → smaller $SE(\hat{\beta})$
+        \item \textbf{Larger residual variance} ($\sigma^2$) → larger standard errors
+        \item Standard errors are used to construct \textbf{confidence intervals} and \textbf{t-tests}
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares - Standard Errors}
+
+    For hypothesis testing: $t = \frac{\hat{\beta} - \beta_0}{SE(\hat{\beta})}$
+
+    \vspace{1em}
+    Commonly used thresholds for t-statistics:
+
+    \begin{table}
+    \centering
+    \begin{tabular}{cc}
+    \toprule
+    Significance Level & Critical Value  \\
+    \midrule
+    10\% & $|t| > 1.645$  \\
+    5\% & $|t| > 1.960$  \\
+    1\% & $|t| > 2.576$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Critical values assume large sample sizes (normal distribution)}
+    \end{table}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Linear Regression}
+    \framesubtitle{Ordinary Least Squares - Other Statistics}
+
+    A few other important characteristics of OLS regressions include:
+    \begin{itemize}
+        \item \textbf{R-squared ($R^2$)}: Measures the proportion of variance in Y explained by X
+            \begin{itemize}
+                \item Ranges from 0 to 1 (0\% to 100\%)
+                \item Higher $R^2$ indicates better fit
+            \end{itemize}
+        \item \textbf{F-statistic}: Tests overall significance of the regression
+        \item \textbf{Assumptions}: Linearity, independence, homoscedasticity, normality
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Steps}
+
+    Steps to estimating expected returns for DIS:
+    \begin{enumerate}
+        \item Estimate $\beta$ for DIS and S\&P 500
+        \item Use CAPM with current risk-free rate and expected S\&P return
+    \end{enumerate}
+    \vspace{1em}
+    Typically $\beta$ is measured in a shorter time frame.   5 years of monthly data would be reasonable.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Statistics}
+
+    \begin{table}
+    \caption{Returns, June 2020 - May 2025}
+    \begin{tabular}{lr}
+    \toprule
+    Security & Annualized Returns \\
+    \midrule
+    DIS & 5.37 \\
+    SPY & 14.58 \\
+    TBill & 2.71 \\
+    \midrule
+    Excess Returns & \\
+    DIS & 2.66 \\
+    SPY & 11.86 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Statistics}
+
+    \begin{table}
+    \caption{Standard Deviations, June 2020 - May 2025}
+    \begin{tabular}{lr}
+    \toprule
+    Security & Annualized Standard Deviations \\
+    \midrule
+    DIS & 35.92 \\
+    SPY & 16.16 \\
+    TBill & 0.66 \\
+    \midrule
+    Excess Returns & \\
+    DIS & 35.91 \\
+    SPY & 16.15 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Statistics}
+
+    These tables annualized monthly data by multiplying returns by 12 and multiply standard deviations by $\sqrt{12}$.\\
+    \vspace{1em}
+
+    Observations:
+    \begin{enumerate}
+        \item Note that Excess Returns = Returns - TBill Returns
+        \item Standard Deviation of TBills is close to zero
+        \item Standard deviation of Excess Returns and Returns is very similar (would be identical if TBill standard deviation was zero or returns were uncorrelated with TBill returns)
+        \item DIS under-performed S\&P, yet had a larger standard deviation.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Plot}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_dissp_20_25.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Regression}
+
+    Estimate the following regression model using Ordinary Least Squares:
+    $$
+    \mathbb{E}[r_{DIS,i}] = \alpha + \beta \cdot r_{s\&p,i} + \epsilon_i
+    $$
+    Where $r_{DIS,i}$ and $r_{S\&P,i}$ are excess returns in month $i$.\\
+    \vspace{1em}
+    We are interested in the estimate of $\beta$, usually referred to as $\hat{\beta}$ or 'beta hat'.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Regression}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch9_dis_reg.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Regression}
+
+    Observations:
+    \begin{enumerate}
+        \item $\hat{\alpha}$ is negative
+            \begin{itemize}
+                \item CAPM says that *expected* alpha will be zero, whereas realized alpha can and will differ from zero
+                \item Alpha is very imprecisely estimated (large standard errors), not significantly different than zero
+                \item Realized alpha was \textbf{negative} as DIS underperformed the S\&P even with a positive beta
+            \end{itemize}
+        \item $\hat{\beta}$ is 1.55
+            \begin{itemize} 
+                \item Relatively highly correlated stock
+                \item Regression driven by the larger moves
+            \end{itemize}
+        \item  $R^2$ = 0.48
+            \begin{itemize}
+                \item Less than 50\% of the variation in DIS can be attributed to the variation in the SPY (macro factors)
+            \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Plot}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_dissp_20_25_wreg.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Expected Returns}
+
+    Assume the following:
+    \begin{itemize}
+        \item Risk-free rate: 4\%
+        \item Expected Market Return: 7\% (more later)
+    \end{itemize}
+    \vspace{1em}
+
+    Using the estimated $\beta = 1.55$, the expected return for DIS would be:
+    
+    \begin{align*}
+    \mathbb{E}[r_{DIS}] &= 4 + 1.55 \cdot (7 - 4)\\
+     &= 8.65\%
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Intuition of CAPM}
+    \framesubtitle{Volatility and Expected Returns}
+
+    Another implication of the CAPM that securities with higher volatility will not necssarily have higher expected returns.   The only volatility that investors will be compensated for is volatility that correlated with the market.\\
+    \vspace{1em}
+    Said differently, only \textit{systemic risk} influences expected returns.   This is because systemic risk can't be diversified away, and therefore investors should be compensated with a risk premium for bearing it.   
+    Idiosyncratic risk can be diversified away, so investors should not be compensated for it.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Intuition of CAPM}
+    \framesubtitle{Volatility and Expected Returns}
+
+    What if expected returns were determined by volatility?
+    \begin{itemize}
+        \item Consider two \textit{indendepent} securities that have equal 
+        expected returns and standard devations: $\mathbb{E}[R_A] = \mathbb{E}[R_B]$ and $\sigma_A = \sigma_B$
+        \item The return of an equally-weighted portfolio is given by:
+        $\mathbb{E}[R_P] = 0.5  \mathbb{E}[R_A] + 0.5 \mathbb{E}[R_B] = \mathbb{E}[R_A]$
+        \item The standard deviation of this portfolio is given by:
+        $\sigma_p = 0.5 * \sigma_A$. (because A and B are independent)
+        \item The equally-weighted portfolio has a lower risk, but the same expected return.   
+        This would be impossible if the expected return was determined by volatility. 
+        Conclude that expected return is \textbf{not} determined solely by volatility.
+        \item Instead, according to CAPM, \textbf{expected return is determined by the volatility that is 
+        correlated with market volatility.}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Intuition of CAPM}
+    \framesubtitle{Volatility and Expected Returns}
+
+    Think about a drug trial.
+    Investors don't know how it will end up, so it adds zero to the expected value of the stock.   
+    But, there will for sure be a lot of volatility. \\
+    \vspace{1em}
+    How does this play out in the CAPM model?\\
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Intuition of CAPM}
+    \framesubtitle{Volatility and Expected Returns}
+
+    Answer: The outcome of the drug trial is unknown, so in expectation it adds zero to the stock price ($\mathbb{E}[\alpha_i] = 0$).   The outcome of the drug trial also doesn't change $\beta_i$, because that depends on the *correlation* of the risk with the stock market ($\beta = \frac{Cov(r_{xyz},r_m)}{\sigma_m^2}$).   Therefore, in the CAPM, the drug trial doesn't change the expected value of the stock.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Intuition of CAPM}
+    \framesubtitle{Volatility and Expected Returns}
+
+    Two follow-up questions:
+    \begin{enumerate}
+        \item What happened to the added volatility?  Is that reflected anywhere?   
+            \begin{itemize}
+                \item Yes, that was already considered in determining the weights for the market portfolio.   The market portfolio is optimal, by assumption.
+            \end{itemize}
+        \item Why would anybody hold this stock?  Why not just hold the market portfolio?  
+            \begin{itemize}
+                \item Some individual investors may have different views of the likelihood of the outcome.   That will affect their estimates of $\alpha_i$, and their $\mathbb{E}[r_i]$.   The CAPM assumptions say that *in aggregate* investors have the same inputs.
+            \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Tests of CAPM}
+    \framesubtitle{Empirical Tests}
+
+    \
+    As a model for equilibrium expected returns (and prices), CAPM produces strong predictions 
+    regarding what what returns \textit{should} be.   How do those predictions perform?\\
+    \vspace{1em}
+    Test the following \textit{time series} regression:
+    $$R_{it} - R_{ft} = \alpha_i + \beta_{it}(R_{Mt} - R_{ft})$$
+    where $t$ are different time periods and $i$ are different securities.   CAPM says that 
+    $\alpha$ should, on average, be equal to zero.   However, empirical tests find that $\alpha$ has 
+    been consistently above 0, and have therefore failed to validate CAPM.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Tests of CAPM}
+
+    
+    \vspace{-1em}
+    Another test is to see whether securities do in fact lie on the SML.   This test has 
+    also fails to validate the CAPM.\\
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch09_testCAPM.png}
+
+    \blfootnote{Source: Fama, E and K. French "The Capital Asset Pricing Model: Theory and 
+    Evidence", \textit{Journal of Economic Perspectives} 2004}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Tests of CAPM}
+
+    \vspace{-1em}
+    As a preview of a coming lecture on the Fama-French factors, it appears that other 
+    characteristics of a security explain returns, even after controlling for $\beta$.\\
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch09_testCAPM_v.png}
+
+    \blfootnote{Source: Fama, E and K. French "The Capital Asset Pricing Model: Theory and 
+    Evidence", \textit{Journal of Economic Perspectives} 2004}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item Suppose that the risk premium on the market portfolio is estimated at 8\% with 
+        a standard deviation of 22\%.   What is the risk premium on a portfolio invested 25\% 
+        in Toyota and 75\% in Ford, if they have betas of 1.1 and 1.25, respectively?
+        \item Stock XYZ has an expected return of 12\% and risk of $\beta=1$.   Stock ABC 
+        has expected return of 13\% and $\beta=1.5$.   The market's expected retun is 11\% 
+        and $r_f=5\%$.   According to CAPM, which stock is a better buy?   What is the alpha 
+        of each stock?   Plot the SML and each stock on one graph, show the alpha for each 
+        stock.
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \framesubtitle{}
+
+    Two investment advisers are comparing performance.   One averaged a 19\% rate of return
+    and the other a 16\% rate of return.   However, the beta of the first investor was 1.5 whereas 
+     the beta of the second investor was 1.
+    \begin{enumerate}
+        \item Can you tell which investor was a better selected of individual stocks?
+        \item If the T-Bill rate was 6\% and the market return was 14\%, which investor would be 
+        considered the better investor?
+        \item What if the T-Bill rate was 3\% and the market return was 15\%?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \framesubtitle{}
+
+    If the simple CAPM is valid, which of the following situations are possible:
+
+    \footnotesize
+    \begin{table}
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Beta\\
+                \midrule
+                A & 20\% & 1.4\\
+                B & 25\% & 1.2\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+
+     \begin{table}
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Std Dev\\
+                \midrule
+                Risk-free & 10\% & 0\\
+                Market & 18\% & 24\%\\
+                A & 20\% & 22\%\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+
+         \begin{table}
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Beta\\
+                \midrule
+                Risk-free & 10\% & 0\\
+                Market & 18\% & 1.0\\
+                A & 16\% & 0.9\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \framesubtitle{}
+
+    Suppose the risk-free rate is 5\%.   Suppose that the expected rate of return 
+    required by the market for a portfolio with beta of 1 is 12\%.  According to CAPM:
+    \begin{enumerate}
+        \item What is the expected rate of return on the market portfolio?
+        \item What is the expected return of a stock with $\beta=0$
+        \item Suppose you consider buying a share of stock at \$40.  
+        The stock is expected to pay a \$3 dividend next year. 
+        You expect to sell the stock for \$41 next year.  
+        You estimate the stock has $\beta=-0.5$.   Is the stock overpriced or 
+        underpriced?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

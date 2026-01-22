@@ -1,0 +1,422 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 14-a}
+
+\title{Futures}
+\subtitle{Reference: Bodie et al, Ch 22}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Short Sales
+        \item Forward Prices
+        \item Futures Markets
+        \item Practice
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Short Sales}
+    \framesubtitle{Mechanics}
+
+    \textbf{Short Sale:} Selling a security you don't own, expecting its price to decline
+    \vspace{1em}
+
+    \textbf{Process:}
+    \begin{enumerate}
+        \item \textbf{Borrow shares} from broker's inventory or another client
+        \item \textbf{Sell borrowed shares} immediately at current market price
+        \item \textbf{Buy back shares} later to "cover" the short position
+        \item \textbf{Return shares} to lender
+        \item Pay dividend/interest to share lender during short period
+    \end{enumerate}
+    \vspace{1em}
+
+    If the price falls (rises) during the time that the security has been borrowed, then 
+    the short seller is able to buy it back at a lower (higher) price than it was sold for.  
+    This generates a profit (loss) from the short sale.\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Short Sales}
+    \framesubtitle{Example, see Hull p 102}
+
+    \footnotesize
+    \textit{Purchase of Shares}
+    \begin{itemize}
+        \item Purchase 500 shares for \$120 per share: -\$60,000
+        \item Receive dividend: +\$500
+        \item Sell 500 shares for \$100 per share: +\$50,000
+        \item Net profit: -\$9,500
+    \end{itemize}
+
+    \textit{Short sale of shares}
+    \begin{itemize}
+        \item Borrow 500 shares and sell them for \$120: +\$60,000
+        \item Pay dividend: -\$500
+        \item Buy 500 shares for \$100 per share: -\$50,000
+        \item Replace borrowed shares and close short position
+        \item Net profit: +\$9,500
+    \end{itemize}
+    \vspace{1em}
+
+    \normalsize
+    \textit{Notes:} The two positions are symmetric.   The short seller must pay the dividend.  
+    We have not yet accounted for the cost of borrowing, or interest earned by the short seller 
+    from the cash received. 
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{1. Short Sales}
+    \framesubtitle{Short Squeeze}
+
+
+    Short sales require borrowing the security.   The security may be available from the broker. 
+    In some cases, hard to locate securities may have an associated borrowing fee.\\
+    \vspace{1em}
+    Most short sales require posting margin.   Short sellers are subject to margin calls if prices move adversely. 
+    The position may be closed by the broker if the seller fails to post margin.\\
+    \vspace{1em}
+    In order to close their position, the short seller must buy back the security.  A \textit{short squeeze} is 
+    when the security becomes very expensive, but short sellers must buy it anyways in order to close positions.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Short Sales}
+    \framesubtitle{Game Stop}
+
+    There was a short squeeze in GameStop (GME) in January 2021.\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch22_1_gme.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Short Sales}
+    \framesubtitle{Word of Caution}
+
+    Short squeezes don't always work, of course.   They are predicated on the supply of 
+    stocks to borrow are limited.   If the short sellers are able to borrow more stocks 
+    in order to maintain or add to their short position, then the price may go down.   In that case,
+    the "squeezer", who is likely leveraged, may have to close her position.\\
+    \vspace{1em}
+    The financial panic of 1907, which eventually led to the creation of the Federal Reserve, started 
+    with large losses to a brokerage house that was finance a failed short squeeze in United Copper stocks.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{General Formula - No dividends}
+
+    A forward contract is an agreement to buy and sell a security at a specified date 
+    in the future at a specified price.   The \textit{forward price} is the agreed upon future price in 
+    that transaction.\\
+    \vspace{1em}
+    For a non-dividend paying security, a general formula for the forward price is:\\
+    $$F_0 = S_0 \cdot (1 + r_f)$$
+    Where
+    \begin{itemize}
+        \item $F_0$ = the forward price
+        \item $S_0$ = the price of the security today
+        \item $r_f$ = the risk-free rate
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{General Formula - Proof}
+
+    The proof is based on a no-aribtrage argument.\\
+    \vspace{1em}
+    Specifically, if the price were either higher or 
+    lower, it would possible to enter into a profitable \textit{riskless} arbitrage.  As we generally 
+    assume profitable riskless arbitrages don't exit (somebody will do them if they do!) then the price cannot 
+    be either higher or lower than the formula.\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{General Formula - Proof}
+
+    \textit{Case 1:} If $F_0 > S_0 \cdot (1 + r_f)$, then the following is a riskless arbitrage:
+    \begin{itemize}
+        \item Borrow money today at the riskfree rate
+        \item Use the money to buy the security for $S_0$
+        \item Simultaneously sell the security forward at $F_0$
+        \item At maturity, deliver the security you bought into the forward contract, repay the loan
+        \item Total profit: $F_0 - S_0 - S_0 \cdot (r_f) > 0$
+    \end{itemize}
+    \vspace{1em}
+
+    Exercise: what are the specific steps to enter into a riskless arbitrage if $F_0 < S_0 \cdot (1 + r_f)$?   (hint: will require selling the security short)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{General Formula - Dividends}
+
+    In order to incorporate dividends, remember that the short seller 
+    must pay dividends to the lender.  Reconstructing the 
+    no-arbitrage argument and including that fact leads to the following:\\
+    \vspace{1em} 
+    For a dividend/coupon paying security, a general formula for the forward price is:\\
+    $$F_0 = S_0 \cdot (1 + r_f) - I$$
+    Where
+    \begin{itemize}
+        \item $F_0$ = the forward price
+        \item $S_0$ = the price of the security today
+        \item $r_f$ = the risk-free rate
+        \item $I$ = income from the security (dividends or coupons)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{General Formula - Dividends}
+
+    A more general statement of this formula, assuming continuous compounding and allowing for 
+    multiple periods is:
+    $$F_0 = S_0 \cdot e^{(r_f-q)T}$$
+    Where
+    \begin{itemize}
+        \item $F_0$ = the forward price
+        \item $S_0$ = the price of the security today
+        \item $r_f$ = the risk-free rate
+        \item $q$ = yield from the security
+        \item $T$ = time to delivery, expressed in years
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{General Formula - Dividends}
+
+    Here is the same formual in discrete time (not continuous time):
+    $$F_0 = S_0 \cdot (1 + r_f - q)^T$$
+
+    Note that when the risk-free rate is greater than the yield, then forward price will 
+    be \textit{higher} than the current price.   Conversely, in cases where the yield 
+    is greater than the risk-free rate, then the forward price will be \textit{lower} 
+    than the current price.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{Forward v Spot Prices}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch22_1_sp_indfut.png}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch22_1_sp_indfut_2.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{Forward v Spot Prices}
+
+    More examples:
+    \begin{itemize}
+        \item High yielding currencies (i.e. Emerging Markets) will have futures 
+        prices that are below the spot prices, in order to account for the 
+        yield on the underlying security. When futures prices are \textbf{below} spot prices (due to high yields or convenience value), this is known as "backwardation"
+        \item You can think about the storage costs for a commodity as being a factor 
+        of the earnings.   Commodities with high storage costs will have lower earnings, 
+        therefore higher futures prices.   When commodity futures prices are 
+        \textbf{above} spot prices, this is known as "contango"
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Forward Prices}
+    \framesubtitle{Forward v Spot Prices}
+
+    Forward prices always converge to spot prices at the time of the delivery\\
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch22_1_contango.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{Futures vs. Forward Contracts}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Feature} & \textbf{Forward} & \textbf{Futures} \\
+        \hline
+        Trading & OTC (private) & Exchange-traded \\
+        Standardization & Customized & Standardized \\
+        Counterparty Risk & Yes (bilateral) & None (clearinghouse) \\
+        Margin & Usually none & Daily margin calls \\
+        Settlement & At maturity & Daily mark-to-market \\
+        Liquidity & Low & High \\
+        \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{History}
+
+    \begin{itemize}
+        \item \textbf{1848} Chicago Board of Trade (CBOT) established to facilitate forward trades in grains
+        \item \textbf{1972} Chicago Mercantile Exchange (CME) introducs first currency future
+        \item \textbf{1974} Commodity Futures and Trading Commission (CFTC) established as the regulator
+        \item \textbf{1976} CBOT introduces first interest rate future
+        \item \textbf{1982} CME introduces S\&P future (after receiving regulatory approval from the CFTC and SEC)
+        \item \textbf{2007} CME and CBOT merge
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{History}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch22_1_cme.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{CME}
+
+    CME's "featured products":
+    \begin{itemize}
+        \item Corn (ZC)
+        \item Soybean (ZS)
+        \item WTI Crude Oil (CL)
+        \item Henry Hub Natural Gas (NG)
+        \item S\&P 500 (ES)
+        \item Nasdaq-100 (NQ)
+        \item Euro FX (6E)
+        \item 10-year T-Note (ZN)
+        \item SOFR (SR3)
+        \item Gold (GC)
+        \item Copper (HG)
+    \end{itemize}
+    There are lots, lots more products...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{Size of Futures Market}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch22_1_bis.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{Details}
+
+    \textit{Futures Contracts Specifications}:
+    \begin{enumerate}
+        \item What can be delivered into the contract (example: No. 2 Soft Red Winter wheat, Treasury bonds with maturity between 6.5-10 years)
+        \item The quantity that must be delivered (example: 5,000 bushels of wheat, \$100,000 face value of Treasury bonds)
+        \item Delivery dates (typically a quarterly cycle)
+    \end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Futures Markets}
+    \framesubtitle{Details}
+
+    \textit{Exchange Traded}: Futures are typically traded and cleared on a centralized exchange.
+    \begin{itemize}
+        \item The exchange maintains a Central Limit Order Book, where participants have placed limit orders to buy and sell.   Transactions 
+        occur automatically when bids and offers are met.
+        \item   The exchange maintains margin accounts for all participants.  The exchange requires daily mark-to-market and may require posting 
+        additional margin.
+        \item  Individual investors transact through their broker, and the broker has an account on the exchange.   
+    \end{itemize}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice}
+    \framesubtitle{Practice}
+
+    \begin{enumerate}
+        \item Why might an individual purchase futures contracts rather than 
+        the underlying asset?
+        \item Are the following statements true or false?
+        \begin{itemize}
+            \item All else equal, the futures price on a stock index with a 
+            high dividend yield should be higher than the futures price on an 
+            index with a low dividend yield.
+            \item All else equal, the futures price on a high-beta stock should be 
+            higher than the futures price on a low-beta stock.
+        \end{itemize}
+        \item A futures contract on a non-dividend paying stock index with a 
+        current value 150 has a maturity of one year.   If the T-Bill rate is 3\%
+         what should the futures price be?   What if the maturity of the contract 
+         is in 3 years?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

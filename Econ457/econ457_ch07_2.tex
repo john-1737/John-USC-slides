@@ -1,0 +1,443 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 4-b}
+
+\title{Diversification}
+\subtitle{Reference: Bodie et al, Ch 7}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Diversification - Review
+        \begin{itemize}
+            \item Set-up
+            \item Standard Deviation - Cov term
+            \item Maximization - Sharpe Ratio
+        \end{itemize}
+        \item Optimization
+        \item Three Asset Optimization: SPY, TLT, and GLD
+        \item Many Asset Optimization
+        \item Excel
+        \begin{itemize}
+            \item Correlations (last week's homework)
+            \item Solver (this week's homework)
+        \end{itemize}
+        \item Practice
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Set up}
+
+    \vspace{-1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Standard Deviation - COV term}
+
+    \textbf{Generic Case:}\\
+    $X$ and $Y$ are \textit{correlated} 
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2Cov(X,Y))$$
+
+    \textbf{Specific Case for Portfolio Diversification:}\\
+    Combining two assets in a portfolio, $X$ and $Y$,
+    where the weights of each asset ($w_x$ and $w_y$) sums to one.
+    $$w_xX + w_yY \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2 + 2 w_x w_y Cov(X,Y))$$
+    Notice how the weights get treated in the variance term.  Continued...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Standard Deviation - COV term}
+
+    ...Continued\\
+    \vspace{1em}
+    The general formula for the variance of a portfolio composed of $n$ risky assets:
+    $$\sigma_p^2 = \sum_{i=1}^{n}\sum_{j=1}^{n}w_iw_jCov(r_i,r_j)$$
+    In the case that the portfolio is equally weighted (all $w=1/n$) this becomes:
+    $$\sigma_p^2 = \sum_{i=1}^{n}\frac{1}{n^2}\sigma_i^2 + 
+     \sum_{j=1, j \neq i}^{n}\sum_{i=1}^{n}\frac{1}{n^2}Cov(r_i,r_j)$$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Standard Deviation - COV term}
+
+    There is a benefit to diversification for any correlation coefficient $\rho_{x,y}<1$.
+    Remember that $\rho_{x,y} = \frac{COV(X,Y)}{\sigma_x \sigma_y}$\\
+    \vspace{1em}  
+    Consider the case when $w_x = w_y = 0.5$ and $\sigma_x = \sigma_y = \sigma$.   The variance is then given by
+    $$0.5^2\sigma^2 + 0.5^2\sigma^2 + 2 * 0.5 * 0.5 * COV(X,Y)$$
+    If $\rho_{x,y}=1$ then this evaluates to $0.25\sigma^2 + 0.25\sigma^2 + \frac{\sigma^2}{0.5} = \sigma^2$ 
+    and there is no benefit from diversification.\\
+    \vspace{1em}
+    It follows that if $\rho_{x,y}<1$ then 
+    the variance term will be smaller, and therefore will be smaller and there will be 
+    a benefit from diversification.\\
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Standard Deviation - COV term}
+
+    Also note that if $w_x = w_y = 0.5$, $\sigma_x = \sigma_y = \sigma$, and $\rho_{x,y}=0$ then the variance 
+    term is given by\\
+     $$0.25\sigma^2 + 0.25\sigma^2 = 0.5\sigma^2$$  
+    And the standard deviation is given by $\sqrt{0.5}\sigma$.\\
+    \vspace{1em}
+     Any correlation less than 0 will further reduce the variance and standard deviation terms.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Standard Deviation - COV term}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_1_spytlt_cov.png} 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Diversification - Review}
+    \framesubtitle{Maximization - Sharpe Ratio}
+
+    We define the objective function that we are maximizing to be the Sharpe Ratio of the portfolio:
+    $$\frac{\mathbb{E}[r_p] - r_f}{\sigma_p}$$
+    How to think about this?  The Sharpe ratio is the expected excess return per unit of volatility.  
+    Alternatively, the Sharpe ratio is a measure of the efficiency of the portfolio.\\
+    \vspace{1em}
+    You could imagine defining the objective function differently, but the Sharpe ratio is standard.
+
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{2. Optimization Review}
+
+    \vspace{-1em}
+    \textbf{Typical Optimization Steps}
+    \begin{enumerate}
+        \item Define the objective function 
+            (e.g., maximize the Utility or Sharpe Ratio).
+        \item Specify constraints 
+            (e.g., weights sum to 1, no short selling, minimum/maximum allocations).
+        \item If possible, rewrite the objective function in terms of the variables you are choosing 
+            (e.g. rewrite $U(E[r],\sigma)$ as $U(w)$ where $w$ is the weight of the risky asset in the portfolio.)
+        \item Use optimization tools:
+        \begin{itemize}
+            \item Take first derivative with respect to choice variable, set derivative to zero, solve for choice variable.
+            \item Use Lagrange multipliers
+            \item Excel Solver, Python's \texttt{scipy.optimize}, R's \texttt{optim}, etc.
+        \end{itemize}
+        \item Analyze and interpret the resulting portfolio.
+    \end{enumerate}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{2. Optimization Review}
+    \framesubtitle{Maximize Utility in Capital Allocation Problem}
+
+    Rewrite utility as a function of the weight in the risky asset ($w$):
+    $$U(w) = w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f - 0.5 A \cdot w^2 \cdot \sigma_{\text{risky}}^2$$
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch6_max_w.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{2. Optimization Review}
+    \framesubtitle{Maximize Sharpe Ratio in Diversification Problem}
+
+    For a problem with only two assets, we can rewrite Sharpe Ratio as a function of the weight in the SPY ($w_{SPY}$):
+    \footnotesize
+    \begin{align*}
+    &\text{Sharpe Ratio}(w_{SPY}) = \\
+    &= \frac{w_{SPY}*\mathbb{E}(R_{SPY}) + (1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
+    \end{align*}
+
+    \normalsize
+    Then take the first derivative with respect to $w_{SPY}$ and set equal to zero.\\
+    \vspace{1em}
+    For a portfolio with many assets, you can't simplify the problem in the same way.   
+    Need to use a solver (or Lagrange multipliers)
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Total Return Series}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Sharpe Ratios}
+
+    \footnotesize
+    \begin{table}
+        \caption{ETF Performance Statitics - Excess Returns}
+        \begin{tabular}{llrrr}
+        \toprule
+        & Start Date & Mean (\%) & Std Dev (\%) & Sharpe Ratio \\
+        Ticker &  &  &  &  \\
+        \midrule
+        SPY & 1993-01 & 8.440 & 14.820 & 0.569 \\
+        TLT & 2002-07 & 3.090 & 13.660 & 0.226 \\
+        GLD & 2004-11 & 9.180 & 16.680 & 0.550 \\
+        EWW & 1996-03 & 9.420 & 26.570 & 0.355 \\
+        EWD & 1996-03 & 8.640 & 24.470 & 0.353 \\
+        EWH & 1996-03 & 4.630 & 24.100 & 0.192 \\
+        EWI & 1996-03 & 6.440 & 23.820 & 0.271 \\
+        EWJ & 1996-03 & 1.170 & 17.700 & 0.066 \\
+        EWL & 1996-03 & 6.350 & 16.610 & 0.382 \\
+        EWP & 1996-03 & 7.980 & 23.650 & 0.338 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Expected Return}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_std.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Expected Return and Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er_std.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Capital Allocation Line}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er_std_with_cal.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Many Asset Optimization}
+    \framesubtitle{Expected Return and Standard Deviations}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_etfs.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Many Asset Optimization}
+    \framesubtitle{Global Minimum Variance Portfolio}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_etfs_with_gmv.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Many Asset Optimization}
+    \framesubtitle{Capital Allocation Line and Optimal Portfolio}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_etfs_with_gmv_cal.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Many Asset Optimization}
+    \framesubtitle{Review}
+
+    Steps for finding the optimal portfolio with many assets:
+    \begin{enumerate}
+        \item Estimate expected returns and Var-Cov matrix
+        \item (Optional: plot various portfolios, find the Global Minimum Variance Portfolio)
+        \item Maximize the Sharpe Ratio
+        \item Draw the Capital Allocation Line
+    \end{enumerate}
+
+\end{frame}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{Correlations (last week's homework)}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_correlations.png}
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{Correlations (last week's homework)}
+
+    Takeaways
+
+    \begin{itemize}
+        \item Correlations are based on [monthly] returns (not a total return index).  The levels may look similar -- they all go up -- but it's the changes that matter.
+        \item Correlations take out the mean.  Series A-C have a mean increase of 2\%, but that gets removed 
+        in the correlation calculation.  Series D has a mean increase of 4\%, but that also gets removed.
+        \item Correlations are disproportionately impacted by the observations with the 
+        largest moves.   Series A and C are identical except for observation 50.   That single observation, which is the one with 
+        the largest change, drives the negative correlation.
+    \end{itemize}
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{Maximization (this week's homework)}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_excel.png}
+
+\end{excelframe}
+
+\begin{practiceframe}[t]
+    \frametitle{6. Practice}
+
+    \begin{enumerate}
+        \item Stocks offer an expected rate of return of 18\% with a standard 
+        deviation of 22\%.   Gold offers an expected return of 10\% with a standard 
+        deviation of 30\%.   
+        \begin{itemize}
+            \item Would anyone hold gold? Demonstrate why or why not with a graph.
+            \item Reanswer the question above if the correlation coefficient between gold and 
+            stocks equal 1.
+            \item Could the set of assumptions in the second part (where correlation equals 1) 
+            be an equilibrium?   Why or why not?
+        \end{itemize}
+        \item True or false: The standard deviation of the portfolio is always 
+        equal to the weighted average of the standard deviations of the assets in the portfolio.
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{6. Practice}
+
+    \begin{enumerate}[3]
+        \item The correlation coefficients between pairs of stocks are as follows: Corr(A,B) = 0.85,
+        Corr(A,C) = 0.6, Corr(A,D) = 0.45.   Each stock has an expected return of 8\% and a standard 
+        deviation of 20\%. 
+        \begin{itemize}
+            \item If your entire portfolio is now composed of stock A and you can 
+            add one stock to your portfolio, which do you add?
+            \item Would the answer change for more risk averse investors?
+            \item Suppose that you could also add T-Bills, which have a rate of 8\%.   How would 
+            your portfolio look now?
+        \end{itemize}
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{6. Practice}
+
+    \vspace{-1em}
+    \footnotesize{
+        \begin{enumerate}[4]
+        \item Abigail Grace starts with \$900k and then inherits \$100k in 
+        portfolio ABC stock.   She has the following estimates:
+              \begin{table}
+                \caption{Risk and Return Characteristics}
+                \begin{tabular}{lrr}
+                \toprule
+                    & $E[r]$, monthly & $\sigma$\\
+                \midrule
+                    Original Portfolio & 0.67\% & 2.37\%\\
+                ABC & 1.25 & 2.95\\
+                \bottomrule
+                \end{tabular}
+                \end{table}
+       The correlation coefficient of ABC with her original portfoio is 0.4.  Answer the following questions:
+        \begin{itemize}
+            \item Calculate the expected return of the new portfolio, the Covariance of ABC stock returns with her original portfolio, and the 
+            standard deviation of her new portfolio.
+            \item Grace sells ABC stock and buys T-Bills at a rate of 0.42\% monthly.   Recalculate the expected return and standard deviation.
+            \item Grace is considering selling ABC and buying XYZ, which has the same  
+            expected return and standard deviation as ABC.   Does it matter whether Grace owns ABC 
+            or XZY?   Why or why not?
+        \end{itemize}
+    \end{enumerate}
+    }
+\end{practiceframe}
+
+\end{document}

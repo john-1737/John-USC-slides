@@ -1,0 +1,439 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 10-b}
+
+\title{Fixed Income, continued}
+\subtitle{Reference: Bodie et al, Ch 16}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Calculus
+        \item Duration
+        \item Bond Convexity
+        \item Applications
+    \end{enumerate}
+
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{1. Calculus}
+    \framesubtitle{}
+
+    The first derivative of a function is equal to the slope of the 
+    tangent lines to that function.\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_derivative.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Calculus}
+    \framesubtitle{Rules for Derivatives}
+
+    \vspace{-0.5em}
+    \textbf{Power Rule:}
+    $$\frac{d}{dx}[x^n] = nx^{n-1}$$
+    \textit{Example:} $\frac{d}{dx}[x^3] = 3x^2$
+    \vspace{1em}
+
+    \textbf{Product Rule:}
+    $$\frac{d}{dx}[f(x) \cdot g(x)] = f'(x) \cdot g(x) + f(x) \cdot g'(x)$$
+    \textit{Example:} $\frac{d}{dx}[x^2 \cdot e^x] = 2x \cdot e^x + x^2 \cdot e^x$
+    \vspace{1em}
+
+    \textbf{Chain Rule:}
+    $$\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$$
+    \textit{Example:} $\frac{d}{dx}[(1+r)^{-t}] = -(1+r)^{-t-1} \cdot 1 = -t(1+r)^{-t-1}$
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Calculus}
+    \framesubtitle{Estimating the Derivative with Small Changes in X}
+
+    \textbf{Slope Approximation:} For a function $f(x)$, the slope at point $x$ can be approximated using small changes:
+    $$\text{Slope} \approx \frac{f(x + \Delta x) - f(x)}{\Delta x}$$
+    
+    As $\Delta x$ becomes smaller, this approximation becomes more accurate.
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Calculus}
+    \framesubtitle{Second Derivative}
+
+    The second derivative measures the rate of change of the slope of the tangent lines.\\
+    \vspace{1em}
+
+    \begin{itemize}
+        \item If $f"(x) > 0$ the function is convex
+        \item Larger (smaller) values of $f"(x)$ indicate more (less) convexity
+        \item If $f"(x) < 0$ the function is concave (function looks like a cave)
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Calculus}
+    \framesubtitle{Second Derivative}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch16_1_convexity.png}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Definitions}
+
+    The \textbf{duration} of a bond is the approximate percentage 
+    change in the bond price for a 100 basis point change in the 
+    yield to maturity.\\
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textit{Intuition:} Duration is the first derivative (slope) of the bond price-yield curve.
+        \item \textit{Convention:} Duration is positive for most bonds (even though the slope of change in the bond price is negative) and duration is referred to as 'years' (more on this later).
+        \item \textit{Example:} For a bond with 20 years of duration, 
+        the price will increase by 20\% if yields fall by 100 basis points.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Chart of Price-Yield Relationship}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_priceyield_tangent.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Chart of Price-Yield Relationship}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_priceyield_tangent_10s30s.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{First Derivative, continued}
+
+    In practice, bond duration is often estimated by 'shocking' the bond price equation with a 
+    small change in the yield, and then calculating the slope of the bond price-yield 
+    relationship in the normal way.\\
+    \vspace{1em}
+
+    \textbf{Example for Bond Pricing:}
+    \begin{itemize}
+        \item Let $P(y)$ = bond price as function of yield $y$
+        \item To estimate duration at yield $y = 5\%$:
+        \item Calculate $P(5.01\%) - P(4.99\%)$ and divide by $0.02\%$
+        \item This gives approximate percentage price change per basis point
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Modified Duration}
+
+    Define the \textbf{modified duration} of a bond as:
+    $$-\frac{P'(y)}{P(y)}$$
+    Where $P(y)$ is the bond price given a yield $y$ and $P'(y)$ is the first derivative of the 
+    bond price with respect to the yield.\\
+    \vspace{1em}
+    Note that, by convention, duration is expressed as a percent change (divide by $P(y)$),
+    and that duration is positive (multiply by $-1$).
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Macaulay Duration}
+
+    \textbf{Macaulay Duration} is the weighted average of the time to 
+    maturity of the bond's cash flows, where the 
+    weight applied to each cash flow is the proportion of 
+    the total present value of the bond accounted 
+    for by that payment (i.e. the present value of the cash flow divided by the present value of the bond).
+
+    $$
+    D = \sum_{t=1}^{T} t \times w_t
+    $$
+    Where\\
+     $t = \text{Time to Maturity}$, $w_t = \frac{CF_t/(1+y)^t}{P}$, $CF_t = \text{Cash flow at time } t$,
+    $P = \text{Bond Price}$, $y = \text{Yield to maturity}$. \\
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Macaulay Duration}
+
+    Macaulay observed the maturity of a bond was not necessarily the most important time-characteristic. 
+    Maucaly said: \\
+    \vspace{1em}
+    \begin{quotation}
+        Let us use the word "duration" to signify the essence of the time element in a loan.
+    \end{quotation}
+    The weights applied to each cash flow are what he meant by the "essence".\\
+    \vspace{1em}
+    Due to the initial insights of Maucaly regarding the "essense" of the time element, now the convention 
+    is to refer to duration in "years" even though that doesn't have any real relevance to the modified 
+    duration formulation.
+
+    \blfootnote{See K. Winston, \textit{Quantitative Risk and Portfollio Management} page 92}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Macaulay Duration}
+
+    \footnotesize
+    Here is how Modified Duration is related to Macaulay Duration:
+    \begin{itemize}
+        \item Start with generic bond price equation
+        $$ P(y) = \sum_{t=1}^{T} \frac{C}{(1+y)^t} + \frac{FV}{(1+y)^T} $$
+        \item Write down the Modified Duration: take the first derivative of $P(y)$, divide by $P(y)$, and multiply by $-1$
+        $$ \frac{-P'(y)}{P(y)} = \sum_{t=1}^{T} \frac{\frac{t \cdot C}{(1+y)^{(t+1)}}}{P} + T \frac{\frac{FV}{(1+y)^{(T+1)}}}{P} $$
+        \item Factor out $\frac{1}{(1+y)}$ from the left hand side
+        $$ \frac{-P'(y)}{P(y)} = \frac{1}{(1+y)} \left[  \sum_{t=1}^{T} t\frac{\frac{C}{(1+y)^{t}}}{P} + T \frac{\frac{FV}{(1+y)^{T}}}{P} \right]$$
+        \item The term in brackets is the Maucaly Duration from the previous slide, 
+        where the weights are $\frac{\frac{C}{(1+y)^{t}}}{P}$
+        and $\frac{\frac{FV}{(1+y)^{T}}}{P}$
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Macaulay Duration and Modified Duration}
+
+    Conclude that:
+    $$\text{Modified Duration} = -\frac{P'(y)}{ P(y)} = \frac{\text{Mauculay Duration}}{(1+y)}$$
+    Maucaly Duration is usually is very similar to the Modified Duration, especially when $y$ is small.\\
+    \vspace{1em}
+    In practice its common to hear traders refer to "duration" 
+    without specifying which measure.   This usually doesn't matter, because, as we'll see below, 
+    these are used for estimates anyways.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Duration}
+    \framesubtitle{Rules}
+
+    The following rules for duration can be shown either by thinking about the weighted cash flows, 
+    or by taking a derivative.
+
+    \begin{enumerate}
+        \item The Macaulay Duration of a zero-coupon bond equals $T$ (Only one cash flow!).  
+        The Modified Duration of a zero-coupon bond is $\frac{T}{1+y}$ (take the derivative...).      
+        \item The Modified Duration of a perpetuity is equal to $\frac{1}{y}$, and the Macaulay Duration is $\frac{1+y}{y}$
+        \item Holding maturity constant, duration is lower when the coupon rate is higher.
+        \item Holding the coupon rate constant, duration generally increases with its time to maturity.
+        \item Holding other factors constant, duration higher when yield to maturity is lower
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Convexity}
+    \framesubtitle{Definitions}
+
+    The \textbf{convexity} of a bond measures the curvature of the bond price-yield relationship.\\
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textit{Mathematical Definition:} Convexity is the second derivative of the bond price with respect to yield
+        \item \textit{Intuition:} Duration (first derivative) gives the slope; convexity gives the curvature
+        \item \textit{Formula:} $$\text{Convexity} = \frac{P''(y)}{P(y)}$$
+        \item \textit{Key Property:} Bond prices are generally convex with respect to yields (convexity $>$ 0)
+    \end{itemize}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{3. Bond Convexity}
+\framesubtitle{Definitions}
+
+    \begin{itemize}
+        \item Duration alone underestimates price gains when yields fall
+        \item Duration alone overestimates price losses when yields rise
+        \item Convexity correction improves price change estimates
+    \end{itemize}
+    \vspace{1em}
+    Convexity is generally valuable to investors.   They are willing to pay more for 
+    convex bonds, and, conversely, may require a discount (higher yield) for negatively 
+    convex bonds.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Convexity}
+    \framesubtitle{Price Change Approximation}
+
+    \textbf{First-Order Approximation (Duration Only):}
+    $$\Delta P \approx -D \times P \times \Delta y$$
+    
+    \textbf{Second-Order Approximation (Duration + Convexity):}
+    $$\Delta P \approx -D \times P \times \Delta y + \frac{1}{2} \times C \times P \times (\Delta y)^2$$
+    \vspace{1em}
+
+    Where: $D$ = Modified Duration, $C$ = Convexity, $P$ = Current Bond Price,  $\Delta y$ = Change in Yield
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Convexity}
+    \framesubtitle{Mortgage - negative convexity}
+
+    Mortgage-backed securities (MBS) are said to have "negative convexity" due to prepayment risk.\\
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch14_2_mtg_prepayment.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Convexity}
+    \framesubtitle{Other sources of convexity}
+
+    MBS are a specific example of a bond with an embedded option. The embedded option changes the convexity profile.\\
+    \vspace{1em}
+    Callable corporate bonds are often negatively convex for the same reason.\\
+    \vspace{1em}
+    Options can also be used to explicitly change the convexity profile of a bond portfolio (upcoming lecture)\\
+    \vspace{1em}
+    The key is to draw the price-yield relationship of the bond (or the portfolio) and think about the curvature.
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Two Applications}
+    \framesubtitle{Hedging a Bond Portfolio}
+
+    You start with a portfolio of \$1,000,000 in on-the-run 10 year US Treasury bonds 
+    (10 years to maturity, 3.5\% coupon, 3.5\% yield) and \$1,000,000 in cash.
+    \footnote{Cash has zero duration.}\\
+    \vspace{1em}
+
+    You use cash to buy \$1,000,0000 of a high yield corporate bond: 
+    4\% coupon, 10 years to maturity, 15\% yield.
+    \footnote{Assume the high yield bond is purchased using cash.}\\
+    \vspace{1em}
+
+    You want exposure to the default premium of the high yield bond 
+    but you do \textbf{NOT} want exposure to the interest rate risk of the high yield bond.\\
+    \vspace{1em}
+
+    \textit{Question: How much 10 year US Treasury bonds do you sell to offset the purchase of the corporate bond?}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Two Applications}
+    \framesubtitle{Hedging a Bond Portfolio}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch16_1_exp_1.png}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Two Applications}
+    \framesubtitle{Hedging a Bond Portfolio}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_exp_2.png}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Two Applications}
+    \framesubtitle{Estimating Performace of a Bond Portfolio}
+
+    Consider a 30 year zero coupon bond that yields 5\% 
+    and a 10 year zero coupon bond that also yield 5\%.
+       Assume the yield curve is flat.\\
+    \vspace{1em}
+
+    Investors start to worry about a recession, all yields drop to 4.5\%.  \\
+    \vspace{1em}
+
+    What is your return on the 30 year bond? On the 10 year bond?\\
+    \vspace{1em}
+
+    Then the recession actually occurs, all yields drop to 2.5\%.\\
+    \vspace{1em}
+
+    \textit{Question: What is your return on the 30 year bond?   On the 10 year bond?}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Two Applications}
+    \framesubtitle{Predicting Performance}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_exp_3.png}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Two Applications}
+    \framesubtitle{Predicting Performance}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_exp_4.png}
+
+\end{practiceframe}
+
+\end{document}

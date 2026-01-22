@@ -1,0 +1,392 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 4-a}
+
+\title{Diversification}
+\subtitle{Reference: Bodie et al, Ch 7}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Review: Data Construction
+        \item Sum of Two Random Variables
+        \item SPY and TLT
+        \item Optimization: SPY, TLT and Cash
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Data Construction}
+    \framesubtitle{}
+
+    Total Return (\%) = Price Return (\%) + Dividend Yield (\%)\\
+    \vspace{1em}
+    Where the Dividend Yield = Income / (Initial Price).\\
+    \vspace{1em}
+
+    Compute Total Return Index:
+    \begin{enumerate}
+      \item Match income series to price series
+      \item Compute Total Return for Each Period: $r_{tr}$
+      \item Create an Index starting at 100, subsequent periods = $i_t = (1+r_{tr}) \cdot i_{t-1}$
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review Data Construction}
+    \framesubtitle{Dividend Yield}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=1.1\textwidth]{figures/ch7_1_SPY_pdiv}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=1.1\textwidth]{figures/ch7_1_TLT_pdiv}
+        \end{column}
+    \end{columns}
+
+    \vfill
+    \footnotesize
+    Data Source: Yahoo finance\\
+    Dividend yield is calculated using the 12-month \textit{trailing} dividends and the current price.   While this is standard practice, it is also not great. 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Data Construction}
+    \framesubtitle{Sharpe Ratio}
+
+    \textbf{Sharpe Ratio} = Excess Returns / Std Dev of Excess Returns\\
+    $$\frac{E[r] - r_f}{\sigma}$$
+    Where $E[r] - r_f$ is the \textit{excess} return of the asset and $\sigma$ is the standard deviation.\\
+    \vspace{1em}
+    Compute Historical Sharpe Ratios:
+    \begin{enumerate}
+      \item Match Total Return Series to Risk-free Return Series
+      \item For each period, compute Excess Returns = Total Return (\%) - Risk-Free Return (\%)
+      \item Compute Mean and Standard Deviation of Excess Returns
+      \item Sharpe Ration = Mean / Standard Deviation
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Data Construction}
+    \framesubtitle{Sharpe Ratio}
+
+    \footnotesize
+    \begin{table}
+        \caption{ETF Performance Statitics - Excess Returns}
+        \begin{tabular}{llrrr}
+        \toprule
+        & Start Date & Mean (\%) & Std Dev (\%) & Sharpe Ratio \\
+        Ticker &  &  &  &  \\
+        \midrule
+        SPY & 1993-01 & 8.440 & 14.820 & 0.569 \\
+        TLT & 2002-07 & 3.090 & 13.660 & 0.226 \\
+        GLD & 2004-11 & 9.180 & 16.680 & 0.550 \\
+        EWW & 1996-03 & 9.420 & 26.570 & 0.355 \\
+        EWD & 1996-03 & 8.640 & 24.470 & 0.353 \\
+        EWH & 1996-03 & 4.630 & 24.100 & 0.192 \\
+        EWI & 1996-03 & 6.440 & 23.820 & 0.271 \\
+        EWJ & 1996-03 & 1.170 & 17.700 & 0.066 \\
+        EWL & 1996-03 & 6.350 & 16.610 & 0.382 \\
+        EWP & 1996-03 & 7.980 & 23.650 & 0.338 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{2. Sum of Two Random Variable}
+    \framesubtitle{}
+
+    Adding two normally distributed variables $X$ and $Y$:\\
+    \vspace{1em}
+    
+    \textbf{Case 1:} $X$ and $Y$ are \textit{independent}
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2)$$
+     
+    \textbf{Case 2:} $X$ and $Y$ are \textit{correlated} 
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2Cov(X,Y))$$
+    
+    \vfill
+    Note, in a previou lecture we saw this using the correlation coefficient: $\rho_{x,y} = \frac{\text{Cov}(X,Y)}{\sigma_x\sigma_y}$.   
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{2. Sum of Two Random Variable}
+    \framesubtitle{Variance-Covariance Matrix}
+
+    The \textbf{Variance-Covariance matrix} of $X$ and $Y$ is as follows:
+    $$\boldsymbol{\Sigma} = \begin{pmatrix}
+    \sigma_x^2 & \text{Cov}(X,Y) \\
+    \text{Cov}(X,Y) & \sigma_y^2
+    \end{pmatrix}$$
+
+    where:
+    \begin{itemize}
+        \item $\sigma_x^2$ is the variance of $X$
+        \item $\sigma_y^2$ is the variance of $Y$  
+        \item $\text{Cov}(X,Y)$ is the covariance between $X$ and $Y$
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{2. Sum of Two Random Variable}
+    \framesubtitle{Empirical Variance-Covariance Matrix}
+
+    \footnotesize
+
+    Given observations $(x_1, y_1), (x_2, y_2), \ldots, (x_T, y_T)$, the empirical variance-covariance matrix is:
+
+    $$\hat{\boldsymbol{\Sigma}} = \begin{pmatrix}
+    \hat{\sigma}_x^2 & \widehat{\text{Cov}}(X,Y) \\
+    \widehat{\text{Cov}}(X,Y) & \hat{\sigma}_y^2
+    \end{pmatrix}$$
+
+    where:
+    \begin{align}
+    \hat{\sigma}_x^2 &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2\\
+    \hat{\sigma}_y^2 &= \frac{1}{T-1}\sum_{t=1}^{T}(y_t - \bar{y})^2\\
+    \widehat{\text{Cov}}(X,Y) &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})(y_t - \bar{y})
+    \end{align}
+
+    and $\bar{x} = \frac{1}{T}\sum_{t=1}^{T}x_t$, $\bar{y} = \frac{1}{T}\sum_{t=1}^{T}y_t$
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction}
+
+    You are constructing a portfolio with SPY and TLT.   
+    For the moment, your only choice is how much to allocate to SPY.   
+    The remainder is allocated to TLT.\\
+    \vspace{1em}
+    A note on terminology: The \textit{risk premium} is the expected 
+    excess return of a security: $\mathbb{E}[r_{SPY}] - r_{f}$ The historic 
+    average excess returns is often used as an estimate of the risk premium.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Total Returns}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_sp_tlt_totalreturn.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{SPY and TLT}
+    \framesubtitle{Empirical Means, Variance-Covariance Matrix}
+
+    \textbf{Summary Statistics:}
+
+    $$\text{Excess Returns:} [\mu_{SPX},\mu_{TLT}] = [9.4,3.1]$$
+    
+    $$\hat{\boldsymbol{\Sigma}} = \begin{pmatrix}
+    \hat{\sigma}_{SPY}^2 & \widehat{\text{Cov}}(SPY,TLT) \\
+    \widehat{\text{Cov}}(SPY,TLT) & \hat{\sigma}_{TLT}^2
+    \end{pmatrix} = \begin{pmatrix}
+    219.61 & -21.09 \\
+    -21.09 & 186.68
+    \end{pmatrix}$$
+
+    \vspace{2em}
+    Assume that the risk-free rate is 4\%.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{SPY and TLT}
+    \framesubtitle{Empirical Means, Variance-Covariance Matrix}
+
+    In words...\\
+    \vspace{1em}
+
+    \textbf{Summary Statistics:}
+    \begin{itemize}
+        \item Risk Premium (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 9.4\%$
+        \item Risk Premium (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 3.1\%$
+         \item Expected Return (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 13.4\%$
+        \item Expected Return (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 7.1\%$
+        \item Standard Deviation (SPY): $\hat{\sigma}_{SPY} = 14.8\%$
+        \item Standard Deviation (TLT): $\hat{\sigma}_{TLT} = 13.6\%$
+        \item Covariance: $\widehat{\text{Cov}}(SPY,TLT) = -21.09$
+        \item Correlation: $\hat{\rho}_{SPY,TLT} = -0.104$
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_std.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_cov.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er_cov.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+
+    Maximize the Sharpe ratio of the portfolio, which is given by
+    $$
+    \max_{w_i} S_p = \frac{\mathbb{E}(r_p) - r_f}{\sigma_p}
+    $$
+    s.t.
+    $$
+    w_{SPY} + w_{TLT} = 1
+    $$
+    \footnotesize
+    Substitute expressions for $\mathbb{E}(r_p)$, $\sigma_p$ and $w_{TLT}$ 
+    $$
+    \max_{w_{SPY}} = \frac{w_{SPY}*\mathbb{E}(R_{SPY})+(1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
+    $$
+    and then take the derivative with respect to $w$, set the derivative equal to zero, and finally solve for $w$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+
+    Note that the Sharpe Ratio of the portfolio with $w = 0.67$ is \textit{higher}
+    than the Sharpe Ratio of the S\&P:
+
+    \begin{table}
+        \caption{Sharpe Ratios}
+        \begin{tabular}{lrrr}
+            \toprule
+            & Risk Premium & Std Dev & Sharpe Ratio\\
+            \midrule
+            SPY & 9.4 & 14.8 & 0.63\\
+            TLT & 3.1 & 13.6 & 0.22\\
+            \midrule
+            67\% SPY & & &\\
+            + 33\% TLT & 7.35 & 10.51 & 0.69 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 2: Decide on Cash Allocation}
+
+    Now that you have determined the optimal mix of SPY and TLT, 
+    the next decision is how much risk you want to take in your 
+    portfolio.   This is accomplished using the capital allocation 
+    process we discussed last week, with the only difference being that 
+    you are now allocating between cash and the optimal portfolio, 
+    rather than cash and the S\&P.\\
+    \vspace{1em}
+    Note that the allocation line is once again the \textit{capital allocation line (CAL)}, 
+    as the Capital Markets Line (CML) only referred to the case where the 
+    risky portfolio was the S\&P.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 2: Decide on Cash Allocation}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Review}
+
+    In order to find the optimal allocation between three assets (SPY, TLT, and cash), follow these steps:
+
+    \begin{enumerate}
+        \item Estimate return and risk characteristics
+        \item Find optimal allocation between SPY and TLT, maximize the Sharpe Ratio
+        \item Find optimal allocation to cash, using indifference curves
+    \end{enumerate}
+
+\end{frame}
+
+\end{document}

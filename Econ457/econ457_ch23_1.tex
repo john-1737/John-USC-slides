@@ -1,0 +1,428 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 15-b}
+
+\title{Swaps}
+\subtitle{Reference: Bodie et al, Ch 23}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    End of semester\\
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item Swaps
+        \item OTC and Cleared Swaps
+        \item Types of Swaps
+            \begin{itemize}
+                \item Interest Rate Swaps
+                \item Credit Default Swaps
+            \end{itemize}
+        \item AIG
+            \begin{itemize}
+                \item Securitization
+                \item CDOs
+                \item AIG Financial Products
+                \item AIG Failure and Bailout
+            \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{End of Semester}
+    \framesubtitle{}
+
+    Please fill out your course evaluations\\
+    \vspace{1em}
+    I appreciate your candid feedback.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{End of Semester}
+    \framesubtitle{Final}
+
+    \textbf{Date:} Tuesday, December 16, 2:00 - 4:00 pm\\
+    \vspace{1em}
+    
+    \textbf{Location:} Normal Classroom
+    \vspace{1em}
+
+    \textbf{Content:}
+    \begin{itemize}
+        \item Material covered in first midterm: 40\%
+        \item Material Covered in second midterm: 40\%
+        \item Options, swaps, and futures: 20\%
+    \end{itemize}
+
+    \textit{Please bring a caluclator}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Swaps}
+    \framesubtitle{What is a Swap?}
+
+    \textbf{Definition:} A swap is a derivative contract where 
+    two parties agree to exchange sequences of cash flows 
+    for a set period of time.
+
+    \vspace{1em}
+    \begin{itemize}
+        \item \textbf{Bilateral agreement} between two counterparties
+        \item \textbf{Exchange of cash flows} based on different underlying variables, 
+        specified at the time the swap initiated
+        \item \textbf{No principal exchange} at initiation (typically)
+        \item \textbf{Zero initial value} when fairly priced
+        \item \textbf{Customizable terms} (notional amount, maturity, payment frequency)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. OTC and Cleared Swaps}
+    \framesubtitle{OTC}
+
+    \textbf{Over-the-Counter (OTC) Markets:}
+    \begin{itemize}
+        \item \textbf{Definition:} Trades executed directly between counterparties, not on exchanges
+        \item \textbf{Characteristics:} Customizable terms, bilateral negotiation
+        \item \textbf{Counterparty risk:} If the counterparty fails, the swap may be worth zero, regardless of
+         the underlying variables.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Pre-2008:} Most swaps were OTC with significant counterparty exposure
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. OTC and Cleared Swaps}
+    \framesubtitle{Cleared Swaps}
+
+    \textbf{Central Clearing (Post-Dodd Frank):}
+    \begin{itemize}
+        \item \textbf{Central Counterparty (CCP):} Clearinghouse becomes counterparty to both sides
+        \item \textbf{Benefits:} 
+            \begin{itemize}
+                \item Eliminates bilateral counterparty risk
+                \item Standardizes terms and margining
+                \item Provides transparency and netting
+            \end{itemize}
+        \item \textbf{Requirements:} 
+            \begin{itemize}
+                \item Initial and variation margin posting
+                \item Daily mark-to-market settlements
+                \item Standardized contract terms
+            \end{itemize}
+    \end{itemize}
+
+    \vspace{1em}
+    \textbf{Today:} Most interest rate swaps are centrally cleared, significantly reducing systemic risk
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Types of Swaps}
+        \framesubtitle{Interest Rate Swaps}
+
+        Example:  \\
+
+        \textbf{Company A}: Paying floating (SOFR) and receiving fixed (6.95\%).\\
+
+        \textbf{Company B}: Paying fixed (7.05\%) and receiving floating (SOFR).\\
+        \vspace{1em}
+
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch23_irs.png}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Types of Swaps}
+        \framesubtitle{Interest Rate Swaps}
+
+    Uses of interest rate swaps:
+    \begin{enumerate}
+        \item \textbf{Asset-Liability Matching:}   For example, banks may 
+        \textit{pay fixed} to to convert fixed rate asset (loans)
+         to a floating rate asset, which are better matched to their floating rate liabilities.
+        \item \textbf{Adjust Exposure to Interest Rate Risk (with no upfront cash):}   Swaps provide an alternative to bonds and do not 
+        require cash upfront.  For example, underfunded pension plans may \textit{receive fixed} to gain exposure to long term interest rates and 
+        offset long-dated liabilities.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Types of Swaps}
+    \framesubtitle{Interest Rate Swaps - Pricing and Valuation}
+
+    Fixed rate is set so that PV of both legs are equal:
+    $$\text{Fixed Rate} \times  {\sum_{i=1}^{n} \frac{\text{Notional}}{(1+r_i)^{t_i}}} = \sum_{i=1}^{n} \frac{F_i \times \text{Notional}}{(1+r_i)^{t_i}}$$
+    Where $F_i$ is the forward rate and $r_i$ is the discount rate for period $i$.
+    Notes:
+    \begin{itemize}
+        \item Swap has zero initial value when fairly priced
+        \item After origination, value changes as yield curve shifts ($F_i$ and $r_i$ change)
+        \item The value of the swap can be determined by the difference between the 
+        value of a fixed rate bond and a floating rate bond.
+        \item The received fixed party has exposure similar to that of a bond owner: gains 
+        when interest rates fall, loses when interest rates rise
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Types of Swaps}
+        \framesubtitle{Interest Rate Swaps}
+
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/ch23_swap_spreads.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Types of Swaps}
+        \framesubtitle{Interest Rate Swaps}
+
+        Reasons why there may be a difference between swap yields and Treasury yields:
+        \begin{enumerate}
+            \item End users may be different and the market may be segmented  
+                \begin{itemize}
+                    \item For example, insurance companies \textbf{receive fixed} swaps to hedge liabilities. 
+                    Banks may \textbf{pay fixed} to convert fixed rate assets to floating rate assets.
+                \end{itemize}
+            \item Differences in liquidity
+                \begin{itemize}
+                    \item Swaps may be more liquidity
+                \end{itemize}
+            \item Regulatory factors prevent arbitragers from closing the spreads
+                \begin{itemize}
+                    \item Banks may be required to hold capital against US Treasuries due to the 
+                    Single Leverage Ratio.   Swaps do not get the same treatment because they are derivatives.
+                \end{itemize}
+            \end{enumerate}
+        \vspace{1em}
+        Most interest rate swaps are now cleared, which has significantly reduced 
+        counterparty risk.
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Types of Swaps}
+        \framesubtitle{Credit Default Swaps}
+
+        Generic Credit Default Swap (CDS)\\
+        \vspace{1em}
+
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch23_cds.png}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Types of Swaps}
+        \framesubtitle{Credit Default Swaps}
+
+        Goldman Sachs CDS\\
+        \vspace{1em}
+        
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch23_gs_cds.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Securitization}
+
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch23_sec1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Securitization}
+
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch23_sec2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{CDOs}
+
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch23_sec3.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Financial Products}
+
+    AIG was one of the largest insurance company in the world and had over \$1 trillion in assets in 2008. 
+    in assets\\
+    \vspace{0.5em}
+    
+    \textbf{Securities Lending Program}
+    \begin{itemize}
+        \item AIG facilitated lending of securities held by insurance companies
+        \item AIG invested in MBS and CDOs in order to enhance returns.
+    \end{itemize}
+
+    \textbf{CDS Sales}
+    \begin{itemize}
+        \item AIG Financial Products sold \$500 billion CDS on a variety of financial assets, including CDOs.
+        \item These were bilateral, OTC swaps.  The amount of required collateral was determined, in part, by AIG's rating.  Downgrade forced collateral to be posted.
+    \end{itemize}
+    
+    Losses on these two activities totaled \$50 billion in 2008.
+
+    \blfootnote{Source: McDonald and Paulson, "AIG in Hindsight", NBER}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Financial Products}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch23_abx.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Failure and Bailout}
+
+    \begin{itemize}
+        \item Lehman Brothers filed for bankruptcy on Mon., Sep 15, 2008
+        \item Markets panicked. The S\&P fell by more than 
+        4.4\% percent on Monday and then by another 4.7\% on Tuesday.
+        \item AIG's credit rating was downgraded, requiring it to post additional collateral on its OTC swaps.
+        \item AIG was unable to borrow in short-term debt markets
+        \item AIG received an \$85 billion line of credit from the Federal Reserve on Tuesday night
+        \begin{itemize}
+            \item AIG drew close to \$40 billion in the first week.
+            \item The loan was under the Fed's 13(3) authority.   
+            \item The Fed accepted the AIG insurance business as collateral
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Failure and Bailout}
+
+    \begin{itemize}
+        \item The Treasury Department received a 79.9\% ownership stake in AIG 
+        in exchange for the extraordinary support.
+        \item The initial terms of the Fed loan were tough, and further ratings agency downgraded 
+        forced AIG to post additional collateral, exacerbating the situation.
+        \item A month later TARP funds were used to inject capital into AIG
+        \item Total government support for AIG reached \$180 billion: \$70 billion in 
+        capital and \$110 billion in loans.
+        \item AIG Financial Products paid bonuses of \$165 million in March 2008. 
+        This was a public relations nightmare, but the Treasury decided it couldn't 
+        void the contracts.
+        \item Treasury sold its stake in AIG in December 2012, and made \$7.6 billion 
+        profit
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Failure and Bailout}
+
+    Dodd-Frank Wall Street Reform and Consumer Protection Act of 2010
+    \begin{itemize}
+        \item Systemically Important Financial Institutions (SIFI) are now regulated by the Federal 
+        Reserve.   The Fed can require SIFIs to hold capital.
+            \begin{itemize}
+                \item AIG did not really have a regulator prior to 2008
+                \item AIG was designated as a SIFI from 2013-2017.   
+            \end{itemize}
+        \item It is now much harder for the Federal to make loans to single financial institutions.   
+        Loans should be 'broad based'
+        \item Interest rate swaps and some CDX are now cleared (reducing counter party risk)
+        \item The FDIC has 'Orderly Liquidation Authority' covering non-bank SIFIs. (Prior to 2008 there was no 
+        workable bankrutpcy regime for AIG)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Failure and Bailout}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch23_aig.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. AIG}
+    \framesubtitle{Failure and Bailout}
+
+    \vspace{1em}
+
+    \begin{quote}
+        "The national commitment to the free market lasted one day... It was Monday"
+    \end{quote}
+    \begin{flushright}
+        - Barney Frank, Congressman from MA, September 2008
+    \end{flushright}
+
+    \vspace{1em}
+
+    \begin{quote}
+        "If there is a single episode in this entire 18 months that has made me more angry, I can't think of one other than AIG"
+    \end{quote}
+    \begin{flushright}
+        - Ben Bernanke, Fed Chair, March 2009
+    \end{flushright}
+
+\end{frame}
+
+\end{document}

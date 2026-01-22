@@ -1,0 +1,338 @@
+\documentclass{beamer}
+
+\newcommand{\week}{}
+
+\title{Coolest Charts from Econ 457}
+\vspace{1em}
+\subtitle{\textit{This is not meant to be a comprehensive review for the final, 
+but it's a decent place to start...}}
+\author{Econ 457}
+\date{\week}
+
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[t]
+    \frametitle{Econ 457: Material Covered}
+    \framesubtitle{}
+
+    \vspace{-1em}
+
+        \begin{table}
+        \centering
+        \footnotesize  % Global font size for the table
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=2cm] Q[l,wd=6cm]}
+        }
+        \toprule
+        Subject & Book Chapters & Sub-topics \\
+        \midrule
+        Intro & 5 & Measuring Returns, Distribution of Returns, Evaluating Returns \\
+        Portfolio Construction & 6, 7, 8 & Capital Allocation, Diversification, Index Model \\
+        Market Equilibrium & 9, 10, 11, 12 & CAPM, Fama-French Factors, Efficient Market Hypothesis \\
+        Fixed Income & 14, 15, 16 & Prices, Yields, Yield Curve, Duration and Convexity \\
+        Equity & 18 & Dividend Discount Models, Price-Earnings Ratios\\
+        Derivatives & 20, 21, 22, 23 & Futures, Swaps, Options \\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+    \vfill
+    \footnotesize
+    Note, this is subject to change throughout the semester.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Distributions of Returns of Financial Assets}
+    \framesubtitle{}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=1.1\textwidth]{figures/ch5_2_sp500_wdist.png}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=1.1\textwidth]{figures/ch5_2_10y_wdist.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Distributions of Returns of Financial Assets}
+    \framesubtitle{}
+
+    \textbf{Galton Board}\\
+    https://youtu.be/3m4bxse2JEQ?si=SIhI4vECWSKwkQV-
+    \vspace{2em}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/review_galton.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Capital Allocation}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_1_opt.png}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Diversification}
+    \framesubtitle{}
+
+    Two assets: Opportunity set for different covariances\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_1_spytlt_er_cov.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Diversification}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Diversification}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er_std_with_cal.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Limits of Diversification}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch08_1_diversification_benefits.png}
+    \vspace{1em}
+
+    \footnotesize
+    \raggedright
+    Monthly returns since 2010.   Portfolios created from non-randomly selected stocks (previous slide). 
+    Stocks added to the portfolio in order.   While a different order of adding stocks may change 
+    the chart slightly, the broader point is that it doesn't take all that many stocks to replicate 
+    the volatility of the S\&P 500.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{CAPM}
+    \framesubtitle{Prices Adjust!}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_sml_with_alpha.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Applied CAPM: Disney (DIS)}
+    \framesubtitle{Plot}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_dissp_20_25_wreg.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Fama-French Factors}
+    \framesubtitle{Factor Performance}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch10_1_fffactors.png}
+
+    \raggedright
+
+    Conclusion: Both SML and HML are factor portfolios that have significant 
+    risk premiums associated with them.   Investors have been rewarded for bearing 
+    exposure to these factor portfolios.
+
+    \blfootnote{Data Source: Ken French data library}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Momentum Factor}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch10_ff_momentum_logs.png}
+
+    \blfootnote{Data Source: Ken French data library}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Efficient Markets Hypothesis}
+    \framesubtitle{Robert Shiller Chart}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch11_1_shiller_jb.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Bond Price and Yields}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_30y_priceyield.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Bond Prices}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_30y_coupon.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Mortgage Bonds}
+    \framesubtitle{Prepayment Risk and Negative Convexity}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_2_mtg_prepayment.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Treasury Yield Curve}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch15_1_yc_2025-10-23.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Treasury Yield Curve}
+    \framesubtitle{Spot Rates and Forward Rates}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch15_1_spfw.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Bond Duration}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch16_1_priceyield_tangent_10s30s.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{Dividend Discount Model}
+    \framesubtitle{Dividend Growth}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_1_div_growth.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{Historical Comparisons}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_2.png}
+
+    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{A Good Measure of Value?}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_3.png}
+
+    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Call Options}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch20_1_buy_call.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Common Option Strategies}
+    \framesubtitle{Call Spread (1x2)}
+
+    Payoff at Expiry from \textbf{Call Spread (1x2)}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_call_spreadx2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Option Valuation}
+    \framesubtitle{NVDA calls}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch21_nvda_call2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Option Valuation}
+    \framesubtitle{NVDA calls - Change in Volatility}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch21_nvda_call4.png}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,566 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 2-a}
+
+\title{Financial Market Distributions}
+\subtitle{Reference: Bodie et al, Ch 5}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \vspace{2em}
+
+    \begin{enumerate}
+        \item The Normal Distribution
+        \item Distributions of Financial Market Returnts
+        \item Annualizing Weekly Returns
+        \item Forecasting
+        \item Problems with Using the Normal Distribution
+        \item Risk management enhancements
+    \end{enumerate}
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts}
+
+    Notation: 
+    $$X \sim N(\mu, \sigma^2)$$
+    Where $\mu$ is the mean, $\sigma^2$ is the variance, and $\sigma$ is the standard deviation.\\   
+    \vspace{1em}
+    The distribution can be characterized by either the variance or the standard deviation.  
+    In finance it is common to use the standard deviation, because it is in the same units as the returns, whereas the variance is squared.\\
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts}
+
+    Empirical mean:
+    $$\bar{x} = \frac{1}{T}\sum_{t=1}^{T}x_t$$
+
+    Empirical variance:
+    $$s^2 = \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2$$
+
+    Empirical standard deviation:
+    $$s = \sqrt{s^2} = \sqrt{\frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2}$$
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    Adding a constant $C$ to $X$:\\
+    $$X + C \sim N(\mu_x+C,\sigma_x^2)$$
+
+    Multiplying $X$ by a constant $C$:
+    $$C \cdot X \sim N(C\mu_x,C^2\sigma_x^2)$$
+    (notice the $C^2$ in the variance term)
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    Adding two normally distributed variables $X$ and $Y$:\\
+    \vspace{1em}
+    
+    \textbf{Case 1:} $X$ and $Y$ are \textit{independent}
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2)$$
+     
+    \textbf{Case 2:} $X$ and $Y$ are \textit{correlated} 
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2\sigma_x\sigma_y\rho_{x,y})$$
+    
+    where $\rho_{x,y} = \frac{\text{Cov}(X,Y)}{\sigma_x\sigma_y}$ is the correlation coefficient.
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{A Sample, n = 100}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_2_ndist_500.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/ch5_2_ndist_1m.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    \textbf{The Central Limit Theorm}
+    The distribution of the sample mean converges to a normal distribution, regardless of the distribution of the underlying variable.
+    \vspace{1em}
+    Let $\bar{X} = \frac{1}{T}\sum_i^Tx_i$ be the sample mean, then
+    $$\bar{X} \xrightarrow{d} N\left(\mu, \frac{\sigma^2}{T}\right) \text{ as } T \to \infty$$
+
+    The only requirement is that the underlying variables (usually) need to be independent and identically distributed.
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    \textbf{Galton Board}\\
+    \vspace{2em}
+
+    https://youtu.be/EvHiee7gs9Y
+
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. Distributions of Financial Market Returns}
+    \framesubtitle{S\&P 500}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_2_sp500_wdist.png}
+
+    \vfill
+    \begin{flushleft}
+    \footnotesize{Data source: Robert Shiller, www.shillerdata.com}
+    \end{flushleft}
+
+\end{frame}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[t]
+    \frametitle{2. Distributions of Financial Market Returns}
+    \framesubtitle{S\&P 500 Total Returns}
+    
+    \vspace{-1em}
+    \scriptsize
+    \begin{table}
+    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+    \begin{tabular}{lrr}
+    \toprule
+    Decade & Return & Standard Deviation \\
+    \midrule
+    1870s & 8.11 & 10.86 \\
+    1880s & 6.29 & 9.62 \\
+    1890s & 6.24 & 11.84 \\
+    1900s & 10.62 & 12.70 \\
+    1910s & 4.99 & 10.51 \\
+    1920s & 15.46 & 15.08 \\
+    1930s & 4.39 & 30.63 \\
+    1940s & 9.47 & 13.23 \\
+    1950s & 18.24 & 10.08 \\
+    1960s & 8.05 & 10.31 \\
+    1970s & 6.56 & 13.23 \\
+    1980s & 16.88 & 12.98 \\
+    1990s & 17.19 & 10.45 \\
+    2000s & 0.38 & 14.68 \\
+    2010s & 13.02 & 9.55 \\
+    2020s & 13.72 & 14.15 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
+
+\end{frame}
+}
+
+\begin{frame}[t]
+    \frametitle{2. Distributions of Financial Market Returns}
+    \framesubtitle{US Treasury Bonds, 10-year US Treasury}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_2_10y_wdist.png}
+    
+
+    \vfill
+    \begin{flushleft}
+    \footnotesize{Data source: Robert Shiller, www.shillerdata.com}
+    \end{flushleft}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Distributions of Financial Market Returns}
+    \framesubtitle{US T-Bills, 1-month}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_2_tbill_wdist.png}
+
+    \vfill
+    \begin{flushleft}
+    \footnotesize{Data source: Ken French}
+    \end{flushleft}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Distributions of Financial Market Returns}
+    \framesubtitle{MXN}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch5_2_MXN_wdist.png}
+
+    \vfill
+    \begin{flushleft}
+    \footnotesize{Data source: Interactive Brokers (USDMXN Cash)}
+    \footnotesize{             Only the price return, doesn't include carry}
+    \footnotesize{             5 worst months: Mar 2020, Sep 2011, Oct 2008, May 2012, Nov 2008}
+    \end{flushleft}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Annualizing Weekly Returns}
+    \framesubtitle{}
+
+    If you are given a data at a higher frequency it is often convenient to 
+    convert the mean and standard deviation to annual equivalents.\\
+    \vspace{1em}
+    In order to do so, imagine that each year is made up of \textit{independent} sub-periods.
+    Then we can use the following property of the normal distribution:
+    \begin{align*}
+    x_1 +... + x_T &\sim N(\mu_x+...+\mu_x,\sigma_x^2 +...+ \sigma_x^2)\\
+                    &\sim N(T\mu_x,T\sigma_x^2)
+    \end{align*}
+    Where $x_1$ through $x_T$ are indpendent sub-periods, and T is the number 
+    of sub-periods that make up the longer period.  (i.e. 52 weeks in a year, so T=52)  
+    We assume the distrubtions of each sub-period 
+    are identical and equal to $N(\mu_x$, $\sigma_x^2$).\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Annualizing Weekly Returns}
+    \framesubtitle{}
+
+    To compute annual returns from a series of weekly returns (52 weeks in a year):
+    \begin{enumerate}
+        \item Compute the mean and standard deviation of the weekly returns
+        \item Multiply the estimated mean by 52
+        \begin{itemize}
+            \item An alternative would be to account for compounding and use $(1+\mu_x)^{52}-1$.
+        \end{itemize}
+        \item Multiply the standard deviation by $\sqrt{52}$
+        \begin{itemize}
+            \item Be careful here, this is because the variance increases by $T$,
+            so standard deviation increases by $\sqrt{T}$
+        \end{itemize}
+        
+    \end{enumerate}
+    \vspace{1em}
+    Easy to do something similar for daily returns 
+    (multiply standard deviation by $\sqrt{250}$, number of trading days in a year), 
+    or monthly returns (multiply standard deviation by $\sqrt{12}$), 
+     or quarterly returns (multiply standard deviation by 2).
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Annualizing Weekly Returns}
+    \framesubtitle{}
+
+    \begin{table}
+        \caption{Daily, Monthly, Annual S\&P Returns}
+        \begin{tabular}{lrr}
+        \toprule
+        &  Mean & Standard Deviation \\
+        \midrule
+        Daily & 0.04 & 1.19 \\
+        Daily, annualized & 9.48 & 18.87 \\
+        \midrule
+        Monthly & 0.75 & 4.25 \\
+        Monthly, annualized & 8.99 & 14.73 \\
+        \midrule
+        Annual & 9.35 & 16.31 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \blfootnote{Data from Interactive Brokers, since 2004}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Forecasting}
+    \framesubtitle{}
+
+    Note that the discussion up to now has been about measuring historical returns.  
+    In contrast, the questions we usually care about concern expected future 
+    returns.\\
+    \vspace{1em}
+
+    In general, you should be very careful about using historical returns and 
+    distributions to forecast future returns and distributions.\\
+    
+    \vspace{1em}
+    But forecasting is an inescapable requirement for many things in financial markets, 
+    so you have to come up with something.  Much of the next few weeks will be focused on 
+    how to think about \textit{expected} returns and prices for different securities.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{4. Forecasting}
+    \framesubtitle{If you think history is a good guide...}
+
+    If you can convince yourself that history is a good guide for future 
+    returns (or if you can find a historical period that is a good guide),
+    then can use the empirical mean and standard deviation:
+
+    $$\mathbb{E}(r) = \frac{1}{T} \sum_i^T r_i$$
+    
+    $$\text{Var}(r) = \frac{1}{T} \sum_i^T (r_i - \mathbb{E}[r])^2$$
+
+    where $r_i$ are \textit{historical} returns measured over $T$ periods.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Forecasting}
+    \framesubtitle{If you can guess the probability of scenarios...}
+
+    If we start with a set of estimates for returns in different scenarios and 
+    the probabilities of those scenarios, then we can compute the 
+    expected value and expected variance as follows:\\
+
+    $$\mathbb{E}(r) = \sum_i p_i \cdot r_i$$
+    
+    $$\text{Var}(r) = \sum_i p_i \cdot (r_i - \mathbb{E}[r])^2$$
+    
+    where $p_i$ is the probability and $r_i$ is the return in scenario $i$.\\
+    \vspace{1em}
+    Note these are analogous to the empirical estimates of the mean and the variance discussed earlier.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{5. Problems with Using the Normal Distribution}
+    \framesubtitle{}
+
+    While it may be convenient to use the normal distribution 
+    for forecasts of future returns, doing so raises a lot of problems:
+    \begin{enumerate}
+        \item Observations may not be independent (Central Limit Theorem doesn't hold)
+        \item Distributions of financial returns often have 'fat tails'
+        \item Historical returns have no meausure of value
+        \item The variance of returns seems to change over time
+    \end{enumerate}
+    \vspace{1em}
+    What to do about this?
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Problems with Using the Normal Distribution}
+    \framesubtitle{Observations are not independent}
+
+    \textbf{Galton Board, v2}\\
+    \vspace{2em}
+    https://youtu.be/3m4bxse2JEQ?si=SIhI4vECWSKwkQV-
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Problems with Using the Normal Distribution}
+    \framesubtitle{Fat Tails}
+
+    \vspace{-1.5em}
+
+    \footnotesize
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+                \begin{table}
+                \caption{S\&P Highest and Lowest Monthly Returns Since 1950}
+                \begin{tabular}{lrr}
+                \toprule
+                Date & Return \% & Probability \% \\
+                \midrule
+                    2009-04 & 12.32 & 0.05 \\
+                    1982-09 & 12.10 & 0.07 \\
+                    1991-02 & 11.61 & 0.11 \\
+                    1998-11 & 10.97 & 0.19 \\
+                    1975-02 & 10.81 & 0.23 \\
+                    \midrule
+                    1962-06 & -11.41 & 0.02 \\
+                    1987-10 & -11.85 & 0.01 \\
+                    1987-11 & -12.30 & 0.01 \\
+                    2020-03 & -18.92 & 0.00 \\
+                    2008-10 & -20.19 & 0.00 \\
+                \bottomrule
+                \end{tabular}
+                \end{table}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{table}
+                \caption{10y UST Highest and Lowest Monthly Returns Since 1950}
+                \begin{tabular}{lrr}
+                \toprule
+                Date & Return \% & Probability \% \\
+                \midrule
+                1981-11 & 11.23 & 0.00 \\
+                1982-10 & 9.86 & 0.00 \\
+                2008-12 & 9.74 & 0.00 \\
+                1980-05 & 9.15 & 0.00 \\
+                1980-04 & 8.87 & 0.00 \\
+                \midrule
+                2022-09 & -5.18 & 0.16 \\
+                2003-07 & -5.30 & 0.13 \\
+                2022-04 & -5.42 & 0.10 \\
+                1979-10 & -5.85 & 0.05 \\
+                1980-02 & -9.56 & 0.00 \\
+                \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{column}
+    \end{columns}
+
+
+    \blfootnote{Probabilities are based on estimated normal distribution.  
+    n = 900 months, S\&P: $\mu=0.96$ and $\sigma=3.4$, 
+    10y UST: $\mu=0.42$ and $\sigma=1.9$}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Problems with Using the Normal Distribution}
+    \framesubtitle{Historical returns have no measure of value}
+
+    \textbf{Home prices, 1960-2006}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_2_hpi_pre2008.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Problems with Using the Normal Distribution}
+    \framesubtitle{Historical returns have no measure of value}
+
+    \textbf{Home prices, 1960-2025}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_2_hpi_all.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Problems with Using the Normal Distribution}
+    \framesubtitle{Variance changes over time}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch5_2_rolling_std.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. Risk management enhancements}
+    \framesubtitle{What to do?}
+
+    How financial market participants address these problems:
+    \begin{enumerate}
+        \item Use a distribution with fatter tails
+        \item Value at Risk (VaR)
+        \item Scenario Analysis / Stress Tests
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{6. Risk management enhancements}
+    \framesubtitle{Value at Risk (VaR) Definition}
+
+    \textbf{Value at Risk (VaR)} measures the maximum expected loss over a specific time period at a given confidence level.
+    \vspace{1em}
+
+    \textbf{Definition:}
+    \begin{itemize}
+        \item VaR answers: "What is the worst loss we can expect with X\% confidence over Y days?"
+        \item Example: 1-day 95\% VaR = \$1 million means there's a 5\% chance of losing more than \$1M tomorrow
+    \end{itemize}
+    \vspace{0.5em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. Risk management enhancements}
+    \framesubtitle{Value at Risk (VaR) - Calculation }
+
+    \textbf{Calculation Methods:}
+    \begin{enumerate}
+        \item \textbf{Parametric (Normal) VaR:} Assumes returns follow normal distribution
+        $$\text{VaR} = \mu - z_\alpha \times \sigma \times \sqrt{t}$$
+        where $z_\alpha$ is the critical value (e.g., 1.65 for 95\% confidence)
+        
+        \item \textbf{Historical VaR:} Uses actual historical return distribution
+        
+        \item \textbf{Monte Carlo VaR:} Simulates thousands of possible outcomes
+    \end{enumerate}
+    \vspace{0.5em}
+
+    \textbf{Limitations:} Still need to make an assumption about the tails, past patterns? what else?
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. Risk management enhancements}
+    \framesubtitle{Stress Tests}
+
+    \textbf{Stress Testing:} Evaluates portfolio performance under extreme scenarios
+    \vspace{1em}
+
+    \textbf{Approach:}
+    \begin{itemize}
+        \item Apply historical crisis scenarios (2008, 1987, COVID-19)
+        \item Test hypothetical extreme events (interest rate shocks, market crashes)
+        \item Examine correlation breakdown during crises
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Example:} "What would happen to our portfolio if we had another 2008-style crisis?"\\
+    \vspace{1em}
+    Useful at the portfolio level, but need to specify correlations in addition to returns of 
+    various securities.
+
+\end{frame}
+
+ \end{document}

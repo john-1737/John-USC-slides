@@ -1,0 +1,555 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 9-a}
+
+\title{Fixed Income}
+\subtitle{Reference: Bodie et al, Ch 14}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Time Value of Money
+        \item Bond Characteristics
+        \item Bond Prices
+        \item Bond Yields
+        \item Excel Formulas
+        \item Numerical Soliving Methods
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{Basic Concept}
+
+    A dollar today is worth more than a dollar tomorrow.\\
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textit{Opportunity Cost:} Money can be invested to earn returns
+        \item \textit{Risk:} Future payments are uncertain, and people value uncertain things less
+        \item \textit{Inflation:} Purchasing power decreases over time
+    \end{itemize}
+
+    $$FV = PV \times (1 + r)^t$$
+    Where:
+    \begin{itemize}
+        \item $FV$ = Future Value
+        \item $PV$ = Present Value
+        \item $r$ = Interest/discount rate
+        \item $t$ = Time periods
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{Present vs. Future Value}
+
+    \textbf{Future Value (Compounding):}
+    $$FV = PV \times (1 + r)^t$$
+    \textit{Example:} \$1,000 invested at 5\% for 3 years
+    $$FV = 1,000 \times (1.05)^3 = \$1,157.63$$
+
+    \textbf{Present Value (Discounting):}
+    $$PV = \frac{FV}{(1 + r)^t}$$
+    \textit{Example:} What is \$1,157.63 received in 3 years worth today at 5\%?
+    $$PV = \frac{1,157.63}{(1.05)^3} = \$1,000$$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{The Rule of 72}
+
+    \textbf{The Rule of 72}: To find how long it takes for money to double at a given rate of return:
+    $$\text{Years to Double} \approx \frac{72}{\text{Rate of Return (\%)}}$$
+ 
+
+    \textbf{Examples:}
+    \begin{itemize}
+        \item At 6\% interest: $\frac{72}{6} = 12$ years to double
+        \item At 8\% interest: $\frac{72}{8} = 9$ years to double
+        \item At 12\% interest: $\frac{72}{12} = 6$ years to double
+    \end{itemize}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{The Rule of 72}
+
+    For money to double: $FV = 2 \times PV$
+    $$2 \times PV = PV \times (1 + r)^t$$
+    $$2 = (1 + r)^t$$
+
+    Taking natural logarithm of both sides:
+    $$\ln(2) = t \times \ln(1 + r)$$
+    $$t = \frac{\ln(2)}{\ln(1 + r)}$$
+
+    \begin{itemize}
+        \item $\ln(2) \approx 0.693$
+        \item For small $r$: $\ln(1 + r) \approx r$
+        \item Therefore: $t \approx \frac{0.693}{r} = \frac{69.3}{r \times 100}$
+        \item Rule of 72 uses 72 instead of 69.3 for easier mental math
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{The Rule of 72}
+
+    At 6\% annually:
+    $$FV = 1,000 \times (1.06)^{12} = \$2,012$$
+    Close to exactly double.\\
+    \vspace{1em}
+    Rule of 72 works best for small values of r, say below 15\%.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{Principal}
+
+    At maturity the bond issuer repays the principal of the bond.\\
+    \vspace{1em}
+    Also referred to as the 'par value' or 'face value' of the bond.\\
+    \vspace{1em}
+    Most bonds -- including US Treasury bonds and corporate bonds -- 
+    typically have par values of \$1,000.  
+    For the purposes of examples and Excel formulas, \$100 is also commonly used for the par value.
+    
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{Coupons}
+
+    The bond issuer makes regular payments to bond holder.  
+    These payments are called 'coupon payments.'   The coupon rate usually doesn't change over the life of the bond (hence the term 'fixed income').\\
+    $$\text{Coupon} = \text{Coupon Rate (\%)} \cdot \text{Par Value}$$
+    Bonds commonly pay coupons 'semi-annually', or twice per year.\\
+    \vspace{1em}
+    \begin{itemize}
+        \item Semi-annual coupon payment = $\frac{\text{Annual Coupon Rate}}{2} \times \text{Par Value}$
+        \item Bond math often assumes semi-annual compounding.   
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{Coupons}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_coupons.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{Security - US Treasury Bonds}
+
+    US Treasury bonds are  Backed by the full faith and credit of the US government.  Often referred to as "risk-free".\\
+    \vspace{1em}
+    
+    This refers only to \underline{default risk}\\
+    \vspace{1em}
+    
+    Still subject to other risks:
+        \begin{itemize}
+            \item \textbf{Interest rate risk:} Bond prices fall when rates rise
+            \item \textbf{Inflation risk:} Real purchasing power may decline
+        \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{Prices}
+
+    Bond prices are set in the market.\\
+    \vspace{1em}
+    The \textbf{Clean Price} is the quoted market price and \textit{excludes} accrued since the last coupon payment.\\
+    \vspace{1em}
+    The \textbf{Dirty Price} is the total price paid by the buyer and \textit{includes} the value of interest accrued since the last coupon payment.\\
+    \vspace{1em}
+     $$\text{Dirty Price} = \text{Clean Price} + \text{Accrued Interest}$$
+    \vspace{1em}
+    Bond quotes in newspapers/Bloomberg refer to the clean price.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{US Treasury Auctions}
+
+    \textbf{Auction Frequency:}
+    \begin{itemize}
+        \item \textit{Bills (4w, 8w, 13w, 26w, 52w):} Weekly
+        \item \textit{Notes (2y, 3y, 5y, 7y, 10y):} Monthly
+        \item \textit{Bonds (20y, 30y):} Monthly
+        \item \textit{TIPS:} Quarterly for most maturities
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Auction Timeline:}
+    \begin{itemize}
+        \item \textit{Announcement:} 3-5 business days before auction
+        \item \textit{Auction day:} Bids due by 1:00 PM ET
+        \item \textit{Results:} Released within 30 minutes
+        \item \textit{Settlement:} Next business day (bills) or 2-3 days (notes/bonds)
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Auction Sizes:} Typically \$40-60 billion per auction for popular maturities (10y, 30y).
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{US Treasury Auctions}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_ust_1.png}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Bond Characteristics}
+    \framesubtitle{US Treasury Auctions}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_ust_3.png}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Generic Pricing Formula}
+
+    Generic pricing formula:
+    $$
+    \text{Bond Price} = \sum_{t=1}^{T} \frac{C}{(1 + y)^t} + \frac{FV}{(1 + y)^T}
+    $$
+
+    where $C$ is the coupon amount and $FV$ is the payment due at maturity.\\
+    \vspace{1em}
+
+    Calculating the price requires the following inputs:
+    \begin{enumerate}
+        \item Number of coupon payments ($T$)
+        \item Discount rate or yield ($y$).   Typically this the the market interest rate on the bond.
+        \item The par value ($FV$)
+        \item The coupon amount ($C$), usually Coupon Rate x Face Value.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Generic Pricing Formula}
+
+    Things to remember:
+    \begin{itemize}
+        \item The $y$ in this equation is more precisely the 'yield to maturity.'
+        \item Bodi et al use $r$ for the discount rate, 
+    whereas I use $y$ for the yield.   They are the same thing. 
+        \item  Be careful to account for semi-annual coupon payments
+        \item Be careful to distinguish between coupon payments and 
+    the market interest rates.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Zero Coupon Bonds}
+
+    Zero coupon bonds have no coupons, and therefore easier math. \\
+    $$\text{Zero Coupon Price} = \frac{FV}{(1 + r)^T}$$  
+    \vspace{4em}
+    %\vspace*{\fill}
+    \vfill
+    \rule{0.3\textwidth}{0.4pt}
+    %\vspace{0.2em}
+    \scriptsize
+
+    Zero coupon bonds have other nice characteristics too, as we'll discuss in the lecture on duration and convexity.  
+    Zero coupon Treasury bonds are also referred to as "Ps" or as "STRIPS" because they can be created by "stripping" a normal, coupon bond into separate parts.\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Zero Coupon Bonds}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_30y_zeros.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Prices and Yields are Inversely Related}
+
+    \textbf{Bond prices and yields are inversely related}\\
+    \vspace{1em}
+    
+    \textit{Math}: The yield ($r$) appears in the denominator of the bond pricing equation.\\
+    $$\text{Bond Price} = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{FV}{(1 + r)^T}$$
+    \vspace{1em}
+    
+    \textit{Intuition}: The price is the present value.   
+    Higher yields (discount rates) reduce the present value of the future bond payments, leading to lower bond prices today.\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Coupon Bonds}
+
+    When the yield is equal to the coupon rate, the bond price is equal to the par value.\\
+    \vspace{1em}
+
+    Proof uses geometric series (we'll see this in the next lecture).\\
+    \vspace{1em}  
+    The intuition is that when the coupons equal the yield, 
+    the discount rate and the coupon payments (roughly) cancel eachother out.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Coupon Bonds}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_30y_coupon.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Coupon Bonds}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_30y_coupon_2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Pull to par}
+
+    At maturity, the bond price is equal to the face value.\\
+    \vspace{1em}
+    The tendency of the bond price to approach face value as the bond
+    approaches maturity is the \textit{pull to par}.  Note that tendency in the graphs on prevous slides.
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bond Prices}
+    \framesubtitle{Pull to par}
+
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/ch14_1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Bond Yields}
+    \framesubtitle{Formula and calculations}
+
+    If the bond price is known, the bond yield can be calculated 
+    using the pricing equation and solving for $y$:
+   $$\text{Bond Price} = \sum_{t=1}^{T} \frac{C}{(1 + y)^t} + \frac{FV}{(1 + y)^T}$$
+    In most cases, there is no closed form expression for $y$.   Numerical solving methods must be used instead.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Bond Yields}
+    \framesubtitle{Yields v Prices}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_30y_priceyield.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Bond Yields}
+    \framesubtitle{Yields v Prices}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_1_4pct_priceyield.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Bond Yields}
+    \framesubtitle{Yields v Prices}
+
+    \textit{Bond yields and prices are inversely related.}\\
+    \vspace{1em}
+
+    Intuition:
+    \begin{enumerate}
+        \item Yield in denominator
+        \item Reinvestment risk
+        \item Yield is similar expected return, one way to get higher E[r] is lower (current)  prices
+    \end{enumerate}
+
+\end{frame}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{PRICE()}
+
+ \texttt{=PRICE(settlement, maturity, rate, yld, redemption, frequency, [basis])}
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \texttt{settlement}: Settlement date (when you buy the bond)
+        \item \texttt{maturity}: Maturity date (when bond expires)
+        \item \texttt{rate}: Annual coupon rate (as decimal: 0.05 for 5\%)
+        \item \texttt{yld}: Annual yield to maturity (as decimal: 0.06 for 6\%)
+        \item \texttt{redemption}: Redemption value per \$100 face value (usually 100)
+        \item \texttt{frequency}: Coupon payments per year (1, 2, or 4)
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Optional Argument:} \texttt{[basis]}: Day count convention (0 = 30/360, 1 = actual/actual, etc.)
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{YIELD()}
+
+    \texttt{=YIELD(settlement, maturity, rate, pr, redemption, frequency, [basis])}
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \texttt{settlement}: Settlement date (when you buy the bond)
+        \item \texttt{maturity}: Maturity date (when bond expires)
+        \item \texttt{rate}: Annual coupon rate (as decimal: 0.05 for 5\%)
+        \item \texttt{pr}: Bond price per \$100 face value (e.g., 98.5)
+        \item \texttt{redemption}: Redemption value per \$100 face value (usually 100)
+        \item \texttt{frequency}: Coupon payments per year (1, 2, or 4)
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Optional Argument:} \texttt{[basis]}: Day count convention (0 = 30/360, 1 = actual/actual, etc.)
+   
+\end{excelframe}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{Notes}
+
+    Yield to maturity is returned as a decimal: 0.06 for 6\%.\\
+    \vspace{1em}
+    Price is returned as as a percent of par (i.e. for 98 for a bond with par \$1,000 and price of \$980.)\\
+    \vspace{1em}
+    Excel returns the CLEAN price\\
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{Notes}
+
+    Coupon and Interest Rates are expected to be \textit{annual rates}.  Convention is that compounding is semi-annual, so \texttt{frequency=2}.\\
+    \vspace{1em}
+    Excel's calculation is:
+    $$P = \sum_{t=1}^{T} \frac{C/\text{freq}}{(1 + y/\text{freq})^t} + \frac{FV}{(1 + y/\text{freq})^T}$$
+
+    Also, Excel deals with the fractions in time, which is relevant in two places:
+
+    \begin{itemize}
+        \item Need to compute accrued.  Formula above gives you dirty price.  Clean price = dirty price - accrued.   
+        \item The discount rates should accurately reflect time to maturity.   For example, par value should be discounted by $1/(1+y)^T$ where $T = \text{exact time to maturity}$
+    \end{itemize}
+
+\end{excelframe}
+
+\begin{foundframe}[t]
+    \frametitle{6. Numerical Solving Methods}
+    \framesubtitle{Overview}
+
+    \textbf{Problem:} Many equations cannot be solved analytically
+    $$f(x) = 0$$
+    
+    Examples: polynomials of degree $\geq 5$, transcendental equations, complex financial models
+    \vspace{1em}
+
+    \textbf{Goal:} Find $x^*$ such that $f(x^*) = 0$ (or very close to zero)
+    \vspace{1em}
+
+    \textbf{General Approach:}
+    \begin{enumerate}
+        \item Start with an initial guess $x_0$
+        \item Use an iterative algorithm to improve the guess
+        \item Stop when solution is "close enough" to the true answer
+    \end{enumerate}
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{6. Numerical Solving Methods}
+    \framesubtitle{Newton Raphson Method}
+
+    \textbf{Method:} Start with initial guess, iteratively improve using derivatives
+    $$y_{n+1} = y_n - \frac{f(y_n)}{f'(y_n)}$$
+    
+    Where $f(y) = \text{Bond Price}(y) - \text{Market Price}$
+    \vspace{1em}
+
+    \textbf{Algorithm:}
+    \begin{enumerate}
+        \item Start with initial guess (e.g., $y_0 = 0.05$)
+        \item Calculate $f(y_n)$ and $f'(y_n)$
+        \item Update: $y_{n+1} = y_n - \frac{f(y_n)}{f'(y_n)}$
+        \item Repeat until $|f(y_n)| < \text{tolerance}$
+    \end{enumerate}
+
+\end{foundframe}
+
+
+\end{document}

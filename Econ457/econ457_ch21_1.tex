@@ -1,0 +1,496 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 13-b}
+
+\title{Options: Valuation}
+\subtitle{Reference: Bodie et al, Ch 21}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Embedded Options
+        \item Market for Options
+        \item Put-Call Parity
+        \item Option Valuation
+            \begin{itemize}
+                \item Time Value
+                \item Black-Scholes-Merton
+                \item Greeks
+            \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Callable Bonds}
+
+    A callable bond is a bond that gives the issuer the right (but not the obligation) to redeem the bond before its maturity date at a predetermined price.
+
+    \textbf{Key Features:}
+    \begin{itemize}
+        \item \textbf{Call Price:} Usually set at par value (\$1,000) or slightly above
+        \item \textbf{Call Protection:} Period when bond cannot be called (e.g., first 5 years)
+        \item \textbf{Call Schedule:} Specific dates when bond can be called
+        \item \textbf{Higher Yield:} Callable bonds typically offer higher yields to compensate investors
+    \end{itemize}
+
+    \textbf{Why Do Issuers Call Bonds?}
+    \begin{itemize}
+        \item Interest rates have declined since issuance
+        \item Can refinance debt at lower cost
+        \item Improved credit quality allows cheaper financing
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Callable Bonds}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch21_1_callable_debt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Callable Bonds - Mortgages}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch14_2_mtg_prepayment.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Convertible Bonds}
+
+    A convertible bond is a bond that gives the bondholder 
+    the right (but not the obligation) to convert the bond 
+    into a predetermined number of shares of the issuer's common stock.
+
+    \textbf{Key Features:}
+    \begin{itemize}
+        \item \textbf{Conversion Ratio:} Number of shares per bond (e.g., 25 shares per \$1,000 bond)
+        \item \textbf{Conversion Price:} Effective price per share (\$1,000 ÷ 25 = \$40)
+        \item \textbf{Conversion Value:} Current stock price × conversion ratio
+        \item \textbf{Lower Yield:} Convertibles offer lower yields than straight bonds
+    \end{itemize}
+
+    \textbf{Value Components:}
+    \begin{itemize}
+        \item \textbf{Bond Floor:} Minimum value as a straight bond
+        \item \textbf{Option Premium:} Value of conversion feature
+        \item Total Value = Bond Floor + Option Premium
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Convertible Bonds}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch21_1_convertible_debt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Convertible Bond Arbitrage}
+
+    Convertible arbitrage is a hedge fund strategy that exploits pricing inefficiencies between convertible bonds and their underlying stocks.
+
+    \textbf{Basic Strategy:}
+    \begin{itemize}
+        \item \textbf{Long Position:} Buy the underpriced convertible bond
+        \item \textbf{Short Position:} Short sell the underlying stock (hedge ratio based on delta)
+        \item \textbf{Profit Source:} Capture the difference between implied and actual volatility
+    \end{itemize}
+
+    Why is the convertible bond underpriced?   Complexity, maybe?   Liquidity, maybe?
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Warrants}
+
+    A warrant is a security that gives the holder the right to purchase shares of the issuing company at a fixed price (exercise price) for a specified period of time.
+
+    \textbf{Key Features:}
+    \begin{itemize}
+        \item \textbf{Long Maturity:} Typically 3-5 years (vs. months for options)
+        \item \textbf{Issued by Company:} Company creates new shares when exercised
+        \item \textbf{Dilution Effect:} Exercise increases total shares outstanding
+    \end{itemize}
+
+    \textbf{Warrants vs. Call Options:}
+    \begin{itemize}
+        \item \textbf{Source:} Warrants issued by company; calls created by investors
+        \item \textbf{Dilution:} Warrant exercise dilutes existing shareholders
+        \item \textbf{Proceeds:} Exercise price goes to company (warrants) vs. option writer (calls)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Corporate Bonds as Short Put Options}
+
+    Corporate bonds can be viewed as equivalent to buying a risk-free bond and selling a put option on the firm's assets.
+
+    \textbf{The Logic:}
+    \begin{itemize}
+        \item \textbf{Default occurs when:} Firm value falls below debt obligations
+        \item \textbf{Bondholders receive:} Min(Face Value, Firm Value)
+        \item \textbf{This is equivalent to:} Face Value - Max(0, Face Value - Firm Value)
+        \item \textbf{Which equals:} Risk-free bond - Put option on firm value
+    \end{itemize}
+
+    \textbf{Implications:}
+    \begin{itemize}
+        \item Higher firm volatility $\rightarrow$ Higher put value $\rightarrow$ Lower bond value
+        \item Corporate bond yield = Risk-free rate + Credit spread
+        \item Credit spread compensates for the "short put" position
+        \item Explains why bond prices fall when default risk increases
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Embedded Options}
+    \framesubtitle{Corporate Bonds as Short Put Options}
+
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/ch21_1_corporate_debt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Market For Options}
+    \framesubtitle{How Options Are Traded}
+
+    \footnotesize
+    \textbf{Exchange-Traded Options (Listed):}
+    \begin{itemize}
+        \item \textbf{Major Exchanges:} Chicago Board Options Exchange (CBOE), CME Group, NYSE American
+        \item \textbf{Standardized:} Fixed expiration dates, strike prices, contract sizes
+        \item \textbf{Clearing:} Options Clearing Corporation (OCC) guarantees all trades
+        \item \textbf{Liquid:} High volume, tight bid-ask spreads for popular contracts
+        \item \textbf{Examples:} SPY, QQQ, individual stock options
+    \end{itemize}
+
+    \textbf{Over-the-Counter (OTC) Options:}
+    \begin{itemize}
+        \item \textbf{Customized:} Tailored strike prices, expiration dates, underlying assets
+        \item \textbf{Counterparty Risk:} No central clearing, direct bilateral agreements
+        \item \textbf{Less Liquid:} Harder to trade before expiration
+        \item \textbf{Examples:} Currency options, commodity options, exotic options
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Market For Options}
+    \framesubtitle{}
+
+    One month options on the S\&P:\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch21_calls.png}
+        \vspace{1em}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch21_puts.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Put-Call Parity}
+    \framesubtitle{}
+
+    Notice that \textbf{buy call} strategy looks very similar to a \textbf{protective put}.\\
+    \vspace{1em}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch20_1_buy_call.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch20_1_prot_put.png}
+    \end{minipage}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Put-Call Parity}
+    \framesubtitle{}
+
+    In order to make them exactly equal, we need to combine the call with a zero-coupon 
+    bond that returns the value of the strike.\\
+    $$C_0 + \frac{X}{(1+r_f)^T} = S_0 + P_0$$
+    Where $X$ is the zero-coupon bond with face value equal to the strike price.   One final detail is that 
+    the value of the stock ($S_0$) incorporates the right to dividends that are paid before the option expiry.  
+    We need to add those divdends to the left hand side to make these equal.
+    $$C_0 + \frac{X}{(1+r_f)^T} + PV(\text{dividends})= S_0 + P_0$$
+    Rearranging slightly gives us the expression of \textbf{put-call parity}
+    $$\boxed{P_0 = C_0 - S_0 + PV(X) + PV(\text{dividends})}$$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{Time Value}
+
+    The \textbf{intrisic value} of an option is the value of the option at the time of 
+    expiry.   The \textbf{time value} of the option is defined as the difference between 
+    the value today and the intrinsic value of the option.\\
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch21_timevalue.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{NVDA calls}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch21_nvda_call.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{NVDA calls}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch21_nvda_call2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{Determinants of Call Option Value}
+
+    \begin{table}
+        \centering
+        \caption{Determinants of Call Option Value}
+        \begin{tblr}{
+            colspec = {Q[l,wd=5cm] Q[c,wd=3.cm]}
+        }
+        \toprule
+        If this Variable Increases... & The Call Option... \\
+        \midrule
+        Stock Price, $S_0$ & Increases \\
+        Exercise Price, $X$ & Decreases \\
+        Volatility, $\sigma$ & Increases \\
+        Time to Expiration, $T$ & Increases \\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{NVDA calls - Change in Time to Expiry}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch21_nvda_call3.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{NVDA calls - Change in Volatility}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch21_nvda_call4.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{Black-Scholes-Merton}
+
+    The value of a call option is given by the \textbf{Black-Scholes-Merton} formula:
+    $$C = S_0N(d_1) - Ke^{-rT}N(d_2)$$
+    Where
+    $$d_1 = \frac{ln\left(\frac{S_0}{K}\right) + \left(r+\frac{\sigma^2}{2}\right)T}{\sigma\sqrt{T}}$$
+    $$d_2 = d_1 - \sigma\sqrt{T}$$
+    And $S_0$ is the spot price, $K$ is the strike price, 
+    $r$ is the risk-free rate, $T$ is time to expiry, and $\sigma$ is the 
+    implied volatility.   $N()$ is the cdf of the normal distribution.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Option Valuation}
+    \framesubtitle{Greeks}
+
+    The \textbf{greeks} of an option are how much the option 
+    value changes for a change in one of the input paramaters.
+
+    \begin{table}
+        \centering
+        \caption{Option Greeks for \textbf{Call} Options}
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=5.cm] Q[c,wd=2.cm] }
+        }
+        \toprule
+        Greek & Measures Sensitivity to & Sign \\
+        \midrule
+        Delta ($\delta$) & Stock price ($S_0$) & Positive \\
+        Gamma ($\gamma$) & Delta & Positive \\
+        Theta ($\theta$) & Time to Expiry ($T$) & Negative\\
+        Vega ($\nu$) & Implied Volatility & Positive \\
+        \bottomrule
+        \end{tblr}
+
+    \end{table}
+
+        \blfootnote{Note: For puts, delta is negative while gamma and vega have the same positive sign. 
+        Theta is typically negative for both calls and puts (time decay)}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \footnotesize
+    In each of the following questions you are asked to compare two options.   The risk free interest rate for 
+    all cases is 4\%.  Assume the stocks on which these options are written pay no dividends.\\
+    \vspace{1em}
+    \begin{enumerate}
+        \item Which put option is written on the stock \textit{with the lower price}?   A, B, or not enough information given.\\
+            \begin{table}
+            \centering
+            \begin{tblr}{
+                colspec = {Q[l,wd=1cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] }
+            }
+            \toprule
+            Put & T & X & $\sigma$ & Price \\
+            \midrule
+            A & 0.5 & 50 & 0.2 & \$10\\
+            B & 0.5 & 50 & 0.25 & \$10\\
+            \bottomrule
+            \end{tblr}
+            \end{table}
+            
+        \item Which put option is written on the stock \textit{with the lower price}?   A, B, or not enough information given.
+            \begin{table}
+            \centering
+            \begin{tblr}{
+                colspec = {Q[l,wd=1cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] }
+            }
+            \toprule
+            Put & T & X & $\sigma$ & Price \\
+            \midrule
+            A & 0.5 & 50 & 0.2 & \$10\\
+            B & 0.5 & 50 & 0.2 & \$12\\
+            \bottomrule
+            \end{tblr}
+            \end{table}
+            
+    \end{enumerate}            
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \footnotesize
+    \begin{enumerate}
+        \item[3. ] Which call option must have the \textit{lower time to expiration}?   A, B, or not enough information given.
+            \begin{table}
+            \centering
+            \begin{tblr}{
+                colspec = {Q[l,wd=1cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] }
+            }
+            \toprule
+            Call & S & X & $\sigma$ & Price \\
+            \midrule
+            A & 50 & 50 & 0.2 & \$12\\
+            B & 50 & 50 & 0.2 & \$10\\
+            \bottomrule
+            \end{tblr}
+            \end{table}
+            
+        \item[4 .] Which call option is written on the stock \textit{with higher volatility}?   A, B, or not enough information given.
+            \begin{table}
+            \centering
+            \begin{tblr}{
+                colspec = {Q[l,wd=1cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] Q[c,wd=1.cm] }
+            }
+            \toprule
+            Call & T & S & X & Price \\
+            \midrule
+            A & 0.5 & 50 & 55 & \$10\\
+            B & 0.5 & 50 & 50 & \$7\\
+            \bottomrule
+            \end{tblr}
+            \end{table}
+            
+    \end{enumerate}            
+
+\end{practiceframe}
+
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item[5. ] Would you expect a \$1 increase in a call option's exercise price to lead to a decrease in the call 
+        option's value of more or less than \$1?
+        \item[6. ] Is a put option on a high-beta stock worth more than one on a low-beta stock?   The stocks have identical 
+        firm specific risk.
+        \item[7. ] If the time to expiration falls and the put price rises, what has happened to the put option's 
+        implied volatility?
+        \item[8. ] What will happen to the delta of a convertible bond as the stock price becomes very large?
+    \end{enumerate}
+
+\end{practiceframe}
+
+
+
+\end{document}

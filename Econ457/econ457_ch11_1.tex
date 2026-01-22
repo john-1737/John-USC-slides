@@ -1,0 +1,612 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 8-b}
+
+\title{Efficient Markets}
+\subtitle{Reference: Bodie et al, Ch 11 \& 12}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Random Walks
+        \item Efficient Markets hypothesis
+        \item Momentum
+        \item Mispricing or Risk Premium?
+        \item Practice
+    \end{enumerate}
+
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{1. Random Walks}
+    \framesubtitle{Definition and Formula}
+
+    A \textbf{random walk} is a characterized by the following process:
+    $$X_t = X_{t-1} + \epsilon_t$$
+    where:
+    \begin{itemize}
+        \item $X_t$ = value at time $t$
+        \item $X_{t-1}$ = value at previous time period
+        \item $\epsilon_t$ = random error term (often called "innovation" or "shock")
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Alternative representation:}
+    $$\Delta X_t = X_t - X_{t-1} = \epsilon_t$$
+    
+    In words, the changes in $X$ are purely random and unpredictable.
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Random Walks}
+    \framesubtitle{Key Assumptions}
+
+    \textbf{Assumptions about the error term $\epsilon_t$:}
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item \textbf{Zero mean:} $E[\epsilon_t] = 0$
+        \begin{itemize}
+            \item On average, there is no systematic upward or downward trend
+        \end{itemize}
+        \vspace{0.5em}
+
+        \item \textbf{Constant variance:} $\text{Var}(\epsilon_t) = \sigma^2$ for all $t$
+        \begin{itemize}
+            \item The magnitude of random fluctuations is constant over time
+        \end{itemize}
+        \vspace{0.5em}
+
+        \item \textbf{No serial correlation:} $\text{Cov}(\epsilon_t, \epsilon_s) = 0$ for $t \neq s$
+        \begin{itemize}
+            \item Today's shock is independent of past or future shocks
+            \item No predictable patterns in the error terms
+        \end{itemize}
+        \vspace{0.5em}
+
+        \item \textbf{Normal distribution:} $\epsilon_t \sim N(0, \sigma^2)$ (often assumed)
+    \end{enumerate}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Random Walks}
+    \framesubtitle{Expected Behavior and Properties}
+
+    \textbf{Properties of a random walk:}
+
+    \begin{itemize}
+        \item \textbf{Expected value:} $E[X_t] = X_0$ (constant over time)
+        \item \textbf{Variance grows linearly:} $\text{Var}(X_t) = t \cdot \sigma^2$
+        \item \textbf{Standard deviation grows as $\sqrt{t}$:} $\text{SD}(X_t) = \sqrt{t} \cdot \sigma$
+        \item \textbf{Unpredictability:} Future values cannot be forecasted better than current value
+        \item \textbf{Path dependence:} Current value depends on entire history of shocks
+        \item \textbf{Non-stationarity:} Statistical properties change over time
+        \item \textbf{Persistence:} Effects of shocks are permanent (no mean reversion)
+    \end{itemize}
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Random Walks}
+    \framesubtitle{Random Walk with Drift}
+
+    A \textbf{random walk with drift} includes a constant trend component:
+    $$X_t = X_{t-1} + \mu + \epsilon_t$$
+    where: $\mu$ is drift parameter (constant trend), 
+    and $\epsilon_t$ is random error term with $E[\epsilon_t] = 0$
+    \vspace{1em}
+
+    \textbf{Properties:}
+    \begin{itemize}
+        \item \textbf{Expected value:} $E[X_t] = X_0 + t \cdot \mu$ (grows linearly)
+        \item \textbf{Variance:} $\text{Var}(X_t) = t \cdot \sigma^2$ (same as before)
+        \item \textbf{Trend vs. randomness:} Long-run behavior dominated by drift $\mu$
+    \end{itemize}
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Car Auctions}
+
+    In an auction, the winner will be the bidder with the highest valuation,
+     and the winning price will be set by the second highest valuation + a little bit.
+    \begin{itemize}
+        \item A used car is being auctioned.   You value the car at \$18k, your friend 
+        values it at \$20k.
+        \item Bidding starts at \$15k and moves in \$1k increments.  
+        \item You both bid at 15, 16, 17, and 18.
+        \item At \$19 you drop out, your friend wins the car for \$19 (less than he values it, btw)
+    \end{itemize}
+    
+    It's tempting to think the analogy for markets is that the investors with the highest valuation will 
+    always buy the stock.   Tempting, but wrong...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Why markets are not like car auctions}
+
+    If markets are complete, traders can short securities.   A security that is over-valued presents 
+    a valuable opportunity.   The amount that an investor would be willing to risk on this opportunity 
+    is a function of the investor's certainty and the size of the valuation gap.\\
+    \vspace{1em}
+    In the context of markets, therefore, prices are set by the investor that values the \textit{trade} 
+    the highest, and the trade could either be a long or a short trade.\\
+    \vspace{1em}
+    If the price was always set by the investor with the highest valuation, prices would consistently be 
+    set too high (there are a bunch of overly optimistic investors out there).   But, this would be an 
+    opportunity for somebody to make money by being short, and therefore can't be an equilibrium.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{}
+
+    The \textbf{Efficient Markets Hypothesis (EMH)} states that
+    all available information that could be used to predict 
+    stock performance should already be reflected in current stock prices.\\
+    \vspace{1em}   
+    If true, then future price changes should be 
+    unpredictable and stock prices should follow a random walk.\\
+    \vspace{1em}
+    \begin{itemize}
+        \item Prices should adjust (automatically) to fair value.  
+        \item Fair value reflects both the cost of money 
+        (risk-free rate) as well as a risk premium.   
+        \item These factors can introduce \textbf{drift} 
+        to the series of stock prices.
+        \item Prices can and should adjust to \textbf{new} information (earnings, 
+        economic data, etc).
+    \end{itemize}
+    Put more simply: "Prices are right" and "there is no free lunch" (Barberis and Thaler, 2003)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Three Versions}
+
+    There are three versions of the Efficient Markets Hypothesis
+    \begin{enumerate}
+        \item \textit{Weak Form:} Stock prices already reflect all information 
+        available from history of past prices, trading volume, and short interest.
+        \item \textit{Semistrong Form:} All publicly available information 
+        regarding the prospects of the firm is already incorporated in stock prices.
+        \item \textit{Strong Form:} Stock prices reflect all relevant information, 
+        even if only available to insiders.
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Implications for Active Management}
+
+    Implcations:
+    \begin{enumerate}
+    \item Outperforming the competition is only possible if an investor 
+    has better information that isn't already reflected in prices.
+    Generating better information is costly. 
+    The costs are likely to erode some of the excess performance. 
+    Trading costs and fees are likely to further reduce net returns.
+    \item The change in market prices is unpredictable.   
+    It should not be possible to predict price changes using past information. 
+    If price changes are unpredictable, the level of prices should behave like a random walk 
+    (potentially a random walk with drift)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Implications for Active Management}
+
+    \begin{table}
+            \caption{Percentage of Actively Managed Mutual Funds}
+        \begin{tabular}{lcc}
+            \toprule
+             & Underperformed S\&P 500 & Outperformed S\&P 500\\
+            \midrule
+            1 year & 73 & 27\\
+            3 year & 65 & 35 \\
+            5 year & 87 & 13 \\
+            10 year & 86 & 14 \\
+            15 year & 88 & 12 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: S\&P Global, 2025}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Robert Shiller Chart}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch11_1_shiller.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Robert Shiller Chart}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch11_1_shiller_jb.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Shiller's Defintion of Bubbles}
+
+    In his book \textit{Irrational Exhuberance} Rober Shiller defined a bubble as
+    follows:
+    
+    \vspace{1em}
+    
+    \begin{quote}
+        I define a speculative bubble as a situation in which news of price 
+    increases spurs investors enthusiasm, which spreads by pychological contagion 
+    from person to person, in the process amplifying stories that might justify 
+    the price increases and bringing in a larger and larger class of investors, who, 
+    despite doubts about the real value of an investment, are drawn to it partly through 
+    envy of others' successes and partly through a gambler's excitement.
+    \end{quote}
+
+    \vspace{1em}
+
+    Note all of the words from pyschology: ethusiasm, pychological contagion, envy, and 
+    gambler's excitement.\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Behavioral Economics}
+
+    There are many findings in behavioral finance that may be relevant for investors,
+     including
+    \begin{itemize}
+        \item Overconfidence
+        \item Belief Perserverance
+        \item Optimism and Wishful Thinking
+        \item Representativeness
+        \item Conservatism
+        \item Endowment Effects
+        \item Anchoring
+        \item Availability Bias
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Behavioral Violations}
+
+    Big idea: investors are systematically irrational \textbf{and} there are limits to 
+    arbitrage.   As a consequence, markets regularly misprice securities.  
+    Examples include:
+    \begin{itemize}
+        \item Closed end funds (discounts are correlated across funds, correlated with other 
+        asset prices)
+        \item Equity carve-outs (pieces don't sum to the whole)
+        \item Stocks tend to go up in January and on Mondays
+        \item Stocks tend to 'drift' following earnings surprises (prices don't immediately 
+       adjust)
+        \item Stocks names seem to matter (example: a fund named CUBA held no Cuban assets, but 
+        went up when Obama announced a detante with Cuba)
+    \end{itemize}
+
+    While these all seem like violations of the efficient market hypothesis, 
+    it's not clear how significant or actionable they are.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Efficient Markets Hypothesis}
+    \framesubtitle{Samuelson Dictum and Black's Definition of Efficiency}
+
+    Fisher Black said EMH seemed reasonable if we define "efficient" as follows: 
+    individual company stock prices are between half true value and twice 
+    true value at least 90\% of the time.\\
+    \vspace{1em}
+    Paul Samuelson reportedly said that markets are "micro efficient" and 
+    "macro inefficient".\\ 
+
+    \blfootnote{See Shiller \textit{Finance and the Good Society}, chapter 26 }
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{Definition}
+
+    Momentum refers to the tendency of assets that have risen in price to continue rising, 
+    or, conversely, for assets that have fallen in price to keep falling.\\
+    \vspace{1em}
+    Constructing a momentum factor is straightforward: 
+    the difference between the returns on a portfolio of assets that have recently risen 
+    minus the returns on a portfolio of assets that have recently fallen.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{Momentum Performance}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch10_ff_momentum.png}
+
+    \vfill
+    \raggedright
+    \footnotesize
+    Data Source: Ken French data library
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{Momentum Performance}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch10_ff_momentum_logs.png}
+
+    \vfill
+    \raggedright
+    \footnotesize
+    Data Source: Ken French data library
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{AQR's Managed Futures Strategy Fund (AQMIX)}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch10_aqmix.png}
+
+    \vfill
+    \raggedright
+    \footnotesize
+    Source: AQR website
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{AQR's Managed Futures Strategy Fund (AQMIX)}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch10_aqmix_2.png}
+
+    \vfill
+    \raggedright
+    \footnotesize
+    Source: AQR website
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{AQR's Managed Futures Strategy Fund (AQMIX)}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch10_aqmix_3.png}
+
+    \vfill
+    \raggedright
+    \footnotesize
+    Source: AQR website
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Momentum}
+    \framesubtitle{AQR's Managed Futures Strategy Fund (AQMIX)}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch10_aqmix_perf.png}
+
+    \vfill
+    \raggedright
+    \footnotesize
+    Source: Morningstar website
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Mispricing or Risk Premium?}
+    \framesubtitle{Outperformance of VALUE strategies}
+
+    Advocates for behavioral finance and efficient markets both agree that 
+    value stocks have tended to outperform over time.   They disagree, however, 
+    on the reason for the outperformance and the implications.\\
+    \vspace{1em}
+    \begin{itemize}
+        \item \textit{Behavioral:} Investors \textbf{overreact} to new information.  
+        This causes them to over-sell on bad news, and the subsequent price recovery 
+        leads to outperformance.   
+        \item \textit{Efficient Markets:} The performance of value stocks is highly 
+        correlated with systemic risk.   These are riskier companies that could and will 
+        fail if there were to be a systemic crisis.   Investor deserve a risk premium for 
+        bearing exposure to such companies.
+    \end{itemize} 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Mispricing or Risk Premium?}
+    \framesubtitle{Outperformance of MOMENTUM strategies}
+
+    Similarly, advocates for behavioral finance and efficient markets both agree that 
+    momentum strategies have tended to outperform over time.   Again, they disagree, however, 
+    on the reason for the outperformance and the implications.\\
+    \vspace{1em}
+    \begin{itemize}
+        \item \textit{Behavioral:} Investors \textbf{underreact} to new information.  
+        They have biases that lead to slow updating.   This causes them to price in 
+        information slowly.   
+        \item \textit{Efficient Markets:} Investors are often hurt when trends break. 
+        By definition, momentum strategies will underporm during these periods.  
+        Investors deserve a risk premium for bearing this risk.
+    \end{itemize} 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Mispricing or Risk Premium?}
+    \framesubtitle{Recent Performance of Factors}
+
+    \raggedright
+    It's also possible that the factor outperformance won't be repeated.  
+    In fact, recently it looks like both factors, momentum and value, have been less 
+    effective.\\
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch10_ff_since2000.png}
+
+    \blfootnote{Data Source: Ken French data library}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+        \begin{enumerate}
+            \item Consider the following data for a one-factor economy.   Both portfolios are 
+            well diversified.
+            \begin{table}
+                \begin{tabular}{ccc}
+                    \toprule
+                    Portfolio & E[r] & Beta\\
+                    \midrule
+                    A & 12\% & 1.2\\
+                    B & 6\% & 0\\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+            Suppose another portfolio, portfolio E, is well diversified with a beta of 0.6 and 
+            an expected return of 8\%.  Would an arbitrage opportunity exist?   If so, what would be the 
+            arbitrage?
+        \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+        \begin{enumerate}[2]
+        \item Suppose that the market can be described by the following three sources of risk, each of which 
+        has an associated risk-premium: 
+          \begin{table}
+            \begin{tabular}{lc}
+                \toprule
+                Factor & Risk Premium\\
+                \midrule
+                Industrial Production ($I$) & 6\%\\
+                Interest Rates ($R$) & 2\\
+                Consumer Confidence ($C$) & 4\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+         You estimate the return on the stock is given by
+         $$r = 15 + 1.0 I + 0.5 R + 0.75 C + \epsilon$$
+        Where $I$, $R$, and $C$ are surprises in these economic series. 
+        Assuming the T-Bill rate is 6\%, find the fair rate of return on this stock
+         using the Arbitrage Pricing Theory.   Is the stock over or under valued?
+    \end{enumerate}
+
+\end{practiceframe}
+
+
+\begin{practiceframe}[t]
+    \frametitle{2. Practice}
+    \framesubtitle{}
+
+        \begin{enumerate}
+            \setcounter{enumi}{2} 
+            \item A successful firm like Microsoft has consistently generated large 
+            profits for years.   Is this a violation of EMH?
+            \item "If all securities are fairly priced, all must offer equal expected 
+            rates of return."   True or False?   Explain why or why not?
+            \item Which of the following would be a viable way to earn \textit{abnormally high} 
+            trading profits if markets are efficient:
+            \begin{itemize}
+                \item Buy shares in companies with low P/E ratios
+                \item Buy shares in companies with recent above-average price changes
+                \item Buy shares in companies with recent below-average price changes
+                \item Buy shares in companies for which you have advanced knowledge of positive changes in the 
+                management teams
+            \end{itemize}
+        \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+        \begin{enumerate}
+            \setcounter{enumi}{5} 
+            \item If on any day prices are as likely to increase as they are to decrease, 
+            why do investors earn positive returns from the market on average?
+            \item A random walk occurs when:
+            \begin{itemize}
+                \item Stock prices are random but predictable
+                \item Stock prices respond slowly to both old and new information
+                \item Future price changes are uncorrelated with past price changes
+                \item Past information is useful in predicting future prices
+            \end{itemize}
+            \item Provide a reason why, over an extended period of time, value-stock investing 
+            might outperform growth stock investing?   Is this a violation of EMH?
+            \item Provide a reason why, over an extended period of time, momentum investing 
+            might outperform the broad market?   Is this a violation of EMH?
+        \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

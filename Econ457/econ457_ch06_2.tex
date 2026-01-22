@@ -1,0 +1,430 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 3-b}
+
+\title{Capital Allocation}
+\subtitle{Reference: Bodie et al, Ch 6}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Capital Allocation: Review
+        \item Capital Allocation: Practice
+        \item Leverage and Extending the CAL
+        \item Leverage in Practice
+        \item Margin Calls
+        \item LTCM 1998
+        \item Excel
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Capital Allocation: Review}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_1_opt.png}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{2. Capital Allocaiton: Practice}
+
+    \vspace{-1em}
+    You manage a risky portfolio with expected rate of return of 12\% and a standard deviation of 28\%. 
+    The T-Bill rate is 2\%.
+    \begin{enumerate}
+        \item You clinet chooses to invest 70\% of a portfolio in your fund and 30\% in a risk-free money 
+        market fund.   What are the expected return and standard deviation on her portfolio?
+        \item What is the reward-to-volatility (Sharpe) ratio of her portfolio?   Of your risky portfolio?   (Hint: draw the CAL, what is the slope?  Where is your client's portfolio?)
+        \item Suppose your client instead chooses to invest a proportion $y$ that maximizes the expected return, 
+        subject to the constraint that the complete portfolio standard deviation will not exeed 12\%.   What is in the invested proportion $y$?   What is the 
+        expected return?
+        \item Your client's degree of risk aversion is $A = 3.5$.   What proportion $y$ should they invest in your fund?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{2. Capital Allocaiton: Practice}
+
+    \vspace{-1em}
+    Consider a risky portfolio with $\mathbb{E}[r_p]=8\%$ and $\sigma_p=15\%$.   The risk free rate is 2\%.
+    \begin{enumerate}
+    \setcounter{enumi}{4}
+        \item Your client wants to invest a proportion of her budget in this fund to get a 
+        a rate of return on her overall portfolio of 5\%.   What proportion of her total portfolio 
+        should she invest in the risky fund?
+        \item What will the standard deviation be on her total portfolio?
+        \item Another client wants the highest return possible, subject to the constraint that you 
+        limit the standard deviation to be no more than 12\%.   Which client is more risk averse?
+    \end{enumerate}
+
+\end{practiceframe}
+
+
+\begin{frame}[t]
+    \frametitle{3. Leverage and Extending the CAL}
+    \framesubtitle{Risk Lovers}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_2_risk_lovers.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Leverage and Extending the CAL}
+    \framesubtitle{Risk Lovers}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_max_risk_lovers_w.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Leverage and Extending the CAL}
+    \framesubtitle{Cost of Leverage}
+
+    Leverage involves borrowing money in order purchase more assets.
+    Leverage makes it possible to attain higher expected returns, with additional risk.\\  
+    \vspace{1em}
+    Typically borrowing has an associated cost.
+    The cost depends on the riskiness of the assets being purchased (more on this below).
+    For a broad basket of equities, the cost of borrowing is typically close to the risk-free rate.
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Leverage and Extending the CAL}
+    \framesubtitle{Cost of Leverage}
+
+    The slope of the line to the right of the CML is $\frac{E[r_{risky}] - 2 \cdot r_f}{\sigma_{risky}}$,
+    in order to account for the cost of borrowing.
+
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ch6_1_cal_wleverage.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Leverage and Extending the CAL}
+    \framesubtitle{Graphic Representation and Optimization}
+
+    Extending the CAL matters for risk-loving prefernces (low $A$ values).
+    Can consider leverage in cases when $w^*=100\%$.
+
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ch6_1_cal_wleverage_opt.png}
+
+\end{frame}
+
+\begin{cautionframe}[t]
+    \frametitle{3. Leverage and Extending the CAL}
+    \framesubtitle{Assumptions in CAL Model}
+
+    Be careful, the capital allocation process described so far makes 
+    two very strong assumptions, 
+    both of which are based, in part, on a assumption of normally distributed returns:
+    \begin{enumerate}
+        \item Investor preferences are determined by \textit{only} the mean and variance of returns.   
+        Investors are "mean-variance optimizers."
+        \item The cost of leverage is \textit{only} the cost of borrowing (here $2*r_{rf}$).
+    \end{enumerate}
+    In fact, investors probably also care about the probability of bankruptcy (probability in the tails).  
+    The true cost of leverage may be that it introduces a vulnerability  
+    that can exacerbate losses.
+
+\end{cautionframe}
+
+\begin{frame}[t]
+    \frametitle{4. Leverage in Practice}
+    \framesubtitle{Examples}
+
+    Three prominent examples of leverage in practice:
+
+    \begin{enumerate}
+        \item Housing
+        \item Banking
+        \item Buying Assets on Margin
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Leverage in Practice}
+    \framesubtitle{Housing}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            The typical mortgage requires a 20\% downpayment.
+            The remaining 80\% of the cost of the house is borrowed.\\
+            \vspace{1em}
+            The leverage ratio is 5:1 (total cost / amount of equity).
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch6_2_mtg.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{4. Leverage in Practice}
+    \framesubtitle{Housing, cont'd}
+
+    Example: 
+    \begin{itemize}
+        \item You buy a house for \$1,000,000.   
+        \item You make a 20\% downpayment (\$200,000)
+        \item You finance the remainding \$800,000 with a 7\% mortgage.
+    \end{itemize}
+
+    \begin{table}
+        \caption{Example Home Ownership Returns}
+        \begin{tabular}{lccc}
+        \toprule
+        Scenario & Price Change & Interest Cost & Return on Equity \\
+        \midrule
+        HPI +10\% & \$100,000 & \$56,000 & 22.0\% \\
+        HPI +20\% & \$200,000 & \$56,000 & 72.0\% \\
+        HPI -10\% & -\$100,000 & \$56,000 & -78.0\% \\
+        \bottomrule
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Leverage in Practice}
+    \framesubtitle{Banking}
+
+    Banks are required to be financed with $\sim$10\% equity capital.\\
+    \vspace{1em}
+    While it varies widely with the bank, the remainder is financed with a mix of deposits, which are really short term loans, and unsecured debt.\\
+    \vspace{1em}
+    Banks are typically levered around 10:1 (total assets / equity capital)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Leverage in Practice}
+    \framesubtitle{Banking, cont'd}
+
+    \footnotesize
+    The core business of banking is making loans to households and businesses.
+    The rate on these loans is, say, around $r_f + 500 bps$ (it varies widely with the credit quality, maturity, etc).
+    If the bank finances these loans using unsecured debt, the cost of borrowing is, say, around $r_f + 200 bps$ (again, varies widely).
+    The banks' net interest margin on the loan is $300 bps$.  The bank must also account for charge-offs and costs associated with making loans.
+    Let's say those are an additional $200 bps$.   The total return for the bank, after expenses, is $100 bps$.  \textit{This is not a particularly high return.}\\
+    \vspace{1em}
+    The banks return on equity, on the other hand, is much higher.  Because the leverage ratio is 10:1, if the bank makes $100 bps$, then the equity holder would make $10\%$!\\
+    \vspace{1em}
+    While this example is purely for illustration, and reality is more complex, it does reflect the basics of the banking business model.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Leverage in Practice}
+    \framesubtitle{Banking, cont'd}
+
+    \centering
+    \includegraphics[width=1\textwidth]{figures/ch6_2_fdic.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Margin Calls}
+    \framesubtitle{Buying Assets on Margin}
+
+    When investors borrow money to purchase asssets, 
+    the lender (often a broker) typically requires them to 
+    post collateral or 'margin', which acts as surety for the lender.\\
+    \vspace{1em}
+    The margin requirements may vary with the riskiness of the assets being purchased.  
+    For common stocks the requirements may be 50\% initial margin 
+    and then 30\% maintenance margin.\\
+    \vspace{1em}
+    If the stocks that were purchased fall in price, the value of the posted margin declines as well.   
+    If the value falls below the maintenance margin, the investor is forced to post additional margin, or the broker will close the position.
+    This is known as a "margin call".
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Margin Calls}
+    \framesubtitle{Buying Assets on Margin}
+
+    Margin is calculated as the owners' equity divided by the value of the assets owned in the 
+    account.\\
+    \vspace{1em}
+    If you have \$10,000 of equity to fund a margin account, assuming a 50\% initial margin, you can 
+    buy \$20,000 worth of assets.\\
+    \vspace{1em}
+    In order to see where the margin call would happen, note that maintenance margin requirement 
+    can be expressed as:
+    $$\frac{\$20,000 * (1+r) - \$10,000}{\$20,000 * (1+r)} > 30\%$$
+    If that requirement is violated, you must either deposit more equity or the positions will be 
+    closed at a loss.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Margin Calls}
+    \framesubtitle{Buying Assets on Margin, example}
+
+    \footnotesize
+    You buy \$100 of stock by borrowing \$50 from your broker.   The following table summarizes your results, ignorning interest costs for simplicity:\\
+    \begin{table}
+        \caption{Margin Trading Example: \$100 Stock, \$50 Equity, \$50 Borrowed}
+        \begin{tabular}{lcccc}
+        \toprule
+        Scenario & Stock Value & Equity Value & Return on Equity & Margin Call \\
+        \midrule
+        Initial & \$100 & \$50 & -- & NO \\
+        Stock +20\% & \$120 & \$70 & 40.0\% & NO \\
+        Stock +10\% & \$110 & \$60 & 20.0\% & NO \\
+        Stock -10\% & \$90 & \$40 & -20.0\% & NO \\
+        Stock -20\% & \$80 & \$30 & -40.0\% & NO \\
+        Stock -30\% & \$70 & \$20 & -60.0\% & YES \\
+        Stock -40\% & \$60 & \$10 & -80.0\% & YES \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. LTCM in 1998}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ltcm.jpg}
+
+    \blfootnote{Source: \textit{When Genius Failed}, Roger Lowenstein, Random House, 2000}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. LTCM in 1998}
+    \framesubtitle{}
+
+    \vspace{-2em}
+
+    \begin{table}
+    \caption{LTCM Losses by Position}
+    \begin{tabular}{lc}
+    \toprule
+    Trade & Loss\\
+    \midrule
+    Russia and Emerging Markets & \$430 million\\
+    Directional Trades & \$371 million\\
+    Equity Pairs & \$286 million\\
+    Yield Curve & \$215 million\\
+    S\&P Stocks & \$203 million\\
+    High Yield Bond Arbitrage & \$100 million\\
+    Merger Arbitrage & roughly even\\
+    \midrule
+    Swap Spreads & \$1,600 million\\
+    Equity Volatility & \$1,300 million\\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: \textit{When Genius Failed}, Roger Lowenstein, Random House, 2000, page 235}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. LTCM in 1998}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch6_vix.png}
+
+    \blfootnote{VIX Index is calculated by the CBOE.  Data from Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. LTCM in 1998}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch6_vix_ltcm.png}
+
+    \blfootnote{VIX Index is calculated by the CBOE.  Data from Yahoo Finance}
+
+\end{frame}
+
+
+\begin{foundframe}[t]
+    \frametitle{REVIEW: The Normal Distribution}
+    \framesubtitle{Empirical Estimates}
+
+    Empirical mean:
+    $$\bar{x} = \frac{1}{T}\sum_{t=1}^{T}x_t$$
+
+    Empirical variance:
+    $$s^2 = \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2$$
+
+    Empirical standard deviation:
+    $$s = \sqrt{s^2} = \sqrt{\frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2}$$
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{REVIEW: The Normal Distribution}
+    \framesubtitle{Empirical Estimates}
+
+    Empirical covariance:
+    $$\operatorname{Cov}(x,y) = \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})(y_t - \bar{y})$$
+
+\end{foundframe}
+
+\begin{excelframe}[t]
+    \frametitle{7. Excel}
+    \framesubtitle{}
+
+    \begin{itemize}
+        \item AVERAGE()
+        \item STDEV()
+        \item VAR.P()
+        \item COVARIANCE.P()
+        \item SUMPRODUCT()
+    \end{itemize}
+
+\end{excelframe}
+
+\end{document}

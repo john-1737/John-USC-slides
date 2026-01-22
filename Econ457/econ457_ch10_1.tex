@@ -1,0 +1,464 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 8-a}
+
+\title{Multifactor Models, Fama-French Factors}
+\subtitle{Reference: Bodie et al, Ch 10}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Multifactor Models 
+            \begin{itemize}
+                \item Macroeconomic factors
+                \item Arbitrage Pricing Theory
+                \item Factor Portfolios and Risk Premiums
+            \end{itemize}
+        \item Fama and French Factors 
+        \item Multifactor Models in Practice (Smart Beta)
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Motivation}
+
+    One takeaway from CAPM was that \textit{only systematic risk would be priced}.   
+    A security with higher than average idiosyncratic risk will not have a higher than 
+    average expected return.   Only to the extent that the security's risk is correlated with 
+    systematic risk will it influence the expected return.\\
+    \vspace{1em}
+    Up to now we defined "systematic risk" as broad market risk.   
+    Idiosyncratic, or company specific, risk could be diversified away and therefore should not 
+    be rewarded with higher returns.   
+    But the risk of the broad market can not be diversified away, which is why investors should receive 
+    higher returns for bearing this risk.\\
+    \vspace{1em}
+    Today we are going to extend these ideas slightly and introduce \textit{multiple factors}.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{}
+
+    The Index model said that security returns were determined by 
+    one market factor and then idiosyncratic risk.  
+    Let's augment that by adding two additional factors reflecting the macroeconomic 
+    environment.\\
+    \vspace{1em}
+    For example, add linear terms to make the risk premium of security $i$ a 
+    function of macro surprises (GDP, CPI):
+    $$R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{GDP,i} \cdot GDP_t + \beta_{CPI,i} \cdot CPI_t + \epsilon_{i,t}$$
+    Where $GDP_t$ is the surprise, relative to expectations, of the GDP announcement.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Application 1}
+
+    Suppose this is your model for a security's returns: 
+        $$R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{GDP,i} \cdot GDP_t + \beta_{CPI,i} \cdot CPI_t + \epsilon_{i,t}$$
+    Where $GDP$ and $CPI$ are \textit{surprises}.\\
+    \vspace{1em}
+    You estimate that $\beta_{GDP,i} = 1.2$.\\
+    \vspace{1em}
+    Your initial estimate is that the excess return of the security will 
+    be 10\%.   If GDP comes in 1 percentage point lower than expected, 
+    how should you revise your estimate of the security's expected return?
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{This isn't CAPM}
+
+    While this may look similar to CAPM, we are not yet able to make the same conclusions with regards to 
+    equilibrium pricing. 
+    CAPM was motivated by (strong) assumptions about complete markets, shared investor preferences, etc.  
+    And the market return was, by assumption in CAPM, the return on the complete portfolio of all investable 
+    assets.\\
+    \vspace{1em}
+    In contrast, here we just chose a few macro factors to include in the model.  While GDP and Inflation 
+    are reasonable choices, we could have chosen anything.   
+    Because these factors aren't based on the same set of 
+    assumptions, and as a consequence can't make the same claims to characterizing the equilibrium, 
+    multifactor models need to rely on something else to make statements about pricing.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Arbitrage Pricing Theory}
+
+    Instead of relying on a economic model with equilibrium, these multifactor models instead rely on an
+    \textit{arbitrage} argument to make a statement about expected pricing.   This is \textbf{Arbitrage Pricing Theory (APT)}\\
+    \vspace{1em}
+    An \textit{arbitrage} opportunity is when an investor can make a riskless profit without making a net 
+    investment (or exposing herself to risk).   Arbitrages should be quickly closed by traders.  So if you can 
+    find two trades with the exact same risk, it's usually safe to assume the expected returns on the two trades 
+    should be equal.
+    \blfootnote{Obviously it's rare that the risk are exactly the same. 
+    We'll see these arguments again in the classes on options and derivatives.}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Security Market Line}
+
+    In multifactor models, we can argue that a no-arbitrage condition leads to the following conclusion:\\ 
+    \vspace{1em}
+    \begin{quote} 
+        Portfolios with equal betas should have equal expected returns, for any beta in a 
+        multifactor model.
+    \end{quote}
+    \vspace{1em}
+    This is similar to saying that all securities must lie on the Security Market Line (SML), but now we are 
+    talking about a multidimensional SML (harder to visualize).
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Security Market Line}
+    
+    To see why there must be a single SML, consider the following chart where the x-axis is the realization (surprise) of factor F.\\
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/ch10_1_2sml.png}
+
+    \raggedright
+    In this case, security A is always preferred to security B.   
+    An arbitrage strategy of selling B and buying A provides a riskless profit.  
+    As this arbitrage will be immediately closed by traders, prices will adjust so that both A and B 
+    eventually lie on the same line.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Factor Portfolios and Risk Premiums}
+
+    When we choose the macro factors, we should be careful to choose factors that are difficult to diversify.  
+    Idiosyncratic risk is easy to diversify, and therefore should not be rewarded with extra return.   
+    Factors that are more difficult to diversify, in contrast, could be rewarded with extra return.\\
+    \vspace{1em}
+    If we choose the factors appropriately, then we can argue that investors bearing exposure to these macro 
+    factors will be rewarded with extra return.   A different way to say that is that the there will be 
+    a risk premium associated with the macro factors.\\
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Factor Portfolios and Risk Premiums}
+    To implement the APT in a way that is similar to the CAPM, we next construct 
+    factor portfolios.   These portfolios may track the evolution of the 
+    macrovariable of interest, or perhaps some other aspect of systematic risk that should be rewarded.   
+    (We'll have some specific examples in a moment)\\
+    \vspace{1em}
+    The risk premium associated with the factor is then the excess return of the factor 
+    portfolio: $\mathbb{E}[r_F - r_f]$ where $r_F$ is the return on the factor portfolio.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Two Models}
+
+    We now have two different multifactor models.  Be careful because they look similar, but they have slightly different 
+    uses.
+    \begin{enumerate}
+        \item Returns are determined by surprises in macroeconomic factors:
+        $$R_i = E(R_i) + \beta_{i1}F_1 + \beta_{i2} F_2 + \epsilon$$
+        where $F_1$ and $F_2$ are \textit{surprises} in these factors, relative to expectations.
+        \item The fair return on a security is determined by the risk-premiums associated 
+        with macroecomonic factors:
+        $$E[r_i] = r_f + \beta_{i1}\mathbb{E}[r_1 - r_f] + \beta_{i2}\mathbb{E}[r_2 - r_f]$$
+        where $\mathbb{E}[r_1 - r_f]$ is the risk premium associated with a factor portfolio.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models - Macro Factors}
+    \framesubtitle{Application 2}
+
+    Consider the following APT model of returns for a particular stock:
+        \begin{table}
+            \begin{tabular}{lcc}
+                \toprule
+                Factor & Factor Beta & Factor Risk Premium \\
+                \midrule
+                Inflation   & 1.2 & 6\%\\
+                Industrial Production & 0.5 & 8\\
+                Oil Prices & 0.3 & 3\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+    If T-Bills currently yield 6\%, find the expected rate of return of this stock if the market 
+    views it as fairly valued.\\
+    \vspace{1em}
+    Note that the expected return may subsequently be adjusted due to \textit{surprises} in these variables.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{The Model}
+
+    The most famous multifactor model is the Fama-French model:
+    $$
+    R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{SMB,i} \cdot SMB_t + \beta_{HML,i} \cdot HML_t + \epsilon_{i,t}
+    $$
+    SML = return of small stocks minus return of large stocks\\
+    HML = return of value stocks minus return of growth stocks\\
+    \vspace{1em}
+    Procedure for creating factor portfolios: Sort firms by size or book-to-market.  
+    Create portfolios of the bottom and top deciles.   The SML factor portfolio is the return 
+    of small companies (bottom decile) minus the return of the large companies (top decile).
+    The HML factor portfolio is the return of the 
+    value companies (top decile in book-to-market) minus the growth portfolios (bottom decile in book-to-market).
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Book value v. Market value - Definitions}
+
+    Book Value: The net worth of a common equity according to the firm's balance sheet. 
+    Can be calculated as Assets - Liabilities. (also referred to as 'Book Equity' or BE)\\
+    \vspace{1em}
+    Market Value: The net worth of a common equity according to the market price.  
+    Can be calculated by Shares Outstanding X Market Price.  (also referred to as 'Market Equity' or ME)\\
+    \vspace{1em}
+
+    Value Stock: A stock with a \textbf{high} BE/ME ratio.  Equivalently, a stock with a \textbf{low} ME/BE ratio.\\
+    \vspace{1em}
+
+    Growth Stock: A stock with a \textbf{low} BE/ME ratio.   Equivalently, a stock with a \textbf{high} ME/BE ratio.\\
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Book value v. Market value - Examples}
+    
+    \vspace{-1.5em}
+    \footnotesize
+
+    \begin{table}
+    \caption{Book Equity and Market Equity}
+    \begin{tabular}{llll}
+    \toprule
+     & XOM & MSFT & KHC \\
+    \midrule
+    Assets (\$bn) & 451.90 & 562.20 & 90.27 \\
+    Liabilities (\$bn) & 182.10 & 240.70 & 40.60 \\
+    Shares Outstanding (bn) & 4.30 & 7.30 & 1.18 \\
+    Price (\$ as of 7-7-25) & 112.00 & 494.40 & 426.50 \\
+    \midrule
+    Book Equity, BE (\$bn) & 269.80 & 321.50 & 49.67 \\
+    Market Equity, ME (\$bn) & 481.60 & 3609.12 & 503.27 \\
+    \midrule
+    BE/ME & 0.56 & 0.09 & 0.10 \\
+    High or Low & High & Low & Low \\
+    Price to Book & 1.79 & 11.23 & 10.13 \\
+    Value or Growth & Value & Growth & Growth \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \vfill
+    \footnotesize
+    Data Source: Yahoo Finance as of 7-7-2025
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Book value v. Market value - Examples}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/ch_10_XOM_price.png}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/ch_10_XOM_logs.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Book value v. Market value - Examples}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/ch_10_MSFT_price.png}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/ch_10_MSFT_logs.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Book value v. Market value - Examples}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/ch_10_KHC_price.png}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/ch_10_KHC_logs.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Kraft-Heinz (KHC)}
+
+    \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.6\textwidth]{figures/ch10_buffet_2019.png}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.6\textwidth]{figures/ch10_buffet_2025.png}
+            \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Factor Portfolios}
+
+    \footnotesize
+    \vspace{-1em}
+
+    \begin{table}
+    \caption{Average Returns for Fama-French BE/ME Portfolios, 1926-2025}
+    \begin{tabular}{lrrr}
+    \toprule
+    decade & Lo 10 & Hi 10 & Difference \\
+    \midrule
+    1926-2025 & 0.91 & 1.30 & 0.39 \\
+    \midrule
+    1920 & 1.73 & 1.27 & -0.46 \\
+    1930 & 0.49 & 1.14 & 0.64 \\
+    1940 & 0.62 & 1.73 & 1.12 \\
+    1950 & 1.57 & 1.69 & 0.12 \\
+    1960 & 0.74 & 0.94 & 0.20 \\
+    1970 & 0.27 & 1.36 & 1.09 \\
+    1980 & 1.10 & 1.90 & 0.80 \\
+    1990 & 1.64 & 1.45 & -0.19 \\
+    2000 & -0.16 & 0.85 & 1.01 \\
+    2010 & 1.29 & 0.85 & -0.44 \\
+    2020 & 1.55 & 0.94 & -0.61 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Factor Performance}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch10_1_fffactors.png}
+
+    \raggedright
+    Conclusion: Both SML and HML are factor portfolios that have significant 
+    risk premiums associated with them.   Investors have been rewarded for bearing 
+    exposure to these factor portfolios.
+
+    \blfootnote{Data Source: Ken French data library}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Application}
+
+    In order to estimate the expected return for stock $i$, estimate the following model:
+    $$r_i = \alpha_i + \beta_{im}{r_m - r_f} + \beta_{i,SML} SML + \beta_{i,HML} HML + \epsilon$$
+    Then use the estimated risk premiums for $SML$ and $HML$, along with the estimated risk premium 
+    of the market, to calculate the expected return of security $r_i$.\\
+    \vspace{1em}
+    Note that just because there has been a nonzero risk premium on a factor in 
+    the past doesn't guarantee there 
+    will be a nonzero risk premium on the factor in the future.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Smart Beta}
+    \framesubtitle{Blackrock iShares Factors}
+
+    https://www.ishares.com/us/strategies/smart-beta-investing
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Smart Beta}
+    \framesubtitle{Blackrock iShares Factors}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch10_blk_factors.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Smart Beta}
+    \framesubtitle{Blackrock iShares Factors}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch10_blk_factors_perf.png}
+
+\end{frame}
+
+\end{document}

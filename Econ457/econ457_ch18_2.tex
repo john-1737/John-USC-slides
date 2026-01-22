@@ -1,0 +1,486 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 11-b}
+
+\title{Equity Valuation}
+\subtitle{Reference: Bodie et al, Ch 18}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Buybacks
+        \item Free Cash Flow Models
+            \begin{itemize}
+                \item Modigliani and Miller
+            \end{itemize}
+        \item Relative Valuation 
+            \begin{itemize}
+                \item P/E Ratio
+            \end{itemize}
+        \item Cyclically Adjusted P/E (CAPE)
+        \item Practice
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Buybacks}
+    \framesubtitle{}
+
+    Recently company managers have preferred to return earnings to shareholders 
+    via \textbf{stock buybacks} rather than through dividends.  Buybacks benefit 
+    all shareholders through higher prices.\\
+    \vspace{1em}
+    Advantages of stock buybacks include:
+    \begin{itemize}
+        \item Investors treat dividends as 'sticky'.  Any changes to dividend policy
+        are scrutinized.   In contrast, stock buybacks are more likely to be considered 
+        one-offs, which makes them a good way to distribute excess cash.
+        \item Management may view its stock price as undervalued.
+        \item There may be different tax treatment between dividends and capital gains
+        \item Reduces the amount of equity outstanding, which could improve financial ratios (Earnings per share, Return on Equity)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Buybacks}
+    \framesubtitle{Controversy and Recent Regulation}
+
+    Despite some advantages, stock buybacks are controversial:\\
+    \begin{itemize}
+        \item Prioritizes stock price gains over investments (R\&D, capital expenditures)
+        \item Can artificially inflate EPS without improving underlying business performance
+        \item Benefits executives with stock-based compensation more than other stakeholders
+    \end{itemize}
+    \vspace{1em}
+    Heightened public awareness led to some recent changes in tax and regulatory treatment:
+    \begin{itemize}
+        \item Inflation Reduction Act (2022): 1\% excise tax on share repurchases by public companies
+        \item SEC enhanced disclosure requirements (2023): more detailed reporting on buyback timing and rationale
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Buybacks}
+    \framesubtitle{Recent Trends}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch18_2_buybacks.png}
+
+    \blfootnote{https://www.spglobal.com/spdji/en/documents/index-news-and-announcements/20250917-sp-500-buyback-pr.pdf}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Free Cash Flow Models}
+    \framesubtitle{Modigliani and Miller}
+
+    The Modigliani-Miller theorem states that in perfect capital markets, 
+    a firm's value is independent of its capital structure (debt vs. equity mix).
+     The formal proof relies on some key assumptons, including, for example,
+     no taxes, no bankruptcy costs, perfect information and efficient markets.\\
+    \vspace{1em}
+    For the intuition, note that debt is usually cheaper than equity.  A more 
+    leveraged firm will have more debt, which will seemingly reduce its cost of financing.
+     However, the more leveraged firm is also riskier, so the interest rate on that debt and the 
+     required return on equity will both rise, and, in the model, perfectly offsetting the initial benefit.   
+     Therefore the weighted average cost of capital is unchanged, even as the mix of debt and equity changes.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Free Cash Flow Models}
+    \framesubtitle{Free Cash Flow to Firm (FCFF)}
+
+    \textbf{Definition:} Cash flow available to all capital providers (debt and equity holders) before any financing costs.\\
+    \vspace{1em}
+    \textbf{Calculation:}
+    \begin{align*}
+    FCFF &= \text{EBIT}(1-\text{Tax Rate}) + \text{Depreciation} \\
+         &\quad - \text{Capital Expenditures} - \text{Change in Working Capital}
+    \end{align*}
+    \vspace{1em}
+    \textbf{Valuation:}
+    $$\text{Firm Value} = \sum_{t=1}^{\infty} \frac{FCFF_t}{(1 + WACC)^t}$$
+    Where $WACC$ is the weighted average cost of capital\\
+    \vspace{1em}
+    \textbf{Use Case:} Total firm valuation; subtract debt to get equity value
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Free Cash Flow Models}
+    \framesubtitle{Free Cash Flow to Equity (FCFE)}
+
+    \textbf{Definition:} Cash flow available to equity holders after all expenses, taxes, debt payments, and reinvestment needs.\\
+    \vspace{1em}
+    \textbf{Calculation:}
+    \begin{align*}
+    FCFE &= FCFF - \text{Interest Expense}(1-\text{Tax Rate}) + \text{Increases in net debt}
+    \end{align*}
+    \vspace{1em}
+    \textbf{Valuation:}
+    $$\text{Equity Value} = \sum_{t=1}^{\infty} \frac{FCFE_t}{(1 + r_E)^t}$$
+    Where $r_E$ is the required return on equity (cost of equity)\\
+    \vspace{1em}
+    \textbf{Use Case:} Direct valuation of equity, particularly useful for leveraged firms
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{2. Free Cash Flow Models}
+    \framesubtitle{Modigliani and Miller}
+
+    Implication of Modigliani and Miller Theorem for Valuation:
+    \begin{itemize}
+        \item Firm value depends only on underlying cash flows, not financing decisions
+        \item Focus valuation on operating performance rather than capital structure
+        \item Provides foundation for free cash flow valuation methods
+    \end{itemize}
+    \vspace{1em}
+    Note that in practice, when valuing the same firm using FCFF (discounted at WACC) 
+    versus FCFE (discounted at cost of equity), the implied equity values are rarely 
+    equal. This suggests that Modigliani Miller assumptions don't hold perfectly in 
+    practice - not surprising given the restrictive assumptions.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Relative Valuation}
+    \framesubtitle{}
+
+    The dividend discount model valued a company based on its earnings and a discount rate.  
+    Using the modeled valuation, an investor could then determine whether the market price was 
+    too high or too low, and either sell or buy accordingly.\\
+    \vspace{1em}
+    An alternative approach would be to compare the market price of a company to the price of 
+    either other, similar companies OR compared to the price of that company over time.\\
+    \vspace{1em}
+    This approach requires \textit{normalizing} the market price by something, in order to account 
+    for observable differences across comparison companies.   A common approach is to normalize 
+    the price by \textbf{earnings}, although there are other possibilities too.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Relative Valuation}
+    \framesubtitle{P/E Ratio}
+
+    Reminder that the value of a perpetuity is given by:
+    $$P_0 = \frac{c}{k}$$
+    Where $P_0$ is the current price, $c$ is the payment amount, and $k$ is the discount rate.\\
+    \vspace{1em}
+    The value of a company that has no expected growth is similar to a perpetuity, with the 
+    payment amount equal to earnings ($E$).\\
+    $$P_0 = \frac{E}{k}$$
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Relative Valuation}
+    \framesubtitle{P/E Ratio}
+
+    Still thinking about companies with no expected growth (i.e. perpetuities), 
+    the Price-Earnings Ratio is:
+    $$P_0/E = \frac{1}{k}$$
+    Because the earnings cancels out.\\
+    \vspace{1em}
+    For illustrative purposes, assume that $k=12.5\%$.   
+    Then the P-E Ratio would be $1/0.125 = 8$.
+    \vspace{1em}
+
+    In words: investors should be willing to pay \$8 billion for a company with a 
+    required return of 12.5\%, no-growth prospects, and earnings next year of \$1 billion.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Relative Valuation}
+    \framesubtitle{P/E Ratio}
+
+    Of course, companies also have growth prospects, which should increase their value.  
+    We can define the value of a company as follows:
+    \begin{align*}
+    P_0 &= \text{PV(no-growth)} + \text{PV(Growth Opportunities)}\\
+        &= \frac{E_1}{k} + PVGO
+    \end{align*}
+    Where $PVGO$ is $PV(Growth Opportunities)$\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Relative Valuation}
+    \framesubtitle{P/E Ratio}
+
+    Dividing this by $E_1$ and doing a little rearranging 
+    gives an expression for the P/E Ratio:
+    $$
+    \frac{P_0}{E_1} = \frac{1}{k} \left(1 + \frac{PVGO}{E/k}\right)
+    $$
+    The term $\frac{PVGO}{E/k}$ is the ratio of the growth opportunities 
+    to the no-growth scenario for the firm.  And the term $\frac{1}{k}$ is 
+    what we say earlier about the PE ratio for a no-growth firm.\\
+    \vspace{1em}
+    In words, the PE ratio is the value of a perpetuity multiplied by 
+    one plus the ratio of PVGO to the no-growth value.  Firms will higher 
+    PVGOs will have higher PE ratios.   Investors are willing to pay more 
+    for companies with better growth prospects.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Relative Valuation}
+    \framesubtitle{P/E Ratio - Earnings}
+
+    In order to estimate the P-E Ratio you need to know the earnings.\\
+    \vspace{1em}
+    Ideally, you would have an estimate for forward earnings.  This could come from 
+    company guidance, or analyst consensus, or your own analysis.\\
+    \vspace{1em}
+    An often used substitute is earnings over the trailing twelve months (ttm).  While not ideal,
+     this is easily observed and readily available.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Price/Earnings Ratio}
+    \framesubtitle{PE Ratios across Industries}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch18_2_pe_ind.png}
+
+    \blfootnote{Data Source: Aswath Damodaran, available on his NYU website}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Price/Earnings Ratio}
+    \framesubtitle{PE Ratios in the Auto Industry}
+
+    \footnotesize
+    \begin{table}
+    \centering
+    \caption{PE Ratios in the Auto Industry, July 2025}
+    \begin{tabular}{|m{3cm}|>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.8cm}|>{\centering\arraybackslash}p{1.3cm}|>{\centering\arraybackslash}p{1.5cm}|}
+    \hline
+    & \textbf{Market Cap} & \textbf{Share Price, \$} & \textbf{EPS, TTM} & \textbf{PE Ratio, TTM} \\
+    & \textbf{\$ bn} & \textbf{(as of 7-16)} & & \\
+    \hline
+    Ford (F) & 44.6 & 11.25 & 1.25 & 9.00 \\
+    \hline
+    General Motors (GM) & 51.1 & 53.33 & 7.16 & 7.45 \\
+    \hline
+    Honda (HMC) & 41.8 & 30.53 & 3.64 & 8.39 \\
+    \hline
+    Tesla (TSLA) & 1,037 & 321.88 & 1.74 & \textbf{184.99} \\
+    \hline
+    BYD Company (BYD) & 172.6 & 93.73 & 4.30 & 21.77 \\
+    \hline
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Data from Yahoo Finance, as of 7-16-2025.}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Price/Earnings Ratio}
+    \framesubtitle{Do PE Ratios Predict Earnings Growth?}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch18_2_conpepsi_pe.png}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch18_2_conpepsi.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_1.png}
+
+    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{Definition}
+
+    Define the Cyclically Adjusted P-E Ratio (CAPE) as the "stock price divided by 
+    average real earnings over the previous 10 year."\\
+    \vspace{1em}
+    \begin{itemize}
+        \item Adjusted for inflation (real earnings)
+        \item 10 years is long enough to smooth over business cycles
+    \end{itemize}
+    \vspace{1em}
+    Accordingly, we would expect the CAPE to smoother than the PE ratio.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{Historical CAPE}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_2.png}
+
+    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{A Good Measure of Value?}
+
+    The inverse of the PE is the \textit{earnings yield}: $E/P$.\\
+    \vspace{1em} 
+    Define the \textit{excess CAPE yield} as 
+    $$\frac{1}{CAPE} - (\text{10y real UST yield})$$
+    \vspace{1em}
+    Is this a good measure of value?   When CAPE is high (low), the excess CAPE yield is 
+    low (high) and suggests future returns will also be low (high).\\
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{A Good Measure of Value?}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_3.png}
+
+    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{Barclays}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_2_barclays.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
+    \framesubtitle{Barclays}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch18_2_barclays2.png}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item Jand, Inc. currently pays a dividend of \$1.22, which is 
+        expected to grow indefinitely at 5\%.   If the current value of 
+        Jand's shares based on teh constant-growth dividend discount model 
+        is \$32.03, what is the required rate of return?
+        \item Computer stocks current provide an expected rate of return 
+        of 16\%.   MBI, a large computer compnay will pay a year-end dividend of \$2 
+        per share.   If the stock is selling at \$50 per share, what must be the market's 
+        expectation for the dividend growth rate?
+        \item If the dividend growth forecast is revised down to 5\%, what will have to 
+        the price of stock?  What (qualitatively) will happen to the price-earnings ratio?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item[4. ] MF Corp has an ROE of 16\% and a plowback ratio of 50\%.   If the coming 
+        year's earnings are expected to be \$2 per share, at what price will the stock 
+        sell?   The market capitalization rate is 12\%.   What price do you expect it 
+        to sell at in 3 years?
+        \item[5. ] Sisters Copr. expects to earn \$6 per share next year.  The firm's 
+        ROE is 15\% and its plowback ratio is 60\%.   If the firm's market capitalization 
+        rate is 10\%, what is the present value of its growth opportunities?
+        \item[6. ] The FI Corporation's dividends per share are expected to 
+        grow indefinitely by 5\% per year.  If this year's year-end dividend is \$8 and 
+        the market capitalization rate is 10\% per year, what must be the current stock price?  
+        If the expected earnings per share are \$12, what is the implied value of the ROE on 
+        future investment opportunities?   How much is the market paying per share for future 
+        growth?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item[7. ] The Duo Growth Company just paid a dividend of \$1 per share.  The 
+        dividend is expected to grow at a rate of 25\% per share for the next three years 
+        and then to level off to a 5\% per year forever.   You think the appropriate 
+        market capitalization rate is 20\% per year.   
+        \begin{itemize}
+            \item What is the estimate of the intrinsic value of the stock?
+            \item If the market price is equal to this intrinsic value, what is the dividend 
+            yield?
+            \item What do you expect the price to be one year from now?
+            \item If the implied capital gain consistent with your esimate of the dividend 
+            yield and the market capitalization rate?
+        \end{itemize}
+    \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

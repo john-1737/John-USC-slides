@@ -1,0 +1,628 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 2-b}
+
+\title{Evaluating Financial Market Returns}
+\subtitle{Reference: Bodie et al, Ch 5}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[t]
+    \frametitle{Outline}
+
+    Previously we covered measuring total returns (HPR, EAR, etc).   
+    Today we will talk about evaluating those returns.   
+    The first step is to compare the returns with something.
+
+    \vspace{2em}
+
+    \begin{enumerate}
+        \item Inflation \& Real Returns
+        \item Risk-free Returns \& Excess Returns (Sharpe Ratio)
+        \item Index Returns \& Excess Returns (Information Ratio)
+        \item Excel - Pivot Tables
+        \item Practice
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Long Run View}
+
+    \centering{
+      \includegraphics[width=0.8\textwidth]{figures/ch5_2_fig_1871-2025.png}
+    }
+      \tiny{
+      \begin{table}
+      \begin{tabular}{lr}
+      \toprule
+      & Annualized Rate \\
+      \midrule
+      S\&P 500 Total Return & 9.92 \\
+      CPI Inflation & 2.16 \\
+      S\&P 500 Real TR& 7.82 \\
+      \bottomrule
+      \end{tabular}
+      \end{table}
+      }
+    \blfootnote{Data Source: Robert Shiller}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{1970}
+
+    \centering{
+      \includegraphics[width=0.8\textwidth]{figures/ch5_2_fig_1970s.png}
+    }
+      \tiny{
+      \begin{table}
+      \begin{tabular}{lr}
+      \toprule
+      & Annualized Rate \\
+      \midrule
+     S\&P 500 Total Return & 6.56 \\
+      CPI Inflation & 7.16 \\
+      S\&P 500 Real TR & -0.53 \\
+      \bottomrule
+      \end{tabular}
+      \end{table}
+      }
+    \blfootnote{Data Source: Robert Shiller}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{2021 \& 2022}
+
+    \centering{
+      \includegraphics[width=0.8\textwidth]{figures/ch5_2_fig_2021.png}
+    }
+      \tiny{
+      \begin{table}
+      \begin{tabular}{lr}
+      \toprule
+      & Annualized Rate \\
+      \midrule
+      S\&P 500 Total Return & 5.11 \\
+      CPI Inflation & 6.62 \\
+      S\&P 500 Real TR & -1.35 \\
+      \bottomrule
+      \end{tabular}
+      \end{table}
+      }
+    \blfootnote{Data Source: Robert Shiller}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Some Math}
+
+    Measure Real Returns as Follows:\\
+    \vspace{1em}
+    \begin{enumerate}
+      \item CPI is an Index where Aug 1983 = 100
+      \item Dividing a price series by $\text{CPI}/100$ puts everything in "1983 dollars"
+      \item For each element in a series, construct a real value:
+      $$\text{Real Price (1983 Dollars)}_t = \frac{\text{Price}_t}{\text{CPI}_t/100}$$
+      \item Construct a return series first, then adjust to get real values
+    \end{enumerate}
+  
+  \end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Fisher Equation}
+    A common approximation* is:
+    $$r_\text{real} \approx r_{\text{nominal}} - \pi$$
+    where $r_\text{real}$ is the annualized real rate of return, 
+    $r_{\text{nominal}}$ is the annualized nominal rate of return, 
+    and $\pi$ is the inflation rate over the relevant period.\\
+    \vspace{1em}
+    
+    \vfill
+    \footnotesize
+    \rule{2in}{0.4pt}\\
+    *As long as $\pi$ is small, we can ignore the cross-term because it is close to zero.
+    $$(1 + r_{\text{nominal}}) = (1+r_\text{real})(1 + \pi) = 1 + r_\text{real} + \pi + r_\text{real}*\pi \approx 1 + r_\text{real} + \pi$$
+    
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Fisher Equation}
+
+    When used for \textit{expected returns}, this approximation is commonly known as the \textit{Fisher Equation}.\\
+    \vspace{1em}
+    $$\mathbb{E}[r_\text{real}] \approx \mathbb{E}[r_{\text{nominal}}] - \pi^e$$
+    Where $\pi^e$ is expected inflation.\\
+    \vspace{1em}
+    Remember that the realized return will almost never equal the expected return, as that happens 
+    only when the expectations are exactly correct, which is rare.  
+  
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Fisher Equation}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch5_3_ust_infl.png}
+
+    \blfootnote{Data Source: Federal Reserve, BLS, FRED}
+
+\end{frame}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[t]
+    \frametitle{1. Inflation and Real Returns}
+    \framesubtitle{S\&P 500 Total Returns: Nominal and Real}
+    
+    \vspace{-1em}
+    \scriptsize
+   \begin{table}
+    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+    \begin{tabular}{lrrr}
+    \toprule
+    Decade & Return & CPI Inflation & Real Return \\
+    \midrule
+    1870s & 8.11 & -2.59 & 10.92 \\
+    1880s & 6.29 & -2.38 & 8.52 \\
+    1890s & 6.24 & 0.58 & 6.08 \\
+    1900s & 10.62 & 2.49 & 8.30 \\
+    1910s & 4.99 & 6.65 & -1.31 \\
+    1920s & 15.46 & -1.11 & 16.46 \\
+    1930s & 4.39 & -1.98 & 6.33 \\
+    1940s & 9.47 & 5.39 & 4.30 \\
+    1950s & 18.24 & 2.27 & 16.01 \\
+    1960s & 8.05 & 2.55 & 5.57 \\
+    1970s & 6.56 & 7.16 & -0.53 \\
+    1980s & 16.88 & 4.89 & 11.87 \\
+    1990s & 17.19 & 2.81 & 14.29 \\
+    2000s & 0.38 & 2.50 & -2.12 \\
+    2010s & 13.02 & 1.73 & 11.25 \\
+    2020s & 13.72 & 4.08 & 9.55 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
+
+\end{frame}
+}
+
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Observations}
+
+    Some observations about real returns.\\
+    \begin{itemize}
+      \item The appropriate price index may vary by investor
+        \begin{itemize}        
+        \item {\footnotesize For example, endowments may face higher price inflation if the price of health care (what they buy) increases faster than CPI.}
+      \end{itemize}
+      \item Often investment goals are expressed in real terms.  
+      \begin{itemize}        
+        \item {\footnotesize For example, "The target return for Harvard's endowed funds is 8\%, which accounts for roughly a 5\% distribution and 3\% growth to maintain purchasing power over time."}
+        \item When they report returns, do they report real returns?
+      \end{itemize}
+      \item Straightforward to measure historic real returns.   Prospective real returns are harder.   Specifically, difficult to measure expected inflation.
+      \begin{itemize}
+        \item {\footnotesize TIPS are very useful.   Will return to TIPS later in the semester}
+      \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+    Another way to evaluate returns is to compare them against an alternative investment.\\
+    \vspace{1em}  
+    A natural alternative is the "risk-free rate".  
+    One convention is to use the return on Trasury Bills (T-Bills) as the risk-free rate, because 
+    T-bills returns have very low volatiliy.\\
+    \vspace{1em}
+    Note that Treasury \textit{bonds} have price risk, 
+    and are therefore not good measures of 'risk-free rates'.
+    
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+
+      \centering
+      \includegraphics[width=0.8\textwidth]{figures/ch5_2_fig4.png}
+
+      \blfootnote{Data Source: Federal Reserve}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+    \framesubtitle{A few words of caution}
+
+    In the discussion about inflation we compared a price series with the CPI.  
+    In contrast, here we compare returns of the risky asset with returns on the 
+    risk-free asset.\\
+    \vspace{1em}
+
+    T-Bill are typically quoted with annualized rates, which need to be adjusted for the 
+    appropriate period:
+    \begin{itemize}
+      \item The 3m return: $(1+\text{T-Bill Rate})^\frac{1}{4}-1$, 
+      \item The 1m return: $(1+ \text{T-Bill Rate})^\frac{1}{12}-1$\\
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+    \framesubtitle{Excess Returns of Risky Assets}
+
+    \begin{enumerate}
+      \item Calculate the monthly return for the risk-free asset (T-Bills)
+      \begin{itemize}
+        \item The return each month is determined by the T-Bill rate at the \textit{beginning} of the month.
+      \end{itemize}
+      \item Create the monthly total return for the risky asset 
+        \begin{itemize}
+        \item Can use total return series from previous class.  Remember to include income.   Price change reflects the price at the \textit{end} of the month.
+      \end{itemize}
+      \item For each period, subtract the risk-free return from the return for the risky asset
+       to get the "excess return" of the risky asset.
+      \item Use the "excess return" in each period to construct a new series for the risky asset
+      \item \textit{Note:} Be careful to use the same frequency (e.g. monthly) 
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+    \framesubtitle{Excess Returns of Stocks, cont'd}
+
+    \vspace{2em}
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      % Table
+      \includegraphics[width=\textwidth]{figures/ch5_2_fig5.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      % Chart
+      \includegraphics[width=\textwidth]{figures/ch5_2_fig6.png}
+    \end{minipage}
+\end{frame}
+  
+\begin{frame}[t]
+  \frametitle{2. Risk-free rates \& Excess Returns}
+  \framesubtitle{Excess Returns of Stocks, cont'd}
+
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/ch5_3_ereturns.png}
+
+\end{frame}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+    \framesubtitle{S\&P 500 Total Returns: Nominal and Real}
+    
+    \vspace{-1em}
+    \scriptsize
+    \begin{table}
+    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+    \begin{tabular}{lrrr}
+    \toprule
+    Decade & Return & Risk Free Return & Excess Return \\
+    \midrule
+    1870s & 8.11 & NaN & NaN \\
+    1880s & 6.29 & NaN & NaN \\
+    1890s & 6.24 & NaN & NaN \\
+    1900s & 10.62 & NaN & NaN \\
+    1910s & 4.99 & NaN & NaN \\
+    1920s & 15.46 & 3.66 & 13.95 \\
+    1930s & 4.39 & 0.55 & 5.46 \\
+    1940s & 9.47 & 0.41 & 9.92 \\
+    1950s & 18.24 & 1.86 & 15.72 \\
+    1960s & 8.05 & 3.81 & 4.94 \\
+    1970s & 6.56 & 6.14 & 1.18 \\
+    1980s & 16.88 & 8.55 & 8.56 \\
+    1990s & 17.19 & 4.82 & 12.79 \\
+    2000s & 0.38 & 2.72 & -1.70 \\
+    2010s & 13.02 & 0.51 & 13.13 \\
+    2020s & 13.72 & 2.48 & 10.72 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
+
+\end{frame}
+}
+
+\begin{frame}[t]
+  \frametitle{2. Risk-free rates \& Excess Returns}
+  \framesubtitle{Sharpe Ratio}
+
+  The \textbf{Sharpe Ratio} is defined as:
+  $$\frac{E[r] - r_f}{\sigma}$$
+  Where $E[r] - r_f$ is the \textit{excess} return of the asset and $\sigma$ is the standard deviation.\\
+  \vspace{1em}
+  We will see the Sharpe Ratio used in many different contexts in the coming weeks.
+
+\end{frame}
+
+  \begin{frame}[t]
+  \frametitle{2. Risk-free rates \& Excess Returns}
+  \framesubtitle{Sharpe Ratio, cont'd}
+
+  From 2004 to 2025, the Sharpe Ratio of the S\&P 500 has been:
+
+  \begin{table}
+        \caption{S\&P 500 Sharpe Ratio Statistics: 2004-2025}
+      \begin{tabular}{lcc}
+      \toprule
+      Statistic & Value & Percentage \\
+      \midrule
+      Mean Excess Return (Annualized) & 0.086 & 8.6\% \\
+      Standard Deviation (Annualized) & 0.124 & 12.4\% \\
+      Sharpe Ratio & 0.692 & -- \\
+      \bottomrule
+      \end{tabular}
+  \end{table}
+
+\end{frame}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[t]
+    \frametitle{2. Risk-free rates \& Excess Returns}
+    \framesubtitle{Sharpe Ratio}
+    
+    \vspace{-1em}
+    \scriptsize
+    \begin{table}
+    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+    \begin{tabular}{lrrr}
+    \toprule
+    Decade & Excess Return & Standard Deviation & Sharpe Ratio \\
+    \midrule
+    1870s & NaN & 10.86 & NaN \\
+    1880s & NaN & 9.62 & NaN \\
+    1890s & NaN & 11.84 & NaN \\
+    1900s & NaN & 12.70 & NaN \\
+    1910s & NaN & 10.51 & NaN \\
+    1920s & 13.95 & 15.08 & 0.93 \\
+    1930s & 5.46 & 30.63 & 0.18 \\
+    1940s & 9.92 & 13.23 & 0.75 \\
+    1950s & 15.72 & 10.08 & 1.56 \\
+    1960s & 4.94 & 10.31 & 0.48 \\
+    1970s & 1.18 & 13.23 & 0.09 \\
+    1980s & 8.56 & 12.98 & 0.66 \\
+    1990s & 12.79 & 10.45 & 1.22 \\
+    2000s & -1.70 & 14.68 & -0.12 \\
+    2010s & 13.13 & 9.55 & 1.38 \\
+    2020s & 10.72 & 14.15 & 0.76 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
+
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{3. Index Returns \& Excess Returns}
+  \framesubtitle{}
+
+  PIMCO's Total Return Fund (PTTRX) is a \$40bn active bond fund that is benchmarked to the Barclay's Aggregate Index.\\
+  \vspace{0.5em}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/ch5_3_pttrx.png}
+
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{3. Index Returns \& Excess Returns}
+  \framesubtitle{}
+
+  Capital Group's American Growth Fund (AGTHX) is a \$300bn active equity fund that has a growth style but is benchmarked to the S\&P 500 Index.\\
+  \vspace{0.5em}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/ch5_3_agthx.png}
+
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{3. Index Returns \& Excess Returns}
+  \framesubtitle{The Information Ratio}
+
+  The \textbf{Information Ratio} is defined as
+  $$\frac{E[r - r_{index}]}{\sigma_{active}}$$
+  Where $E[r - r_{index}]$ is the \textit{excess} return of the portfolio, measured against an appropriate index, and $\sigma_{active}$ is the standard deviation of the excess returns.
+  The standard deviation of active returns is often referred to as the \textit{tracking error} of the portfolio.\\
+  \vspace{1em}
+  This is very similar to the Sharpe Ratio.   The key difference is that here excess returns are calculated against an index, rather than against the risk-free rate.
+
+\end{frame}
+
+\begin{excelframe}[t]
+  \frametitle{4. Excel Pivot Tables}
+  \framesubtitle{}
+
+    \begin{itemize}
+      \item Insert: Pivot Table (I prefer separate sheet)
+      \item Drag Fields to the Rows, Columns, Values
+      \item If applicable, set the filter on the upper left of the table
+      \item Adjust the values using "Field Settings"
+    \end{itemize}
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+  \frametitle{4. Excel Pivot Tables}
+  \framesubtitle{}
+
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/ch5_3_pivot.png}
+
+\end{excelframe}
+
+\begin{practiceframe}[t]
+  \frametitle{5. Practice Problems}
+  \framesubtitle{Review: HPR, EAR, APR and $r_{cc}$}
+
+  \begin{itemize}
+    \item Holding Period Return (HPR)
+    $$\frac{\text{Price Change} + \text{Income}}{\text{Initial Price}}$$
+    \item Effective Annual Rate (EAR)
+    $$(1 + EAR)^T = 1 + HPR$$
+    \item Annual Percentage Rate (APR)
+    $$1+EAR = \left(1 + \frac{APR}{n}\right)^n$$
+    \item Continuously Compounded Rate of Return ($r_{cc}$)
+    $$1+EAR = e^{r_{cc}}$$
+  \end{itemize}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+  \frametitle{5. Practice Problems}
+  \framesubtitle{Review: Measures of Return}
+
+      \vspace{-1em}
+    \scriptsize
+    \begin{table}
+    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+    \begin{tabular}{lrrrrrr}
+    \toprule
+    Decade & Return & Geo Mean & CPI & Real Return & Risk Free & Excess Return \\
+    \midrule
+    1870s & 8.11 & 7.46 & -2.59 & 10.92 & NaN & NaN \\
+    1880s & 6.29 & 5.83 & -2.38 & 8.52 & NaN & NaN \\
+    1890s & 6.24 & 5.55 & 0.58 & 6.08 & NaN & NaN \\
+    1900s & 10.62 & 9.82 & 2.49 & 8.30 & NaN & NaN \\
+    1910s & 4.99 & 4.44 & 6.65 & -1.31 & NaN & NaN \\
+    1920s & 15.46 & 14.25 & -1.11 & 16.46 & 3.66 & 13.95 \\
+    1930s & 4.39 & 0.03 & -1.98 & 6.33 & 0.55 & 5.46 \\
+    1940s & 9.47 & 8.58 & 5.39 & 4.30 & 0.41 & 9.92 \\
+    1950s & 18.24 & 17.74 & 2.27 & 16.01 & 1.86 & 15.72 \\
+    1960s & 8.05 & 7.51 & 2.55 & 5.57 & 3.81 & 4.94 \\
+    1970s & 6.56 & 5.69 & 7.16 & -0.53 & 6.14 & 1.18 \\
+    1980s & 16.88 & 16.04 & 4.89 & 11.87 & 8.55 & 8.56 \\
+    1990s & 17.19 & 16.66 & 2.81 & 14.29 & 4.82 & 12.79 \\
+    2000s & 0.38 & -0.73 & 2.50 & -2.12 & 2.72 & -1.70 \\
+    2010s & 13.02 & 12.56 & 1.73 & 11.25 & 0.51 & 13.13 \\
+    2020s & 13.72 & 12.11 & 4.08 & 9.55 & 2.48 & 10.72 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
+
+  \end{practiceframe}
+
+\begin{practiceframe}[t]
+  \frametitle{5. Practice Problems}
+  \framesubtitle{}
+
+  \begin{enumerate}
+    \item The Fisher equation tells us that the real interest rate approximately
+    equals the nominal rate minus the inflationr ate.   Suppose the inflation 
+    rate increases from 3\% to 5\%.   Does the Fisher equation imply that this 
+    increase will result in a fall in the real interest rate?   Explain.
+    \item You have \$5,000 to invest for the next year and are considering three 
+    alternatives:
+      \begin{itemize}
+        \item A money market fund with an average maturity of 30 days, current yield of 3\% per year.
+        \item A 1-year savings deposit at a bank offering an interest rate of 4\%
+        \item A 20-year US Treasury bond offering a yield to maturity of 5\% per year.
+      \end{itemize}
+    What role does your forecast for future interest rates play in your decision?
+  \end{enumerate}
+
+  \blfootnote{Practice Problems from Bodi et al, page 77}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+  \frametitle{5. Practice Problems}
+  \framesubtitle{}
+
+  \begin{enumerate}
+  \setcounter{enumi}{2}
+    \item Your expectations regarding the stock price are as follows:
+      \begin{table}
+        \begin{tabular}{lrrr}
+          \toprule
+          Market & Probability & Ending Price & HPR\\
+          \midrule
+          Boom & 0.35 & \$140 & 44.5\%\\
+          Normal & 0.3 & 110 & 14\\
+          Recession & 0.35 & 0.8 & -16.5\\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    Compute the mean and standard deviation of the HPR on stocks (see equations 5.11 and 5.12 in book)
+    \item The continuously compounded annual return on a stock is normally 
+    distributed with mean of -20\% and standard deviation of 30\%.   With 
+    95.44\% confidence, we should expect its actual return in any particular 
+    year to be between what two values?
+  \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+  \frametitle{5. Practice Problems}
+  \framesubtitle{}
+
+  \begin{enumerate}
+  \setcounter{enumi}{4}
+    \item A real-estate property is expected to yield 2\% per quarter (nominal) with a 
+    standard deviation of the (effective) quarterly rate of 10\%.  What is the probability 
+    of loss on the real estate investment after 10 years?
+    \item You invest \$1 million at the beginning of 2028 in a stock-index fund. 
+    If the rate of return in 2028 is -40\%, what rate of return in 2029 will be necessary 
+    for your portfolio to recover to its original value.
+  \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

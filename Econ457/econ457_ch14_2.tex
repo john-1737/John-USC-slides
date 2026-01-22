@@ -1,0 +1,695 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 9-b}
+
+\title{Fixed Income, continued}
+\subtitle{Reference: Bodie et al, Ch 14}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    Review of Bond Yields, from previous class\\
+
+    \vspace{1em}
+    
+    \begin{enumerate}
+        \item Geometric Series
+        \item Perpetuities and Coupon Bonds
+        \item Default Risk and Corporate Bonds
+        \item Prepayment Risk and Mortgage Bonds
+        \item Indexed bonds and TIPS
+        \item Practice
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{0. Yield - Review}
+    \framesubtitle{}
+
+    The bond pricing formula is:
+     $$
+    \text{Bond Price} = \sum_{t=1}^{T} \frac{C}{(1 + y)^t} + \frac{FV}{(1 + y)^T}
+    $$
+
+    The bond coupons ($C$) and face value ($FV$) are determined at the time the bond 
+    is issued and generally do not change (TIPS are the exception, see last section of this 
+    lecture.)\\
+    \vspace{1em}
+    The bond price and the yield ($y$) are set by the market.   These can and will change frequently 
+    due to changes in investor preferences and expectations.   
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{0. Yield - Review}
+    \framesubtitle{}
+
+    \vspace{-1em}
+    \begin{itemize}
+        \item The \textbf{yield to maturity} is the single interest rate that 
+        makes the present value of a bond's payments equal to its price.   It is 
+        the \textit{expected} rate of return that will be earned on the bond if it 
+        is bought now and held to maturity, assuming all coupons are reinvested and earn 
+        the yield to maturiy.
+        \item The \textbf{current yield} is the annual coupon payment divided by the bond 
+        price.   As with yield to maturity, this is an indicator of \textit{expected} return of the bond.
+        \item The \textbf{holding period return} for a bond is defined in the normal way: 
+        income return plus capital gain return.
+        \item The \textbf{realized compound return} for a bond incorporates reinvestment of coupon 
+        payments.   It will equal the yield to maturity only in the case that 
+        coupon payments are reinvested at the same yield to maturity.   If the reinvestment rate 
+        changes through the life of the bond (likely) it may not equal the yield.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{0. Yield - Review}
+    \framesubtitle{Example}
+
+    Consider a 2-year bond issued at par that has a 10\% annual coupon.  
+    \vspace{-1em}
+        \begin{itemize}
+            \item Verify that if the first coupon is reinvested at a 10\% rate, then 
+            the annualized rate of return on the bond is equal to 10\%.
+            \item Remember that if the coupon rate is equal to the yield, the price is 
+            equal to the par value.
+            \item Now, imagine that at the end of year 1, market rates drop to 5\%.  
+            \vspace{-1em}
+            \begin{itemize}
+                \item What is the realized compound return on this bond if the first coupon 
+                is reinvested at a 5\% interest rate?
+                \item What is the price of the bond at the end of year 1 if the yield falls to 5\%?   (Note: requires Excel or financial calculator)
+                \item What is the holding period return on the bond in the first year?   In the 
+                second year? (Note: requires Excel or financial calculator)
+            \end{itemize}
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{0. Yield - Review}
+    \framesubtitle{Example}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch14_2_xls.png}
+
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{1. Geometric Series}
+    \framesubtitle{}
+
+    A \textbf{geometric series} is a sum of terms where each term is a constant multiple of the previous term.
+    \vspace{1em}
+
+    \textbf{General Form:}
+    $$S = a + ar + ar^2 + ar^3 + \ldots = \sum_{n=0}^{\infty} ar^n$$
+    where $a$ is the first term and $r$ is the common ratio.
+    \vspace{1em}
+    
+    \textbf{Convergence:} If $|r| < 1$, the infinite series converges to:
+    $$S = \frac{a}{1-r}$$
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Geometric Series}
+    \framesubtitle{Proof of Convergence}
+
+    If $|r| < 1$, then $S = \sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}$\\
+    \vspace{1em}
+
+    \textbf{Proof:} Multiply both sides by $r$:
+    $$rS = ar + ar^2 + ar^3 + \ldots$$
+    \vspace{0.5em}
+
+    Subtract: $S - rS = a $ (note that all the other terms cancel)
+    \vspace{0.5em}
+
+    Factor out the $S$ on the left hand side: $S(1-r) = a$
+    \vspace{0.5em}
+
+    Therefore: $S = \frac{a}{1-r}$
+    \vspace{0.5em}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. Perpetuities and Coupon Bonds}
+    \framesubtitle{Value of Perpetuity}
+
+    The present value of perpetuity can be represented by a geometric series:
+    $$PV(\text{perpetuity}) = \frac{c}{(1+r)} + \frac{c}{(1+r)^2} + \frac{c}{(1+r)^3} + \ldots$$
+    Where $c$ is the payment made in each period and $r$ is the appropriate discount rate.\\
+    \vspace{1em}
+    
+    Assume that $r > 0$ and let $d = \frac{1}{(1+r)} < 1$. Note that the first payment is discounted, 
+    so we need to start the series at $i=1$ instead of $i=0$.\\
+    \vspace{1em}
+    Continued...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Perpetuities and Coupon Bonds}
+    \framesubtitle{Value of Perpetuity, Continued}
+
+    ...Contiued.\\
+    \vspace{1em}
+    With the expression for $d$ and the adjustment to $i=1$ start, we can now use the same proof as the 
+    previous slide:
+    \footnotesize
+    \begin{align*}
+    PV(perpetuity) &= c \sum_{i=1}^{\infty} d^i\\
+                    &= c \left(\sum_{i=0}^{\infty} d^i - 1\right)\\
+                      &= c \left(\frac{1}{1-d} - 1\right) = c\frac{d}{(1-d)}\\
+                      &= c \frac{(\frac{1}{1+r})}{(1-\frac{1}{1+r})}\\
+                      &= \frac{c}{r}
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Perpetuities and Coupon Bonds}
+    \framesubtitle{Value of Finite Coupon Stream}
+
+    A similar approach gives the following formula for a finite geometric series
+    (as before, write out all the terms to $(N-1)$, then multiply by $r$, then subtract and see what cancels.):
+    $$\sum_{i=1}^{N} d^i = \frac{1-d^N}{1-d}$$
+
+    We can use this finite geometric series formula to define a pricing formula for a bond that pays coupon
+     $C$ for $N$ periods.
+
+    $$PV(\text{coupons}) = \frac{C}{(1+r)} + \frac{C}{(1+r)^2} + \frac{C}{(1+r)^3} + \ldots + \frac{C}{(1+r)^N}$$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Perpetuities and Coupon Bonds}
+    \framesubtitle{Bond Valuation Formula}
+
+    Again, substitute $d=\frac{1}{1+r}$ and the present value of the coupons 
+    \begin{align*}
+        PV(\text{coupons}) &= C \cdot \frac{d(1-d^N)}{1-d}\\
+                            &= C \cdot \frac{\frac{1}{1+r}(1-\frac{1}{(1+r)^N})}{1-\frac{1}{1+r}}\\
+                            &= C \cdot \frac{1-\frac{1}{(1+r)^N}}{r}
+    \end{align*}
+
+    \textbf{Complete Bond Price:} Coupons plus principal repayment
+    $$P = PV(\text{coupons}) + PV(\text{principal})$$
+    $$P = C \cdot \frac{1-\frac{1}{(1+r)^N}}{r} + \frac{F}{(1+r)^N}$$
+    \vspace{1em}
+
+    \end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Perpetuities and Coupon Bonds}
+    \framesubtitle{Bond Valuation Formula}
+
+     \textbf{Standard Form of Bond Price Equation:}
+    $$P = C \cdot \frac{1-(1+r)^{-N}}{r} + F(1+r)^{-N}$$
+    \vspace{1em}
+
+    This was derived using Geometric Series, along with a clever definitions of 
+    $d$ to make it look like a geometric series.\\
+    \vspace{1em}
+    Note that if the coupon rate is equal to the yield (i.e. $C = cFV$ and $c=r$)
+    then $P=FV$.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Security}
+
+    In a bankruptcy proceeding corporate bondholders are paid before equity holders.\\
+    \vspace{1em}
+    \textbf{Security Hierarchy:}
+    \begin{enumerate}
+        \item \textit{Senior Secured Debt} - backed by specific collateral
+        \item \textit{Senior Unsecured Debt} - general claim on assets
+        \item \textit{Subordinated Debt} - paid after senior debt
+        \item \textit{Preferred Stock} - hybrid security
+        \item \textit{Common Stock} - residual claim
+    \end{enumerate}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Credit Ratings}
+
+    \textbf{Major Rating Agencies:} Moody's, S\&P, Fitch\\
+    \vspace{1em}
+
+    \scriptsize
+    \textbf{Rating Categories:}
+    \begin{center}
+    \begin{tabular}{|c|c|c|l|}
+    \hline
+    \textbf{Moody's} & \textbf{S\&P} & \textbf{Quality} & \textbf{Description} \\
+    \hline
+    Aaa & AAA & \multirow{4}{*}{Investment} & Highest quality \\
+    Aa & AA & & High quality \\
+    A & A & & Upper medium grade \\
+    Baa & BBB & & Medium grade \\
+    \hline
+    Ba & BB & \multirow{5}{*}{Speculative} & Lower medium grade \\
+    B & B & & Speculative \\
+    Caa & CCC & & Poor standing \\
+    Ca & CC & & Highly speculative \\
+    C & C/D & & Default \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \vspace{1em}
+
+    \normalsize
+    \textbf{Investment Grade vs. High Yield:}
+    \begin{itemize}
+        \item BBB-/Baa3 and above = Investment Grade
+        \item BB+/Ba1 and below = High Yield ("Junk Bonds")
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Credit Ratings}
+
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch14_2_sp.png}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \vspace{1em}
+            \includegraphics[width=\textwidth]{figures/ch14_2_sp_2.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Credit Ratings}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_sp_downgrade.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Default Risk - Example}
+    
+    \textbf{Example 2}: Start with a 10-year 9\% coupon corporate bond with a price of \$750.   
+    Yield to maturity = 12\%.
+    What if there is a 20\% chance of the final payment not being made?
+
+    \begin{itemize}
+        \item The \textit{expected value} of the final payment is again only \$800.
+        \item Instead of substituting $\mathbb{E}[FV]$ for $FV$ in the pricing equation, 
+        subtract $\frac{\$100}{(1+y)^{20}}$ from the bond price.
+        \item Recalculate the yield using the new bond price and $FV=\$1,000$.   
+        \item Yield to maturity is now approx 14\%.
+    \end{itemize}
+
+    Continued...
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{3. Default Risk and Corporate Bonds}
+\framesubtitle{Default Risk - Example}
+
+
+    ...Continued.  
+    What if there is a 20\% chance of no payment on the final payment \textit{and} all the coupons?  
+
+    \begin{itemize}
+        \item Subtract \texttt{PRICE(today,10y,0.009,14,10,2)} from the bond price.
+        \item Recalculate the yield using the new bond price and $FV=\$1,000$
+        \item Yield to maturity is now approx 15.5\%.
+    \end{itemize}
+
+    \vspace{1em}
+    This example illustrates how default risk actually works:  default risk causes the expected value of payments to decline, which leads to lower bond prices, and therefore higher yields.
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Spreads}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch14_2_hy.png}
+    
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{3. Default Risk and Corporate Bonds}
+\framesubtitle{Spread}
+
+    The \textbf{spread} on a corporate bond is defined to be the difference in yields between a corporate bond
+    and a Treasury bond of similar maturity.\\
+    \vspace{1em}
+    While the spread is primarily due to the default risk, it also may reflect differences in liquidity.  
+    Corporate bonds are typically less liquid than US Treasuries (i.e. harder to sell when you need cash).
+    Investors may require a discount (lower price, higher yield) to be compensated for lower liquidity.
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{3. Default Risk and Corporate Bonds}
+\framesubtitle{Option Adjusted Spread}
+
+    Spreads on corporate bonds could also be due to embedded options.
+    Some corporate bonds have embedded call options.  The issuer can repay before the maturity date.
+    This option is valuable to the bond issuer, and therefore requires a lower price (higher yield) for the bond purchaser.   
+
+    \vspace{1em}
+    \textbf{Option Adjusted Spread (OAS):}
+    \begin{itemize}
+        \item Removes the value of embedded options from the spread
+        \item Shows the "pure" credit and liquidity risk premium
+        \item Calculated using interest rate trees and Monte Carlo simulation
+        \item Formula: Nominal Spread - Option Cost = OAS
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Default Risk and Corporate Bonds}
+    \framesubtitle{Spreads}
+
+    \includegraphics[width=\textwidth]{figures/ch14_2_hyspreads.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Conforming Mortgages}
+
+    In the United States the standard mortgage has the following characteristics:
+    \begin{itemize}
+        \item 30-year term
+        \item 20\% downpayment, 80\% loan-to-value ratio (LTV)
+        \item Fixed-rate, self-amortizing (i.e. fixed monthly payments, no balloon payment at maturity)
+        \item Ability to refinance (prepay at par) anytime
+    \end{itemize}
+    Mortgages that meet these characteristics are referred to as 'conforming' mortgages. 
+    Conforming mortgages can be purchased by the GSEs (Fannie Mae and Freddie Mac).
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage Debt Outstanding}
+
+    The median home price in the United States \$419,000 at the end of 2024.
+    The average sales price of new homes was \$500,000 in June 2025.   
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch14_2_mtddebt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage Payments}
+
+    Fixed-rate mortgages repay principal each month, instead of requiring a balloon payment at the end of the loan.\\
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch14_2_mtg_payments.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage Leverage}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            The typical mortgage requires a 20\% downpayment.
+            The remaining 80\% of the cost of the house is borrowed.\\
+            \vspace{1em}
+            The leverage ratio is 5:1 (total cost / amount of equity).
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch6_2_mtg.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage Leverage}
+
+    Example: 
+    \begin{itemize}
+        \item You buy a house for \$1,000,000.   
+        \item You make a 20\% downpayment (\$200,000)
+        \item You finance the remainding \$800,000 with a 7\% mortgage.
+    \end{itemize}
+
+    \begin{table}
+        \caption{Example Home Ownership Returns}
+        \begin{tabular}{lccc}
+        \toprule
+        Scenario & Price Change & Interest Cost & Return on Equity \\
+        \midrule
+        HPI +10\% & \$100,000 & \$56,000 & 22.0\% \\
+        HPI +20\% & \$200,000 & \$56,000 & 72.0\% \\
+        HPI -10\% & -\$100,000 & \$56,000 & -78.0\% \\
+        \bottomrule
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage - Refinancing and Prepayments}
+
+    Mortgages can be prepaid at any time.  
+    In fact, when interest rates fall it is very common for homeowners to 'refinance' their mortgages. 
+    Essentially, they are prepaying the old lender and taking out a replacement loan from a new lender.\\
+    \vspace{1em}
+    While this is very advantageous for the homeowner (they get a lower interest rate), 
+    it is equally \textit{disadvantagous} for the lender.   They are losing an asset that was paying a high interest rate, 
+    which they are unable to replace because market rates are now lower.   
+    This is know as \textbf{prepayment risk} for the lender.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage - Refinancing and Prepayments}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_2_mtg_prepayment.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage - Refinancing and Prepayments}
+
+    Because this is \textit{disadvantagous} to the lender, the lender will pay a lower 
+    price for this bond.   As a consequence, the bond will have a higher yield.\\
+    \vspace{1em}
+    Mortgages are an example of a \textbf{callable} bond, where the homeowner has the 
+    option to call the bond at par.   Some corporate bonds also have embedded call options,
+    which give the issuer the right to repay the bond at a specified price.   Even though the 
+    price is usually somewhat above par, this option is still valuable to the issuer (and 
+    disadvanteagous to the lender.)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Mortgage - Refinancing and Prepayments}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Indexed Bonds and TIPS}
+    \framesubtitle{Treasury Inflation-Protected Securities (TIPS)}
+
+    \textbf{Definition:} TIPS are U.S. Treasury bonds that adjust both principal and interest payments for inflation
+    \vspace{1em}
+
+    \textbf{Key Features:}
+    \begin{itemize}
+        \item \textbf{Principal Adjustment:} Face value increases with Consumer Price Index (CPI)
+        \item \textbf{Fixed Real Rate:} Coupon rate is fixed, but applied to adjusted principal
+        \item \textbf{Inflation Protection:} At maturity, receive greater of original or adjusted principal
+        \item \textbf{Maturities:} Available in 5, 10, and 30-year terms
+    \end{itemize}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Indexed Bonds and TIPS}
+    \framesubtitle{Treasury Inflation-Protected Securities (TIPS)}
+
+    \textbf{Example:}
+    \begin{itemize}
+        \item \$1,000 TIPS with 2\% coupon, 3\% inflation
+        \item Year 1: Principal = \$1,030, Interest = \$20.60
+        \item Year 2: Principal = \$1,061, Interest = \$21.22
+    \end{itemize}
+    \vspace{1em}
+
+  
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Indexed Bonds and TIPS}
+    \framesubtitle{TIPS - Yields over time}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_2_tips_1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Indexed Bonds and TIPS}
+    \framesubtitle{TIPS - Real Yields}
+
+    Intuition for TIPS yields:\\
+    \vspace{1em}
+
+    The return on TIPS will be comprised of the interest payments, 
+    the principal payment at maturity, AND the expected increase in the principal value.\\
+    \vspace{1em}
+
+    The yield on TIPS assumes no increase in principal.   This is referred to as the 'real yield'.   
+    If the realized increase in principal is equal to the breakeven inflation rate, 
+    then the return on TIPS will be exactly equal to the return on nominal Treasury bonds.   
+    If the increase in principal is above (below) the breakeven inflation rate, 
+    then TIPS will outperform (underperfom) nominal Treasury bonds.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Indexed Bonds and TIPS}
+    \framesubtitle{TIPS - Breakeven inflation rate}
+
+    \vspace{-2em}
+    $$\text{Breakeven Inflation} = \text{Nominal Treasury Yield} - \text{TIPS Real Yield}$$
+
+    \textbf{Interpretation:}
+    \begin{itemize}
+        \item Market's expectation of average inflation over the bond's life
+        \item If actual inflation is greater than breakeven: TIPS outperform nominal bonds
+        \item If actual inflation is less than breakeven: Nominal bonds outperform TIPS
+        \item Indifference point between TIPS and nominal Treasury investing
+    \end{itemize}
+
+    \textbf{Example:} 10-year Treasury yield: 4.5\%, 10-year TIPS yield: 2.0\%, 
+    Breakeven inflation: 4.5\% - 2.0\% = 2.5\%
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Indexed Bonds and TIPS}
+    \framesubtitle{TIPS - Breakevens over time}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch14_2_tips_2.png}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{6. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item Two bonds have identical times to maturity and coupon rates.   One is 
+        callable at 105, the other at 110.   Which has the higher yield to maturity?  Why?
+        \item Consider a bond with a 10\% coupon and a yield to maturity of 8\%.   If the 
+        bond's yield to remains constant, then in one year will the bond price be higher, 
+        lower, or unchanged?   Why?
+        \item Consider a bond paying a coupon rate of 10\% per year semiannually when the 
+        market interest rate is only 4\% per half-year.   The bond has three years until 
+        maturity.   (a) Find the bond's price today, (b) find the bond's price six 
+        months from now (assuming now change in market interest rate), (b) What is the total 
+        (6-month) return on the bond?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{6. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}[4]
+        \item Fill in the table below for the following zero-coupon bonds, all of 
+        which have par values of \$1,000
+        \begin{table}
+                \begin{tblr}{
+                    colspec = {lcc},
+                    hlines,
+                    vlines
+                }
+                Price & Maturity & Yield to Maturity \\
+                \$400 & 20 & -\\
+                \$500 & 20 & -\\
+                \$500 & 10 & - \\
+                - & 10 & 10\% \\
+                - & 10 & 8\%\\
+                \$400 & - & 8\%\\
+            \end{tblr}
+        \end{table}
+    \end{enumerate}
+
+\end{practiceframe}
+
+
+\end{document}

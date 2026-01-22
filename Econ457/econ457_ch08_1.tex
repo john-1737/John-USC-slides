@@ -1,0 +1,389 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 6-a}
+
+\title{Index Model}
+\subtitle{Reference: Bodie et al, Ch 8}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Law of Large Numbers
+        \item Diversification
+        \item Example: Stocks and Portfolio Correlation
+        \item Index Model
+        \item Information Ratio
+        \item Subjects Covered on the Midterm
+    \end{enumerate}
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{1. Law of Large Numbers}
+    \framesubtitle{}
+
+    \textbf{Intuition:} As the number of independent random variables increases, their average converges to the expected value.
+    \vspace{1em}
+
+    \textbf{Mathematical Statement:}
+    For independent random variables $X_1, X_2, \ldots, X_n$ with mean $\mu$ and finite variance $\sigma^2$:
+    $$\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i \xrightarrow{p} \mu \text{ as } n \to \infty$$
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. Diversification}
+    \framesubtitle{Benefit of Diversification}
+
+    Consider $n$ securities have returns $r_i$ and standard deviations $\sigma_i$ for $i=1...n$.
+    For a portfolio constucted with weights $(w_i,...,w_n)$ the variance is given by:
+    $$\sigma_p^2 = \sum_{i=1}^{n}\sum_{j=1}^{n}w_i w_j Cov(r_i,r_j)$$
+    For an equally weighted portfolio $w_i = w_n = \frac{1}{n}$ this becomes:
+    $$\sigma_p^2 = \sum_{i=1}^{n}\frac{1}{n^2}\sigma_i^2 + \sum_{j=1,j \neq i}^{n}\sum_{i=1}^{n}\frac{1}{n^2}Cov(r_i,r_j)$$
+    Continued...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Diversification}
+    \framesubtitle{Benefit of Diversification}
+
+    If the securities are independent (i.e. $Cov(r_i,r_j) = 0$), then the variance of the portfolio can be reduced to:
+    $$\sigma_p^2 = \frac{1}{n}\sum_{i=1}^{n}\frac{1}{n}\sigma_i^2$$
+    Note that $\frac{1}{n}$ was factored out and moved outside the summation.   
+    By the Law of Large Numbers, the term 
+    $\sum_{i=1}^{n}\frac{1}{n}\sigma_i^2$ will converge to the average $\sigma_i^2$ across all $i$, denoted by
+    $\overline{\sigma^2}$.   We now have:
+    $$\sigma_p^2 = \frac{1}{n}\overline{\sigma^2}$$
+    This approaches $0$ as $n$ gets large.   \textit{We conclude is is possible 
+    to construct a portfolio of close to zero 
+    variance by including a large number of independent securities}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Diversification}
+    \framesubtitle{Limits of Diversification}
+
+    Question: what is the expected return of this portfolio?\\
+    \vspace{1em}
+
+    Answer: By CAPM, if the portfolio has zero variance, then the fair expected return is the 
+    same as the risk-free rate.\\
+    \vspace{1em}
+
+    So, while it may be possible to keep adding independent securities, and by doing so keep reducing 
+    the variance of the portfolio, the expected return of this portfolio may end up being unattractive.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Diversification}
+    \framesubtitle{Limits of Diversification}
+
+    Question: is it realistic to expect to find a large number of independent securities?\\
+    \vspace{1em}
+
+    Answer: Probably not.   For example, most stocks probably have some correlation with the broader 
+    index.   A portfolio of stocks will therefore also have some correlation with the broader index\\
+    \vspace{1em}
+    
+    The following slides show how correlation of a portfolio with the broader market affects the 
+    portfolio's variance.
+  
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Diversification}
+    \framesubtitle{Limits of Diversification} 
+
+    We can represent down the expected risk premium for a single stock as follows:
+    $$\mathbb{E}[R_i] = \alpha_i + \beta_i\mathbb{E}[R_m] + \epsilon_i$$
+    Similarly, we can represent the expected return of a portfolio of stocks as follows:
+    $$\mathbb{E}[R_p] = \alpha_p + \beta_p\mathbb{E}[R_m] + \epsilon_p$$
+    The first term is the \textit{nonmarket premium}.   
+    The term $\beta_p\mathbb{E}[R_m]$ is known as the \textit{systematic risk}.   
+    And the final term, $\epsilon_p$ is known as the \textit{idiosyncratic risk}.
+    
+ \end{frame}  
+    
+\begin{frame}[t]
+    \frametitle{2. Diversification}
+    \framesubtitle{Limits of Diversification} 
+
+    What is the variance of the portfolio represented by the equation on the previous slide?  
+    A couple of observations: 
+    \begin{enumerate}
+        \item $\alpha_p$ is assumed to constant, therefore doesn't contribute to the variance.
+        \item The error terms are assumed to be indpendent of the market returns, with a variance 
+        given by $\sigma(\epsilon_p)^2$
+        \item The variance of the portfolio is therefore: $\beta_i^2\sigma_m^2 + \sigma(\epsilon_p)^2$
+        \item $\sigma(\epsilon_p)^2$ will become negligible as $n$ becomes large, by the Law of Large 
+        Numbers.
+    \end{enumerate}
+
+    Conclude: the variance of a portfolio of stocks will approach $\beta_i^2\sigma_m^2$ 
+        as $n$ becomes large.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Example: Stocks and Portfolio Diversification}
+    \framesubtitle{10 Stocks from the S\&P}
+
+    \textbf{Selected Stocks:} Apple (AAPL), Microsoft (MSFT), Johnson \& Johnson (JNJ), 
+    JPMorgan Chase (JPM), Procter \& Gamble (PG), Exxon Mobil (XOM), 
+    Home Depot (HD), Coca-Cola (KO), Disney (DIS), Boeing (BA)\\
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textbf{Sector Diversity:} 8 different GICS sectors represented
+        \item \textbf{Different Risk Profiles:}
+        \begin{itemize}
+            \item Defensive: JNJ, PG, KO (stable earnings, lower volatility)
+            \item Cyclical: BA, XOM, HD (economic cycle sensitive)
+            \item Growth: AAPL, MSFT (high growth potential)
+        \end{itemize}
+        \item \textbf{Large, Liquid Names:} All major S\&P 500 components with long price histories and high trading volumes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Example: Stocks and Portfolio Diversification}
+    \framesubtitle{10 Stocks from the S\&P}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch08_1_diversification_benefits.png}
+    \vspace{1em}
+
+    \footnotesize
+    \raggedright
+    Monthly returns since 2010.   Portfolios created from non-randomly selected stocks (previous slide). 
+    Stocks added to the portfolio in order.   While a different order of adding stocks may change 
+    the chart slightly, the broader point is that it doesn't take all that many stocks to replicate 
+    the volatility of the S\&P 500.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Example: Stocks and Portfolio Diversification}
+    \framesubtitle{Example: DIS}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_dissp_20_25_wreg.png}
+
+\end{frame}
+
+
+
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{A Strong Assumption}
+
+    Returning to the model from above.  
+    Let the rate of excess return on a stock ($R_i$) be given by
+    $$R_i = \alpha_i + \beta_i \cdot R_M + \epsilon_i$$
+    Where $R_M$ is the excess return of the market, $\alpha_i$ is firm-specific 
+    excess returns and $\epsilon_i$ are mean-zero and \textit{independent} error terms.\\
+    \vspace{1em}
+    This model makes the following very strong assumption: the only correlation between 
+    two stocks is the through their correlations with the market.   After controlling for the 
+    market moves, the rest of the volatility in any two stocks will be independent.   
+    This is obviously a very strong assumption and will almost never hold.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{A Strong Assumption}
+
+    Show: If the excess return of all stocks is represented by the following equation:
+    $$R_i = \alpha_i + \beta_i \cdot R_M + \epsilon_i$$
+    then the only correlation between two stocks is through their correlation with the market.
+    Observations:\\
+    \vspace{1em}
+    \begin{enumerate}
+        \item $Cov(a + b, c) = Cov(a,c) + Cov(b,c)$ for any $a$, $b$, and $c$.
+        \item $Cov(a,X) = 0$ if $a$ is a constant and $X$ is a random variable
+        \item $Cov(X,\epsilon) = 0$ if $\epsilon$ is independent of $X$
+    \end{enumerate}
+
+    Applying these rules -- and remembering that $\alpha_i$ is constant and $\epsilon_i$ is 
+    independent -- we have:
+    $$Cov(R_i,R_j) = \beta_i \beta_j \sigma_m^2$$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{A Strong Assumption}
+
+    Why would we make such an assumption?\\
+    \vspace{1em}
+    \textbf{Answer}: Because it significantly reduces the 
+    number of parameters required to conduct an optimization over multiple assets.\\
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{A Strong Assumption}
+
+    The covariance matrix used for a n-asset optimization is given by:
+    $$
+    \boldsymbol{\Sigma} = \begin{pmatrix}
+    \sigma_{11} & \sigma_{12} & \sigma_{13} & \cdots & \sigma_{1n} \\
+    \sigma_{21} & \sigma_{22} & \sigma_{23} & \cdots & \sigma_{2n} \\
+    \sigma_{31} & \sigma_{32} & \sigma_{33} & \cdots & \sigma_{3n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    \sigma_{n1} & \sigma_{n2} & \sigma_{n3} & \cdots & \sigma_{nn}
+    \end{pmatrix}
+    $$
+    Where $\sigma_{i,j} = Cov(r_i,r_j)$.\\
+    \vspace{1em}
+    This matrix requires $\frac{n(n+1)}{2}$ unique parameters to estimate.  For $n = 100$ stocks, this means estimating $\frac{100 \times 101}{2} = 5,050$ parameters!
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{A Strong Assumption}
+
+    If, instead, we assume that each stock is only correlated to all other stocks 
+    through the correlation with the market, then we could construct the covariance matrix on the previous slide using the following:
+    $$
+    \boldsymbol{\Sigma} = \begin{pmatrix}
+    \beta_1^2\sigma_{m}^2 + \sigma(\epsilon_1)^2 &      &   & \cdots &      \\
+    \beta_1 \beta_2 \sigma_{m}^2 & \beta_2^2 \sigma_m^2 + \sigma(\epsilon_2)^2&  & \cdots &  \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    \beta_1 \beta_n \sigma_m^2 & &  & \cdots & \beta_n^2 \sigma_{m}^2 + + \sigma(\epsilon_n)^2 \\
+    \end{pmatrix}
+    $$
+    Thus, in order to estimate the Index model, we require $n$ estimates of $\beta$s, $n$ estimates of $\sigma(\epsilon_i)$, as well 
+    as $n$ estimates of firm-specific nonsystemic returns $\alpha_i$.  For 100 stocks, we now only need 300 estimates, as well as 
+    estimates of the market risk premium and market variance ($3n + 2$ is still a lot!).
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{The Index as an Investable Asset}
+
+    Note that we are implicitly assuming that you could also invest in the index.\\
+    \vspace{1em}
+    Why go through all of this work, rather than just invest in the index and be done?\\
+    \vspace{1em}
+    \textit{Answer:} Analysts/investors may have their own views on the alpha (firm-specific return factors) of 
+    certain stocks.   They then need an optimization procedure to incorporate their estimates 
+    into an optimal portfolio.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{Procedure for Estimating the Index Model}
+
+    Steps to follow:
+    \begin{enumerate}
+        \item Estimate expected risk premium and variance for the market: $\mathbb{E}[R_m]$ and $\sigma_m^2$
+        \item Estimate $\beta$ for each stock you are actively overweighting / underweighting.   These 
+        will probably be close to historic $\beta$.
+        \item Estimate $\sigma_i^2$ for each stock you are actively overweighting / underweighting.
+        \item Based on your own analysis, come up with expectations for the non-systemic returns of each 
+        stock you are overweighting / underweighting ($\alpha_i$).
+        \item Follow the steps from the Markowitz optimization to construct your optimal portfolio.
+    \end{enumerate}
+    \vspace{1em}
+    Continued...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. The Index Model}
+    \framesubtitle{Procedure for Estimating the Index Model}
+
+    Continued...As you might expect, the result of the Markowitz optimization procedure will have you overweighting 
+    the stocks you expect to have positive $\alpha$ and underweighting the stocks you expect to have 
+    negative $\alpha$.\\
+    \vspace{1em}
+    The optimization also takes into account the variance ($\sigma(\epsilon_i)^2$) of each stock.   The weight 
+    on each stock is therefore a function of both the expected return and the variance:
+     $$w_i^0 = \frac{\alpha_i}{\sigma(\epsilon_i)^2}$$
+    This is the starting weight for the security in the portfolio.   The final weight adjusts for 
+    the beta of the active portfolio and the other overweights/underweights (refer to book for details, 
+    won't be on the exam).
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. The Information Ratio}
+    \framesubtitle{}
+
+    In the lecture on evaluating returns, we defined the \textit{Information Ratio} as
+    $$\frac{\mathbb{E}[r - r_{index}]}{\sigma_{active}}$$
+    This looks like the Sharpe Ratio, but instead of the risk-free rate we are comparing 
+    returns to the index, and evaluating the variance relative to the variance of the index.\\
+    \vspace{1em}
+    The procedure for estiamting the Index Model, discussed in the previous slides,
+     produces the following intuitive result: in order to maximize the Informatio Ratio,
+     stocks should be over- or underweighted according to the ratio of their non-market returns ($\alpha$) 
+     and their estimated variances: $\frac{\alpha_i}{\sigma(\epsilon_i)^2}$
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{6. Subjects Covered on the Midterm}
+    \framesubtitle{}
+
+    Midterm Topics:
+    \begin{enumerate}
+        \item Financial Market Returns
+            \begin{enumerate}
+                \item Measurement (\textit{Bodi et al} Ch 5, class lecture 1-b)
+                \item Evaluation (\textit{Bodi et al} Ch 5, class lecture 2-a)
+                \item Risk (\textit{Bodi et al} Ch 5, class lecture 2-b)
+            \end{enumerate}
+        \item Capital Allocation (\textit{Bodi et al} Ch 6, class lectures 3-a and 3-b)
+        \item Diversification (\textit{Bodi et al} Ch 7, class lectures 4-a and 4-b)
+        \item CAPM (\textit{Bodi et al} Ch 9, class lectures 5-a and 5-b)
+        \item Index Model (\textit{Bodi et al} Ch 8, class lectures 6-a)
+    \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

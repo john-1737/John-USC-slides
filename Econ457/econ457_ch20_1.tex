@@ -1,0 +1,660 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 13-a}
+
+\title{Options}
+\subtitle{Reference: Bodie et al, Ch 20}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Put and Call Options
+        \item Options v. Stock Investments
+        \item Common Option Strategies
+        \item Other Options
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Midterm}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/midterm2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Grades for Econ 457}
+    \framesubtitle{}
+
+    \begin{table}
+        \centering
+        \caption{Grades for Econ 457}
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=2.cm]}
+        }
+        \toprule
+        Item & Percent of Total \\
+        \midrule
+        Homework & 25\% \\
+        Mid-term 1 & 20\% \\
+        Mid-term 2 & 20\% \\
+        Final & 35\% \\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Economics 457}
+    \framesubtitle{Material Covered}
+
+    \vspace{-1em}
+
+        \begin{table}
+        \centering
+        \footnotesize  % Global font size for the table
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=2cm] Q[l,wd=6cm]}
+        }
+        \toprule
+        Subject & Book Chapters & Sub-topics \\
+        \midrule
+        Intro & 5 & Measuring Returns, Distribution of Returns, Evaluating Returns \\
+        Portfolio Construction & 6, 7, 8 & Capital Allocation, Diversification, Index Model \\
+        Market Equilibrium & 9, 10, 11, 12 & CAPM, Fama-French Factors, Efficient Market Hypothesis \\
+        Fixed Income & 14, 15, 16 & Prices, Yields, Yield Curve, Duration and Convexity \\
+        Equity & 18 & Dividend Discount Models, Price-Earnings Ratios\\
+        Derivatives & 20, 21, 22, 23 & Futures, Swaps, Options \\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+    \vfill
+    \footnotesize
+    Note, this is subject to change throughout the semester.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Definitions}
+
+    \textbf{Call Option}
+    \begin{itemize}
+        \item Gives its holder the right to \textbf{buy} an security 
+        at a specified price on or before some expiration date.
+        \item Holder will exercise only if the price of the security 
+        is \textbf{above} the specified price.
+    \end{itemize}
+
+    \textbf{Put Option}
+    \begin{itemize}
+        \item Gives its holder the right to \textbf{sell} an security 
+        at a specified price on or before some expiration date.
+        \item Holder will exercise only if the price of the security 
+        is \textbf{below} the specified price.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Standard Notation}
+
+    \textbf{Standard Notation:}
+    \begin{itemize}
+        \item \textbf{Strike Price (K):} The price at which the option can be exercised
+        \item \textbf{Current Price (S):} Current market price of the underlying security
+        \item \textbf{Expiration Date (T):} Last date the option can be exercised
+        \item \textbf{Time to Expiration ($\tau$):} Time remaining until expiration ($\tau = T - t$)
+        \item \textbf{Premium (C, P):} Price paid to purchase the option
+        \begin{itemize}
+            \item $C$ = Call option premium
+            \item $P$ = Put option premium
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Terminology}
+
+    At the current price, an option is said to be...
+    \begin{itemize}
+        \item \textit{In the money} when exercising the option 
+        would produce a positive cash flow
+        \begin{itemize} 
+            \item For a call option, security price is \textit{above} 
+            the exercise price ($S-K>0$)
+            \item For a put option, security price is \textit{below} 
+            the exercise price. ($S-K<0$)
+        \end{itemize}
+        \item \textit{Out of the money} when exercising the option 
+        would produce a negative cash flow
+        \item \textit{At the money} the current price is equal to the 
+        exercise price.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Call Options}
+
+    The value of a \textbf{call} option at expiration equals:
+    
+    \vspace{1em}
+    
+    $$\text{Call Payoff} = \begin{cases} 
+    S_T - K - C& \text{if } S_T > K \\
+    -C & \text{if } S_T \leq K 
+    \end{cases}$$
+    
+    \vspace{1em}
+    
+    \textbf{Alternatively written as:}
+    $$\text{Call Payoff} = \max(S_T - K, 0) - C$$
+    
+    \vspace{1em}
+    
+    \textbf{Where:}
+    \begin{itemize}
+        \item $S_T$ = Stock price at expiration
+        \item $K$ = Strike (exercise) price
+        \item $C$ is the price paid for the call option
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Call Options}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch20_1_buy_call.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Call Options}
+
+    Selling an option is sometimes referred to as 'writting' an 
+    option.\\
+    \vspace{1em}
+    The payoff at expire for the seller of an option is the 
+    inverse of the payoff for the buyer of an option.\\
+    \vspace{1em}
+    The value of a \textbf{writing a call} option at expiration equals:
+    
+    \vspace{1em}
+    
+    $$\text{Call Writing Payoff} = \begin{cases} 
+    -(S_T - K) + C& \text{if } S_T > K \\
+    +C & \text{if } S_T \leq K 
+    \end{cases}$$
+    With the standard notation for $S_T$, $K$, and $C$
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Call Options}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch20_1_sell_call.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Put Options}
+
+    The value of a \textbf{put} option at expiration equals:
+    
+    \vspace{1em}
+    
+    $$\text{Put Payoff} = \begin{cases} 
+    -P& \text{if } S_T > K \\
+    (K-S_T) - P & \text{if } S_T \leq K 
+    \end{cases}$$
+    
+    \vspace{1em}
+    
+    \textbf{Alternatively written as:}
+    $$\text{Put Payoff} = \max((K-S_T),0) - P$$
+    
+    \vspace{1em}
+    
+    Where $S_T$ = Stock price at expiration, 
+    $K$ = Strike (exercise) price, and $P$ is 
+    the price paid for the put option
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Put Options}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch20_1_buy_put.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Put Options}
+
+    The value of a \textbf{writing a put} option at expiration equals:
+    
+    $$\text{Put Writing Payoff} = \begin{cases} 
+    P & \text{if } S_T > K \\
+    -(K-S_T) + P & \text{if } S_T \leq K 
+    \end{cases}$$
+    With the standard notation for $S_T$, $K$, and $P$
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Put and Call Options}
+    \framesubtitle{Put Options}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch20_1_sell_put.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Options v. Stock Investments}
+    \framesubtitle{}
+
+    When would you purchase a call option rather than buy shares of stock directly?
+
+    Example:
+    \begin{itemize}
+        \item Suppose you think a stock, currently selling for \$100, will appreciate
+        \item A 1-year maturity call option with an exercise price of \$100 currently 
+        sells for \$10 and the interest rate is 3\%
+        \item You have \$10,000 to invest
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Options v. Stock Investments}
+    \framesubtitle{}
+
+    Strategies:
+    \begin{enumerate}
+        \item[A. ] Invest entirely in stock
+        \begin{itemize}
+            \item Buy 100 shares, each selling for \$100
+        \end{itemize}
+
+        \item[B. ] Invest entirely in at-the-money- call options
+        \begin{itemize}
+            \item Buy 1,000 calls, each selling for \$10
+        \end{itemize}
+        
+        \item[C. ] Invest in call options and T-Bills
+        \begin{itemize}
+            \item Buy 100 call options, paying a total of \$1,000
+            \item Invest your remaining \$9,000 in 1-year T-Bills to earn 3\% interest
+        \end{itemize}
+        
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Options v. Stock Investments}
+    \framesubtitle{}
+
+        \begin{table}[h]
+        \centering
+        \caption{Portfolio Value by Portfolio Strategy}
+        \begin{tabular}{|p{2cm}|c|c|c|c|c|c|}
+        \hline
+        & \multicolumn{6}{c|}{\textbf{Stock Price}} \\
+        \hline
+        \textbf{Portfolio} & \textbf{\$95} & \textbf{\$100} & \textbf{\$105} & \textbf{\$110} & \textbf{\$115} & \textbf{\$120} \\
+        \hline
+        Portfolio A: All stock & \$9.5k & \$10k & \$10.5k & \$11k & \$11.5k & \$12k \\
+        \hline
+        Portfolio B: All options & 0 & 0 & 5k & 10k & 15k & 20k \\
+        \hline
+        Portfolio C: Call + T-bills & 9.27k & 9.27k & 9.77k & 10.27k & 10.77k & 11.27k \\
+        \hline
+        \end{tabular}
+        \end{table}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Options v. Stock Investments}
+    \framesubtitle{}
+
+    \begin{table}[h]
+    \centering
+    \caption{Rate of Return by Portfolio Strategy}
+    \begin{tabular}{|p{2cm}|c|c|c|c|c|c|}
+    \hline
+    & \multicolumn{6}{c|}{\textbf{Stock Price}} \\
+    \hline
+    \textbf{Portfolio} & \textbf{\$95} & \textbf{\$100} & \textbf{\$105} & \textbf{\$110} & \textbf{\$115} & \textbf{\$120} \\
+    \hline
+    Portfolio A: All stock & -5\% & 0\% & 5\% & 10\% & 15\% & 20\% \\
+    \hline
+    Portfolio B: All options & -100\% & -100\% & -50\% & 0.0\% & 50\% & 100\% \\
+    \hline
+    Portfolio C: Call + T-bills & -7.3\% & -7.3\% & -2.3\% & 2.7\% & 7.7\% & 12.7\% \\
+    \hline
+    \end{tabular}
+    \end{table}
+        
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch20_option_strategies.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{}
+
+    Options provide \textbf{leverage}.  Portfolio B, which
+    gets its exposure through options, 
+    performs more than proportionally to changes in the stock price.  
+    This can mean large upside, but it can also result in losing 
+    all the investment.\\
+    \vspace{1em}
+    Options can also provide \textbf{insurance}.   Portfolio C, which 
+    has options and T-bills, can never lose more than 9.2\% (limited downside). 
+    However, some return is necessarily sacrificed for the insurance.   Portfolio 
+    C underperforms an all stock portfolio when the stock rises.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{}
+
+    Five common option strategies:
+    \begin{enumerate}
+        \item Selling a Covered Call
+        \item Buying a Protective Put
+        \item Call or put spreads
+        \item Straddle
+        \item Strangle
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Selling a Covered Call}
+
+    Selling a covered call:
+    \begin{itemize}
+        \item Own the underlying security
+        \item Sell a call
+    \end{itemize}
+
+    Considerations:
+    \begin{itemize}
+        \item Typically the call strike is out of the money at time of sale.
+        \item Income from $C$ improves returns around and below strike price
+        \item Returns are capped (sell away large gains)
+        \item Loss unlimited, although slighty better than outright long, due to $C$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Selling a Covered Call}
+
+    Payoff at Expiry from \textbf{Selling a Covered Call}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_cvd_call.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Buying a Protective Put}
+
+    Buying a protective put:
+    \begin{itemize}
+        \item Own the underlying security
+        \item Buy a put
+    \end{itemize}
+
+    Considerations:
+    \begin{itemize}
+        \item Typically the put strike is out of the money at time of purchase.
+        \item Cost of $P$ detracts from returns around and below strike price
+        \item Losses are limited (bought insurance against large losses)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Buying a Protective Put}
+
+    Payoff at Expiry from \textbf{Buying a Protective Put}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_prot_put.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Call or Put Spreads}
+
+    Buying a Call Spread:
+    \begin{itemize}
+        \item Buy an out of the money call: $K_1 = S_0 + x_1$
+        \item Sell a call further out of the money $K_2 = S_0 + x_2$
+        \item Selling the second call reduces the cost: $C_1 - C_2 < C_1$
+    \end{itemize}
+
+    Considerations:
+    \begin{itemize}
+        \item Purchasing options can be expensive, spreads are less expensive.
+        \item Often executed as a 1x2: Buy one option, sell two options
+        \item Losses are limited (bought insurance against large losses)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Call Spread (1x1)}
+
+    Payoff at Expiry from \textbf{Call Spread (1x1)}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_call_spreadx1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Call Spread (1x2)}
+
+    Payoff at Expiry from \textbf{Call Spread (1x2)}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_call_spreadx2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Straddles}
+
+    Buying a Straddle:
+    \begin{itemize}
+        \item Buy a call option at the money: $K = S_0$
+        \item Buy a put option at the money: $K = S_0$ (same strike price)
+        \item Both options have the same expiration date
+        \item Total cost: $C + P$
+    \end{itemize}
+
+    Considerations:
+    \begin{itemize}
+        \item Profits from large price movements in either direction
+        \item Expensive strategy due to purchasing two at-the-money options
+        \item Requires significant price movement to overcome premium costs
+        \item Maximum loss is limited to total premiums paid ($C + P$)
+        \item Used when expecting high volatility but uncertain about direction
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Buy Straddle}
+
+    Payoff at Expiry from \textbf{Buy Straddle}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_buy_straddle.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Sell Straddle}
+
+    Payoff at Expiry from \textbf{Sell Straddle}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_sell_straddle.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Strangle}
+
+    Buying a Strangle:
+    \begin{itemize}
+        \item Similar to Straddle, but separate the strikes -- move the put strike down sligthly 
+        and the call strike up slightly
+    \end{itemize}
+
+    Considerations:
+    \begin{itemize}
+        \item Similar to straddle -- profit from large price moves in either direction
+        \item Less expensive than a straddle (because strikes are out of the money, premium is 
+        lower)
+        \item Need a large move to profit
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Buy Strangle}
+
+    Payoff at Expiry from \textbf{Buy Strangle}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_buy_strangle.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Common Option Strategies}
+    \framesubtitle{Sell Strangle}
+
+    Payoff at Expiry from \textbf{Sell Strangle}\\
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch20_1_sell_strangle.png}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item[1. ] What are the trade-offs facing an investor who is consider buying a put option on an existing 
+        portfolio?
+        \item[2. ] What are the trade-offs facing an investor who is considering writing a call option on an 
+        existing portfolio?
+        \item[3. ] You expect that a stock will break out of its recent range.   You don't know which direction. 
+        What is a simple options strategy to position for your view?   Assuming that at-the-money puts and calls both 
+        cost \$1, how much does the stock need to move in order for your strategy to be profitable.
+        \item[4. ] In what ways is owning a corporate bond similar to selling a put option?
+
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{5. Practice}
+    \framesubtitle{}
+
+    \begin{enumerate}
+        \item[5. ] You sell a call option with $X=50$ and buy a call option with $X=60$.   The options are on the same 
+        stock and have the same expiration.   One of the calls sells for \$3 and the other sells for \$9.   Draw the 
+        payoff graph for this strategy at option expiration.   What is the breakeven point for this strategy?   Is the investor 
+        bullish or bearish on the stock?
+        \item[6. ] An investor purchases a stock fo \$28 and a put for \$0.50 with a strike price of \$35.   The 
+        investor also sells a call for \$0.50 with a strike price of \$40.   What are the maximum possible profit 
+        and loss for this position?  Draw the profit and loss diagram for this strategy as a function of the stock 
+        price at expiration.
+    \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

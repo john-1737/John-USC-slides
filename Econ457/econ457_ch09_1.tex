@@ -1,0 +1,475 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 5-a}
+
+\title{Capital Asset Pricing Model (CAPM)}
+\subtitle{Reference: Bodie et al, Ch 9}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Material So Far}
+
+    \begin{table}
+        \begin{tabular}{llrrr}
+        \toprule
+         Week & Subject & Chapter in \textit{Bodi et al} \\
+        \midrule
+        1 & Intro  &  - \\
+        2 & Measuring Returns & 5 \\
+        3 & Capital Allocation & 6 \\
+        4 & Optimal Portfolios & 7 \\
+        \textcolor{red}{5} & \textcolor{red}{CAPM} & \textcolor{red}{9} \\
+        6 & Index Model & 8 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item The Market Portfolio and Equilibriumm
+        \item Implications of CAPM Equilibrium
+        \begin{itemize}
+            \item Equilibrium Condition for Expected Returns
+            \item Prices adjust
+        \end{itemize}
+        \item A Linear Model
+        \item Practice: Applications of CAPM
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \framesubtitle{Markowitz Portfolio Optmization (Bodi, Ch 7)}
+
+    \vspace{-1em}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch9_cml.png}
+
+    \blfootnote{The Markwotiz model determines optimal weights $w_i$, given 
+    $\mathbb{E}[r_i]$, $r_i$, and $\sigma_i$, for securities $i=1...n$.   Markowitz says nothing about
+     what the security prices \textit{should} be.   That is where CAPM comes in.}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \framesubtitle{CAPM assumptions}
+
+    \begin{itemize}
+    \item Investors are similar
+        \begin{itemize} 
+            \item Investors are mean-variance optimizers
+            \item Investors have the same expectations for asset characteristics (means, variances, correlations)
+            \item Investors have the same time horizons
+        \end{itemize}
+    \item Markets are complete
+        \begin{itemize} 
+            \item No taxes
+            \item No trading costs
+            \item Unlimited leverage available at the risk-free rate
+            (and therefore short positions allowed)
+        \end{itemize}
+    \end{itemize}
+
+    These may seem overly restrictive.   Some can be relaxed and CAPM still holds.  
+    More importantly, CAPM is, like all models, a useful simplification.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \framesubtitle{Equilibrium}
+
+    Under these assumptions, we can conclude that:
+    \begin{itemize}
+        \item The market portfolio is optimal.   No portfolio exists with better reward-to-risk.
+        \item The market portfolio is an equilibrum.   
+    \end{itemize}
+    \vspace{1em}
+
+    The \textbf{expected return of the market} is determined by economic factors 
+    (wealth, average risk aversion, risk-free rate).\\
+    \vspace{1em}
+
+    Moreover, if the market portfolio is an equilibrium, this has strong implications for 
+    \textbf{expected return of individual securities}, which is the next part of the lecture.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \framesubtitle{Market Price of Risk}
+
+    Define the \textbf{market price of risk} as the reward-to-risk for investment in the market portfolio:
+
+    $$\frac{\text{Market Risk Premium}}{\text{Market Variance}} = \frac{\mathbb{E}[R_m]}{\sigma_m^2}$$
+    Where $\mathbb{E}[R_m] = \mathbb{E}[r_m] - r_f$ is the risk premium and $\sigma_m^2$ is the variance 
+    of the market portfolio.\\
+    \vspace{1em}
+    Notice that this is \textit{not} the same as the Sharpe Ratio, which has the standard deviation in the denominator.  
+    Using variance instead makes the math cleaner when we consider the contribution of a single security to a portfolio risk.\\
+    \vspace{1em} 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \framesubtitle{Contribution of a single security to market risk}
+
+    The contribution of a security $xyz$ to the variance of the market portfolio is given by:
+    $$\sum_{i=1}^{n}w_i Cov(R_{xyz},R_i)$$
+    for all $i$ in the market portfolio.  
+    Using standard rules of variances and covariances, this can be rewritten as:
+    $$w_{xyz}Cov(R_{xyz},R_m)$$
+    where $R_m$ is the return of the market portfolio.  
+    In words, the contribution of security $xyz$ to the variance 
+    of the market portfolio is 
+    the Covariance of $xyz$ with the market portfolio (multiplied by the weight, $w_{xyz}$).
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Equilibrium Condition for Expected Returns}
+
+    From Bodi et al, p 119:
+    \vspace{1em}
+
+    \begin{quote}
+    A basic principal of equilibrium is that all investments should offer the same reward-to-risk ratio.
+    If the ratio were better for one investment than another, investors would rearrange their portfolios.
+    This would cause prices to adjust until the expected reward-to-risk were equal.
+    \textbf{Therefore, we conclude that the reward-to-risk for each security is equal to the reward-to-risk for the market portfolio.}
+    \end{quote}
+
+    This provides a nice equilibrium condition that can 
+    be used to determine the expected returns of a security.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Equilibrium Condition for Expected Returns}
+
+
+    The equilibrium condition says that overweighting stock $xyz$ relative to the market portfolio should neither improve or detract the reward-to-risk, therefore we it must be the case that:\\
+
+    $$\frac{\mathbb{E}[R_{xyz}]}{Cov(R_{xyz},R_m)} = \frac{\mathbb{E}[R_m]}{\sigma_m^2}$$
+    
+    \vspace{1em}
+    The denominator on left hand side is the contribution of $xzy$ to the 
+    risk of the market portfolio.   
+    The right hand side of the equation is the reward-to-risk for the entire market.\\
+    \vspace{1em}
+    Continued...
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Equilibrium Condition for Expected Returns}
+
+    ...Continued.   Rearranging:
+    $$\mathbb{E}[R_{xyz}] = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}\mathbb{E}[R_m]$$
+    \vspace{1em} 
+
+    The first term on the right hand side is the contribution of $xyz$ to 
+    variance of the market portfolio, 
+    as a share of the total variance of the market portfolio.\\
+    \vspace{1em}
+    This term is often referred to as $\beta_{xyz}$.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Equilibrium Condition for Expected Returns}
+
+    Define the Beta of a security as as:
+    $$\beta_{xyz} = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}$$
+    Beta has two valid interpretations:
+    \begin{enumerate}
+        \item The risk each dollar invested in security $xyz$ contributes to the risk of the market portfolio.
+        \item The regression coefficient for $R_{xyz}$ on $R_m$, or the sensitivity of the 
+        excess returns of security $xyz$ to variation in the market excess returns.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    From Bodi et al, p 119:\\
+    \vspace{1em}
+    \begin{quote}
+    A basic principal of equilibrium is that all investments should offer the same reward-to-risk ratio.
+    If the ratio were better for one investment than another, investors would rearrange their portfolios.
+    \textbf{This would cause prices to adjust until the expected reward-to-risk were equal.}
+    Therefore, we conclude that the reward-to-risk for each security is equal to the reward-to-risk for the market portfolio.
+    \end{quote}
+
+
+    Shorter version: Prices adjust!
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_sml.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    Draw the Security Market Line using the following considerations:
+    \begin{itemize}
+        \item If a security is uncorrelated with the market, then overweighting that 
+        security will reduce the variance of the resulting portfolio.   
+        The return on this security must be equal to the risk-free return, 
+        otherwise it would be possible to construct a better portfolio than the market, 
+        thereby violating the equilibrium condition.
+        \item If a security is perfectly correlated with the market and had a better 
+        expected return than the market portfolio, then that would also violate the 
+        equilibrium assumption.   Conclude the return on a security with $\beta=1$ must 
+        be the same as the market portfolio
+        \item The excess return for a security with $\beta \neq 1$ is given 
+        by the equilibrium condition to be $\beta \mathbb{E}[R_M]$
+    \end{itemize}
+    
+    \textit{All securities must lie on the Security Market Line (SML)!}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    What if a security lies off the SML?
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_sml_with_AB.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    What is the reward-to-risk of overweighting security $xyz$ in the market portfolio?
+    
+    $$
+    \begin{aligned}
+    \text{Reward:} &\quad \mathbb{E}[R_{xyz}] = \alpha_{xyz} + \beta \cdot \mathbb{E}[R_m] \\
+    \text{Risk:} &\quad Cov(R_{xyz},R_m) 
+    \end{aligned}
+    $$
+
+    Note that the risk is the Covariance with the market portfolio.   
+    The risk is NOT the variance of $r_{xyz}$.   
+    This is a key component of the CAPM assumptions.   
+    The market portfolio is optimal, investors hold that already, 
+    everything else is compared to holding the market portfolio.
+
+    \vspace{1em}
+    Continued...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    \footnotesize
+    ...Continued As above, let $\beta = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}$
+
+    \begin{align*}
+    \left(\frac{\text{reward}}{\text{risk}}\right)_{xyz}   &= \frac{\mathbb{E}[\alpha_{xyz}] + \beta \cdot \mathbb{E}[R_m]}{Cov(R_{xyz},R_m)}\\
+                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
+                                            \frac{\beta \cdot \mathbb{E}[R_m]}{Cov(R_{xyz},R_m)}\\
+                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
+                                            \frac{\frac{Cov(R_{xyz},R_m)}{\sigma_m^2} \cdot \mathbb{E}[R_m]}{Cov(R_{xyz},R_m)}\\
+                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
+                                            \frac{\mathbb{E}[R_m]}{\sigma_m^2}\\
+                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
+                                            \left(\frac{\text{reward}}{\text{risk}}\right)_m
+    \end{align*}
+
+    Therefore, if $\alpha_{xyz} < 0$, then adding $xyz$ will decrease the reward-to-risk of an investor's portfolio.   Continued...
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_sml_with_alpha.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    But, prices adjust! \\
+    \vspace{1em}
+    If $\alpha_{xyz} < 0$ in expectation, then investors will sell $xyz$.   
+    Selling $xyz$ lowers the price (raises the expected return).   
+    This will happen until $\alpha_{xyz} = 0$ in expectation.\\
+    \vspace{1em}
+
+    Conclude that, in expectation, we must have $\alpha_{xyz} = 0$.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. A Linear Model}
+    \framesubtitle{}
+
+    The equilibrium condition for CAPM, with a bit of rearranging, gives the following 
+    expression for expected excess returns of security $xyz$:
+    $$\mathbb{E}[R_{xyz}] = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}\mathbb{E}[R_m]$$
+
+    Substituting $\beta_{xyz} = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}$ 
+    and $\mathbb{E}[R_m] = \mathbb{E}[r_m] - r_f$, gives the standard 
+    formulation of CAPM for expected returns of security $xyz$:\\
+    $$\boxed{\mathbb{E}[r_{xyz}] = r_f + \beta_{xyz}(\mathbb{E}[r_m] - r_f)}$$\\
+    \vspace{1em} 
+
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. A Linear Model}
+    \framesubtitle{}
+
+
+    $$\boxed{\mathbb{E}[r_{xyz}] = r_f + \beta_{xyz}(\mathbb{E}[r_m] - r_f)}$$
+    \vspace{1em}
+
+    This expression gives the expected return of stock $xyz$ as a function of the following:\\
+    \begin{enumerate}
+        \item Risk-free rate ($r_f$)
+        \item Expected excess market return ($\mathbb{E}[R_m] = \mathbb{E}[r_m] - r_f$)
+        \item $\beta_{xyz}$
+    \end{enumerate}
+    \vspace{1em}
+    Note that all three of those inputs are needed to estimate $\mathbb{E}[r_{xyz}]$
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{1. Practice from Last Class}
+    \framesubtitle{Beta, SML and Price Changes}
+
+    Consider the following
+    \footnotesize
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{cccc}
+    \toprule
+    \textbf{Scenario} & \textbf{Market Return} & \textbf{Aggressive Stock} & \textbf{Defensive Stock} \\
+    \midrule
+    Low & 5\% & -2\% & 6\% \\
+    \hline
+    High & 25\% & 38\% & 12\% \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    Questions:
+    \begin{enumerate}
+        \item What is the expected rate of return for each stock, if the two scenarios are equally likely?
+        \item What is the Var-Cov matrix, if the two scenarios are equally likely?
+        \item What are the betas of the aggressive and defensive stock?
+        \item Draw the SML if T-Bill rate is 6\% and the two scenarios are equally likely.
+        \item Plot the two securities relative to the SML. What is the alpha?
+        \item What is likely to happen to the \textit{price} of the two stocks?
+    \end{enumerate}
+
+    \blfootnote{Example from Bodi et al, p308}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \framesubtitle{Expected Stock Price}
+
+    Assume the risk-free rate is 6\% and the expected return on the market is 16\%.
+    A stock sells for \$50 today.   
+    It will pay a dividend of \$6 per share at the end of the year.   
+    Its beta is 1.2.\\
+    \vspace{1em}
+    Questions:\\
+    \begin{enumerate}
+        \item What is the expected return for this stock?
+        \item What do investors expect the price to be at the end of the year?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \framesubtitle{Expected return of a specific project}
+
+    The risk-free rate is 8\% and the expected return on the market portfolio is 16\%. 
+    A firm considers a project that is expected to have a beta of 1.3.\\
+    \vspace{1em}
+    Questions:
+    \begin{enumerate}
+        \item What is the required rate of return on the project?
+        \item If the expected IRR of the project is 19\%, should the project be accepted?
+    \end{enumerate}
+    \vfill
+    
+    \blfootnote{The expected IRR is the discount rate 
+    that sets the present discounted value of the project 
+    (including both costs and returns) equal to zero.}
+ 
+\end{practiceframe}
+
+\end{document}

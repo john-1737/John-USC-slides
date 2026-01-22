@@ -1,0 +1,290 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 3-a}
+
+\title{Capital Allocation}
+\subtitle{Reference: Bodie et al, Ch 6}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[t]
+    \frametitle{Economics 457}
+    \framesubtitle{Course Outline Covered}
+
+    \vspace{-1em}
+
+        \begin{table}
+        \centering
+        \footnotesize  % Global font size for the table
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=2cm] Q[l,wd=6cm]}
+        }
+        \toprule
+        Subject & Weeks & Sub-topics \\
+        \midrule
+        Intro & 1 \& 2 & Measuring Returns, Distribution of Returns, Evaluating Returns \\
+        \textcolor{red}{Portfolio Construction} 
+            & \textcolor{red}{3, 4, 5}
+            & \textcolor{red}{Capital Allocation, Diversification, Index Model} \\
+        Market Equilibrium & 6 \& 7 & CAPM, Fama-French Factors \\
+        Fixed Income & 8 \& 9 & Prices, Yields, Yield Curve, Duration and Convexity \\
+        Equity & 10 \& 11 & Dividend Discount Models, Price-Earnings Ratios, Efficient Markets, Equity Risk Premium\\
+        Derivatives & 12, 13, 14 & Futures, Swaps, Options \\
+        Financial Crisis of 2008 & 15 & Causes, What Happened, Aftermath\\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Utility and Indifference Curves
+        \item Preferences over Return and Risk
+        \item Capital Allocation Line (budget constraint)
+        \item Optimization
+        \item Practice
+    \end{enumerate}
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{1. Utility and Indifference Curves}
+    \framesubtitle{Concave Utility}
+
+    Utility functions are generally \textit{concave} with respect to wealth.\\
+    \vspace{1em}
+    This reflects \textit{diminishing marginal utility} with respect wealth.\\
+    \vspace{1em} 
+     Intuitively, if a household goes from, say, making \$50,000 to \$150,000 annually that can 
+    result in a material change in standard of living.   In contrast, moving from 
+    \$100,000,000 to \$100,100,000 probably doesn't matter as much.
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Utility and Indifference Curves}
+    \framesubtitle{Concave Utility}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch06_1_concave_utility.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Utility and Indifference Curves}
+    \framesubtitle{Expected Values}
+
+   \textbf{Definition:} Expected value is the probability-weighted average of all possible outcomes
+    $$E[X] = \sum_{i} p_i \cdot x_i$$
+    where $p_i$ is the probability of outcome $x_i$
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textbf{Linearity:} $E[aX + bY] = aE[X] + bE[Y]$
+        \item \textbf{Constant:} $E[c] = c$ for any constant $c$
+    \end{itemize}
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Utility and Indifference Curves}
+    \framesubtitle{Expected Values and Concave Utility}
+
+    It follows from the concavity of the utility function that for a given set of 
+    outcomes represented by $x$:
+    $$\mathbb{E}[u(x)] < u(\mathbb{E}[x])$$
+    In words, the expected utility over a set of uncertain outcomes is lower than 
+    the utility of the expected value over those same outcomes.\\
+    \vspace{1em}
+    In even simpler words: people prefer certain outcomes over uncertain outcomes.\\
+    \vspace{1em}
+    This is known as 'Jensen's inequality' and holds for any concave function.\\
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Utility and Indifference Curves}
+    \framesubtitle{Concave Utility}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch06_1_concave_utility_jensen.png}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{Outline}
+    \framesubtitle{Quick note on the numbers in this lecture}
+
+    The charts in this lecture assume the following:
+    \begin{itemize}
+      \item Expected excess returns of the S\&P: 8.5\% 
+      \item Expected standard deviation of the S\&P: 12.5\%
+      \item Expected Sharpe Ratio of S\&P: ~0.7   
+      \item Risk-free rate: 4\%
+    \end{itemize}
+    \vspace{1em}
+    These expectations are roughly in-line with the historic S\&P returns and volatility since 2004.\\
+    \vspace{1em}   
+    At the same time, they are better than the historic Sharpe Ratio since 1926, which is closer to 0.5.\\
+    \vspace{1em}   
+    Anyways, this lecture is mostly to illustrate the approach, rather than precisely estimate these numbers.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Preferences over Return and Risk}
+    \framesubtitle{Preferences and Utility}
+
+    Standard preferences prefer more return and less volatility.   
+
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ch6_1_util1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Preferences over Return and Risk}
+    \framesubtitle{Indifference Curves}
+
+    An indifference curves trace the risk-return combinations that yield the same utility.  
+
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ch6_1_util2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Preferences over Return and Risk}
+    \framesubtitle{Indifference Curves}
+
+    Assume the following equation for utility:
+    $$U = E[r] - 0.5 \cdot A \cdot \sigma^2$$ 
+
+    Utility is increasing in $E[r]$ and decreasing in $\sigma^2$.   The convexity comes from the squared-term.\\
+    \vspace{1em}
+    To get an indifference curve, set $U$ equal to a constant, then plot the function $E[R] = U - 0.5 \cdot A \cdot \sigma^2$\\
+    \vspace{1em}
+    What happens for larger (smaller) values of A?   How do the indifference curves change?   
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Preferences over Return and Risk}
+    \framesubtitle{Indifference Curves}
+
+    Higher indifference curves (up and to the left) correspond to more utility. 
+
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ch6_1_util3.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Capital Allocation Line}
+    \framesubtitle{}
+
+    Assume, for the moment, that you have two options: cash or a broad portfolio of risky assets.  
+    Accordingly, your only decision is how much of your portfolio to allocate to the risky asset.\\
+    \vspace{1em}
+    The \textbf{Capital Allocation Line (CAL)}  depicts all possible combiations in risk-return space available from this decision.\\
+    \vspace{1em}
+    The CAL intersects the y-axis at $y=r_{risk-free}$ and goes through the point $(x=\sigma_{risky},y=(r_{risky}+r_{risk-free}))$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Capital Allocation Line}
+    \framesubtitle{Capital Markets Line and the Sharpe Ratio}
+
+    When the portfolio of risky assets is a basket of broad-based stocks, the CAL has a specific name: \textbf{Capital Markets Line (CML)}.\\
+    \vspace{1em}
+    Note that the slope of the CML is the Sharpe Ratio.
+
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/ch6_1_cml.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Optimization}
+    \framesubtitle{}
+
+    We can now solve for the optimal portfolio using standard maximization techniques:
+    $$\max_{w} \quad U = E[r] - 0.5 \cdot A \cdot \sigma^2$$
+    
+    Subject to:
+    $$E[r] = w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f$$
+    $$\sigma^2 = w^2 \cdot \sigma_{\text{risky}}^2$$
+    
+    where $w$ is the weight in the risky asset.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Optimization}
+    \framesubtitle{}
+
+    To solve this, take the first derivative with respect to $w$:
+
+    \begin{align*}
+    \frac{dU}{dw} &= w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f - 0.5 A \cdot w^2 \cdot \sigma_{\text{risky}}^2\\
+    &= 0
+    \end{align*}
+    
+    Solving for $w$:
+    $$w^* = \frac{E[r_{\text{risky}}] - r_f}{A \cdot \sigma_{\text{risky}}^2}$$
+    Be careful: this is not the Sharpe Ratio.   The denominator has a $\sigma^2$ and also the cofficient $A$.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Optimization}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_max_w.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Optimization}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_1_opt.png}
+
+\end{frame}
+
+\end{document}

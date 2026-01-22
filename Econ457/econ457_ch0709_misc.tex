@@ -1,0 +1,315 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Week 7-a}
+
+\title{Various Topics}
+\subtitle{}
+\author{Econ 457}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 457
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    \begin{enumerate}
+        \item Midterm 
+        \item Stocks and Bonds Correlations
+        \item CAPM and Bond Yields
+        \item Regression in Excel
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{1. Midterm}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch0709_midterm.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Midterm}
+    \framesubtitle{Grading}
+
+    \begin{table}
+        \centering
+        \caption{Grades for Econ 457}
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=2.cm]}
+        }
+        \toprule
+        Item & Percent of Total \\
+        \midrule
+        Homework & 25\% \\
+        Mid-term 1 & 20\% \\
+        Mid-term 2 & 20\% \\
+        Final & 35\% \\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Midterm}
+    \framesubtitle{Review Topics}
+
+    \begin{enumerate}
+        \item Charts for each section
+        \item Standard Deviation of a two asset portfolio
+        \item EAR 
+        \item Variance and Covariance
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{Total Return Indices}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_shiller_sp500_gs10_tr.png}
+
+    \blfootnote{Data Source: Robert Shiller}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{Total Return Indices - Log Scale}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_shiller_sp500_gs10_tr_logs.png}
+
+    \blfootnote{Data Source: Robert Shiller}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{Rolling Correlations}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_sp500_gs10_corr.png}
+
+    \blfootnote{Data Source: Robert Shiller}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{Rolling Correlations}
+
+    Preview from fixed income section: \textit{bond prices and yields are inversely related.}\\
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{Rolling Correlations}
+
+    What drives the correlation between stocks and bonds?
+    \footnotesize
+    \begin{itemize}
+        \item \textbf{Positive Correlation:}
+        \begin{enumerate}
+            \item Inflation shocks: Higher (lower) inflation expectations lead to tighter (easier) monetary policy
+            \item Higher (lower) discount rates reduce (increase) present value of future cash flows, lowering (raising) both stock and bond prices
+        \end{enumerate}
+        \item \textbf{Negative Correlation:}
+        \begin{enumerate}
+            \item Growth shocks: Lower (higher) growth expectations reduce (increase) equity valuations while increasing (decreasing) demand for safe assets
+            \item Monetary policy response: Growth concerns lead to easier (tighter) monetary policy, lowering (raising) bond yields while equity markets decline (rise)
+            \item Safe haven demand: Economic uncertainty drives investors from risky stocks to safe government bonds
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{1970s and 1980s}
+
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \footnotesize
+            \begin{itemize}
+                \item Inflation shocks led to higher interest rates and lower equities, contributing to a \textit{positive} correlation.
+                \item Lower inflation allowed the Fed to ease policy in the 1980s, again contributing to \textit{positve} correlation
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch7_2_sp500_gs10_corr_1970s.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{2000s}
+
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \footnotesize
+            \begin{itemize}
+                \item Low and stable inflation started in the 1990s.   
+                \item Growth shocks and safe haven demand \textit{negative} correlation in 2008.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch7_2_sp500_gs10_corr_2000s.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{2020s}
+
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \footnotesize
+            \begin{itemize}
+                \item Safe haven demand drove \textit{negative} correlation in 2020
+                \item Inflation shock drove \textit{positive} correlation in 2022
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch7_2_sp500_gs10_corr_2020s.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Correlations in Practice: SPY and US Treasuries}
+    \framesubtitle{Takeaways}
+
+    \begin{enumerate}
+        \item Correlations can and do change!   
+        \item Correlations reflect the macro environment.
+        \item Correctly anticipating the correlations can greatly enhance returns.
+        \item Incorrectly anticipating the correlations can cause big problems.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. CAPM and Bond Yields}
+    \framesubtitle{2007-2011}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch9_tltspy_07_11.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. CAPM and Bond Yields}
+    \framesubtitle{2021-2025}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch9_tltspy_21_25.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. CAPM and Bond Yields}
+    \framesubtitle{Rolling Correlations}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch9_tltspy_rolling.png}
+
+\end{frame} 
+
+\begin{frame}[t]
+    \frametitle{3. CAPM and Bond Yields}
+    \framesubtitle{Implications for Bond Yields}
+
+    If bond returns are negatively correlated with the S\&P, then the expected return of bonds will be \textit{less} than the return on the risk-free rate.\\
+    \vspace{1em}
+
+    In contrast, a positive correlation between bond returns and S\&P returns would be associated with expected bond returns \textit{higher} than the return on the risk-free rate.\\
+    \vspace{1em}
+    Conclude: The sharp change in correlations in 2021-2022 likely contributed to the increase in bond yields during that time.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. CAPM and Bond Yields}
+    \framesubtitle{Term Premium}
+
+    Term premium models attempt to estimate the expected return of Treasury bonds in excess of the risk-free rate over the life of the bond.\\
+    \vspace{1em}
+    These models depend on a number of assumptions and complicated mathematics.   They are unlikely to be used as trading tools, but nevertheless can be useful in characterizing the drivers of changes in prices and yields.
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. CAPM and Bond Yields}
+    \framesubtitle{Term Premium}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_termpremium.png}
+
+\end{frame}
+
+
+
+
+
+\begin{excelframe}[t]
+    \frametitle{4. Regression}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch0709_reg0.png}
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+    \frametitle{4. Regression}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch0709_reg1.png}
+
+\end{excelframe}
+
+\end{document}
