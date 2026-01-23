@@ -1,0 +1,173 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Financial Markets 2 of 8}
+
+\title{Financial Market Returns}
+\subtitle{Mishkin Chapter 4}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+
+\begin{frame}
+    \frametitle{Outline for Financial Markets}
+        \begin{enumerate}
+            \item Financial Market Returns
+            \item \fbox{Bonds 1: Discounting, Prices and Yields}
+            \item Bonds 2: Nominal v. Real Yields, Supply and Demand
+            \item Bonds 3: Market for Money
+            \item Bonds 4: Risk and Term Structure
+            \item Equities 1: Dividend Discount Model
+            \item Equities 2: P/E Ratio
+            \item Equities 3: Theories of Stock Pricing
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item Discounting Future Values
+        \item Bonds
+        \begin{itemize}
+            \item Definition
+            \item Types of Bonds
+            \item Pricing and Yields
+        \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+
+    Generally people place lower value on cash flows that are expected in the future.  
+    
+    \vspace{1em}
+    
+    Why?
+    
+    \vspace{1em}
+    \begin{enumerate}
+        \item Behavioral
+        \item Time Value of Money
+        \item Risk
+        \item Inflation
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+    \framesubtitle{Time Value of Money}
+
+    Easy example to start:
+    \begin{itemize}
+        \item Assume you have access to a guaranteed return of 10\% per year.
+        \item How much would you accept one year from today in exchange for \$100 today?
+        \item Can also reverse the question: How much would you accept today in exchange for \$110 one year from today?
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+    \framesubtitle{Risk}
+
+    For concave utility functions, a certain outcome has a higher utility than an uncertain outcome.
+
+    INSERT CHART
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+    \framesubtitle{Inflation}
+
+    Prices of the things (goods and services) you want to buy tend to increase over time.
+
+    \vspace{1em}
+
+    \$1 will buy more things (goods and services) today than the same \$1 will buy 1 or more years from now.
+
+    \vspace{1em}
+
+    In order for you to be indifferent between a value today and a value in the future, the future value must increase by at least as much as prices of things (goods and services) increase.
+
+\end{frame}    
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+    \framesubtitle{Formula}
+
+    Generic formula to equate today values ($v_0$) with future values ($v_N$) where $N$ is the number of period in between today and the future:
+
+    $$V_0 = \frac{V_N}{(1+r)^N}$$
+
+    Where $r$ is referred to as the "discount rate".   
+
+    \vspace{1em}
+    It's easy to rearrange this equation and to find the value in the future that would be equivalent to a value today that is expected to grow at a certain rate:
+
+    $$V_0 (1+r)^N = V_N$$
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+    \framesubtitle{Rule of 72}
+
+    \begin{quote}
+    Compound interest is the eigth wonder of the world.  He who understands it, earns it.   He who doesn't, pays it.\\
+    \vspace{1em}\\
+     \hspace*{5mm} --- \textit{Albert Einstein}
+    \end{quote}
+
+    \vspace{1em}
+
+    \textbf{Rule of 72}: Divide 72 by the annual rate of return to determine how many years is required to double an investment.
+
+    \vspace{1em}
+
+    Example: An investment with an expected annual total return of 14\% will double in value approximately every five years ($72/14 \approx 5$)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Discounting Future Values}
+    \framesubtitle{Rule of 72, cont}
+
+    INSERT CHART FROM AARP
+
+\end{frame}
+
+\end{document}
