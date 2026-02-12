@@ -1,0 +1,302 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Financial Markets 4 of 8}
+
+\title{Market for Money}
+\subtitle{Mishkin Chapter 5}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Financial Markets}
+        \begin{enumerate}
+            \item Financial Market Returns
+            \item Bonds 1: Discounting, Prices and Yields
+            \item Bonds 2: Nominal v. Real Yields, Supply and Demand
+            \item \fbox{Bonds 3: Market for Money}
+            \item Bonds 4: Risk and Term Structure
+            \item Equities 1: Dividend Discount Model
+            \item Equities 2: P/E Ratio
+            \item Equities 3: Theories of Stock Pricing
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item Review: Supply and Demand for Bonds
+        \item Market for Money
+        \item Money Supply and Inflation
+        \item Analysis
+        \begin{itemize}
+            \item Fed Increases Money Supply
+            \item Expected Inflation
+        \end{itemize}
+        \item Practice Problems
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Supply and Demand for Bonds}
+
+    Factors affecting \textbf{demand}:
+    \begin{itemize}
+        \item Wealth
+        \item Expected returns \textit{relative to other assets}
+        \item Risk \textit{relative to other assets}
+        \item Liquidity \textit{relative to other assets}
+    \end{itemize}
+    
+    \vspace{2em}
+
+    Factors affecting \textbf{supply}:
+    \begin{itemize}
+        \item Profitability of corporate investment
+        \item Expected inflation
+        \item Government deficits
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Supply and Demand for Bonds}
+    \framesubtitle{Example}
+
+    In Q1 2020 the following things happened due to COVID:
+    \begin{itemize}
+        \item Recession fears increased
+        \item Perceived risk in stocks increased
+        \item Risky assets became less liquid
+        \item The Federal Reserve bought Treasury bonds
+        \item Corporations stopped borrowing
+    \end{itemize}
+
+    \vspace{1em}
+
+    Describe how each development led to a shift in either the supply or the demand curve for bonds.   What was the result for Treasury bond prices/yields?  Corporate bond prices/yields?  
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Supply and Demand for Bonds}
+    \framesubtitle{Example}
+
+    \textbf{US Treasury Yields, 10-year notes}
+    
+    \centering
+    \includegraphics[width=\textwidth]{figures/mkts_4_dgs10_covid.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Supply and Demand for Bonds}
+    \framesubtitle{Example}
+
+    \textbf{US Treasury Yields, 10-year notes}\\
+    \textbf{BBB Corporate Yields}
+    
+    \centering
+    \includegraphics[width=\textwidth]{figures/mkts_4_dgs10_bbb_covid.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Market for Money}
+    \framesubtitle{Discussion}
+
+    The Federal Reserve often adjusts the money supply as part of its attempt to manage the economy.    A different model is needed to analyze the impact of changes in the money supply.   This model is known as the "market for money", or, alternatively, as "Keynes' Liquidity Preference Framework."
+    \vspace{2em}
+    
+    The model assumes that there are only two assets: cash and bonds.  The model further assumes there is no return on cash.   You could imagine you are deciding how much money to keep in your checking account (cash) and how much money to invest in a brokerage account (and buy bonds).   The key to that decision is the interest rate on bonds, or, equivalently, the opportunity cost of keeping your money in cash.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Market for Money}
+    \framesubtitle{}
+
+    \centering
+    \textbf{Market for Money}
+    \vspace{1em}
+    
+    \includegraphics[width=0.8\textwidth]{figures/mkts_4_mkt_for_money.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Market for Money}
+    \framesubtitle{}
+
+    Shifts of the \textbf{demand} curve:
+    \begin{itemize}
+        \item Income effect
+        \item Price level effect
+    \end{itemize}
+    \vspace{1em}
+
+    Shifts of the \textbf{supply} curve:
+    \begin{itemize}
+        \item Federal Reserve
+        \item Bank money creation
+    \end{itemize}
+
+    \vspace{1em}
+    We will mostly focus on shifts in the supply curve due to Federal Reserve decisions.   Please refer to the book for a more detailed discussion of shifts in the demand curve.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Money Supply and Inflation}
+    \framesubtitle{}
+
+    \begin{quote}
+    Inflation is always and everywhere a monetary phenomenon
+    \hfill— Milton Friedman
+    \end{quote}
+    \vspace{1em}
+
+    It's a bit more nuanced than saying that an increase in the money supply leads to higher inflation.   It's more accurate to say that an increase in the \textit{growth rate} of the money supply will lead to an increase in inflation.
+    \vspace{1em}
+
+    However, for the purposes of this analysis, we will assume that an increase in the money supply is accompanied by an expectation of a higher growth rate of money supply in the future, and, therefore, by higher inflation expectations.
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Money Supply and Inflation}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/mkts_4_m2_cpi.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Analysis}
+    \framesubtitle{}
+
+    If the Federal Reserve \textit{increases} the money supply, then our models predict the following:
+    \begin{itemize}
+        \item \textbf{Market for Money}: Interest rates will \textit{fall}
+        \item Inflation expectations are likely to increase.
+        \item \textbf{Market for Bonds}: Demand curve will shift in, due to lower expected real returns, which will cause prices to fall and interest rates to \textit{rise}.
+    \end{itemize}
+    \vspace{1em}
+
+    Which effect will dominate?   It's not clear!  In fact, in just the last twenty years we have seen the liquidity effect dominate (2008-2017) and also the inflation effect dominate (2020-2022).   The models are helpful, but reality is complicated...
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Analysis}
+    \framesubtitle{Example: 2008-2019}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/mkts_4_liquidity_dominates.png}
+    \includegraphics[width=0.7\textwidth]{figures/mkts_4_liquidity_dominates_dgs10.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Analysis}
+    \framesubtitle{Example: 2020-2022}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/mkts_4_inflation_dominates.jpg}
+    \includegraphics[width=0.7\textwidth]{figures/mkts_4_inflation_dominates_dgs10.png}
+
+\end{frame}
+
+\begin{practiceframe}[allowframebreaks]
+    \frametitle{5. Practice Problems}
+{\small
+\linespread{0.2}\selectfont
+The opportunity cost of holding money is
+\begin{enumerate}
+    \item the level of income.
+    \item the price level.
+    \item the interest rate.
+    \item the discount rate.
+\end{enumerate}
+\vspace{1em}
+
+An increase in the interest rate
+\begin{enumerate}
+    \item increases the demand for money.
+    \item increases the quantity of money demanded.
+    \item decreases the demand for money.
+    \item decreases the quantity of money demanded.
+\end{enumerate}
+
+\vspace{1em}
+If there is an excess demand for money, individuals \underline{\hspace{2cm}} bonds, causing interest rates. to \underline{\hspace{2cm}}.
+\vspace{1em}
+
+\framebreak
+
+In the market for money, business cycle expansions increase income, causing money demand to \underline{\hspace{2cm}} and interest rates to \underline{\hspace{2cm}}, everything else held constant.
+\vspace{1em}
+
+In the market for money, when the Fed decreases the money stock, the money supply curve shifts to the \underline{\hspace{2cm}} and the interest rate \underline{\hspace{2cm}}, everything else held constant.
+
+\vspace{1em}
+Of the four effects on interest rates from an increase in the money supply, the initial effect is, generally, the
+\begin{enumerate}
+    \item income effect.
+    \item liquidity effect.
+    \item price level effect.
+    \item expected inflation effect.
+\end{enumerate}
+\framebreak
+
+It is possible that when the money supply rises, interest rates may \underline{\hspace{2cm}} if the \underline{\hspace{2cm}} effect is more than offset by changes in income, the price level, and expected inflation.
+\begin{enumerate}
+    \item fall; liquidity
+    \item fall; risk
+    \item rise; liquidity
+\end{enumerate}
+\vspace{1em}
+
+Interest rates increased continuously during the 1970s. The most likely explanation is
+\begin{enumerate}
+    \item banking failures that reduced the money supply.
+    \item a rise in the level of income.
+    \item the repeated bouts of recession and exp
+    \item increasing expected rates of inflation.
+\end{enumerate}
+}
+
+\end{practiceframe}
+
+\end{document}
