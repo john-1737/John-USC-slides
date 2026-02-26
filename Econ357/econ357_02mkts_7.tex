@@ -1,0 +1,313 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Financial Markets 7 of 8}
+
+\title{P/E Ratio}
+\subtitle{Mishkin Chapter 7}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Financial Markets}
+        \begin{enumerate}
+            \item Financial Market Returns
+            \item Bonds 1: Discounting, Prices and Yields
+            \item Bonds 2: Nominal v. Real Yields, Supply and Demand
+            \item Bonds 3: Market for Money
+            \item Bonds 4: Risk and Term Structure
+            \item Equities 1: Dividend Discount Model
+            \item \fbox{Equities 2: P/E Ratio}
+            \item Equities 3: Theories of Stock Pricing
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item Review: Stocks and Monetary Policy
+        \item P/E Ratio
+        \item Two uses:
+        \begin{itemize}
+            \item Compare Prices Across Similar Companies
+            \item Compare Prices Across Time
+        \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Econ357//figures/03_banks_01_bank.jpeg}
+    \caption{Enter Caption}
+    \label{fig:placeholder}
+\end{figure}
+\begin{frame}[t]
+    \frametitle{Review: Stocks and Monetary Policy}
+
+    Gordon Growth Model:
+    $$V_0 = \frac{D_0(1+g)}{k-g} = \frac{D_1}{k-g}$$
+    Assumptions:
+    \begin{enumerate}
+        \item Dividends grow at a constant rate ($g$)
+        \item Growth isn't too large ($g<k$)
+    \end{enumerate}
+
+    \vspace{2em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review: Stocks and Monetary Policy}
+
+    Monetary Policy can affect stock prices in two ways:
+    \begin{enumerate}
+        \item The Fed can influence discount rates.   For example, when the Fed lowers interest rates, the return on bonds declines, and investors are likely to accept a lower required return on equity investments ($k$)
+        \item The Fed can influence growth expectations.  For example, by lowering interest rates the Fed can help to stimulate economic growth, thereby raising growth expectations ($g$)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review: Stocks and Monetary Policy}
+
+    Application: COVID in 2020
+    \vspace{1em}
+
+    First quarter:
+    \begin{itemize}
+        \item Perceived riskiness of stocks increased ($k$ increased)
+        \item Growth expectations declined ($g$ lower)
+        \item Stock values declined $\approx30\%$
+    \end{itemize}
+    \vspace{1em}
+  
+    Second Quarter:
+    \begin{itemize}
+        \item Fed lowered interest rates ($k$ lower)
+        \item Growth expectations recovered somewhat ($g$ higher)
+        \item Stock values quickly rebounded
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. P/E Ratio}
+
+    Question: Consider a company that expects to earn \$100 billion in the coming year. Assume the company has no debt and pays all its earning to shareholders via dividends.
+    
+    \vspace{1em}
+    How much would you pay to own the entire company? Why?
+    \begin{enumerate}[(A)]
+        \item \$100 billion
+        \item More than \$100 billion
+        \item Less than \$100 billion
+        \item No idea
+    \end{enumerate}
+    \vspace{1em}
+    Hint: think about the Gordon Growth Model
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. P/E Ratio}
+
+    Answer: You would likely be willing to pay \textbf{more} than \$100 billion to own that company.
+
+    \vspace{1em}
+    Two reasons:
+    \begin{enumerate}
+        \item We generally expect companies to produce earnings for a long time,   You aren't just buying next year's earnings, but instead a whole stream of future earnings.
+        \item We generally expect companies to grow over time.   Earnings in the future have the potential to be much higher than next year's earnings.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. P/E Ratio}
+    \subtitle{Value of company with no growth}
+
+    To illustrate the first point, consider the case of a company with no expected growth ($g=0$).   Using the Gordon growth model, and assuming $D=E$ because all earnings are paid as dividends, we have:
+
+    $$V_0 = \frac{E(1+g)}{k-g} = \frac{E}{k}$$
+
+    \vspace{1em}
+    Typical values for $k$ are between 8\% and 15\%.   If we have $k=12.5\%$ then:
+    $$V_0 = \frac{E}{0.125} = 8E$$
+    For this example, the P/E ratio is 8.   (Also commonly referred to as the stock's multiple.)    
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. P/E Ratio}
+    \framesubtitle{P/E Ratios of Some Large Companies}
+
+    % Requires: \usepackage{array}
+    \begin{table}[h]
+        \centering
+        \caption{Placeholder Caption}
+        \label{tab:placeholder_label}
+        \begin{tabular}{lccc}
+            \hline
+            \textbf{Company} & \textbf{\makecell{Earnings \\ (\$ bn)}} & \textbf{\makecell{Market Cap   \\ (\$ bn)}} & \textbf{P/E Ratio} \\
+            \hline
+            JPM    & \$53   & \$857   & 15 \\
+            J\&J   & \$27   & \$575   & 21 \\
+            Apple  & \$117  & \$4,020 & 34 \\
+            Nvidia & \$90   & \$4,580 & 46 \\
+            \hline
+        \end{tabular}
+        
+        \vspace{0.3em}
+    \end{table}
+
+\footnotesize{Notes: Data from Yahoo Finance.  Earnings are earnings available to common stockholders over the trailing twelve month period.   Market capitalization is the number of outstanding common stock shares multiplied by the price of a common stock share.}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. P/E Ratio}
+    \framesubtitle{}
+
+    Note companies with higher expected growth (i.e. Nvidia) have higher P/E ratios.   That should be intuitive, based on the Gordon Growth Model.
+    \vspace{1em}
+
+    In fact, with some clever rearranging (not shown), we could use the Gordon Growth Model to write the P/E Ratio as follows:
+    $$\frac{P}{E} = \frac{1}{k}\left(1 + \frac{PV(\text{growth opportunities})}{E/k}\right)$$
+    Where $\frac{PV(\text{growth opportunities})}{E/k}$ is the present discounted value of growth opportunities over the value of the firm in a no-growth scenario.
+    
+    \vspace{1em}
+    Clearly higher growth opportunities in the future will lead to a higher P/E ratio.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{}
+
+    In contrast to the Gordon Growth Model, which we used to estimate the value of company, the P/E ratio is used to make \textit{relative} statements about prices.   
+    \vspace{1em}
+    
+    In particular, P/E ratios are often used to:
+    \begin{enumerate}
+        \item Compare the prices of similar companies
+        \item Compare prices across time
+    \end{enumerate}
+    \vspace{1em}
+
+    When making comparisons it's important to remember what the P/E ratio represents.   Companies with high P/E ratios are expected to have high growth rates (or low discount rates, but usually growth rates are the more important driver).   The expectations reflected in the price may or may not come to pass.   Whether they are a good estimates is for you, the investor, to decide.   
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{Comparing Prices of Similar Companies}
+
+
+    % Requires: \usepackage{booktabs}
+    \begin{table}[h]
+        \centering
+        \caption{Automakers}
+        \label{tab:placeholder_label}
+        \begin{tabular}{lrrrr}
+            \toprule
+            & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Market\\ Cap\\ \$ bn\end{tabular}} &
+            \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Share Price,\\ \$\\ (as of 7-16)\end{tabular}} &
+            \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EPS,\\ TTM\end{tabular}} &
+            \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}PE Ratio,\\ TTM\end{tabular}} \\
+            \midrule
+            Ford (F)            & 44.6  & 11.25  & 1.25 & 9.00  \\
+            General Motors (GM) & 51.1  & 53.33  & 7.16 & 7.45  \\
+            Honda (HMC)         & 41.8  & 30.53  & 3.64 & 8.39  \\
+            Tesla (TSLA)        & 1{,}037 & 321.88 & 1.74 & \textbf{184.99} \\
+            BYD Company (BYD)   & 172.6 & 93.73  & 4.30 & 21.77 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{Comparing Prices Across Time}
+
+    \textbf{Cyclically Adjusted PE Ratio ("CAPE")}
+    \begin{itemize}
+        \item Created by Robert Shiller (Yale Professor, Nobel Prize 2013)
+        \item Today's price divided by average earnings over the past 10 years (both adjusted for inflation)
+        \item Data available back to 1880 
+        \item Advantage: smooths out business cycles (e.g. 2008)
+        \item Disadvantage: some prefer to use \textit{forward} earnings
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{Comparing Prices Across Time}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch18_2_cape_1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{Comparing Prices Across Time}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch18_2_cape_2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{Comparing Prices Across Time}
+
+    Is the CAPE a useful signal for when stocks are expensive or cheap?
+    
+    \vspace{1em}
+    The inverse of the CAPE is the 'earnings yield'.   This could plausibly correspond with the expected earnings in the future, normalized by the price.     
+    
+    \vspace{1em}
+    (Remember that we thought about bond yields as an indicator of expected of returns.  However, in bonds the final price is fixed at the face value, whereas there is no analogous final price in equities.)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Uses of the P/E Ratio}
+    \framesubtitle{Comparing Prices Across Time}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch18_2_cape_3.png}
+
+\end{frame}
+
+\end{document}

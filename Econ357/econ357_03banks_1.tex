@@ -1,0 +1,366 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Banks 1 of 5}
+
+\title{Role of Banks}
+\subtitle{Mishkin Chapter 8}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Banks}
+        \begin{enumerate}
+            \item \fbox{Role of Banks}
+            \item Bank Balance Sheets
+            \item Bank Earnings
+            \item Bank Failures/Regulation
+            \item Bank Structure
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item Role of Banks in the Economy
+        \item Debt v. Equity Financing
+        \item Banks as Financial Intermediaries
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Role of Banks in the Economy}
+
+    \begin{itemize}
+        \item Banks are important providers of credit.
+        \item Household and non-corporate businesses are particularly reliant on banks for credit.
+        \item Bank credit is often in the form of a loan.   The bank gives you money now and you promise to repay it, with interest, at some future date.
+        \item Note: that bonds are a special case of loans.  
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Role of Banks in the Economy}
+
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_01_bank.jpeg}
+
+    \blfootnote{Source: Mishkin, page 164
+    Andreas Hackethal and Reinhard H. Schmidt, “Financing Patterns: Measurement Concepts and Empirical Results,” Johann Wolfgang Goethe-Universitat Working Paper No. 125, January 2004. The data are from 1970–2000 and are gross flows as percentage of the total, not including trade and other credit data, which are not available}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Role of Banks in the Economy}
+
+    Corporate business rely more on bonds, but loans are also important.% Requires: \usepackage{array}
+    \begin{table}[h]
+        \centering
+        \caption{Non-Financial Corporate Businesses}
+        \label{tab:placeholder_label}
+        \begin{tabular}{l>{\raggedleft\arraybackslash}p{2cm}}
+            \hline
+            \textbf{Liabilities}\\
+             \hline
+            Debt Securities (i.e. corporate bonds) & \$ 8.6 tr \\
+            \textcolor{red}{Loans (incl. mortgages)} & \textcolor{red}{\$ 5.3 tr}\\
+            Trade payables & \$ 4.2 tr \\            
+            Misc liabilities (i.e.\ pensions) & \$ 11.8 tr\\
+            \hline
+            Total & \$ 30.6 tr \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: Federal Reserve, Financial Accounts, Q2-2025}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Role of Banks in the Economy}
+
+    Loans are the \textit{primary} source of funds for noncorporate businesses
+
+    \begin{table}[h]
+        \centering
+        \caption{Non-Financial Non-Corporate Businesses}
+        \label{tab:placeholder_label}
+        \begin{tabular}{l>{\raggedleft\arraybackslash}p{2cm}}
+            \hline
+            \textbf{Liabilities}\\
+             \hline
+            Debt Securities (i.e. corporate bonds) & \$ 0 tr \\
+            \textcolor{red}{Loans (incl. mortgages)} & \textcolor{red}{\$ 7.9 tr}\\
+            Trade payables & \$ 0.8 tr \\            
+            Misc liabilities (i.e.\ pensions) & \$ 3.7 tr\\
+            \hline
+            Total & \$ 12.8 tr \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: Federal Reserve, Financial Accounts, Q2-2025}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Role of Banks in the Economy}
+
+    Loans are the \textit{primary} source of funds for households
+
+    \begin{table}[h]
+        \centering
+        \caption{Households and Non-Profits}
+        \label{tab:placeholder_label}
+        \begin{tabular}{l>{\raggedleft\arraybackslash}p{2cm}}
+            \hline
+            \textbf{Liabilities}\\
+             \hline
+            Debt Securities (i.e. corporate bonds) & \$ 0.3 tr \\
+            \textcolor{red}{Loans (incl. mortgages)} & \textcolor{red}{\$ 20.1 tr}\\
+            Trade payables & \$ 0.5 tr \\            
+            Misc liabilities (i.e.\ pensions) & \$ 0 tr\\
+            \hline
+            Total & \$ 20.9 tr \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: Federal Reserve, Financial Accounts, Q2-2025}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    Let’s say you have a great idea for an app to sell on the Apple Store.   You need \$100k to pay somebody to develop it.   You have two options:   \\
+    \vspace{1em}
+    
+    \textbf{Equity financing}: You pay the developers with your own money.   You will be the owner of the app.  You will receive any proceeds from selling the app.
+    
+    \vspace{1em}
+    \textbf{Debt financing}: You could borrow money, perhaps from a bank.   You will have to repay the bank out of the proceeds of your app sale, and you will get to keep whatever is left over.
+    
+    \vspace{1em}
+    New businesses are commonly financed with a combination
+    of debt and equity (at a minimum, you will be required to
+    contribute your own money and be the sole equity owner)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \begin{columns}[T]
+
+        \column{0.4\textwidth}
+        Let's say you put in \$20k of your own money (equity) and borrow \$80k from the bank (debt).   
+        \vspace{1em}
+        
+        The \textbf{capital stack} for your app business looks like this:
+        
+        \column{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Econ357/figures/03_banks_01_capital_stack.png}
+        
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \begin{itemize}
+        \item The amount of debt usually doesn’t change over the life of the loan.   (The face value of the debt is set at the time of issuance)
+        \item Changes in the business value are entirely reflected in changes in the equity value.
+        \item The equity total return (percent) is therefore a multiple of the percent change in the business value.
+        \item It is common to say refer to debt as “leverage”, and to say that the equity owner has a “levered position” in the company.
+        \item Leverage is a very important feature of the economy and the financial system.
+        \item Common situations involving leverage: buying a house, starting a business, and banks
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_01_increase.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_01_decrease.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_01_20pct.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    Observations from the previous slide:
+    \begin{itemize}
+        \item The banks’ upside is capped at the interest rate.   Regardless of the business' success, the bank will only earn the interest rate.
+        \item The bank gets its money back in most scenarios.   Even if the business is a failure (-20\%), the bank still gets money back.
+        \item Therefore banks' primary focus is avoiding default (asymmetric with downside risks)
+        \item The returns to the equity owners (you) are magnified.   You can do well if the business succeeds, but if the business falters you can lose most or even all of your money.
+        \item Therefore equity holders primary focus is maximizing chances of a big success. (asymmetric with upside risks)
+        \item Note that the incentives of the bank and the equity holder are in tension.
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \textit{Question}: What happens when the capital stack has less equity? 
+    
+    \vspace{1em}
+    \textit{Answer}: The equity position is more levered.   Total returns are greater for gains in the business value, but it only takes a small decrease in the business value to eliminate the entire equity position.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Debt v. Equity Financing}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_01_10pct.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+
+    \begin{itemize}
+    
+        \item The biggest risk is the bank may lose its money if the borrowers fail to repay their loans.
+        \item How do banks deal with that risk?
+        \item Can banks reduce their risks by charging high interest rates?    (We saw that lower rated companies often have corporate bonds with higher interest rates, does this compensate lenders for the risk of default?)
+        \item Answer: higher interest rates help, but it is not a complete solution for the banks’ problem.
+        \item The reason is asymmetric information, also known as the ”lemons problem”
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+
+    "The Market for Lemons", George Akerlof, Nobel Prize in 2001
+
+    \begin{itemize}
+        \item Consider the market for used cars.   There is a range of car quality.   The salesman know which cars are lemons and which aren’t.   Borrowers don’t know which are which.
+        \item You (the buyer) will be willing to pay the average value of cars on the lot.
+        \item The salesman will then direct you to the lemons, which are actually worth less than the average.   He will be unwilling to sell you a good car for the average price.
+        \item Knowing that you will be steered towards the lemons, you decide to not buy the car.
+        \item The market breaks down...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+
+    \begin{itemize}
+        \item In the context of banks, the borrowers have more information than the lenders.
+        \item Higher interest rates may just exacerbate the problem, because it will skew the borrowers towards lower credit quality.
+        \item This raises the possibility that only bad borrowers (i.e. those who know they won’t pay back the loan) seek credit.
+        \item The problem is magnified for banks because their upside from lending to good companies is capped, while they have meaningful downside from lending to bad companies.
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+
+    In order to overcome the asymmetric problem, banks employ a number of strategies:
+
+    \begin{enumerate}
+        \item Collateral
+        \item Credit Underwriting
+        \item Credit Monitoring
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+    \framesubtitle{Collateral}
+
+    \begin{itemize}
+        \item Addressing asymmetric information \textit{before} the loan is made.
+        \item Collateral reduces the banks’ downside risk.
+        \item For example, houses are the natural collateral for real estate.  In the case that the borrower defaults, the bank takes ownership of the house, which they can sell and recoup some of their loan.  Banks are more willing to lend against good collateral (e.g. mortgages are much more common than ‘working capital’ loans)
+        \item Banks are also more willing to make loans when there is a significant amount of equity financing, for similar reasons.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+    \framesubtitle{Credit Underwriting}
+
+    \begin{itemize}
+        \item Addressing asymmetric information \textit{before} the loan is made.
+        \item Banks spend considerable resources trying to develop their own information on good v. bad borrowers.
+        \item In some cases, there are standard metrics.   For example, FICO scores and income for homeowners.
+        \item In other cases, banks must rely on private information.   Historically, this was a reason for the prevalence of local banks, because they had better information.   Although local banks are less common today.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Banks as Financial Intermediaries}
+    \framesubtitle{Monitoring}
+
+    \begin{itemize}
+        \item Addressing asymmetric information \textit{after} the loan is made.
+        \item Banks have ongoing relationships with businesses and consumers.
+        \item For example, if you have a credit card from the same bank that you have a checking account, then the bank can see your monthly balances.   They may adjust your credit limit accordingly.
+    \end{itemize}
+
+\end{frame}
+
+\end{document}
