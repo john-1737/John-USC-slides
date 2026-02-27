@@ -1,0 +1,336 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Banks 2 of 6}
+
+\title{Bank Balance Sheets}
+\subtitle{Mishkin Chapter 9}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Banks}
+        \begin{enumerate}
+            \item Role of Banks
+            \item \fbox{Bank Balance Sheets}
+            \item Bank Earnings
+            \item Bank Management (and Investment Banks)
+            \item Bank Failures
+            \item Bank Regulation
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+    Return Midterm
+    \vspace{1em}
+    
+    \begin{enumerate}
+        \item Balance Sheets Balance!
+        \item Assets
+        \begin{itemize}
+        \item Assets: loans and securities
+        \item Accounts at the Federal Reserve
+        \end{itemize}
+        \item Liabilities
+        \begin{itemize}
+            \item Deposits as short term loans
+            \item Other liabilities: corporate bonds
+        \end{itemize}
+        \item Capital
+        \begin{itemize}
+            \item Risk-weighted Capital
+        \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Midterm}
+    \framesubtitle{Grading}
+
+    \begin{table}
+        \centering
+        \caption{Grades for Econ 357}
+        \begin{tblr}{
+            colspec = {Q[l,wd=2cm] Q[c,wd=2.cm]}
+        }
+        \toprule
+        Item & Percent of Total \\
+        \midrule
+        Readings & 20\% \\
+        Mid-term 1 & 20\% \\
+        Mid-term 2 & 25\% \\
+        Final & 35\% \\
+        \bottomrule
+        \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Balance Sheets Balance!}
+
+        \centering
+        \textit{Assets = Liabilities + capital}
+        \vspace{1em}
+        
+        \begin{itemize}
+            \item Balance sheets always balance!
+            \item Bank Liabilities = deposits, borrowing (i.e. debt)
+            \item Bank Assets = Loans, Securities, Cash
+            \item Changes to one side require changes to the other
+            \item Bank capital adjusts as asset values change
+        \end{itemize}
+        
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Balance Sheets Balance!}
+    \framesubtitle{Assets}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_02_assets.png}
+
+    \blfootnote{Source: FDIC Quarterly Banking Profile, 2024-q2}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Balance Sheets Balance!}
+    \framesubtitle{Liabilities}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_02_liabilities.png}
+
+    \blfootnote{Source: FDIC Quarterly Banking Profile, 2024-q2}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Assets}
+    \framesubtitle{Loans}
+
+    \begin{itemize}
+        \item When a bank makes a loan, it is a liability for the business or household, and an asset for the bank.
+        \item The most common types of loans made by banks are:
+        \begin{enumerate}
+            \item Mortgages are loans that are secured with real estate as collateral.   Mortgages are the most common type of loans made by banks.
+            \item Commercial and industrial loans to businesses (may or may not be secured with collateral)
+            \item Loans to households for credit cards or autos
+        \end{enumerate}
+    \end{itemize}
+
+    \vspace{1em}
+    
+    \textit{Note}: Banks may also be servicers of loans that are actually held by another investors.   More on this later, when we talk about securitization.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Assets}
+    \framesubtitle{Securities}
+
+    \begin{itemize}
+        \item Banks often hold financial securities.
+        \item Typically banks hold US Treasury bonds and other debt instruments.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Assets}
+    \framesubtitle{Accounts at the Federal Reserve}
+    
+    \begin{itemize}
+        \item The Federal Reserve is the nation’s central bank.   Most commercial banks have accounts at the Federal Reserve.   These accounts are liabilities for the Federal Reserve and assets for commercial banks.
+        \item Collectively, the accounts of all the commercial banks are are known as “reserves.”
+        \item Commercial banks earn interest on these accounts.   The rate is typically close to the rate on
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Deposits}
+
+    \begin{itemize}
+        \item Checking accounts are short term loans made by household and businesses to banks.
+        \item Checking accounts are assets for household and liabilities for banks.
+        \item Banks generally pay very low interest rates on deposits
+        \begin{itemize}
+            \item This makes deposits a cheap source of financing for the banks
+            \item This may or may not be a good deal for you.   On the one hand, you don't earn much return on your money.   On the other hand, there are lots of other services the bank provides, such as checks, ATMs, etc.
+        \end{itemize}
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Deposits}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_02_wfc_checking.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Deposits}
+
+    \begin{itemize}
+        \item Certificates of Deposit are also short term loans made to banks.
+        \item They have terms that are slightly longer (6 months or a 1 year).
+        \item They also have interest rates that are slightly higher, although still somewhat low.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Deposits}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/03_banks_02_wfc_cds.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Corporate Bonds}
+
+    \begin{itemize}
+        \item Banks are frequent issuers of corporate bonds.
+        \item These bonds are assets for households and investors, and are liabilities for the bank.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Capital}
+
+    Reminder:
+
+    {\centering
+    \textit{Assets = Liabilities + Capital}
+    \par
+    }
+
+    \begin{itemize}
+        \item Capital is the residual, necessary to make balance sheets balance.
+        \item Liabilities generally don't change in value.   Assets frequently change in value.   Changes in asset value leads to changes in the amount of capital.
+        \item You can also think about capital as similar to equity in the bank.
+    \end{itemize}
+    \vspace{1em}
+
+    \textit{Note}: This lecture about balance sheets.  Capital is the "book value" of equity and is based on the balance sheet.   That is different than the "market value" of equity, which is set by market prices, and was discussed in the markets section.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Capital}
+
+    \begin{itemize}
+        \item Banks are primarily financed with debt.   As we discussed last lecture, this means banks are "levered". 
+        \item When we talk about banks, we often refer to the bank's capital ratio: 
+        $$\text{Capital ratio} = \frac{\text{Capital}}{\text{Assets}}$$ 
+        \item A ”well capitalized” bank has a capital ratio of 10 – 15\% (0.1 to 0.15).
+        \item In the previous lecture we discussed leverage ratios for businesses as "5x" or "5:1".   The capital ratio is the inverse of that leverage ratio.  Always pay attention to the context when discussing the leverage ratio or the capital ratio.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Liabilities}
+    \framesubtitle{Capital}
+
+    A hypothetical bank's capital stack may look like this:
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_02_bank_capital_stack.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Risk-weighted Assets}
+    \framesubtitle{Capital}
+
+    Capital is the amount of losses that a bank can absorb and still maintain a positive equity book value.   It is often useful to re-weight the assets according to their riskiness, in order to assess whether the amount of capital is adequate or not.   \\
+    \vspace{1em}
+    
+    Risk-weights for Bank Assets (example):
+    \begin{itemize}
+        \item US Treasuries / Reserves: 0\% weight
+        \item Other Banks = 20\% weight
+        \item Municipal bonds and mortgages = 50\% weight
+        \item Corporate and Consumer Loans = 100\% weights
+    \end{itemize}
+
+    \blfootnote{Risk weights introduce the potential for "regulatory arbitrage".   The bank can use more leverage to hold assets with lower weights.}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Risk-weighted Assets}
+    \framesubtitle{Balance Sheets Balance}
+
+    Consider a bank with the following: \$20 million in debt, \$200 million in deposits, \$50 million in securities, \$150 million in loans, and \$50 in reserves.    
+    \vspace{1em}
+
+    \begin{itemize}
+        \item Write down the bank’s balance sheet using a “T-chart”.
+        \item What is bank's capital ratio?   Is this bank 'well capitalized'?
+    \end{itemize}
+
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{4. Risk-weighted Assets}
+    \framesubtitle{Risk-Weighted Assets}
+
+    Consider a bank with \$9m in capital, \$130m in deposits, \$25m in a commercial loan, \$50m in mortgages (the bank holds 200 mortgages.  Each one is 5.25\% fixed rate, each for \$250k).
+    \vspace{1em}
+    
+    \begin{itemize}
+        \item What does the balance sheet look like?
+        \item What is bank’s the risk-weighted assets?  (Use the risk-weights from the previous slides, on an exam risk-weights will be provided in the question)
+        \item What is the risk-weighted capital ratio?
+        \item Is this bank 'well capitalized'?
+    \end{itemize}
+
+\end{practiceframe}
+
+\end{document}

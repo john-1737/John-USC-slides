@@ -1,0 +1,334 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Banks 3 of 6}
+
+\title{Bank Earnings}
+\subtitle{Mishkin Chapter 9}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Banks}
+        \begin{enumerate}
+            \item Role of Banks
+            \item Bank Balance Sheets
+            \item \fbox{Bank Earnings}
+            \item Bank Management (and Investment Banks)
+            \item Bank Failures
+            \item Bank Regulation
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+    \begin{enumerate}
+        \item Review: Bank Balance Sheets
+        \item Required Ratios
+        \item Balance Sheet Changes
+        \begin{itemize}
+        \item Practice
+        \end{itemize}
+        \item How Banks Make Money
+        \begin{itemize}
+            \item Net Interest Margin
+            \item Impact of Leverage
+            \item Practice
+        \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Bank Balance Sheets}
+    \framesubtitle{Assets}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_02_assets.png}
+
+    \blfootnote{Source: FDIC Quarterly Banking Profile, 2024-q2}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Bank Balance Sheets}
+    \framesubtitle{Liabilities}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_02_liabilities.png}
+
+    \blfootnote{Source: FDIC Quarterly Banking Profile, 2024-q2}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Review: Bank Balance Sheets}
+    \framesubtitle{Capital}
+
+    A hypothetical bank's capital stack may look like this:
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_02_bank_capital_stack.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Required Ratios}
+
+    There are two important limits that banks must adhere to:
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item \textbf{Reserve Requirements}: Banks are required to maintain a minimum amount of reserves.   Usually reserves must be maintained at $\approx$10\% deposits.
+        $$\text{Required Reserves} = \frac{\text{Reserves}}{\text{Deposits}}$$
+        \item \textbf{Capital Ratios}: Banks are required to maintain a minimum amount of capital.   (You could alternatively think about this as a restriction on bank leverage)  The minimum capital ratio for most banks is around 10\% and could be as high as 15\% for larger banks.
+        $$\text{Capital Ratio} = \frac{\text{Capital}}{\text{Assets}}$$
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    What happens when you deposit money at a bank?
+    
+    \begin{table}
+    \centering
+    \caption{\textbf{Your Bank}}
+    \begin{tblr}{
+      colspec = { Q[c,wd=2cm] Q[c,wd=1cm] |Q[c,wd=2cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & +\$100 & Deposits & +\$100 \\
+    \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    What happens when you write a check to somebody else?
+
+    \begin{table}
+    \centering
+    \caption{\textbf{Your Bank}}
+    \begin{tblr}{
+      colspec = { Q[c,wd=2cm] Q[c,wd=1cm] |Q[c,wd=2cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & -\$100 & Deposits & -\$100 \\
+    \end{tblr}
+    \end{table}
+
+        \begin{table}
+    \centering
+    \caption{\textbf{Recipients' Bank}}
+    \begin{tblr}{
+      colspec = { Q[l,wd=2cm] Q[c,wd=1cm] |Q[l,wd=2cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & +\$100 & Deposits & +\$100 \\
+    \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    What happens you (“A”) deposit money at a bank and the bank then makes a loan to somebody else (“B”) that uses the same bank?   
+
+    {\small
+    \begin{table}
+    \centering
+    \caption{\textbf{Step 1}}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1cm] |Q[l,wd=3cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & +\$100 & Deposit from A & +\$100 \\
+    \end{tblr}
+    \end{table}
+    \vspace{-1em}
+
+        \begin{table}
+    \centering
+    \caption{\textbf{Step 2}}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1cm] |Q[l,wd=3cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Loan to B & +\$100 & Deposit from A & +\$100 \\
+    Cash & +\$100 & Deposit from B & +\$100 \\
+    \end{tblr}
+    \end{table}
+    }
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    In the previous example the bank literally created money.   It received a \$100 deposit, but ended up with \$200 in deposits.\\
+    \vspace{1em}
+    Required reserves limit this process and slow down money creation.\\
+    \vspace{1em}
+    To see how, the two next slide shows the same process but now with the requirement that the bank hold reserves equal to at least 10\% of deposits and then with capital ratio requirement.   In both case, the bank is limited in how much lending it can do, which slows down the money creation process.  
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    Assume the bank must maintain required reserves of at least 10\% of deposits.
+
+    {\small
+    \begin{table}
+    \centering
+
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1cm] |Q[l,wd=3cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & +\$90 & Deposit from A & +\$100 \\
+    Reserves & +\$10 & && \\
+    \end{tblr}
+    \end{table}
+
+    \begin{table}
+    \centering
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1cm] |Q[l,wd=3cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Loan to B & +\$90 & Deposit from A & +\$100 \\
+    Cash & +\$81 & Deposit from B & +\$90 \\
+    Reserves & +\$19
+    \end{tblr}
+    \end{table}
+    }
+    Because of the required reserves, the bank only created \$90 (instead of \$100 in the first example).
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    Assume the bank starts with \$15 in capital and must maintain a capital ratio of at least 10\%.
+
+
+    {\small
+    \begin{table}
+    \centering
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1cm] |Q[l,wd=3cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & +\$90 & Deposit from A & +\$100 \\
+    Reserves & +\$10 & && \\
+    && Capital & +\$15\\
+    \end{tblr}
+    \end{table}
+
+    \begin{table}
+    \centering
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1cm] |Q[l,wd=3cm] Q[c,wd=1cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Loan to B & +\$50 & Deposit from A & +\$100 \\
+    Cash & +\$85 & Deposit from B & +\$50 \\
+    Reserves & +\$15 \\
+        && Capital & +\$15\\
+
+    \end{tblr}
+    \end{table}
+    }
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+
+    A couple more examples:
+    \vspace{1em}
+    
+    Deposit outflows:
+    \begin{itemize}
+        \item Use most liquid assets
+        \item Need to maintain reserve requirement
+    \end{itemize}
+    
+    Loan Losses
+    \begin{itemize}
+        \item Regulators may force raising more capital
+        \item This involves getting new owners to contribute cash in exchange for equity. What are the pros/cons of that?
+        \item If losses are large enough, may have negative capital (will discuss this more in a later class...)
+    \end{itemize}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{3. Bank Balance Sheet Changes}
+    \vspace{-1em}
+    Consider a bank with the following: \$30 million in capital, \$20 million in debt, \$200 million in deposits, \$50 million in securities, \$150 million in loans, and the remainder of its assets in cash/reserves. The banks regulators require it to maintain a capital to asset ratio of 10\% and a reserve to deposit ratio of 10\%.
+    \vspace{1em}
+    \begin{enumerate}
+        \item Write down the bank’s balance sheet using a “T-chart”. Verify that it is meeting both of its regulatory ratios.
+        \item What happens if there is a deposit outflow of \$40 million? Write down the bank balance sheet. Is the bank currently meeting its regulatory ratios?
+        \item What happens if instead of a deposit outflow,the bank experienced losses on its loans. Specifically, what happens if 10\% of the banks’ loans default? Write down the bank balance sheet.
+        \item Is the bank currently meeting its regulatory ratios?
+    \end{enumerate}
+    
+\end{practiceframe}
+
+\end{document}

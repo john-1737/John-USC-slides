@@ -1,0 +1,85 @@
+\documentclass{beamer}
+
+\newcommand{\week}{}
+
+\title{Case Study}
+\vspace{1em}
+\subtitle{\textit{This is interesting}}
+\author{John Bellows}
+\date{\week}
+
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: 
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Case Study
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+\begin{frame}
+    \frametitle{Outline}
+    \begin{enumerate}
+        \item Background: Some Financial Instruments
+        \begin{itemize} 
+            \item Treasury Bonds, Bond Futures, Call and Put Options
+        \end{itemize}
+        \item Background: Interest Rates from 2021 to 2023
+
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Background: Some Financial Instruments}
+    \framesubtitle{Treasury Bonds}
+    \begin{itemize}
+        \item A Treasury bond is a loan to the Federal Government
+        \item There are two important characteristics of every Treasury bond: the maturity and the interest rate.   The interest rate on a specific bond is typically fixed for the life of that bond.  Market interest rates can and do change frequently.
+        \item Investors make (lose) money on Treasury bonds primarily due to price changes.    
+        \begin{itemize}
+            \item If market interest rates rise (fall), the value of Treasury bond with a fixed interest rate decreases (increases).
+            \item Intuition 1: The price of a bond is the present discounted value of future interest and principal payments.   Market interest rates are used as the discount factor.   As discount rates (interest rates) rise, the present value decreases.
+            \item Intuition 2: If market interest rates rates rise, you feel lousy for holding a bond with a fixed interest rate that is below market rates.   The value of the bond you hold declines accordingly. 
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Background: Some Financial Instruments}
+    \framesubtitle{Call and Put Options}
+
+    \textbf{Call Option}: An option to \textit{buy} on a future date at a specified price.
+    \vspace{1em}
+    
+    \textbf{Put Option}: An option to \textit{sell} on a future date at a specified price.
+    \vspace{1em}
+
+    \textbf{Example}:  A few years ago you bought a call option that gives you the ability to buy an iPhone on Dec 31, 2025 for \$500.   On Dec 31 2025 the price of a new iPhone was \$799.   You now get to buy an iPhone for \$299 less than the market price!  Great trade for you!
+    \vspace{1em}
+
+    Now consider the seller of that option.  You paid them some money at the time you bought the option.   (The price depends on the expected value of the option.  An option with a low change of being used has a very low price.).   However, now the seller has two choices: (a) sell you her iPhone or (b) buy a new iPhone for \$799 and then sell it to you for \$500.   Bad trade for her!
+
+\end{frame}
+
+\end{document}
