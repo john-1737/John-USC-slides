@@ -1,0 +1,367 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Banks 4 of 6}
+
+\title{Bank Failures}
+\subtitle{Mishkin Chapter 10}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Banks}
+        \begin{enumerate}
+            \item Role of Banks
+            \item Bank Balance Sheets
+            \item Bank Earnings
+            \item Bank Management (and Investment Banks)
+            \item \fbox{Bank Failures}
+            \item Bank Regulation
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+    \begin{enumerate}
+        \item Bank Runs
+        \begin{itemize}
+            \item Silicon Valley Bank
+            \item Deposit Insurance and Moral Hazard
+        \end{itemize}
+        \item Bank Regulation
+        \item Practice Questions
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Background}
+
+    As financial intermediaries, banks do two important things:
+    \vspace{1em}
+    
+    \textbf{Maturity transformation}:   Banks transform short maturity deposits into long maturity loans.   This makes it possible for one set of borrowers to have long-term financing agreements while a set of lenders has short-term agreements.   Both are better off. 
+    \vspace{1em}
+    
+    \textbf{Asymmetric Information}: Banks determine which borrowers are credit worthy, and then monitors the state of the loans it has made.  This information remains private to the bank.   That is, the bank’s depositors generally don’t necessarily know the condition of loans that the bank has made. 
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Diamond-Dybvig Model: Set-up}
+
+    \textbf{Model Set-up}
+    
+    \begin{itemize}
+        \item Asymmetric Information: Depositors do not know whether the bank is solvent or not.  Generally, they trust the bank is solvent and don’t worry.
+        \item Depositors get their money on a first-come, first-serve basis.   (“Sequential service”)
+        \item Banks perform maturity transformation services (borrow short, lend long)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Diamond-Dybvig Model}
+
+    \textbf{Bank runs:}
+    
+    \begin{itemize}
+        \item In normal times, depositors withdraw according to their liquidity needs.   Not everybody withdraws at the same time, banks have enough cash to meet demands.
+        \item If there is a shock, depositors may fear they won’t get their money back.
+        \item This may cause even patient, rational depositors to withdraw from the bank.   Banks will not have enough cash to meet the demand if everybody withdraws.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Diamond-Dybvig Model}
+
+\textbf{Bad equilibrium:}
+
+\begin{itemize}
+    \item Banks may be forced to sell loans to raise cash.  They may do so at “fire sale” prices (i.e. prices below the true value).  This may cause banks to incur losses.
+    \item Even fundamentally sound banks may fail due to a bank run. A sharp decline in prices has the potential to cause contagion for other financial institutions.
+\end{itemize}
+
+\vspace{1em}
+Douglas Diamond and Philip Dybvig shared the Nobel Prize in 2022 (along with Ben Bernanke) for their work on this model.
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{It's A Wonderful Life}
+
+Bank runs in the movies:  \textit{It’s a Wonderful Life”}
+\vspace{1em}
+
+https://youtu.be/OTJCI1FNBfA
+\vspace{2em}
+
+\textbf{Questions}
+\begin{itemize}
+    \item What causes the bank run?
+    \item What stops the bank run?
+    \item What role does confidence play?
+    \item What role does asymmetric information play?
+    \item How is maturity transformation discussed?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Silicon Valley Bank}
+
+        \begin{table}
+    \centering
+    \caption{\textbf{Silicon Valley Bank, as of December 2022}}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[r,wd=1.5cm] |Q[l,wd=3cm] Q[r,wd=1.5cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Cash & \$14bn & Deposits & \$173 bn \\
+    Securities (USTs) & \$120 bn & Long Term Debt & \$5 bn \\
+    Loans & \$73 bn & Other Debt & \$19b \\
+    Other & \$4 bn &  & \$19b \\
+    && Equity & \$15 b\\
+    Total & \$212 bn  & Total & \$212 bn
+    \end{tblr}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Silicon Valley Bank}
+
+    US Treasury Yields Rose Sharply in 2022
+    \vspace{1em}
+    
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_5_yields.png}
+    
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Silicon Valley Bank}
+
+    US Treasury Prices Fell Sharply in 2022
+    \vspace{1em}
+    
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_5_prices.png}
+    
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Silicon Valley Bank}
+
+    Depositors were very large (over the FDIC limit) and could easily move their money out.
+    \vspace{1em}
+
+    \begin{itemize}
+        \item Circle Internet Financial (Stablecoin), \$3 b
+        \item Sequoia Capital, \$1 b
+        \item Beijing Tech Firm, \$900 m
+        \item Etc
+    \end{itemize}
+    \vspace{1em}
+    
+    On March 9, 2023 depositors withdrew \$40 billion from SVB (in one day!!).
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Silicon Valley Bank}
+
+    Bank runs can be contagious:
+
+    \begin{enumerate}
+        \item Other depositors in the same bank will rationally rush to pull out their money (bad equilibrium)
+        \item Depositors in OTHER banks may also rationally rush to pull out their money.  Why?
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Silicon Valley Bank}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/03_banks_5_bank_stocks.png}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+    How to prevent bank runs:  
+    \vspace{1em}
+    
+    FDIC = Federal Deposit Insurance Corporation. Created in 1934 (during the Great Depression)
+    \vspace{1em}
+    
+    Insurance:  Currently the FDIC guarantees up to \$250,000 of deposits.
+    \vspace{1em}
+    
+    Now depositors don’t have incentive to “run” because they know they will get their money back.   Ensures that banks stay in the good equilibrium.
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_5_bank_failures.png}
+
+    \blfootnote{Source: Nobel Prize, Scientific Background, 2022}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+What happened to Silicon Valley Bank?
+\begin{itemize}
+    \item Silicon Valley Bank failed.  The FDIC took it over.
+    \item FDIC ended up guaranteeing all of the depositors (above the cap) Why?  To stop similar bank runs happening at other banks (e.g. First Republic, Pacific West).
+    \item Federal Reserve also bought assets at above market rates. Why?  To provide liquidity to the stressed banks, prevent fire sale dynamics from spreading.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+    After banks fail, generally the FDIC wipes out the equity holders, then sells the remaining parts of the bank.
+
+    \begin{itemize}
+        \item FDIC sold Silicon Valley Bank to First Citizens Bank
+        \item First Republic Bank was sold to JPM, the bank run was eventually stopped.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/03_banks_5_svb_back.png}
+    
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+Consequence of FDIC guarantee: moral hazard
+\vspace{1em}
+
+    \begin{itemize}
+        \item Without a guarantee, depositors would have incentives to monitor bank solvency.   They are making a loan to the bank.  They would demand a higher interest rate for higher risk banks.
+    
+        \item With the guarantee, depositors don’t have to monitor the bank.  Without monitorig, the bank gets loans a low interest rate.   More importantly, after getting the loan (i.e. deposit) the bank may make risky decisions.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{1. Bank Runs}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+    Consequence of government guarantees more broadly: Too Big to Fail
+    
+    \begin{itemize}
+        \item If a bank is perceived to be “Too Big to Fail” it may cause its managers to take an excess amount of risk.
+        \item They get bailed out if they fail, whereas they make money if the risks pay off.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{2. Bank Regulation}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+    \textbf{Capital Requirements:}
+    
+    \begin{itemize}
+        \item Risk-weighted capital ratio at 10-15\%.
+        \item Larger banks have higher capital requirement (Systemically Important Financinal Institutions, or SIFIs)
+    \end{itemize}
+    \vspace{1em}
+    
+\textbf{Asset Restrictions}
+    \begin{itemize}
+        \item There are also restrictions on the type of assets that banks can hold.   Banks generally do not hold stocks.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{2. Bank Regulation}
+\framesubtitle{Deposit Insurance and Moral Hazard}
+
+     \textbf{Liquidity Requirements}:
+    
+    \begin{itemize}
+        \item Banks have required reserve ratios
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Supervision}:
+    \begin{itemize}
+        \item Regular inspections
+        \item Banks are given a rating based on quantitative and qualitative assessment (CAMELS score = Capital adequacy, asset quality, management, earnings, liquidity, and sensitivity to market risk)
+    \end{itemize}
+
+
+
+\end{frame}
+
+\end{document}
