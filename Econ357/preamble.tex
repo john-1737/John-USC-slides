@@ -82,23 +82,24 @@
 }
 
 % Define Practice Slide
-\newenvironment{practiceframe}[1][t]{
-    \setbeamercolor{background canvas}{bg=white}
+\newenvironment{practiceframe}[1][t]{%
+    % Colors
+    \setbeamercolor{background canvas}{bg=gray!8}
     \setbeamercolor{frametitle}{fg=blue!80!black,bg=blue!15}
     \setbeamercolor{framesubtitle}{fg=blue!70!black,bg=blue!10}
     \setbeamercolor{item}{fg=blue!80!black}
     \setbeamercolor{enumerate item}{fg=blue!80!black}
     \setbeamercolor{normal text}{fg=blue!90!black}
     
-    % Modify the frametitle template for this frame type
-    \setbeamertemplate{frametitle}{
-        \vspace{0.5em}
+    % Custom frametitle
+    \setbeamertemplate{frametitle}{%
+        \vspace{0.2em}
         \begin{minipage}[t]{0.75\textwidth}
             \insertframetitle
             \par
-            \vspace{0.5em}
+            \vspace{0.2em}
             \hrule
-            \vspace{0.3em}
+            \vspace{0.2em}
             {\small\color{blue!70!black}\insertframesubtitle}
         \end{minipage}%
         \hfill
@@ -106,14 +107,25 @@
             \raggedleft
             \colorbox{blue!20}{%
                 \scriptsize\bfseries\color{blue!80!black}%
-                   \hspace{3pt}\begin{tabular}{c}Practice\\Questions\end{tabular}\hspace{3pt}%
+                \hspace{3pt}\begin{tabular}{c}Practice\\Questions\end{tabular}\hspace{3pt}%
             }
         \end{minipage}
-        \vspace{0.3em}
+        \vspace{0.2em}
     }
-    
+
     \begin{frame}[#1]
-}{
+
+    % -------- Compact settings start here --------
+    \footnotesize
+    \setlength{\parskip}{0pt}
+    \setlength{\baselineskip}{0.96\baselineskip}
+
+    % Compact lists (this is the key part)
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\topsep}{0pt}
+    \setlength{\partopsep}{0pt}
+}{%
     \end{frame}
 }
 
