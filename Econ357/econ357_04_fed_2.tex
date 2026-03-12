@@ -1,0 +1,461 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Federal Reserve 2 of 5}
+
+\title{Money Supply Process}
+\subtitle{Mishkin Chapter 14}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Lectures on the Federal Reserve}
+
+    \begin{enumerate}
+        \item History / Functions
+        \item \fbox{Money Supply Process}
+        \item Dual Mandate
+        \item Federal Open Market Committee (FOMC)
+        \item Extraordinary Tools: Interest Rates and Balance Sheet
+    \end{enumerate}
+    \vspace{1em}
+    Reference: Mishkin Chapters: 13, 14, 15, 16
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+    \begin{enumerate}
+        \item Review: Market for Money
+        \item Federal Reserve Balance Sheet
+        \item Monetary Base
+        \begin{itemize}
+            \item Open Market Operations
+            \item Loans to Financial Institutions
+        \end{itemize}
+        \item Multiple Deposit Creation
+        \item Money Supply \& Money Multiplier
+        \item Money Supply Trends
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{1. Review: Market for Money}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/04_fed_2_mktmoney.png}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{1. Review: Market for Money}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/04_fed_2_mktmoney2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Balance Sheet}
+
+    \centering
+
+    \textbf{Federal Reserve Balance Sheet}
+    \vspace{1em}
+    
+    \begin{tblr}{
+      colspec = { Q[l,wd=5cm] Q[c,wd=0.1cm] |Q[l,wd=3cm] Q[c,wd=0.11cm] }, vline{3} = {1-Z}{}
+    }
+    \toprule
+    Assets && Liabilities \\
+    \midrule
+    Securities &  & Currency  &  \\
+    -- US Treasuries &  &  &  \\
+    -- Agency MBS &  &  &  \\
+    Loans to Financial Institutions &  & Reserves  &  \\
+    -- Discount Loans &  &  &  \\
+    -- Other "emergency" loans &  &  &  \\
+     &  & Treasury Balance  &  \\
+     \bottomrule
+    \end{tblr}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Balance Sheet}
+    \framesubtitle{Liabilities}
+        
+    \textbf{Currency:}
+    \vspace{2em}
+
+        
+        \centering
+        \includegraphics[width=0.8\textwidth]{Econ357/figures/04_fed_2_usd.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Balance Sheet}
+    \framesubtitle{Liabilities}
+
+    \textbf{Reserves:}
+    \begin{itemize}
+        \item Kind of a like a bank’s checking account at the Fed
+        \begin{itemize}
+            \item Asset for the banking sector
+            \item Liability for the Federal Reserve
+        \end{itemize}
+        \item Bank earn interest on reserves, roughly equal to the Federal Funds Rate (more on this next week)
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Monetary Base}: The monetary base is the sum of the Fed’s liabilities (currency and reserves) and the US Treasury's liabilities (coins).
+    \vspace{1em}
+
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Balance Sheet}
+    \framesubtitle{Assets}
+
+    \textbf{Securities}
+    \begin{itemize}
+        \item Generally, the Fed purchases securities with no credit risk: US Treasury securities and Agency MBS, which are guaranteed by the US government.    (Exceptions will be discussed later)
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Loans}
+    
+        \begin{itemize}
+            \item The Fed occasionally makes loans to financial institutions.
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Monetary Base}
+    \framesubtitle{Open Market Operations}
+    
+    \begin{center}
+    \fbox{$$\text{Monetary Base} = \text{Reserves} + \text{Currency}$$}
+    \end{center}
+    
+    \vspace{1em}
+    
+    In \textbf{open market operations} the Federal Reserve purchases securities from banks.  The Fed pays for the securities with reserves.   The Fed creates these reserves, thereby expanding the monetary base.
+    \vspace{1em}
+    
+    The reserves did not exist before.   The Fed finances its purchases of securities by literally “printing money.”
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Monetary Base}
+    \framesubtitle{Open Market Operations}
+
+        A bank sells securities to the Fed.  The Fed funds the purchase of securities by crediting the banks’ reserve account.
+
+
+    \begin{center}
+    \textbf{Banking System}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Securities & -\$100  &   &  \\
+        Reserves & + \$100 &  &  &  \\
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+    \begin{center}
+    \textbf{Federal Reserve}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Securities & +\$100  &  Reserves  & -\$100  \\
+        \bottomrule
+    \end{tblr}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Monetary Base}
+    \framesubtitle{Loans to Financial Institutions}
+    
+    The Fed makes l\textbf{oans to financial institutions}. As with open market operations, when the Fed creates reserves to make these loans, thereby expanding the monetary base.   As with open market operations, the Fed creates reserves as part of making the loans
+    \vspace{1em}
+    \begin{itemize}
+        \item \textbf{Discount Loans}: The Fed has a standing facility that banks can borrow from, usually at rates somewhat above normal.
+        \item \textbf{Emergency Loans}: The Fed also occasionally makes loans to banks in order to address an emergency.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Monetary Base}
+    \framesubtitle{Loans to Financial Institutions}
+
+        The Fed makes a loan to the bank by crediting the bank's reserve account.   The bank now has both an additional liability and more reserves
+
+
+    \begin{center}
+    \textbf{Banking System}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Reserves & + \$100 &  Loans  & \$100 \\
+            & &  (borrow from Fed)  &  \\
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+    \begin{center}
+    \textbf{Federal Reserve}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loans & +\$100  &  Reserves  & -\$100  \\
+        \bottomrule
+    \end{tblr}
+
+\end{frame}
+    
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+    \framesubtitle{Multiple Deposit Creation}
+
+    In both open market operations and loans to financial institutions, the Fed creates reserves and expands the monetary base.  What do banks do with those reserves?
+
+    \begin{itemize}
+        \item Remember that reserves typically do not earn very much, so banks are incentivized to minimize the reserves they hold.   Instead of holding reserves, usually prefer to make loans or buy securities, which have the potential for earning more.
+        \item Remember also that banks are required to maintain a minimum reserves:deposit ratio (usually 0.1)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    \vspace{-1em}
+    \begin{center}
+    \textbf{Bank A}
+    \end{center}
+    
+    \textbf{Step 1}: Bank A sells securities to the Federal Reserve and reserves are created.
+    \vspace{0.5em}
+    \begin{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Securities & -\$100 &   &  \\
+        Reserves & +\$100 &   &  \\
+        \bottomrule
+    \end{tblr}
+    \end{center}
+    \vspace{1em}
+
+        \textbf{Step 2}: Bank A makes a loan instead of holding reserves
+            \vspace{0.5em}
+
+    \begin{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Securities & -\$100 &   &  \\
+        \fbox{Loans} & +\$100 &   &  \\
+        \bottomrule
+    \end{tblr}
+    \end{center}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    \vspace{-1em}
+    \begin{center}
+    \textbf{Bank B}
+    \end{center}
+
+    \textbf{Step 3}: The recipient of the loan makes a deposit at Bank B, and initially Bank B keeps the money in reserves.
+    \vspace{0.5em}
+    \begin{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Reserves & +\$100 &  Deposits & +\$100  \\
+        \bottomrule
+    \end{tblr}
+    \end{center}
+    \vspace{1em}
+
+        \textbf{Step 4}: Bank B makes a loan instead of holding reserves.   Note that Bank B makes a loan for only \$90, because of the reserves:deposit constraint
+            \vspace{0.5em}
+
+    \begin{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loan & +90\$100 & Deposits   & +\$100  \\
+        \fbox{Reserves} & +\$10 &   &  \\
+        \bottomrule
+    \end{tblr}
+    \end{center}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    \vspace{-1em}
+    \begin{center}
+    \textbf{Bank C}
+    \end{center}
+
+
+    \textbf{Step 5}: Now the proceeds from the loan made by Bank B are deposited at Bank C, which does something similar:
+    \vspace{0.5em}
+    \begin{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loan & +\$81 & Deposits   & +\$90  \\
+        Reserves & +\$9 &   &  \\
+        \bottomrule
+    \end{tblr}
+    \end{center}
+    \vspace{1em}
+
+    Note two things:
+    \begin{enumerate}
+        \item This process can go on for awhile
+        \item The reserves:deposit requirement means that it won’t go on forever, as each time the new loan is smaller than the loan before.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+        How much deposits can be created if the Fed expands its reserves? 
+        \vspace{1em}
+        
+        \textit{In theory, it could be a lot!}
+    
+    $$\text{Change in Deposits} = \frac{1}{\text{Required Reserve Ratio}} \times (\text{Change in Reserves})$$
+    
+    For a required reserve ratio of 0.1, the amount of deposits that could be created would be 10x the amount of reserves created.   
+    
+    \blfootnote{ SeeMankiw, page 329 for a proof of this formula)}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    In practice, the amount of deposits created by expanding reserves is much less.  Factors that affect how many deposits are created:
+
+    \begin{itemize}
+        \item Banks could choose to hold excess reserves (either because there is no demand for loans, or because they are risk averse)
+        \item Loan recipients could choose to hold currency rather than deposit in a bank
+    \end{itemize}
+    
+    Both of these would lead to \textit{fewer} deposits being created for the same amount of reserve expansions
+    \vspace{1em}
+    
+    The actual expansion of the monetary base reflects the required reserve ratio (i.e. higher required reserves leads to a \textit{smaller} expansion) and the behavior of banks and individuals (banks holding more excess reserves or individuals holding more currency leads to a \textit{smaller} expansion.)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    \begin{itemize}
+        \item Monetary Base: Federal Reserve and US Treasury Liabilities
+        \item M1: Currency held by the public + transaction deposits at financial institutions
+        \item M2: M1 + time deposits (CDs less than \$100k) + retail money market mutual fund shares
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_2_mbase.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Monetary Base}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_2_mbase2.png}
+
+\end{frame}
+
+\end{document}

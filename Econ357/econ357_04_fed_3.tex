@@ -1,0 +1,149 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Federal Reserve 3 of 5}
+
+\title{Dual Mandate}
+\subtitle{Mishkin Chapter 16}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Lectures on the Federal Reserve}
+
+    \begin{enumerate}
+        \item History / Functions
+        \item Money Supply Process
+        \item \fbox{Dual Mandate}
+        \item Federal Open Market Committee (FOMC)
+        \item Extraordinary Tools: Interest Rates and Balance Sheet
+    \end{enumerate}
+    \vspace{1em}
+    Reference: Mishkin Chapters: 13, 14, 15, 16
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+    \begin{enumerate}
+        \item Dual Mandate
+        \item Phillips Curve
+        \item Taylor Rule
+        \item Long Run Equivalence
+        \item More History
+        \begin{itemize}
+            \item Greenspan and the productivity boom of the 1990s
+            \item Yellen and the oil shock of 2011
+            \item Powell and the Covid shock of 2020
+        \end{itemize}
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Dual Mandate}
+
+    \textbf{Federal Reserve Act:}
+    \begin{quote}
+    “The Board of Governors of the Federal Reserve System and the Federal Open Market Committee shall maintain long run growth of the monetary and credit aggregates commensurate with the economy's long run potential to increase production, \textit{so as to promote effectively the goals of maximum employment, stable prices}, and moderate long-term interest rates.”
+    \end{quote} 
+    \vspace{1em}
+
+    The Fed has a “dual mandate”:
+\begin{enumerate}
+    \item Full Employment
+    \item Price Stability
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Dual Mandate}
+
+    What do these two things mean in practice?
+    
+    \begin{itemize}
+        \item \textbf{Price Stability} – the Fed has recently said that this means “2 percent inflation, on average, as measured by the PCE deflator”
+        \item \textbf{Full Employment} – this is more difficult to define.   It does NOT mean zero unemployment.   Instead, it means the level of unemployment that doesn’t cause inflation (technically: “The non-accelerating inflation rate of unemployment” or the NAIRU”).   This is a theoretical number, and is impossible to measure.   In practice, it has meant the unemployment rate is somewhere around 3 or 4 percent.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Phillips Curve}
+
+\textbf{Phillip Curve}: 
+\begin{itemize}
+    \item Economic relationship between economic slack and inflation.
+    \item Economic slack can be defined in a few ways.  The most common are the unemployment rate (a higher unemployment rate means more slack) or difference between GDP and potential GDP (lower GDP, relative to potential, means more slack).
+    \item Generally, more economic slack leads to \textit{lower} inflation, and vice versa.
+    \item The model for inflation also incorporate inflation expectations, as well as inflation shocks (such as an oil shock)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Phillips Curve}
+
+    $$\pi_t = \beta_0 \cdot \pi_t^e + \beta_1 \cdot \pi_{t-1} + \beta_3 \cdot \text{(Slack)}_t + \varepsilon_t$$
+    Where
+    \begin{itemize}
+        \item $\pi_t$ = inflation rate at time $t$
+        \item $\pi_t^e$ = \textit{expected} inflation rate at time $t$
+        \item Slack = unemployment rate
+        \item $\varepsilon_t$ = error term
+    \end{itemize}
+    Observations:
+
+    \begin{itemize}
+        \item  Higher slack in the labor market leads to \textit{lower} inflation.  (i.e. $\beta_3 < 0$)
+        \item Expectations and past inflation both matter for future inflation (i.e. $\beta_1 > 0$ and $\beta_1 > 0$)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Taylor Rule}
+
+    \textbf{Taylor Rule}:
+    \begin{itemize}
+        \item The Taylor Rule was a provided a decent description of how the Fed set policy in the 1980s and 1990s.
+        \item In particular, it showed how the Fed balanced the two considerations of unemployment (or output) and inflation during this period.
+        \item While it describes past Fed behaviro, it's usefulness as a guide to future policy is somewhat limited:
+        \begin{itemize}
+            \item The Fed usually attempts to set policy based on where it expects the economy to be going, rather than current readings of inflation or unemployment (see example of Yellen in 2011)
+            \item The Taylor Rule on estimates for “neutral” rates of interest and ”natural rate” of unemployment.   These concepts are not measurable, and there is a wide range of estimates.   The reliance on non-measurable quantities reduces the usefulness of the Taylor Rule.
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\end{document}

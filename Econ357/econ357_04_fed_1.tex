@@ -1,0 +1,328 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Federal Reserve 2 of 5}
+
+\title{History of the Federal Reserve}
+\subtitle{Mishkin Chapter 13}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Federal Reserve}
+
+    \textbf{Outline for Lectures on the Federal Reserve}
+    \begin{enumerate}
+        \item \fbox{History / Functions}
+        \item Money Supply Process
+        \item Dual Mandate
+        \item Federal Open Market Committee (FOMC)
+        \item Extraordinary Tools: Interest Rates and Balance Sheet
+    \end{enumerate}
+    \vspace{1em}
+    Reference: Mishkin Chapters: 13, 14, 15, 16
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+\begin{enumerate}
+    \item Panic of 1907
+    \begin{itemize}
+        \item Financial Stability / Lender of Last Resort
+    \end{itemize}
+    \item Great Depression
+    \begin{itemize}
+        \item Monetary Policy
+    \end{itemize}
+    \item WWII
+    \begin{itemize}
+        \item  Financed US war effort
+    \end{itemize}
+    \item 1970s
+    \begin{itemize}
+        \item Volcker ends the inflationary period
+    \end{itemize}
+    
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Panic of 1907}
+    \framesubtitle{19th Century}
+
+    In the early 1800s there were two separate iterations of a Central Bank.   Both times the bank was allowed to lapse, the second by Andrew Jackson in 1836.
+    \vspace{1em}
+
+    Absence of a central bank led to a chaotic financial system:
+    \begin{itemize}
+        \item In some periods there was too much money, which led to inflation and eventually a crash (e.g. 1840s)
+        \item In other periods, there was not enough money, which led to deflation and depression (e.g. William Jennings Bryan crusade for Silver in the 1890s)
+    \end{itemize}
+
+    Even so, here was fierce resistance to reestablishing a central bank:
+    \begin{itemize}
+        \item Fear of centralized power
+        \item Distrust of moneyed interests
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Panic of 1907}
+    \framesubtitle{JP Morgan}
+
+    \begin{columns}
+    
+    \begin{column}{0.5\textwidth}
+        \footnotesize
+        \begin{itemize}
+            \item Started with an attempted “short squeeze”, financed by borrowing.   The holders of the short positions withstood, and the resulting losses on the leveraged positions led to a bank run and eventual failure of NY’s 3rd largest bank.
+            \item Contagion spread and interest rates between banks reached 70\%.
+            \item Eventually stopped when JP Morgan organized a group financiers to support NY’s banks and stock exchange
+        \end{itemize}
+    \end{column}
+    
+    \begin{column}{0.5\textwidth}
+
+        \centering
+        \includegraphics[width=0.7\textwidth]{Econ357/figures/04_fed_1_jpm.png}
+    \end{column}
+    
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Panic of 1907}
+    \framesubtitle{Financial Reform}
+
+    \begin{itemize}
+        \item The Panic of 1907 led bankers and legislators to prioritize financial reform, and eventually led to the Federal Reserve Act of 1913.
+        \item The Fed was initially conceived to, in part, stabilize the financial system and stop banking panics.
+        \item The Fed’s function was modeled after European central banks.   It was intended to be “lender of last resort” (the role that JP Morgan played in 1907).
+        \item Bagehot’s dictum (1873): “Central banks should early and lend freely, against good collateral, and at high rates”
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Panic of 1907}
+    \framesubtitle{Creation of the Federal Reserve}
+
+    \textbf{Federal Reserve Act of 1913:}
+    \begin{itemize}
+        \item Authority shared between the Board, located in DC, and twelve Regional Reserve Banks located throughout the country, mostly towards the East.
+        \item Elaborate System of Checks and Balances, including that each Regional Bank was a quasi-public institution owned by private commercial banks in the district that are members of the Fed system
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Panic of 1907}
+    \framesubtitle{Creation of the Federal Reserve}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/04_fed_1_regions.png}
+
+    \blfootnote{Source: Mishkin}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Great Depression}
+
+    The Great Depression was the first Fed’s first big test with regards to monetary policy.   The Fed did not do well.
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/04_fed_1_ue.png}
+
+    \blfootnote{Source: Bureau of Labor Statistics}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Great Depression}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{Econ357/figures/04_fed_1_output.png}
+
+    \blfootnote{Source: Friedman and Schwartz, “Monetary History of the United States”, 1963}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Great Depression}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/04_fed_1_ms.png}
+
+    \blfootnote{Source: Friedman and Schwartz, “Monetary History of the United States”, 1963}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Great Depression}
+
+    \begin{quote}
+    "Regarding the Great Depression ... we did it. We're very sorry. ... We won't do it again."
+    \end{quote}
+    \vspace{1em}
+
+    -- Ben Bernanke, November 8, 2002, in a speech given at "A Conference to Honor Milton Friedman ... On the Occasion of His 90th Birthday."
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. World War II}
+
+    During World War II the Federal Reserve actively bought US Treasury bonds in an effort to keep financing costs low and support the war.
+    \vspace{1em}
+    
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/04_fed_1_bs.png}
+
+    \blfootnote{Source: Chris Waller and Lowell Ricketts, “The Rise and (Eventual) Fall in the Fed's Balance Sheet”, 2014"}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. World War II}
+
+    Inflation started to surge in 1950, due, in part, to the Korean War.   The situation was untenable for the Fed.
+    \vspace{1em}
+    
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/04_fed_1_korea.png}
+
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. World War II}
+
+    \textbf{Fed-Treasury Accord of 1951:}
+    \begin{itemize}
+        \item The Fed ended its policy of capping government bond yields.
+        \item The Fed-Treasury Accord removed the Treasury Secretary from the FOMC.  (Prior to 1951 the Treasury Secretary had been part of the Federal Open Market Committee)
+        \item Started the period of Federal Reserve independence
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. 1970s}
+    \framesubtitle{Inflation}
+
+    There were a number of inflationary pressures in the late 1960s and 1970s:
+    \begin{itemize}
+        \item Large budget deficits due to Vietnam War and Great Society programs
+        \item Oil price rose sharply due to: OPEC Embargo (1973) and Fall of the Shah of Iran (1979)
+        \item Money supply growth was steady and high
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. 1970s}
+    \framesubtitle{Political Influence on the Fed}
+
+    During this time, both President’s Johnson and Nixon pressured the Fed to maintain easy policy.   This likely contributed to the inflation problem.
+    \begin{itemize}
+        \item \textbf{Johnson}: Called the Fed chair to his ranch in Texas in 1965, “shoved him against the wall” and told him to cut rates.
+        \item \textbf{Nixon}: Told the Fed chair that policy needed to be easier to help him be re-elected in 1972 (was recorded in the Oval Office saying that)   Put public pressure the Fed Chair by releasing his salary.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. 1970s}
+    \framesubtitle{Inflation}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_1_infl1970s.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. 1970s}
+    \framesubtitle{Paul Volcker}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Appointed by President Carter in 1979.   Reappointed by President Reagan.
+                \item Credited with ending the inflationary period of the 1970s.
+                \item Reappointed by Reagan, even though the US economy was in a recession in 1982
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{Econ357/figures/04_fed_1_volcker.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. 1970s}
+    \framesubtitle{Fed Funds}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_1_fedfunds.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. 1970s}
+    \framesubtitle{Unemployment Rate}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_1_ue1970s.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Summary}
+
+    \begin{itemize}
+        \item The Fed was created in 1913, as a response to the Panic of 1907.   The Fed was initially created to stabilize the financial system and to be a “lender of last resort”
+        \item The Fed contributed to the severity of the Great Depression by allowing the money supply to contract.
+        \item The Fed supported the government in WWII by buying US Treasury bonds.   While effective during the war, this policy contributed to post-war inflation.
+        \item The Fed badly mis-managed inflation in the 1970s.   Chairman Paul Volcker ended the inflationary period by causing a series of severe recessions in the early 1980s.
+    \end{itemize}
+
+\end{frame}
+
+\end{document}
