@@ -39,10 +39,10 @@
     \frametitle{Outline for Lectures on the Federal Reserve}
 
     \begin{enumerate}
-        \item History / Functions
+        \item History / Structure
         \item Money Supply Process
         \item \fbox{Dual Mandate}
-        \item Federal Open Market Committee (FOMC)
+        \item Fed Independence, FOMC Meetings, and More History
         \item Extraordinary Tools: Interest Rates and Balance Sheet
     \end{enumerate}
     \vspace{1em}
@@ -55,9 +55,10 @@
     
     \begin{enumerate}
         \item Dual Mandate
+        \item Long Run Equivalence v. Short Term Trade-offs
         \item Phillips Curve
         \item Taylor Rule
-        \item Long Run Equivalence
+        \item 1970s
         \item More History
         \begin{itemize}
             \item Greenspan and the productivity boom of the 1990s
@@ -98,11 +99,56 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Phillips Curve}
+    \frametitle{1. Dual Mandate}
+
+    \textbf{Financial Stability}: A third mandate?
+    \vspace{1em}
+    
+    Recently it has been said that the Fed has an additional mandate of \textbf{financial stability}.   While this is not explicitly included in the Federal Reserve Act, the Fed does have a number of specific responsibilities related to financial stability:
+    \begin{itemize}
+        \item The Fed is the primary regulator for the largest banks
+        \item The Fed has a powerful toolkit to respond to financial instability
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Long Run Equivalence v. Short Term Control}
+    \framesubtitle{Long Run Equivalence}
+
+    In the long run, there is not much difference, in practice, between targeting the Fed's various goals.  \textit{Failure to meet one of the goals inevitably leads to failure to meet the other goals.}  Therefore, in order to be successful on one goal, a central bank needs to be successful on the other goals as well.
+    \vspace{0.5em}
+    
+    \textbf{Examples}:
+    \begin{itemize}
+        \item In WWII the Fed tried to keep interest rates low, but this led to inflation, which eventually caused interest rates to rise
+        \item During the 1970s the Fed tried to keep growth high, but this caused inflation to remain too high, which led to economic stagnation, and caused the unemployment rate to rise
+        \item During the financial crises the unemployment rate increased sharply, which put downward pressure on inflation
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Long Run Equivalence v. Short Term Trade-offs}
+    \framesubtitle{Short Run Control}
+
+    In the short run, however, the Fed can use the money supply to influence interest rates, which affects output and inflation.   The Fed adjusts its monetary policy in order to push the economy towards the targeted levels of inflation and growth. 
+    \vspace{1em}
+    
+    Specifically:
+    \begin{itemize}
+        \item "Restrictive" (or "tight") policy increases borrowing costs, thus discouraging spending and investment.  This tends to slow growth and lower inflation.
+        \item "Accommodative" (or "easy") policy reduces borrowing costs, thus encouraging spending and investment.  This tends to strengthen growth and increase inflation.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Phillips Curve}
 
 \textbf{Phillip Curve}: 
 \begin{itemize}
-    \item Economic relationship between economic slack and inflation.
+    \item Relationship between economic slack and inflation.
     \item Economic slack can be defined in a few ways.  The most common are the unemployment rate (a higher unemployment rate means more slack) or difference between GDP and potential GDP (lower GDP, relative to potential, means more slack).
     \item Generally, more economic slack leads to \textit{lower} inflation, and vice versa.
     \item The model for inflation also incorporate inflation expectations, as well as inflation shocks (such as an oil shock)
@@ -111,7 +157,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Phillips Curve}
+    \frametitle{3. Phillips Curve}
 
     $$\pi_t = \beta_0 \cdot \pi_t^e + \beta_1 \cdot \pi_{t-1} + \beta_3 \cdot \text{(Slack)}_t + \varepsilon_t$$
     Where
@@ -131,18 +177,156 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Taylor Rule}
+    \frametitle{4. Taylor Rule}
 
     \textbf{Taylor Rule}:
     \begin{itemize}
-        \item The Taylor Rule was a provided a decent description of how the Fed set policy in the 1980s and 1990s.
+        \item The Taylor Rule provided a decent description of how the Fed set policy in the 1980s and 1990s.
         \item In particular, it showed how the Fed balanced the two considerations of unemployment (or output) and inflation during this period.
-        \item While it describes past Fed behaviro, it's usefulness as a guide to future policy is somewhat limited:
+        \item While it describes past Fed behavior, it's usefulness as a guide to future policy is limited:
         \begin{itemize}
             \item The Fed usually attempts to set policy based on where it expects the economy to be going, rather than current readings of inflation or unemployment (see example of Yellen in 2011)
-            \item The Taylor Rule on estimates for “neutral” rates of interest and ”natural rate” of unemployment.   These concepts are not measurable, and there is a wide range of estimates.   The reliance on non-measurable quantities reduces the usefulness of the Taylor Rule.
+            \item The Taylor Rule relies on estimates for “neutral” rates of interest and ”natural rate” of unemployment.   These concepts are not measurable, and there is a wide range of estimates.   The reliance on non-measurable quantities reduces the usefulness of the Taylor Rule.
         \end{itemize}
     \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Taylor Rule}
+
+    $$r &= \pi^* + r^* + \frac{1}{2} \cdot (\pi - pi^*) + \frac{1}{2} (GDP - GDP^*)$$
+
+    Where
+    \begin{itemize}
+        \item $r$ is the Federal Funds rate
+        \item $\pi_*$ is the target inflation rate
+        \item $r^*$ is the equilibrium Federal Funds rate
+        \item $\pi$ is current inflation
+        \item $GDP - GDP^*$ is the output gap. Note that GDP is the \textit{level} of GDP, rather than the growth rate of GDP.
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Taylor Rule}
+    \framesubtitle{Example - Economic Boom}
+
+    \textbf{Example}:
+    Assume the inflation target is 2\% and the estimate equilibrium Federal Funds rate is 1\%.   In an economic boom, inflation is above target at 3\% and GDP is also above trend by 1\%.  Where should the Fed set policy?
+    \vspace{1em}
+    
+    \textbf{Answer}:
+    \begin{align*}
+    r &= 2 + 1 + \frac{1}{2} \codt (3 - 2) + \frac{1}{2} \cdot 1 \\
+     &= 4\%
+    \end{align*}
+
+    Note that policy would be \textit{above} the equilibrium rate, and therefore we would say that policy is \textit{restrictive}.   According to the Taylor Rule, the Fed should slow down economic growth in order to reduce inflation.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Taylor Rule}
+    \framesubtitle{Example - Recession}
+
+    \textbf{Example}:
+    Assume the inflation target is 2\% and the estimate equilibrium Federal Funds rate is 1\%.   In a recession, inflation is above target at 1\% and GDP is also below trend by 1\%.  Where should the Fed set policy?
+    \vspace{1em}
+    
+    \textbf{Answer}:
+    \begin{align*}
+    r &= 2 + 1 + \frac{1}{2} \codt (1 - 2) + \frac{1}{2} \cdot (-1) \\
+     &= 2\%
+    \end{align*}
+
+    Note that policy would be \textit{below} the equilibrium rate, and therefore we would say that policy is \textit{accommodative}.   According to the Taylor Rule, the Fed should boost growth to increase output.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Taylor Rule}
+    \framesubtitle{History}
+
+    \centering
+    The Taylor Rule and the Fed Funds Rate, 1960-2020
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_3_taylor.png}
+
+    \blfootnote{Source: Mishkin}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. 1970s}
+    \framesubtitle{Inflation}
+
+    There were a number of inflationary pressures in the late 1960s and 1970s:
+    \begin{itemize}
+        \item Large budget deficits due to Vietnam War and Great Society programs
+        \item Oil price rose sharply due to: OPEC Embargo (1973) and Fall of the Shah of Iran (1979)
+        \item Monetary policy was accommodative during the early part of the 1970s in order to "run the economy hot" and boost job growth.
+        \item Money supply growth was steady and high
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. 1970s}
+    \framesubtitle{Political Influence on the Fed}
+
+    During this time, both President’s Johnson and Nixon pressured the Fed to maintain easy policy.   This likely contributed to the inflation problem.
+    \begin{itemize}
+        \item \textbf{Johnson}: Called the Fed chair to his ranch in Texas in 1965, “shoved him against the wall” and told him to cut rates.
+        \item \textbf{Nixon}: Told the Fed chair that policy needed to be easier to help him be re-elected in 1972 (was recorded in the Oval Office saying that)   Put public pressure the Fed Chair by releasing his salary.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. 1970s}
+    \framesubtitle{Inflation}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_1_infl1970s.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. 1970s}
+    \framesubtitle{Paul Volcker}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Appointed by President Carter in 1979.   Reappointed by President Reagan.
+                \item Credited with ending the inflationary period of the 1970s.
+                \item Reappointed by Reagan, even though the US economy was in a recession in 1982
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{Econ357/figures/04_fed_1_volcker.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. 1970s}
+    \framesubtitle{Fed Funds}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_1_fedfunds.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. 1970s}
+    \framesubtitle{Unemployment Rate}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/04_fed_1_ue1970s.png}
 
 \end{frame}
 
