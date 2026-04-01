@@ -1,0 +1,399 @@
+\documentclass{beamer}
+
+\newcommand{\week}{GFC 2 of 5}
+
+\title{Leverage/Banks}
+\subtitle{Great Financial Crisis (GFC) of 2008}
+
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Lectures on GFC of 2008}
+
+    \begin{enumerate}
+        \item Housing
+        \item \fbox{Leverage and Banks}
+        \item Bank Run
+        \item Response
+        \item Recovery
+    \end{enumerate}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+\begin{enumerate}
+    \item Global Savings Glut
+    \item Leverage
+    \begin{itemize}
+        \item Household Leverage
+        \item Bank Leverage
+    \end{itemize}
+    \item Shadow Banking
+    \item Other Considerations
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Global Savings Glut}
+
+    During the 2000s there was a large demand for “safe assets” as well as assets that had positive yields.   
+    \vspace{1em}
+    
+    There were two primary reasons for this:
+    \begin{enumerate}
+        \item The Fed kept interest rates low, which forced investors to “reach for yield”
+        \item Many large countries had Current Account surpluses, which meant that they had excess savings that needed to be invested somewhere.   Those savings generally flowed into the United States, which had a large Current Account deficit.   These savings targeted ‘safe’ assets.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Global Savings Glut}
+
+    The Federal Reserve cut rates during the 2001 recession and then again in  2003.  In 2003 there was a concern about a “jobless recovery”.   Cutting rates was, in part, an stimulate job growth through easier policy.
+    \vspace{1em}
+    
+    Low interest rates caused many investors to “reach for yield.”   This included an increased demand for ”safe assets” that had marginally more yield, including AA-rated Commercial Paper.
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Global Savings Glut}
+
+    $$
+    \text{Current Account} = \text{Savings} – \text{Investment}
+    $$
+
+    Countries with \textbf{CA surpluses} save more than they invest.  Those savings need to go somewhere (i.e. another country).   In 2004, CA surplus countries included China (+3\% of GDP), Germany (+4.5\% of GDP), and Saudi Arabia (+20\% of GDP), among others.
+    \vspace{1em}
+    
+    Countries with \textbf{CA deficits} save less than the invest.   They need to attract money from another country that has excess savings.   In 2004, CA deficit countries included the US (-5\% of GDP), Spain (-5.4\% of GDP), and Iceland (-10\% of GDP), among others.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+
+    Financial Crises are the consequence of two things:
+    
+    \begin{enumerate}
+        \item A bubble in prices
+        \item Leverage
+    \end{enumerate}
+
+    Leverage ratio = assets / equity.   Banks are almost always levered, usually ~10:1.   Their assets are 10x their equity (capital). 
+    \vspace{1em}
+    
+    A mortgage with an 80 loan-to-value is 5x levered.   
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Households}
+
+    Household borrowing increased substantially from 2000 to 2008 (from 70\% of GDP to ~100\% of GDP)
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Households}
+
+    The decline in house prices led to "underwater” mortgages (negative equity)
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Banks}
+
+    Banks sponsored numerous Structured Investment Vehicles (SIVs).   
+    \vspace{1em}
+    
+    The SIVs were levered entities that held loans.  They were generally unregulated, and had much higher leverage than banks (often as much as 50x levered) 
+    \vspace{1em}
+
+    The SIVs funded themselves with commercial paper (CP).   CP is a short term debt instrument typically issued in the public market.
+    \vspace{1em}
+    
+    Importantly, banks did not consider these to be “on balance sheet”, so they did not hold capital against the loans, only against the equity.
+
+    \blfootnote{See Alan Blinder “After the Music Stopped” for a discussion of this issue, including the example on the following slides}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Banks}
+
+    \footnotesize
+
+    \begin{center}
+    \textbf{Bank Balance Sheet}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loans & \$90 bn & Deposits  & \$90 bn  \\
+        Reserves & \$10 bn & Capital  & \$10 bn  \\
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+        \begin{center}
+    \textbf{SIV Balance Sheet Sheet}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loans & \$50 bn & Commercial Paper  & \$49 bn  \\
+         &  & Equity  & \$1 bn  \\
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Banks}
+
+    The bank “sponsored” (or, owned) the SIV.  Only the equity of the SIV was recorded an asset on the bank's balance sheet.   Banks did not report any of the SIV's liabilities.   On paper, bank balance sheets did not appear to be inappropriately leveraged.
+
+    \footnotesize
+
+    \begin{center}
+    \textbf{Bank Balance Sheet}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loans & \$89 bn & Deposits  & \$90 bn  \\
+        SIV equity & \$1 bn &  &   \\
+        Reserves & \$10 bn &   &   \\
+        &&& \\
+        Total Assets & \$100 & Capital & \$10 \\
+
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Banks}
+
+    However, in reality, the bank was responsible for \textbf{all} the SIV liabilities and assets.   The consolidated bank balance sheet reflected both the SIV assets and also the SIV liabilities.   \textit{Notice how the bank leverage just increased is now 15x!}  Notice also how the bank only has reserves held against deposits, it does not hold reserves against CP.
+
+    \footnotesize
+
+    \begin{center}
+    \textbf{Consolidated Bank Balance Sheet}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=3cm] Q[c,wd=1.2cm] |Q[l,wd=3cm] Q[c,wd=1.2cm] }, vline{3} = {1-Z}{}
+    }
+        \toprule
+        Assets && Liabilities \\
+        \midrule
+        Loans & \$89 bn & Deposits  & \$90 bn  \\
+        SIV Loans & \$50 bn & SIV CP  & \$49 bn  \\
+        Reserves & \$10 bn &  &   \\
+        &&& \\
+        Total Assets & \$149 & Capital & \$10 \\
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Banks}
+
+    Bank leverage increased during this period
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Leverage}
+    \framesubtitle{Banks}
+
+    Bank losses were large, relative to capital
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Shadow Banking}
+    \framesubtitle{}
+
+    \begin{itemize}
+        \item Banks were not the only entities that relied on short term loans to finance risky assets.
+        \item The multiple other entities engaged in similar activities were referred to as “shadow banks”
+        \item These “shadow banks” did not have the same regulatory oversight or restrictions.   (Bear Stearns was regulated by the SEC?!).
+        \item But, they did have the same vulnerabilities as banks: they often had very high leverage ratios, were invested in very risky assets, and were financed with short-term, “runnable” liabilities
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Shadow Banking}
+    \framesubtitle{Examples}
+
+    \vspace{-1em}
+    \footnotesize
+
+    \begin{center}
+    \textbf{Shadow Bank Examples}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=2cm]| Q[l,wd=3cm] |Q[l,wd=4cm] }, 
+    }
+        \toprule
+        Category & Examples & Discussion \\
+        \midrule
+        Investment Banks & Bear Stearns, Lehman Brothers, Goldman Sachs & Financed with "repo", which is a short term loan collateralized by US Treasuries \\
+        \midrule
+        Money Market Funds & Prime Fund & Promised not "break the buck", but invested in risky assets \\
+        \midrule
+        SIVs & Many banks sponsored them & Financed by short-term debt (commercial paper) and invested in risky assets.   Banks kept them "off balance sheet" and didn't hold capital against assets \\
+        \midrule
+        Hedge Funds & LTCM & Leveraged positions required debt financing \\
+        \bottomrule
+    \end{tblr}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Shadow Banking}
+    \framesubtitle{}
+
+    Shadow banking liabilities grew significantly starting in 2005:
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Shadow Banking}
+    \framesubtitle{}
+
+    The growth in shadow banking assets was explosive:
+
+\blfootnote{Source: New York Fed, “The Shadow Banking Financial System: Implications for Financial Regulation”}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Shadow Banking}
+    \framesubtitle{}
+
+Shadow banking assets exceeded assets in commercial banks:
+
+\blfootnote{Source: New York Fed, “The Shadow Banking Financial System: Implications for Financial Regulation”}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Shadow Banking}
+    \framesubtitle{}
+
+Many of the assets held by shadow banks were subprime mortgage loans
+
+\blfootnote{Source: New York Fed, “The Shadow Banking Financial System: Implications for Financial Regulation”
+https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr382.pdf}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Other Considerations}
+    \framesubtitle{Derivatives}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+    \item Derivatives: Equity and rates swaps
+    \item CDS
+    \item Generally not regulated
+    \item Warren Buffet “financial weapons of mass destruction”
+\end{itemize}
+
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Other Considerations}
+    \framesubtitle{Mortgage Fraud}
+
+\begin{itemize}
+    \item Shiller: Fraud increases during bubbles.   People want to believe.   Charles Ponzi thrived during the bubble of the 1920s.
+    \item Examples: “NINJA” mortgages.   No-job, no-income.
+    \item Other fraud: Bernie Madoff
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{4. Other Considerations}
+\framesubtitle{Regulators}
+
+\begin{itemize}
+    \item Regulators were generally hands off.
+    \item Fed Chair Alan Greenspan was adamant that the market would regulate itself: \begin{itemize}
+        \item \textit{"With notably rare exceptions (2008, for example), the global “invisible hand” has created relatively stable exchange rates, interest rates, prices, and wage rates."}
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}

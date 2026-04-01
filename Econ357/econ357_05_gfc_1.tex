@@ -1,0 +1,220 @@
+\documentclass{beamer}
+
+\newcommand{\week}{GFC 1 of 5}
+
+\subtitle{Great Financial Crisis (GFC) of 2008}
+\title{Housing}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Lectures on GFC of 2008}
+
+    \begin{enumerate}
+        \item \fbox{Housing}
+        \item Leverage and Banks
+        \item Bank Run
+        \item Response
+        \item Recovery
+    \end{enumerate}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+\begin{enumerate}
+    \item US Housing Market
+    \begin{itemize}
+        \item Conventional Mortgages
+        \item GSEs
+        \item Subprime Mortgages
+    \end{itemize}
+    \item Securitization
+    \item Housing Bubble in the 2000s
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Conventional Mortgages}
+
+    The majority of mortgages in the US have the following characteristics
+    \begin{itemize}
+        \item 30 year term
+        \item Fixed monthly payments
+        \item Starting loan-to-value of 80\%
+        \item Prepayment option
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Conventional Mortgages - Prepayment Option}
+
+    \textbf{Prepayment Option}
+    \vspace{1em}
+    
+    Most mortgages can be prepaid at any time. When interest rates fall it is very common for homeowners to ’refinance’ their mortgages. Essentially, they are prepaying the old lender and taking out a replacement loan from a new lender.
+    \vspace{1em}
+    
+    While this is very advantageous for the homeowner (they get a lower interest rate), it is equally disadvantageous for the lender. They are losing an asset that was paying a high interest rate, which they are unable to replace because market rates are now lower. This is known as prepayment risk for the lender.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{GSEs}
+
+    Freddie Mac and Fannie Mae are Government Sponsored Enterprise or GSEs.   
+
+    \begin{itemize}
+        \item Purchase mortgages from originators.
+        \item Only purchase mortgages that meet strict underwriting criteria: 80\% loan-to-value (LTV), minimum credit (FICO) scores, verified income, etc.   These were called “prime mortgages”
+        \item Guarantee pools of mortgages, sell those guaranteed pools of mortgages to investors.
+        \item Prior to 2008 these were “quasi-governmental organizations.”   Guarantee was later made explicit.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Subprime Mortgages}
+
+Not all borrowers (or home purchases) met the requirements for a GSE-guaranteed.   Many borrowers instead took out \textbf{subprime} mortgages.
+\begin{itemize}
+    \item Higher risk borrowers: lower FICO scores, no income verification
+    \item Higher risk products: Adjustable Rate, sometimes including no interest paid in the initial period
+    \item These did NOT receive a guarantee from the GSEs
+    \item These were often securitized (see next section), and the securitized assets were considered “safe”
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Securitization}
+
+    Securitization of home mortgages started in the 1970s.
+    \vspace{1em}
+    
+    Securitization met multiple objectives:
+    \begin{itemize}
+        \item Homeowner perspective: Demand for 30-year fixed rate mortgages, which may be a difficult asset for banks to manage because of interest rate risk.
+        \item Investor perspective: Demand for “safe assets”.   Perhaps partly this was driven by regulation?
+        \item Bank perspective: Fee income from creating new financial products, “off-balance sheet” risk taking
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Bank Involvement}
+
+    Banks were involved in each of the following steps:
+$$
+\text{Loan origination} \rightarrow \text{servicing of the loan} \rightarrow \text{bundling} \rightarrow \text{distribution}
+$$
+
+And they earned a fee at each step!
+\vspace{1em}
+
+Moreover, banks often ended up investing in the final product, by holding some of the equity piece.   This was often done “off-balance sheet”, which means they didn’t necessarily hold capital against the position.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Summary}
+
+\textbf{Benefits}:  
+\begin{itemize}
+    \item Demand for AAA rated products brough a lot of investors into the market, made housing finance more widely available than it had ever been.
+    \item As a consequence, home ownership expanded and many families were able to build wealth.
+\end{itemize}
+\vspace{1em}
+
+\textbf{Concerns}:
+\begin{itemize}
+    \item Demand for AAA rated products brought a lot of investors into this market, which fueled a credit bubble
+    \item AAA rated products actually had considerable risk
+    \item Banks weren’t holding capital against the equity portions
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+    \framesubtitle{Reminder from Efficient Markets Lecture}
+
+    Robert Shiller (Nobel Prize, 2013): 
+    \vspace{1em}
+    
+    \begin{quote} 
+    I define a speculative bubble as a situation in which news of price increases spurs investors enthusiasm, which spreads by psychological contagion from person to person, in the process amplifying stories that might justify the price increases and bringing in a larger and larger class of investors, who, despite doubts about the real value of an investment, are drawn to it partly through envy of others' successes and partly through a gambler's excitement.
+    \end{quote}
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+
+Home prices increased significantly from 2000 to 2008 (+80\%).
+\vspace{1em}
+There was a broad-based bubble mentality:
+\begin{itemize}
+    \item Many assumed that “house prices don’t go down”
+    \item Lenders did not require a substantial equity cushion on new loans
+    \item Borrowers expected to refinance in a few years, after building equity. 
+    \item This all encouraged more borrowing…
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+
+Even as prices started to decline, it was still hard to understand how bad it would eventually become…
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+
+It wasn’t just borrowers that were fooled.   Supposedly ‘sophisticated’ institutions had significant exposure, and also ended up losing a lot of money.
+
+
+\end{frame}
+
+\end{document}
