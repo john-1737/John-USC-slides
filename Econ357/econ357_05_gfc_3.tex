@@ -1,0 +1,538 @@
+\documentclass{beamer}
+
+\newcommand{\week}{GFC 3 of 5}
+
+\title{Financial Crisis - 2008}
+\subtitle{Great Financial Crisis (GFC) of 2008}
+
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Lectures on GFC of 2008}
+
+    \begin{enumerate}
+        \item Housing
+        \item Leverage and Banks
+        \item \fbox{Bank Run}
+        \item Response
+        \item Recovery
+    \end{enumerate}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+\begin{enumerate}
+    \item Three Phases of Financial Crises
+    \begin{itemize}
+        \item Asset Bubbles
+    \end{itemize}
+    \item Review: Bank Runs
+    \begin{itemize}
+        \item Indy Mac
+        \item Runs at Shadow Banks
+    \end{itemize}
+    \item Panic in 2008
+    \begin{itemize}
+        \item Bear Stearns
+        \item GSEs
+        \item Lehman
+        \item Money Market Mutual Funds
+        \item AIG
+    \end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Three Phases of Financial Crises}
+    \section*{1. Three Phases of Financial Crises}
+
+    \begin{enumerate}
+        \item Asset price bubble, leverage build up (last week)
+        \item Banking crisis (today)
+        \item Response and aftermath (next week)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Three Phases of Financial Crises}
+    \framesubtitle{Asset price bubbles}
+
+    The Stock Market Collapse in 1929 caused widespread bank failures.  This then then caused the Great Depression.
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_3_dow_depression.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Three Phases of Financial Crises}
+    \framesubtitle{Asset price bubbles}
+
+    Similarly, the collapse of house prices in 2008 caused widespread financial panic.
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_3_case_shiller.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \section*{2. Review: Bank Runs}
+
+    \textbf{Model of Bank Runs} (Review from Bank lecture #5):
+    
+    \begin{itemize}
+        \item Asymmetric Information: Depositors do not know whether the bank is solvent or not.  Generally, they trust the bank is solvent and don’t worry, but what happens when they suspect the bank is not solvent?
+        \item Depositors get their money on a first-come, first-serve basis.
+        \item If depositors start to fear they won’t get all their money back, then they have incentive to “run” to the bank and withdraw before others.
+           \item Banks may be forced to sell loans to raise cash.  They may do so at “fire sale” prices.  A sharp decline in prices has the potential to cause contagion for other financial institutions.
+    \end{itemize}
+    \vspace{0.5em}
+    See Diamond and Dybvig, Nobel Prize in 2022
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \framesubtitle{IndyMac, July 2008}
+    
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \begin{itemize}
+    \item IndyMac, based in Pasadena CA, invested heavily in residential mortgages.   IndyMac was a spin out of Countrywide.
+    \item IndyMac relied on deposits (>50\% of liabilities) to fund investments
+    \end{itemize}
+    
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_3_indymac_bs.png}
+    \end{column}
+    
+    \end{columns}
+
+    \blfootnote{Source: 10-Q, http://www.secinfo.com/dVut2.t668.htm#Dates}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \framesubtitle{IndyMac, July 2008}
+
+    In March 2008, IndyMac reported \$2 billion in non-performing loans.   The company expected “to have an even higher level of non-performing loans in the future due to the continued market disruption"
+    
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/05_gfc_3_indymac_bs2.png}
+
+    \blfootnote{Source: 10-Q, http://www.secinfo.com/dVut2.t668.htm#Dates}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \framesubtitle{IndyMac, July 2008}
+    
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \begin{itemize}
+    \item There was a “run” on IndyMac in July 2008
+    \item The FDIC put IndyMac into conservatorship
+    \item The bank was eventually sold out of bankruptcy and became “OneWest” bank, which was run by Steve Mnuchin
+    \end{itemize}
+    
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_3_indymac_pic.png}
+    \end{column}
+    
+    \end{columns}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \framesubtitle{Runs on Shadow Banks}
+
+    Starting in late 2007 there was a run on Asset Backed Commercial Paper (ABCP).  ABCP were like deposits in that they were short-term liabilities that were considered “high quality.”
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_3_abcp.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \framesubtitle{Runs on Shadow Banks}
+
+    \textbf{Repo = “repurchase agreement”}   
+    \begin{itemize}
+        \item Bank A sells a Treasury bond to Bank B, and agrees to buy it back.   Bank B is loaning money to Bank A, with US Treasuries held as collateral.
+        \item Repo is frequently used by hedge funds as a means of establishing leveraged positions.
+        \item Investment banks also financed significant portions of their balance sheets with repo.
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{2. Review: Bank Runs}
+    \framesubtitle{Runs on Shadow Banks}
+
+    \centering
+    \includegraphics[width=0.75\textwidth]{Econ357/figures/05_gfc_3_repo.png}
+
+    \blfootnote{\tiny{Source: https://www.newyorkfed.org/medialibrary/media/research/staff\_reports/sr996.pdf?sc\_lang=en}}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \section*{3. Panic in 2008}
+
+    \myquote{"When the music stops...things will be complicated.   But as long as the music is playing, you’ve got to get up and dance.   We’re still dancing."}{
+    Chuck Prince \\
+    CEO of Citigroup \\
+    July 8, 2007}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \subsection*{Bear Stearns}
+    \framesubtitle{Bear Stearns}
+
+    Bear Stearns was an investment bank with assets of \$400 billion, and a peak market capitalization of \$20 billion in 2007.
+    \vspace{1em}
+    
+    The firm was involved in many parts of subprime lending (including origination, securitization, and trading)
+    \vspace{1em}
+    
+    In early 2008 it experienced a “run”, as short term creditors withdrew financing or made financing terms more onerous:
+    \begin{itemize}
+        \item Prime brokerage withdrawals
+        \item “Novations” of derivatives
+        \item Collateral calls
+        \item And, finally, a run on repo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Bear Stearns}
+
+    On March 16, 2008, Bear Stearns was sold to JP Morgan at \$10 per share, 90\% lower than it been the day before.
+    \vspace{1em}
+     
+    The Federal Reserve supported the sale by facilitating the purchase of some of Bear Stearns troubled assets.   
+    
+    \begin{itemize}
+        \item Specifically, \$30b of Bear Stearns’ troubled assets were sold to an LLC, JPM would take the first \$1 billion in losses and the Fed would take the rest.
+    \end{itemize}
+        \vspace{1em}
+        
+     The Fed used its Emergency 13(3) authority (more on this in the next lecture)
+         \vspace{1em}
+    
+    Bear Stearns’ creditors received full payment
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Bear Stearns}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/05_gfc_3_bearstearns.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Bear Stearns}
+
+    The broader stock market stabilized after Bear Stearns was taken over.   Many thought that worst had past.   
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_3_bearstearns2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Bear Stearns}
+
+    But, it turns out the worst was yet to come
+    \vspace{1em}
+    
+    Question: Did the Fed’s intervention with Bear Stearns create moral hazard?   Did it create “too big to fail”?    Did it create a sense of complacency?
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{GSEs}
+    \subsection*{GSEs}
+
+    \textbf{Government Sponsored Enterprises (GSEs}
+    \begin{itemize}
+        \item Reminder: the GSEs guaranteed prime mortgages.   They guaranteed a large share of the mortgage market.
+        \item Prior to 2008, the GSEs had an “implicit” government guarantee.   (i.e. there was an assumption of government support, but that was not explicit).  In return, they were expected improve housing availability.   This included buying some subprime loans.
+        \item \textit{Due to losses on the underlying mortgages, the GSEs were in trouble in the summer of 2008.}
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{GSEs}
+
+    \myquote{"If you’ve got a squirt gun in your pocket, you may have to take it out.   If you’ve got a bazooka, and people know you have it, you may not have to take it out."}{
+    Hank Paulson \\
+    Treasury Secretary \\
+    July 2008}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{GSEs}
+    
+    \begin{itemize}
+        \item After Paulson’s testimony, Congress then gave the US Treasury the authority to take over the GSEs
+        \item The US Treasury took over the GSEs (conservatorship) in August 2008.
+    \end{itemize}
+    \vspace{1em}
+
+        \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_3_gse1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+    \subsection*{Lehman Brothers}
+
+    \myquote{The rivets are starting to come off the submarine.}{
+    Lloyd Blankfein \\
+    CEO of Goldman Sachs \\
+    As quoted by Tim Geithner in \textit{Stress Test}}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+
+    Lehman Brothers was an investment bank.   
+
+    As of May 2008:
+    \begin{itemize}
+        \item \$639 billion in assets
+        \item \$26 billion in capital (leveraged 25:1!!)
+        \item \$21 billion in real estate
+        \item \$72 billion in mortgage and asset backed securities
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+
+    In September 2008 Lehman Brothers experienced a run that was very similar to what Bear Stearns had experienced a few months earlier:
+    \begin{itemize}
+        \item Lehman had significant exposure to subprime, it was difficult to assess the value of Lehman’s assets, and whether Lehman had sufficient capital
+        \item Lehman’s counterparties pulled back – demanded more collateral and withdrew financing.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+
+    \myquote{Paulson Adamanent No Money For Lehman.}{
+    Bloomberg News Headline \\
+    September 12, 2008}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+
+    \begin{itemize}
+        \item Over the weekend of 9/12-9/14 the US government attempted to save Lehman by finding a buyer (similar to how the Fed facilitated the purchase of Bear Stearns by JPM).
+        \item The effort failed because Bank of America bought Merrill Lynch instead, and the UK banking regulator didn’t approve of Barclay’s purchasing Lehman.  (Later, regulators said they didn’t have the authority to guarantee Lehman’s assets, like they had done with Bear)
+        \item Left with no other options, Lehman filed for bankruptcy early in the morning on Monday, September 15.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+
+    Some believed the failure of Lehman would address some of the moral hazard / too-big-to-fail concerns.
+    \vspace{1em}
+    
+    The aftermath of the Lehman failure turned out to be horrible… 
+    \vspace{1em}
+    
+    …and eventually policymakers were forced to do even more to support (bailout?) various financial institutions.
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \framesubtitle{Lehman Brothers}
+
+     In contrast the complacency that followed the sale of Bear Stearns, the broader stock market fell by \textbf{30\%} in the three weeks following the failure of Lehman Brothers.   
+
+     \centering
+     \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_3_lehman.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+
+    \myquote{You are about to experience the most unbelievable week in America ever.}{
+    Jamie Dimon \\
+    CEO of JP Morgan\\
+	September 13, 2008
+    }
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \subsection*{Money Market Mutual Funds}
+    \framesubtitle{Money Market Mutual Funds}
+
+    Money Market Mutual Funds (MMMFs) promise investors a ”Stable net asset value”.   As a result, investors expect to be able to withdraw the same amount they invested.   This makes MMMFs susceptible to runs.
+    \vspace{1em}
+    
+    The Reserve Primary Fund was one of the largest independent MMMFs.   It invested 1.2\% of its assets in loans issued by Lehman Brothers.   
+    \vspace{1em}
+    
+    Immediately after Lehman failed, investors rushed to withdraw from the Reserve Primary Fund, and withdrew 50\% of assets over the next few days.   The Reserve Primary Fund then reduced its share price to \$0.97.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+        \framesubtitle{Money Market Mutual Funds}
+
+    This led to a run on “prime” MMMFs.   In just a few weeks more than \$400 billion was pulled from “prime” funds and transferred to safer “government-only” MMMFs.
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_3_mmfs.png}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+        \framesubtitle{Money Market Mutual Funds}
+
+    The US Treasury was eventually forced to guarantee prime MMMFs.
+    \vspace{1em}
+    
+    Secretary Paulson used the “Exchange Stabilization Fund” to guarantee MMMFs.   This was an extraordinary action.
+     
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+    \subsection*{AIG}
+        \framesubtitle{AIG}
+
+    In the aftermath of Lehman, funding markets froze.   The cost of obtaining short term (3m) funds exploded to 500 bps.  
+    \vspace{0.5em}
+
+    \centering
+    \includegraphics[width=0.65\textwidth]{Econ357/figures/05_gfc_3_aig1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+        \framesubtitle{AIG}
+
+       AIG was particularly vulnerable because its financial products division had written insurance on AAA-rated securitization tranches.   (Specifically, it had written a “credit default swap”)
+  
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/05_gfc_3_aig2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+        \framesubtitle{AIG}
+
+       On September 16, the Federal Reserve made a \$85 billion loan to AIG.    Note that AIG was not (never had been, and still is not) a bank.   The loan was an emergency loan, under 13(3).  The Fed made an additional loan to AIG in October 2008.
+
+  
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/05_gfc_3_aig3.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Panic in 2008}
+        \framesubtitle{Summary}
+
+        \begin{itemize}
+            \item Bear Stearns (Mar) – run on an investment bank, bought by JPM with support from the Federal Reserve
+            \item GSEs (Aug) – losses on underlying mortgages, guaranteed by Federal Government
+            \item Lehman (Sep) – run on an investment bank, declared bankruptcy
+            \item Money Market Mutual Funds (Sep) – run on “prime funds”, US Treasury provided guarantee
+            \item AIG (Sep) – losses on CDX (fire sale) plus run, Federal Reserve provided substantial support
+        \end{itemize}
+
+\end{frame}
+
+\end{document}

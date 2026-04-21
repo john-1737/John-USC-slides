@@ -65,6 +65,19 @@
 
 \end{frame}
 
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Mortgage Debt Outstanding}
+
+    The median home price in the United States \$419,000 at the end of 2024.
+    The average sales price of new homes was \$500,000 in June 2025.   
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/05_gfc_1_mtgdbt.png}
+
+\end{frame}
+
 \begin{frame}[t]
     \frametitle{1. US Housing Market}
     \framesubtitle{Conventional Mortgages}
@@ -78,6 +91,62 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Conventional Mortgages - Payments}
+
+    Fixed-rate mortgages repay principal each month, instead of requiring a balloon payment at the end of the loan.\\
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/05_gfc_1_mtgprepay.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Conventional Mortgages - Leverage}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            The typical mortgage requires a 20\% downpayment.
+            The remaining 80\% of the cost of the house is borrowed.\\
+            \vspace{1em}
+            The leverage ratio is 5:1 (total cost / amount of equity).
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_mtgfinancing.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{4. Prepayment Risk and Mortgages}
+    \framesubtitle{Conventional Mortgages - Leverage, example}
+
+    Example: 
+    \begin{itemize}
+        \item You buy a house for \$1,000,000.   
+        \item You make a 20\% downpayment (\$200,000)
+        \item You finance the remainding \$800,000 with a 7\% mortgage.
+    \end{itemize}
+
+    \begin{table}
+        \caption{Example Home Ownership Returns}
+        \begin{tabular}{lccc}
+        \toprule
+        Scenario & Price Change & Interest Cost & Return on Equity \\
+        \midrule
+        HPI +10\% & \$100,000 & \$56,000 & 22.0\% \\
+        HPI +20\% & \$200,000 & \$56,000 & 72.0\% \\
+        HPI -10\% & -\$100,000 & \$56,000 & -78.0\% \\
+        \bottomrule
+    \end{tabular}
+    \end{table}
+\end{frame}
+
 
 \begin{frame}[t]
     \frametitle{1. US Housing Market}
@@ -122,6 +191,14 @@ Not all borrowers (or home purchases) met the requirements for a GSE-guaranteed.
 
 \end{frame}
 
+\begin{frame}[t]
+    \frametitle{1. US Housing Market}
+    \framesubtitle{Subprime Mortgages}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_gses.png}
+
+\end{frame}
 
 \begin{frame}[t]
     \frametitle{2. Securitization}
@@ -136,6 +213,67 @@ Not all borrowers (or home purchases) met the requirements for a GSE-guaranteed.
         \item Investor perspective: Demand for “safe assets”.   Perhaps partly this was driven by regulation?
         \item Bank perspective: Fee income from creating new financial products, “off-balance sheet” risk taking
     \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Securitization - SPVs and Tranches}
+
+    A \textbf{Special Purpose Vehicle} (SPV) owns a pool of assets.   The cashflows of the SPV are distributed to various \textbf{tranches}.
+     \vspace{0.5em}
+
+    \centering
+    \includegraphics[width=0.9
+    \textwidth]{Econ357/figures/05_gfc_1_securitization_1.png}
+
+    \blfootnote{Example from Hull, “Options, Futures and Other Derivatives}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Securitization - Waterfalls}
+
+    The cashflows are distributed to the various tranches according to a \textbf{waterfall}.
+    \vspace{0.5em}
+
+    \centering
+    \includegraphics[width=0.9
+    \textwidth]{Econ357/figures/05_gfc_1_securitization_2.png}
+
+    \blfootnote{Example from Hull, “Options, Futures and Other Derivatives}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Securitization - CDOs}
+
+    A \textbf{Collateralized Debt Obligation} (CDO) is a securitization of a securitization.
+    \vspace{0.5em}
+
+    \centering
+    \includegraphics[width=0.9
+    \textwidth]{Econ357/figures/05_gfc_1_securitization_3.png}
+
+    \blfootnote{Example from Hull, “Options, Futures and Other Derivatives}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Securitization}
+    \framesubtitle{Securitization - Losses}
+
+    What happened when there were losses on the underlying assets?  Even though the senior tranche was rated “AAA”, notice how sensitive it was to underlying losses.
+
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=
+    \textwidth]{Econ357/figures/05_gfc_1_securitization_4.png}
+
+    \blfootnote{Example from Hull, “Options, Futures and Other Derivatives}
 
 \end{frame}
 
@@ -205,15 +343,49 @@ There was a broad-based bubble mentality:
 \begin{frame}[t]
     \frametitle{3. Housing Bubble of the 2000s}
 
-Even as prices started to decline, it was still hard to understand how bad it would eventually become…
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_bubble_1.png}
 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{3. Housing Bubble of the 2000s}
 
-It wasn’t just borrowers that were fooled.   Supposedly ‘sophisticated’ institutions had significant exposure, and also ended up losing a lot of money.
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_bubble_2.png}
 
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+
+    Even as prices started to decline, it was still hard to understand how bad it would eventually become...
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_bubble_3.png}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+    
+    It wasn’t just borrowers that were fooled.   "Sophisticated" institutional investors also lost a lot of money.
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_bubble_4.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Housing Bubble of the 2000s}
+    
+    Many borrowers lost their homes and savings.
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_1_bubble_5.png}
 
 \end{frame}
 

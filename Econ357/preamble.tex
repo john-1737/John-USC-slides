@@ -215,3 +215,21 @@
   \endgroup
 }
 \makeatother
+
+
+% Quote Command
+% Preamble
+\newcommand{\myquote}[2]{%
+  \par\begingroup
+  \begin{center}
+    \begin{minipage}{0.8\textwidth} % adjust width here
+      \itshape
+      #1\par
+      \medskip
+      \begin{flushright}
+        \normalfont\small #2
+      \end{flushright}
+    \end{minipage}
+  \end{center}
+  \endgroup
+}
