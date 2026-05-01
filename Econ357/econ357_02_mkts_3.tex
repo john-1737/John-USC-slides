@@ -1,0 +1,355 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Financial Markets 2 of 8}
+
+\title{Bonds 2: Nominal v Real Interest Rates, Supply and Demand for Bonds}
+\subtitle{Mishkin Chapter 5}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+
+\begin{frame}
+    \frametitle{Outline for Financial Markets}
+        \begin{enumerate}
+            \item Financial Market Returns
+            \item Bonds 1: Discounting, Prices and Yields
+            \item \fbox{Bonds 2: Nominal v. Real Interest Rates, Supply and Demand}
+            \item Bonds 3: Market for Money
+            \item Bonds 4: Risk and Term Structure
+            \item Equities 1: Dividend Discount Model
+            \item Equities 2: P/E Ratio
+            \item Equities 3: Theories of Stock Pricing
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item History of Interest Rates
+        \item Real v. Nominal Interest Rates
+        \item Supply and Demand for Bonds
+        \item Analysis: Inflation, Expansion, Recession
+        \item Corporate Bonds
+        \item Practice Questions
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. History of Interest Rates}
+    \section{History of Interest Rates}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_3_history1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Interest Rates}
+    \section{Real v. Nominal Interest Rates}
+
+    \textbf{Definitions}:
+    \begin{itemize}
+        \item Nominal interest rates: interest rates not adjusted for inflation.  The interest paid in current dollars.
+        \item Real interest rates: interest rates adjusted for \textit{expected} inflation.
+    \end{itemize}
+
+    \textbf{Discussion:}
+    \begin{itemize}
+        \item Reminder: Similar to the discussion in a previous lecture about real and nominal returns.
+        \item Calculating real returns is relatively easy.  You only need to know how prices have changed, which is easily measured by the CPI.
+        \item In contrast, it is harder to calculate real interest rates, because it is hard to calculate \textit{expected} inflation.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Interest Rates}
+    \framesubtitle{Fisher Equation}
+
+    \textbf{Fisher Equation}
+    $$ i = r + \pi^e$$
+    Where
+    \begin{itemize}
+        \item $i$ is the nominal interest rate
+        \item $r$ is the real interest rate
+        \item $\pi^e$ is \textit{expected} inflation.
+    \end{itemize}
+    \vspace{1em}
+    
+    We are often interested in the real interest rate, as it may be a better indicator of borrowing costs or of expected returns.   It is easy to rearrange the Fisher equation:
+    $$ r = i - \pi^e$$
+
+    \blfootnote{The Fisher equation is an approximation.  See the book for a proof}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Interest Rates}
+    \framesubtitle{Expected Inflation}
+
+    Expected inflation is tough to calculate!
+    \vspace{1em}
+
+    Discussion:
+    \begin{itemize}
+        \item Surveys of businesses, households, and economists provide some guidance.
+        \item However, generally respondents don't know what inflation is going to be, and this is especially true for households.
+        \item There are market-based measures of expected inflation.   These can be useful.
+        \item Treasury Inflation Protected Securities (TIPS) have a principal amount that is adjusted with inflation.   This means that the coupon on TIPS is the real interest rate.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Interest Rates}
+    \framesubtitle{Expected Inflation}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_3_exp_inf1png.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Interest Rates}
+    \framesubtitle{Expected Inflation}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_3_exp_inf2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Supply and Demand for Bonds}
+    \section{Supply and Demand for Bonds}
+
+    Supply and Demand Curve for Bonds:
+    \vspace{10em}
+    
+    Notes:
+    \begin{itemize}
+        \item Normal supply and demand curves, how to remember: "downward sloping demand"
+        \item Price is on the y-axis
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Supply and Demand for Bonds}
+
+    Factors Affecting \textbf{Demand}
+    \begin{itemize}
+        \item Wealth
+        \item Expected returns, relative to other asset classes
+        \begin{itemize}
+            \item If you expect yields to change in the future, what does that mean for your expected return on bonds?
+            \item If expected inflation changes, how does that change your real interest rate?
+        \end{itemize}
+        \item Risk
+        \begin{itemize}
+            \item Consider risk relative to other asset classes.  An increase in risk in other asset classes could lead to a \textit{relative} decrease in bond risk.
+            \item The expected volatility of bond prices also affects the riskiness of bonds.
+        \end{itemize}
+        \item Liquidity, relative to other asset classes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Supply and Demand for Bonds}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_3_sd_table.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Supply and Demand for Bonds}
+
+    Factors Affecting \textbf{Supply}
+    \begin{itemize}
+        \item Government deficit
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Analysis}
+    \section{Analysis}
+    \framesubtitle{Example}
+
+    \textbf{Recession}
+    \begin{itemize}
+        \item Affect on Demand?
+            \begin{itemize}
+                \item Channels:
+                \item Shift of demand curve
+            \end{itemize}
+        \item Affect on Supply?
+                    \begin{itemize}
+                \item Channels:
+                \item Shift of supply curve
+            \end{itemize}
+        \item Result?
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Analysis}
+    \framesubtitle{Example}
+
+    \textbf{Increase in Expected Inflation}
+    \begin{itemize}
+        \item Affect on Demand?
+            \begin{itemize}
+                \item Channels:
+                \item Shift of demand curve
+            \end{itemize}
+        \item Affect on Supply?
+                    \begin{itemize}
+                \item Channels:
+                \item Shift of supply curve
+            \end{itemize}
+        \item Result?
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Analysis}
+    \framesubtitle{Example}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_3_ex_ust.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Corporate Bonds}
+    \section{Supply and Demand for Corporate Bonds}
+
+    We can analyze corporate bonds using the same model.  Corporate bonds have a few additional considerations:
+    \vspace{1em}
+
+    \textbf{Demand}
+    \begin{itemize}
+        \item The riskiness of corporate bonds rises as default risk rises, and falls as default risk falls.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Supply}
+    \begin{itemize}
+        \item Higher expected inflation may lead corporations to borrow more (lower real interest rates).   This may lead to an increase in supply.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Supply and Demand for Corporate Bonds}
+    
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_3_ex_corps.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Supply and Demand for Corporate Bonds}
+    
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_3_history2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Supply and Demand for Corporate Bonds}
+    
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_3_history3.png}
+
+\end{frame}
+
+\begin{practiceframe}
+    \frametitle{6. Practice}
+    \section{Practice}
+
+    \textbf{Topics Covered}
+    \begin{itemize}
+        \item Total Return – definition and calculation
+        \item Discounting future values
+        \item Bond characteristics
+        \item Bond pricing.   Definition of bond yields.
+        \item Real v. nominal yields.  Challenge of identifying “expected inflation”
+        \item Bond supply and demand
+        \item Analysis of changes in bond supply and demand: expected inflation, expansion, recession
+    \end{itemize}
+    
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{6. Practice}
+
+    \begin{enumerate}
+        \item The present value of an expected future payment (BLANK) as the interest rate increases.
+        \item An increase in the time to the promised future payment (BLANK) the present value of the payment.
+        \item The yield to maturity on a 10-year treasury note (with face value = \$100 and annual coupon rate = 2.625\%) is 3.37\%. The market price of this bond must be (BLANK) \$100.
+        \item The (BLANK) interest rate is adjusted for expected changes in the price level.
+        \item If the nominal rate of interest is 2 percent, and the expected inflation rate is -10 percent, what is the real rate of interest?
+        \item If you expect the inflation rate to be 15 percent next year and a one-year bond has a yield to maturity of 7 percent, then the real interest rate on this bond is
+
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{6. Practice}
+
+\begin{enumerate}
+        \setcounter{enumi}{6}
+        \item In the bond market, the bond demanders are the (BLANK) and the bond suppliers are the (BLANK).
+        \item The supply and demand curves for bonds have the usual slopes: upward and downward, respectively.  At (BLANK) prices of the bond, everything else equal, the (BLANK) is higher.
+        \item If wealth increases, the demand for stocks (BLANK) and that of long-term bonds (BLANK), everything else held constant.
+        \item An increase in the expected rate of inflation will (BLANK) the expected real return on nominal bonds, everything else held constant.   This will cause demand for bonds to (BLANK).
+        \item When the expected inflation rate increases, the demand for bonds (BLANK), the supply of bonds (BLANK), and the interest rate (BLANK), everything else held constant.
+        \item Everything else held constant, during a business cycle expansion, the supply of corporate bonds shifts to the (BLANK) as businesses perceive more profitable investment opportunities, while the demand for corporate bonds shifts to the (BLANK) as a result of the increase in wealth generated by the economic expansion.   What is the consequence for the price of corporate bonds?
+
+    \end{enumerate}
+
+
+
+
+\end{practiceframe}
+
+
+
+\end{document}

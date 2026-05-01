@@ -2,7 +2,7 @@
 
 \newcommand{\week}{Financial Markets 2 of 8}
 
-\title{Financial Market Returns}
+\title{Bonds 1: Discounting, Prices and Yields}
 \subtitle{Mishkin Chapter 4}
 \author{Econ 357}
 \date{\week}
@@ -42,7 +42,7 @@
         \begin{enumerate}
             \item Financial Market Returns
             \item \fbox{Bonds 1: Discounting, Prices and Yields}
-            \item Bonds 2: Nominal v. Real Yields, Supply and Demand
+            \item Bonds 2: Nominal v. Real Interest Rates, Supply and Demand
             \item Bonds 3: Market for Money
             \item Bonds 4: Risk and Term Structure
             \item Equities 1: Dividend Discount Model
@@ -69,6 +69,7 @@
 
 \begin{frame}[t]
     \frametitle{1. Discounting Future Values}
+    \section{Discounting Future Values}
 
     Generally people place lower value on cash flows that are expected in the future.  
     
@@ -104,8 +105,10 @@
     \framesubtitle{Risk}
 
     For concave utility functions, a certain outcome has a higher utility than an uncertain outcome.
+    \vspace{1em}
 
-    INSERT CHART
+    \centering
+    \includegraphics[width=0.7\textwidth]{Econ357/figures/02_mkts_2_utility.png}
 
 \end{frame}
 
@@ -146,11 +149,8 @@
     \frametitle{1. Discounting Future Values}
     \framesubtitle{Rule of 72}
 
-    \begin{quote}
-    Compound interest is the eigth wonder of the world.  He who understands it, earns it.   He who doesn't, pays it.\\
-    \vspace{1em}\\
-     \hspace*{5mm} --- \textit{Albert Einstein}
-    \end{quote}
+    \myquote{Compound interest is the eighth wonder of the world.  He who understands it, earns it.   He who doesn't, pays it.}
+    {Albert Einstein}
 
     \vspace{1em}
 
@@ -158,7 +158,7 @@
 
     \vspace{1em}
 
-    Example: An investment with an expected annual total return of 14\% will double in value approximately every five years ($72/14 \approx 5$)
+    Example: An investment with an expected annual total return of 14\% will double in value approximately every five years ($72/14 \sim 5$)
 
 \end{frame}
 
@@ -166,7 +166,158 @@
     \frametitle{1. Discounting Future Values}
     \framesubtitle{Rule of 72, cont}
 
-    INSERT CHART FROM AARP
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_2_aarppng.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+    \section{Bonds}
+
+    \textbf{Definition:}
+    “A debt security that promises to make periodic payments to the holder for a specified period of time.   The borrowed amount is returned at the end of the loan”
+    \vspace{1em}
+    
+    \textbf{Key characteristics:}
+    \begin{itemize}
+        \item The terms of the payments -- both interest payments and principal amount -- are set at the time bond issued.
+        \item Generally interest payments do not change (hence "fixed" income)
+        \item In a bankruptcy, debt holders are paid first.  This makes payments more secure.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_2_ust_pic.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    Coupon Bond
+    \begin{itemize}
+        \item Issuer makes semi-annual interest payments.  These are called “coupons”.
+        \item Coupons are usually paid semi-annually, which means they are paid two times per year.   Analysts may assume annual interest payments, only because it makes the math easier.
+        \item When the bond matures, the issuer repays the bond’s “par value” (or, equivalently, its “face value” or the "principal")
+        \item The bond is usually issued ”at par”.  This means that the bond price when the bond is issued is usually \$100.
+        \item After issuance, the bond price may not necessarily be \$100...
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    The price of a coupon bond is given by the following equation:
+
+    $$
+    \text{Price} = \sum_{t=0}^{T} \frac{c_t}{(1+y)^t} + \frac{P}{(1+y)^T}
+    $$
+    Where
+    \begin{itemize}
+        \item $T$ is the time to maturity of the bond (also known as the term)
+        \item $c_t$ is the coupon payment at time $t$.
+        \item $P$ is the principal amount of the bond (the amount borrowed)
+        \item $y$ is the yield to maturity
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    Be careful: the word “yield” is used in many different ways.
+    \vspace{1em}
+
+    In the preceding equation, the “yield to maturity” has the following precise meaning: the single interest rate that equates the present value of payments received from a bond to the value of the bond today.
+    \vspace{1em}
+    
+    “Yield” is usually a forward looking concept, as opposed to “return” which is typically backwards looking.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    Other types of bonds:
+    \begin{itemize}
+        \item Simple loan
+        \item Zero-coupon bond (also known as a 'discount bond')
+        \item Perpetuity
+        \item Mortgages (fixed payment)
+        \item TIPS (adjusting principal)
+        \item Floating rate bonds
+        \item Bonds with embedded options (convertible bonds, callable bonds, and lots more)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+    \subsection{Bonds: Prices and Yields}
+
+    Prices and Yields, discussion:
+    \begin{itemize}
+        \item \textit{\textbf{Bond prices and yields are inversely related}}
+        \item Notice that the price-yield relationship can work either way – given the yield, you could solve for the price OR given the price, you could solve for the yield.
+        \item In practice, the price of very liquid Treasury bonds is used to set benchmark interest rates (price $\implies$ yield).   Those interest rates are then used to price other, less liquid bonds (yield $\implies$ price).
+        
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    Intuition for inverse relationship between prices and yields:
+    \begin{itemize}
+        \item In the equation for bond price, the yield is in the denominator.
+        \item If yields rise in the market, then this particular stream of coupons is less valuable (because I could get a higher stream of coupons from another, similar bond), so I will be willing to pay less for this bond.
+        \item Think of the yield as similar to the expected return.   If the expected return (yield) is higher than the coupon rate, I must also expect some price appreciation, which implies that the price must be below par.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_2_ust_monthly.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_2_30y_example.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{Econ357/figures/02_mkts_2_price_example.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Bonds}
+
+    A few more observations on prices and yields:
+    \begin{itemize}
+        \item If the coupon rate is equal to the yield, the bond price is equal to the principal amount.
+        \item At the time of maturity, the bond price is always equal to the principal value (there is only one payment remaining, and no discounting)
+        \item If the yield is below the coupon rate, the price of the bond will be above the principal value.   These are known as premium bonds.  Note that the bond will lose value over time, which is consistent with an expected return below the coupon rate.
+        \item If the yield is above the coupon rate, the price of the bond will be below the principal value.   These are known as discount bonds.   Note that the bond will gain in value over time, which is consistent with an expected return above the coupon rate.
+    \end{itemize}
 
 \end{frame}
 
