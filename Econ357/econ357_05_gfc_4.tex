@@ -1,0 +1,680 @@
+\documentclass{beamer}
+
+\newcommand{\week}{GFC 4 of 5}
+
+\title{Response}
+\subtitle{Great Financial Crisis (GFC) of 2008}
+
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Lectures on GFC of 2008}
+
+    \begin{enumerate}
+        \item Housing
+        \item Leverage and Banks
+        \item Bank Run
+        \item \fbox{Response}
+        \item Recovery
+    \end{enumerate}
+    \vspace{1em}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    
+\begin{enumerate}
+    \item More Bank Failures
+    \item Federal Reserve Response
+    \begin{itemize}
+        \item Discount Window
+        \item Emergency Loans (13(3))
+        \item Unclogging Credit Channel
+        \item Monetary Policy
+    \end{itemize}
+    \item US Treasury Response
+    \begin{itemize}
+        \item TARP
+        \item Stress Tests
+    \end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review}
+    \section{Review}
+    \framesubtitle{Housing Bubble}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_3_case_shiller.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review}
+    \framesubtitle{Leverage}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_2_householdleverage.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review}
+    \framesubtitle{Leverage}
+    
+    Bank runs are caused by a combination of leverage, short term creditors, asymmetric information, and risky activities
+    \vspace{1em}
+    
+    Shadow banks can also experience runs:
+    \begin{itemize}
+        \item Short term creditors: commercial paper, prime brokerage, repo
+        \item Asymmetric information: many things were ‘safe’ and rated AAA
+        \item Risky Activities: mortgage and securitized mortgage losses
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review}
+    \framesubtitle{Lehman Brothers}
+
+       Lehman Brothers was an investment bank.   
+        \vspace{1em}
+
+    As of May 2008:
+    \begin{itemize}
+        \item \$639 billion in assets
+        \item \$26 billion in capital (leveraged 25:1!!)
+        \item \$21 billion in real estate
+        \item \$72 billion in mortgage and asset backed securities
+    \end{itemize}
+    \vspace{1em}
+
+    Lehman Brothers declared bankruptcy on Monday September 15, 2008.
+    \vspace{1em}
+    
+    \textbf{The stock market fell by 30\% over the following three weeks.}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review}
+    \framesubtitle{Lehman Brothers}
+
+     \centering
+     \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_3_lehman.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{Review}
+    \framesubtitle{AIG}
+
+    \myquote{The national commitment to the free market lasted on day… It was Monday.”}{
+    Barney Frank \\
+    Congressman, D-MA \\
+    September 17, 2008
+    }
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Review}
+        \framesubtitle{Summary}
+
+        \begin{itemize}
+            \item Bear Stearns (Mar) – run on an investment bank, bought by JPM with support from the Federal Reserve
+            \item GSEs (Aug) – losses on underlying mortgages, guaranteed by Federal Government
+            \item Lehman (Sep) – run on an investment bank, declared bankruptcy
+            \item Money Market Mutual Funds (Sep) – run on “prime funds”, US Treasury provided guarantee
+            \item AIG (Sep) – losses on CDX (fire sale) plus run, Federal Reserve provided substantial support
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. More Bank Failures}
+    \section{More Bank Failures}
+        \framesubtitle{Washington Mutual}
+
+        Washington Mutual 
+        \begin{itemize}
+            \item Total assets: \$327 bn in 2007
+            \item Bank run: lost \$17 bn of deposits following Lehman bankruptcy
+            \item Declared “failed” on September 25, 2008
+            \item FDIC guaranteed depositors
+            \item Unsecured debt holders were not guaranteed
+            \item Sold to JP Morgan
+        \end{itemize}
+        \vspace{1em}
+        
+        The losses to unsecured debt holders caused a panic among bond holders of other banks.   Credit spreads widened dramatically.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. More Bank Failures}
+        \framesubtitle{Washington Mutual}
+
+    \myquote{The policy of the U.S. government is that there will be no more WaMus}{
+    Tim Geithner \\
+    President of the NY Federal Reserve \\
+    September 2008
+    }
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. More Bank Failures}
+        \framesubtitle{Wachovia}
+
+    Wachovia
+    \begin{itemize}
+        \item Assets: $>$\$600bn
+        \item Headquartered in Charlotte, NC
+        \item Headed towards failure in late September
+        \item FDIC declared that Wachovia was “systemically important” and would not be allowed to fail
+        \item Eventually sold to Wells Fargo
+    \end{itemize}
+    \vspace{1em}
+
+    \textit{Unsecured bond holders did not have any losses}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. More Bank Failures}
+        \framesubtitle{FDIC Expands Guarantee}
+
+        FDIC Expands Guarantees in October 2008
+        \begin{itemize}
+            \item Guaranteed all deposits (previously the limit was \$100,000)
+            \item Guaranteed newly issued senior unsecured debt (bonds)
+        \end{itemize}
+        
+        The deposit guaranteed was in place until 2012, when it was lowered down to \$250,000
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. More Bank Failures}
+        \framesubtitle{FDIC Expands Guarantee}
+
+        \centering
+        \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_bankguarantees.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. More Bank Failures}
+        \framesubtitle{FDIC Expands Guarantee}
+
+    2008
+    \begin{itemize}
+        \item Total bank failures: 25
+        \item WaMu by far the largest at $>$\$300bn in assets
+    \end{itemize}
+    \vspace{1em}
+    
+    2009
+    \begin{itemize}
+        \item Total bank failures: 140
+        \item none over \$20 billion in assets
+    \end{itemize}
+    \vspace{1em}
+
+    The relatively small number of bank failures was considered a success, especially compared to either the Great Depression.
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \section{Federal Reserve Response}
+        \framesubtitle{FDIC Expands Guarantee}
+
+        \myquote{Lend freely against good collateral at a penalty rate}{
+        Walter Bagehot \\
+        London \\
+        19th Century
+        }
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Discount Window}
+    
+    “The discount window allows depository institutions and U.S. branches and agencies of foreign banks to borrow from Federal Reserve Banks after executing legal agreements and pledging collateral.  By providing ready access to funding, the discount window helps these institutions manage their liquidity risks efficiently and avoid actions that have negative consequences for their customers, such as withdrawing credit during times of market stress. Thus, the discount window supports the smooth flow of credit to households and businesses.”  
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Discount Window}
+
+    Discount Window has three programs:
+    \begin{enumerate}
+    \item Primary Credit
+    \begin{itemize}
+    \item Interest rate is top of fed funds range
+    \end{itemize}
+    \item Secondary Credit
+    \begin{itemize}
+    \item Interest rate is above fed funds rate: +0.5\%
+    \end{itemize}
+    \item Seasonal Credit (for small institutions)
+    \end{enumerate}
+    \vspace{1em}
+
+    Banks must post collateral, valued by Regional Federal Reserve Banks
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Discount Window}
+
+    One concern about the discount window: \textbf{stigma}
+    \vspace{1em}
+        
+    In order to address the stigma issue, the Fed only publishes aggregate amounts of discount loans.   The actual institutions accessing the discount loans are published two years later.  
+    \vspace{1em}
+    
+    Another issue with discount window: \textbf{moral hazard}
+    \vspace{1em}
+    
+    In order to address the moral hazard, all participating banks are highly regulated
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Emergency Loans}
+
+    The Fed also has authority to make loans in “unusual and exigent circumstances” (section 13(3) of the Federal Reserve Act).   
+    \vspace{1em}
+    
+    These loans can be made not just to banks, but to any financial institutions or even corporations.
+    \vspace{1em}
+    
+    The Fed Board is required to certify that the conditions are “unusual and exigent”, but after that it has pretty broad latitude.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Emergency Loans}
+
+    Two prominent examples we have already discussed:
+
+    \begin{enumerate}
+        \item The Fed “loaned” money to a LLC in order to purchase assets from Bear Stearns.   This facilitated the purchase of Bear Stearns by JP Morgan.   (JPM would not have bought Bear Stearns if it came with those assets)
+        \item The Fed made a \$85 billion loan to AIG in September 2008.   AIG was not a bank and never has been a bank.   The insurance business of AIG was the Fed’s collateral for the loan.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Emergency Loans}
+
+    Maiden Lane = loans to AIG and Bear Stearns 
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_fedbs.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Emergency Loans}
+
+    In response to COVID the Fed made more 13(3) loans, for example to create a facility that purchased corporate bond purchases.
+    \vspace{1em}
+    
+    An even more recent example of a 13(3) loan…
+    \vspace{1em}
+    
+    \begin{itemize}
+        \item In March 2023 the Fed created the “Bank Term Funding Program” as a response to the Silicon Valley Bank failure.   This program had a few novel aspects.   First, the loans were for up to one year.   Second, the program valued UST collateral at par, rather than at the market price.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Unclogging the Credit Channel}
+
+    In addition to making loans to banks, the Fed can provide direct support specific asset classes.
+    \vspace{1em}
+
+    Two general ways:
+    \begin{enumerate}
+        \item Fed provides loans to investors and accepts those assets as collateral
+        \item Fed establishes a “facility” to purchase those assets, usually the Treasury Department takes a first loss position and the Fed loans money to the facility (usually using a 13(3) loan)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Unclogging the Credit Channel}
+
+    Considerations:
+    \begin{itemize}
+        \item These assets may be undervalued because of “liquidity” problems, or because of fire sales, or because of a panic.
+        \item By supporting these specific assets, the Fed can support the broader financial system
+    \end{itemize}
+    \vspace{1em}
+
+    But...
+    \begin{itemize}
+        \item How does the Fed know they are undervalued?
+        \item Moral hazard problems are huge
+        \item Fed involvement can lead to distortions in the provision of credit
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Unclogging the Credit Channel}
+
+    Commercial paper funding facility helped provide financing for non-financial corporates that relied on CP (example: GE)
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_fedbs2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Monetary Policy}
+
+    \myquote{If money isn’t loosened up, this sucker could go down.}{
+        George W. Bush\\
+        US President \\
+	September 24, 2008\\  
+    }
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Monetary Policy}
+
+    Interest Rate Policy:
+    \begin{itemize}
+        \item Started cutting rates in July 2007
+        \item Cut to 2\% following Bear Stearns
+        \item Cut to 0\% following Lehman Brothers
+    \end{itemize}
+
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_fedfunds.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Monetary Policy}
+
+    Interest Rate Policy:
+    \begin{itemize}
+        \item Started cutting rates in July 2007
+        \item Cut to 2\% following Bear Stearns
+        \item Cut to 0\% following Lehman Brothers
+    \end{itemize}
+
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_fedfunds.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Monetary Policy}
+
+    Forward Guidance:
+    \begin{itemize}
+        \item Mar 2009: Rates expected to be 0\% for “extended period”
+        \item Aug 2011: Rates at 0\% “at least through mid-2013”
+        \item Dec 2012: Rates at 0\% until the unemployment rate declines to below 6.5\%
+
+    \end{itemize}
+
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_guidance.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Monetary Policy}
+
+    Quantitative Easing:
+    \begin{itemize}
+        \item QE1: 2008-2010
+        \item QE2: 2010-2011
+        \item Operation Twist: 2011-2012
+        \item QE3: 2012-2014
+    \end{itemize}
+
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_qe.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Federal Reserve Response}
+    \framesubtitle{Monetary Policy}
+
+    Federal Reserve purchases included Agency (GSE) mortgage backed securities.
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_4_qe2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \section{US Treasury Response}
+    \framesubtitle{TARP}
+
+    Scene on Capitol Hill in September 2008 (as described in numerous press reports at the time)
+    \vspace{1em}
+
+    \myquote{“Don’t blow this up, please”}{
+    Hank Paulson, literally on his knees
+    }
+    \vspace{1em}
+    
+    \myquote{“Hank, I didn’t know you were Catholic”}{
+    Nancy Pelosi \\
+    Speaker of the House
+    }
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{TARP}
+
+    Troubled Asset Relief Program (TARP) of 2008
+    \vspace{1em}
+
+    The initial idea was to purchase “troubled assets”.   This would make banks healthier (especially if the price was high enough) and restore confidence.
+    \vspace{1em}
+    
+    The big concern was that there was no upside for taxpayers.
+    \vspace{1em}
+    
+    The House of Representatives voted against the initial proposal on September 29, 2008.   The stock market fell $>$8\% that day.   
+    \vspace{1em}
+    
+    The House finally approved TARP on October 1.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{TARP}
+
+    Initially planned spending:
+    \begin{itemize}
+        \item \$250 billion to stabilize banks / deal with troubled assets
+        \item \$27 billion to restart credit markets
+        \item \$82 billion for automakers
+        \item \$70 billion for AIG
+        \item \$46 billion to help families avoid foreclosure
+    \end{itemize}
+    \vspace{1em}
+
+    Only purchased a small amount of troubled assets, and even that didn’t happen until mid 2009.
+    \vspace{1em}
+
+    Very quickly the plan changed to providing more capital for banks.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{TARP}
+
+    \myquote{"I suggest you come"}{
+    Hank Paulson \\
+    US Treasury Secretary \\
+    	Direction to Bank CEOs \\
+    	October 2008 \\
+        }
+    
+    \blfootnote{As quoted in David Wessel's \textit{In Fed We Trust}}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{TARP}
+
+    Capital Purchase Program 
+    \begin{itemize}
+        \item US Treasury used TARP funds to inject capital in banks (non-voting shares, preferred equity).
+        \item Banks were pressured to take the capital.  They initially resisted, both because they didn’t want to dilute equity holders and they didn’t want government ownership.
+        \item Ultimately paid back the government so the cost quite low
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{TARP}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/05_gfc_4_cpp.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{Stress Tests}
+
+    \myquote{"Plan beats no plan"}{
+    Tim Geithner \\
+    Treasury Secretary \\
+    2009
+    }
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{Stress Tests}
+
+    Even with the TARP capital, there was still a lot of fear about banks and lending was anemic.
+    \vspace{1em}
+
+    Stress Tests
+    \begin{itemize}
+        \item In May 2009 the Federal Reserve published results of “stress tests” that estimated how much capital each bank might needed under a “stress scenario”
+        \item This ended up being reassuring for investors.   The size of the problem was manageable.
+        \item Banks then raised private capital.   And that helped to restore investor confidence.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{Stress Tests}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/05_gfc_4_stresstest1.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{Stress Tests}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/05_gfc_4_stresstest2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{Stress Tests}
+
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \begin{itemize}
+        \item Banks repaid the US Treasury starting in June 2009.
+        \item The Treasury ended up making money on these investments
+    \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/05_gfc_4_stresstest3.png}
+    \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. US Treasury Response}
+    \framesubtitle{Stress Tests}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/05_gfc_4_stresstest4.png}
+
+\end{frame}
+
+\end{document}
