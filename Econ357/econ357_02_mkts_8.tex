@@ -1,0 +1,461 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Financial Markets 8 of 8}
+
+\title{Equities 3: Theories of Stock Pricing}
+\subtitle{Mishkin Chapter 7}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Financial Markets}
+        \begin{enumerate}
+            \item Financial Market Returns
+            \item Bonds 1: Discounting, Prices and Yields
+            \item Bonds 2: Nominal v. Real Yields, Supply and Demand
+            \item Bonds 3: Market for Money
+            \item Bonds 4: Risk and Term Structure
+            \item Equities 1: Dividend Discount Model
+            \item Equities 2: P/E Ratio
+            \item \fbox{Equities 3: Theories of Stock Pricing}
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item Market Pricing of Stocks
+        \item Theories of Stock Pricing
+        \begin{itemize}
+            \item Efficient Markets Hypothesis
+            \item Market Bubbles and Crashes
+            \item Behavioral Finance
+        \end{itemize}
+        \item Practice Questions
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Market Pricing of Stocks}
+    \section{Market Pricing of Stocks}
+
+   \textit{ In many settings, the price is set by the buyer willing to pay the highest price (also known as the marginal investor)}
+   \vspace{1em}
+
+    Consider an auction for a car. 
+    \begin{itemize}
+        \item You value the car at \$18,000 and your friend values it at \$20,000.   At what price is the car sold and to whom?
+        \item Answer: \$18,001 to your friend.
+        \item The bidding starts at \$15,000 and then increases incrementally until only one bidder remains.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Market Pricing of Stocks}
+
+    Could we apply this to stocks?
+    \vspace{1em}
+
+    Considerations:
+    \begin{itemize}
+        \item Individuals have different valuation of stocks, based on their personal discount rates (k) and personal expectations for dividend growth (g).   According to GGM, the lower discount rates and higher dividend growth rates lead to higher valuations.
+        \item It may seem \textit{intuitive} to conclude the the individual with the lowest discount rate OR the highest growth rate will purchase the stock.   And therefore stock price will reflect the valuation of the ”marginal” investor (i.e. the investor that just wins the auction)
+        \item While the above conclusion seems intuitive, it is wrong in the case of stocks, as we'll see in a few slides..
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Market Pricing of Stocks}
+
+    But, first a small digression on what could lead investors to have different valuations of a stock:
+    \vspace{1em}
+
+    \textbf{Discount rates / Risk preferences}
+    \begin{itemize}
+        \item Estimates of the riskiness of the stock (as measured by variance) affect the discount rate. 
+        \item Investors may have different tolerance for risk
+    \end{itemize}
+    
+    \textbf{Forecasts}
+    \begin{itemize}
+        \item Investors may have different information about future earnings.   (In some cases this information may be private, which is actionable, and in other cases it may be insider information, which is not legally actionable.)
+        \item Forecasts are necessarily subjective.   They are influenced by investors' optimism and pessimism.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Market Pricing of Stocks}
+
+    Based on the discussion so far, it’s tempting to conclude that the most optimistic, risk-loving investors will always set the price of stocks.
+    \vspace{1em}
+    
+    However, that \textit{is not} correct.
+    \vspace{1em}
+    
+    The reason that is not correct is subtle, but important... and it brings us to the Efficient Markets Hypothesis.
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+    \section{Theories of Stock Pricing}
+    \subsection{Efficient Markets Hypothesis}
+
+    The \textbf{Efficient Markets Hypothesis} (EMH) says:
+
+    \myquote{“Expectations for security returns will be identical to optimal forecasts using all available information.”}
+
+    \vspace{-2em}
+    Notes:
+    \begin{itemize}
+        \item Prices therefore already incorporate all available information and the best forecasts.
+        \item Note that actual returns can and will be different than expectations – surprises happen!
+        \item Rather than saying that the expectations will always be correct, the EMH says that the expectations that are already reflected in market prices are the best that anybody can do.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+
+    The EMH makes a statement about the \textit{equilibrium} prices of stocks, or what stock prices \textit{should} be.   
+    \vspace{1em}
+    
+    The mechanism that drives stocks to this equilibrium level is as follows:
+    \begin{itemize}
+        \item If a stock price reflects an expected return that is too high, relative to the optimal forecast, then investors will be attracted to buy that stock.   As investors buy the stock, the price increases, and the expected return declines.
+        \item Conversely, if a stock prices reflects an expected return that is too low, relative to the optimal forecast, investors will sell the stock, driving the price down and then expected return higher.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+
+    $$
+    \text{Expected Return:  } E[R_0] = \frac{E[P_1] - P_0 +\text{Income}}{P_0}
+    $$
+
+    Let $E[R_0]^{Optimal}$ be the expected return based on the optimal forecast for $E[P_1]$.
+    \vspace{1em}
+    \begin{itemize}
+        \item If $E[R_0]^{Optimal} < E[R_0]$ then investors will be incentivized to \textbf{buy} the stock.   But, as investors buy the stock, $P_0$ will \textbf{increase}.  An increase in $P_0$ will mechanically \textbf{decrease} $E[R_0]$.
+        \item This will be reversed if $E[R_0]^{Optimal} < E[R_0]$
+        \item Investors will continuing buying and selling until $E[R_0]^{Optimal} = E[R_0]$.  
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+
+    Returning to the question of whether optimistic risk-loving investors always set prices.
+    \begin{itemize}
+        \item If such investors had bad forecasts (their optimism clouded their judgement), and therefore set the price too high, then another investor would be incentivized to sell the stock, which would drive down the price.  Prices would always end up back at the optimal forecast level.
+        \item It just takes a small group of well-informed investors to “police” prices and make sure expected returns reflect optimal forecasts.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+
+Implications of EMH:
+
+    \begin{enumerate}
+        \item If prices in the market are usually based on optimal forecasts of all available information, it’s really hard to beat the market!
+        \begin{itemize}
+            \item Note: If you have better (private?) information, then you can create better forecasts and beat the market.
+        \end{itemize}
+        \item Security returns should not be predictable based on past returns.   Any information contained in past returns should already be reflected in the optimal forecast.   Only surprises matter for future returns.   (Returns should follow a random walk, or perhaps a random walk with drift)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+
+    Tests of EMH:
+
+    \begin{enumerate}
+        \item Do investors regularly outperform the market?  Answer: not usually, it’s hard to do.
+        \item Do security prices follow a random walk?   The evidence is mixed, but suggests generally they do not.
+    \end{enumerate}
+    \vspace{1em}
+    
+    \textit{Conclud}e: The EMH is probably too strong to take literally, but it does provide some useful intuition.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Efficient Markets Hypothesis}
+
+    \begin{table}
+        \caption{Percentage of Actively Managed Mutual Funds}
+        \centering
+        \begin{tblr}{
+        colspec = {Q[l,wd=4cm] Q[c,wd=2cm] Q[c,wd=2cm]}
+        }
+            \toprule
+            & Underperform S\&P 500 & Outperform S\&P 500 \\
+            \midrule
+            1 year  & 73 & 27 \\
+            3 year  & 65 & 35 \\
+            5 year  & 87 & 13 \\
+            10 year & 86 & 14 \\
+            15 year & 88 & 12 \\
+            \bottomrule
+        \end{tblr}
+    \end{table}
+
+    \blfootnote{Source: S\&P Global, as of 2025}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Bubbles and Crashes}
+    \subsection{Bubbles and Crashes}
+
+    \myquote{I define a \textbf{speculative bubble} as a situation in which news of price increases spurs investors enthusiasm, which spreads by psychological contagion from person to person, in the process amplifying stories that might justify the price increases and bringing in a larger and larger class of investors, who, despite doubts about the real value of an investment, are drawn to it partly through envy of others' successes and partly through a gambler's excitement.}
+    {Robert Shiller \\
+    Nobel Prize Laureate}
+    
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+        \framesubtitle{Bubbles and Crashes}
+        
+    Dot-com equity bubble:
+    \begin{itemize}
+        \item Precipitating factors: the internet, the capitalist explosion, “new era” economic thinking
+        \item Amplification: media coverage, naturally occurring Ponzi processes,
+        \item Psychological factors: Herd behavior, anchoring
+    \end{itemize}
+    
+    \blfootnote{Source: Robert Shiller, \textit{Irrational Exuberance}}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+        \framesubtitle{Bubbles and Crashes}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_8_sp.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Bubbles and Crashes}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_8_gdp.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Bubbles and Crashes}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_8_spactualVSforesight.png}
+
+    \blfootnote{Source: Robert Shiller, Nobel Prize Lecture 2013}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Bubbles and Crashes}
+
+    Considerations:
+    \begin{itemize}
+        \item Does the persistence of bubbles and crashes invalidate the EMH?
+        \item At least it raises uncomfortable questions
+        \item Even if the price is ”wrong”, it may be exceedingly hard to know that or to make money on that (especially as you don’t know the timing of any potential market correction)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Bubbles and Crashes}
+
+    \myquote{Markets are "micro efficient" and "macro inefficient"}{
+    Paul Samuelson \\
+    Nobel Prize Laureate
+    }
+    \vspace{2em}
+
+    \myquote{EMH seemed reasonable if we define "efficient" as follows: individual company stock prices are between half true value and twice true value at least 90\% of the time.}
+    {Fisher Black \\
+    Renowned Economist
+    }
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{Behavioral Finance}
+    \subsection{Behavioral Finance}
+
+    Examples of Behavioral Finance Theories:
+    \begin{itemize}
+        \item Loss Aversion / Endowment Effect
+        \item Overreaction to good news
+        \item Underreaction to bad news
+    \end{itemize}
+    \vspace{1em}
+
+    Examples of Anomalies documented in stock pricing:
+    \begin{itemize}
+        \item Less short selling than is efficient
+        \item January effect / Monday effect
+        \item Size effect / value effect
+        \item Post-earnings announcement drift
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{EMH v. Behavioral Finance - Momentum}
+
+    Momentum:
+    \begin{itemize}
+        \item Momentum refers to the tendency of assets that have risen in price to continue rising, or, conversely, for assets that have fallen in price to keep falling.
+        \item A momentum “factor”: the difference between the returns on a portfolio of assets that have recently risen MINUS the returns on a portfolio of assets that have recently fallen.
+        \item This “factor” has produced positive returns over its history
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{EMH v. Behavioral Finance - Momentum}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_8_momentum.png}
+
+    \blfootnote{Source: Fama and French factors, available on Ken French's website}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Theories of Stock Pricing}
+    \framesubtitle{EMH v. Behavioral Finance - Momentum}
+
+    Does the existence of market “anomalies”, for example like the positive returns of a momentum factor, invalidate the EMH?
+    \begin{itemize}
+        \item Yes - this doesn't look like the price is always right.   Something else is going on here.
+        \item No - It could be the case that these anomalies are compensating investors for being exposed to risk.
+        \begin{itemize}
+            \item For example, momentum worked until it didn’t in 2008.   Also, momentum returns have been flat-ish recently, suggesting that perhaps investors have learned.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    This debate remains unresolved.   It's telling that in 2013 the Nobel Prize was awarded simultaneously to an advocate for the Efficient Market Hypothesis (Fama) and to an advocate for Behavioral Finance (Shiller).
+
+\end{frame}
+
+\begin{practiceframe}
+    \frametitle{Practice}
+
+\begin{enumerate}
+    \item Periodic payments of net earnings to shareholders are known as \underline{\hspace{3cm}}
+    \item Using the Gordon growth model, a stock's current price will increase if \underline{\hspace{3cm}}
+    \item In the Gordon growth model, a decrease in the required rate of return on equity leads to \underline{\hspace{3cm}}
+    \item Using the Gordon growth formula, if D1 is \$2.00, k is 12\% or 0.12, and g is 10\% or 0.10, then the current stock price is \underline{\hspace{3cm}}
+    \item Using the Gordon growth model, if D0 is \$.50, k is 7\%, and g is 5\%, then the present value of the stock is \underline{\hspace{3cm}}
+    \item One of the assumptions of the Gordon Growth Model is that dividends will continue growing at \underline{\hspace{3cm}} rate.
+\end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{Practice}
+
+    \begin{enumerate}
+    \setcounter{enumi}{6}
+        \item In asset markets, an asset's price is set \underline{\hspace{3cm}}
+        \item Information plays an important role in asset pricing because it allows the buyer to more accurately judge \underline{\hspace{3cm}}
+        \item New information that might lead to a decrease in a stock's price might be \underline{\hspace{3cm}}
+        \item A monetary expansion \underline{\hspace{3cm}} stock prices due to a decrease in the \underline{\hspace{3cm}} and an increase in the \underline{\hspace{3cm}}, everything else held constant.
+        \item According to the efficient markets hypothesis, the current price of a financial security \underline{\hspace{3cm}}
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{Practice}
+
+    \begin{enumerate}
+    \setcounter{enumi}{11}
+        \item The elimination of unexploited profit opportunities requires that \underline{\hspace{3cm}} market participants be well informed.
+        \item Which types of information most likely allows the exploitation of a profit opportunity?
+        \item Does the efficient markets hypothesis imply that the average investor will not earn anything by purchasing stock?
+        \item \underline{\hspace{3cm}} and \underline{\hspace{3cm}} may provide an explanation for stock market bubbles.
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{Practice}
+
+    \begin{enumerate}
+    \setcounter{enumi}{15}
+        \item Draw the supply and demand curves in the market for money
+        \item In 1979 the Fed moved to tighten the money supply.  What happened to interest rates as a result? (the “liquidity effect”)
+        \item Draw the supply and demand curves in the market for bonds
+        \item The US entered recession in 1981.  This caused many people to think that interest rates were likely to fall in the future.  How did that affect the demand for bonds?  What happened to interest rates?
+    \end{enumerate}
+
+\end{practiceframe}
+
+\end{document}

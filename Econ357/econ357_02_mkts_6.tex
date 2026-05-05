@@ -1,0 +1,346 @@
+\documentclass{beamer}
+
+\newcommand{\week}{Financial Markets 6 of 8}
+
+\title{Equities 1: Dividend Discount Model}
+\subtitle{Mishkin Chapter 6}
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline for Financial Markets}
+        \begin{enumerate}
+            \item Financial Market Returns
+            \item Bonds 1: Discounting, Prices and Yields
+            \item Bonds 2: Nominal v. Real Interest Rates, Supply and Demand
+            \item Bonds 3: Market for Money
+            \item Bonds 4: Risk and Term Structure
+            \item \fbox{Equities 1: Dividend Discount Model}
+            \item Equities 2: P/E Ratio
+            \item Equities 3: Theories of Stock Pricing
+            
+        \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Outline for Today's Lecture}
+    \begin{enumerate}
+        \item Generic Asset Pricing Equation
+        \item The Price of Equities
+        \begin{itemize}
+            \item Dividends
+            \item One period valuation model
+            \item Dividend Discount Model (Gordon Growth Model)
+            \item Interpretation
+        \end{itemize}
+        \item Practice Questions
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Generic Asset Pricing Equation}
+    \section{Generic Asset Pricing Equation}
+
+    $$
+    \text{Value of an Asset} = \sum_{t=1}^{N} \frac{E(\text{Cash Flow}_t)}{(1+r)^t}
+    $$
+
+    For bonds:
+    \begin{itemize}
+        \item $N$ = maturity
+        \item Cash flows = coupons + par value at the end
+        \item $r$ = Yield to maturity, observable in the market
+    \end{itemize}
+
+    For equities:
+    \begin{itemize}
+        \item $N$ = $\infty$
+        \item Which cash flow to use?
+        \item $r$ = discount rate
+        \begin{itemize}
+            \item Discount rate reflects the riskiness of the investment and investor preferences
+            \item Will mostly likely be higher than bond yields
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Generic Asset Pricing Equation}
+
+    $$
+    \text{Value of an Asset} = \sum_{t=1}^{N} \frac{E(\text{Cash Flow}_t)}{(1+r)^t}
+    $$
+
+    Notes:
+    \begin{itemize}
+        \item Note that the left hand side says “value.”   This may be different for different people, depending on their discount rate and their expectations (more on this later). 
+        \item More importantly, this is not necessarily equal to the price.   In fact, your value of an asset may differ from the price for a number of reasons.
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Generic Asset Pricing Equation}
+
+    Notes on notation:
+    \begin{itemize}
+        \item Often use $k$ as the discount rate for equities.
+        \item Income for equities will be the dividends, indicated with a $D$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Dividends}
+    \section{The Price of Equities}
+    \subsection{Dividends}
+
+    \begin{itemize}
+        \item Discretionary distribution of earnings to shareholders.   Management could alternatively decide to reinvest in the company.
+        \item Usually paid quarterly
+        \item NOT guaranteed.   For example:
+        \begin{itemize}
+            \item Apple stopped paying a dividend after the 1990s tech bubble, resumed in 2012
+            \item Many banks cut or suspended dividends in 2008; regulators prevents banks from increasing dividends in 2020
+        \end{itemize}
+        \item Recently companies have preferred buying back stock as a way to distribute cash to shareholders.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Dividends}
+
+    \vspace{-1em}
+    $$
+    \text{Annualized Dividend Yield} = \frac{(4 \times \text{Quarterly Dividend} (\$))}{(\text{Price of Stock} (\$))}
+    $$
+    \vspace{1em}
+
+    % Requires: \usepackage{booktabs}
+    \begin{table}
+    \centering
+    \caption{\textbf{Dividend Data for Selected Companies}}
+    \footnotesize
+        \begin{tblr}{
+      colspec = {Q[l,wd=4cm] Q[c,wd=2cm] Q[c,wd=2cm]}
+      }
+            \toprule
+            Company & Dividend & Dividend Yield \\
+            \midrule
+            Amazon & \$0 & \\
+            Microsoft & \$0.91 & 0.9\% \\
+            Wells Fargo & \$0.45 & 1.92\% \\
+            Coca-Cola & \$0.51 & 2.60\% \\
+            Ford Motor & \$0.15 & 4.35\% \\
+            Edison International & \$0.875 & 5.48\% \\
+            Verizon & \$0.71 & 6.10\% \\
+            \bottomrule
+    \end{tblr}
+    \end{table}
+
+    \blfootnote{Source: Google Finance, as of Feb 2026}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Dividends}
+
+    Why use dividends?
+    \begin{itemize}
+        \item Starting point
+        \item Can augment with an expected price at end of holding period
+    \end{itemize}
+    \vspace{2em}
+
+    Why \textbf{not} use dividends?
+    \begin{itemize}
+        \item Out-dated.   Companies purchase stock with cash.
+        \item What about high growth companies?
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{One period valuation model}
+    \subsection{One period valuation model}
+
+    $$
+    V_0 = \frac{D}{(1+k)} + \frac{E(P_1)}{(1+k)}
+    $$
+
+    Where:
+    \begin{itemize}
+        \item $V_0$ = current value ($t=0$)
+        \item $E(P_1)$ = expected price at the end of the period
+        \item $D$ = dividend (income you expect to receive during the period)
+        \item $k$ = required rate of return
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{One period valuation model}
+
+    $$
+    V_0 = \frac{D}{(1+k)} + \frac{E(P_1)}{(1+k)}
+    $$
+    \vspace{1em}
+
+    \textit{Example Problem:}\\
+    
+    Your discount rate for stock ABC is 12\%.   You expect stock ABC to pay a dividend of \$0.16 and you forecast the stock price will be \$60 a year from now.   What do you think the price should be today?   You notice that the stock is priced at \$50 today.   What should you do?
+
+    \blfootnote{Mishkin refers to the discount rate in the following way: “you would be satisfied with earning a 12\% return”}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Dividend Discount Model}
+    \subsection{Dividend Discount Model}
+
+    $$
+    V_0 = \frac{D_1}{(1+k)} + \frac{D_2}{(1+k)^2} + \frac{D_3}{(1+k)^3} + \dots$$
+    \vspace{1em}
+
+    Where:
+    \begin{itemize}
+        \item $V_0$ = current value
+        \item $D_t$ = dividend expected at time $t$
+        \item $k$ = required rate of return (discount rate)
+    \end{itemize}
+    \vspace{1em}
+    
+    In words: The value of an equity equals the present discounted value of all expected future dividends
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Gordon Growth Model}
+
+    $$
+    V_0 = \frac{D_1}{(1+k)} + \frac{D_2}{(1+k)^2} + \frac{D_3}{(1+k)^3} + \dots$$
+    \vspace{1em}
+    
+    Assume that the growth rate of equities is constant at rate $g$, then this equation can be written:
+
+        $$
+    V_0 = \frac{D_0(1+g)}{(1+k)} + \frac{D_0(1+g)^2}{(1+k)^2} + \frac{D_0(1+g)^3}{(1+k)^3} + \dots$$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Gordon Growth Model}
+
+    Further assume that the growth rate is lower than the discount rate ($g<k$), then this equation can be simplified to:
+    \vspace{1em}
+
+    $$
+    V_0 = \frac{D_0(1+g)}{(k-g)}
+    $$
+
+
+    This equation is known as the \textbf{Gordon Growth Model.}   Note that it requires two assumptions: constant growth rate ($g$) and $g<k$.
+
+    \blfootnote{The derivation of this is not hard, will be presented in class}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Gordon Growth Model: Interpretation}
+    \subsection{Interpretation}
+
+    The Gordon Growth Model implies that a stock’s value will be greater:
+    \begin{enumerate}
+        \item The larger its expected dividend per share.
+        \item The lower the market capitalization rate, k.
+        \item The higher the expected growth rate of dividends.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Gordon Growth Model: Interpretation}
+
+    The stock price is expected to grow at the same rate as dividends ($g$).   (it is easy to show this, the growth rate is $\frac{V_1}{V_0}$, write this out and see everything that cancels)
+    \vspace{1em}
+    
+    Another implication is that we can rewrite the expected return of a stock as dividend yield + growth rate of dividends:
+    
+    \begin{align*}
+    E(r) &= \text{Dividend Yield} + \text{Capital gains yield} \\
+    &= \frac{D_1}{P_0} + \frac{P_1 - P_0}{P_0} \\
+    &= \frac{D_1}{P_0} + g
+    \end{align*}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Price of Equities}
+    \framesubtitle{Gordon Growth Model: Extensions}
+    \subsection{Extensions}
+
+    Possible Extensions:
+    \begin{enumerate}
+        \item High-growth companies could be modeled in two stages: fast growth in the first stage, lower and stable growth in the second stage.
+        \item Could use cash flows instead of dividends for companies that don’t pay dividends
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{3. Practice}
+
+\begin{enumerate}
+    \item Compute the price of a share of stock that pays \$1 per year dividend and that you expect to be able to sell in one for \$20, assuming you require a 15\% return.
+    \item After careful analysis, you have determined that a firm’s dividends should grow at 7\%, on average, in the foreseeable future.   The firm’s last dividend was \$3.  Compute the current price of the stock, assuming the required return is 18\%.
+    \item The current price of a stock is \$65.88.   If dividends are expected to be \$1 per share for the next five years, and the required return is 10\%, what should be the price of the stock be in 5 years when you plan to sell it?   If the dividend and the required return are the same, and the stock price is expected to increase by \$1 five year from now, does the current stock price also increase by \$1?  Why or why not?
+\end{enumerate}
+
+
+
+
+\end{practiceframe}
+
+\end{document}
