@@ -1,9 +1,9 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 1-b}
+\newcommand{\week}{Returns: Measurement}
 
 \title{Financial Market Returns}
-\subtitle{Reference: Bodie et al, Ch 5}
+\subtitle{Measurement \\ Reference: Bodie et al, Ch 5}
 \author{Econ 457}
 \date{\week}
 
@@ -38,22 +38,25 @@
 \begin{frame}
     \frametitle{Outline}
 
-    \vspace{2em}
-
     \begin{enumerate}
-        \item Exponentials and Logarithms
-        \item Measuring Returns
-        \item Income
-        \item Measurment Issues: 
+        \item Exponential and Logarithm
+        \item Total Returns
         \begin{itemize}
-            \item Compounding, Geo v. Arth Mean, Total Return Series
+            \item Income
         \end{itemize}
-        \item Excel
+        \item Measurement Issues: 
+        \begin{itemize}
+            \item Compounding: HPR, EAR, APR, $r_{cc}$
+            \item Geometric v. Arithmetic Mean
+            \item Log Scale
+        \end{itemize}
+        \item Log Scale
     \end{enumerate}
 \end{frame}
 
 \begin{foundframe}[t]
-    \frametitle{1. Exponentials and Logarthims}
+    \frametitle{1. Exponential and Logarithm}
+    \section{Exponential and Logarithm}
     \framesubtitle{Some basic facts}
 
     Exponential Function:
@@ -71,10 +74,10 @@
 \end{foundframe}
 
 \begin{foundframe}[t]
-    \frametitle{1. Exponentials and Logarthims}
+    \frametitle{1. Exponential and Logarithm}
     \framesubtitle{Some basic facts, cont'd}
 
-    Logarithim is the inverse of the exponential function.  $log_{10}()$ is the inverse of $10^x$ and $ln()$ is the inverse of $e^x$
+    Logarithm is the inverse of the exponential function.  $log_{10}()$ is the inverse of $10^x$ and $ln()$ is the inverse of $e^x$
     \vspace{1em}
 
     First derivative:
@@ -90,14 +93,14 @@
 \end{foundframe}
 
 \begin{foundframe}[t]
-    \frametitle{1. Exponentials and Logarthims}
+    \frametitle{1. Exponential and Logarithm}
     \framesubtitle{Some basic facts, cont'd}
 
-    Two more facts about logarthims we are going to use in this lecture:
+    Two more useful facts about logarithms:
     \begin{enumerate}
     \item  In a log-linear graph the scale of the y-axis is $log(y)$ or $ln(y)$.  
-    The slope of the log-linear graph is the average (continously compounded) growth rate.
-    \item Logarithim is a concave function:\\
+    The slope of the log-linear graph is the average (continuously compounded) growth rate.
+    \item Logarithm is a concave function:\\
     $$log((a+b)/2) > (log(a) + log(b))/2$$
     \end{enumerate}
 
@@ -105,7 +108,7 @@
 
 
 \begin{foundframe}[t]
-    \frametitle{1. Exponentials and Logarthims}
+    \frametitle{1. Exponential and Logarithm}
     \framesubtitle{Some basic facts, cont'd}
 
     \centering
@@ -115,7 +118,8 @@
 
 
 \begin{frame}[t]
-    \frametitle{2. Measuring Returns}
+    \frametitle{2. Total Returns}
+    \section{Total Returns}
     \framesubtitle{Total Return - Definition}
 
     Total Return: A performance metric that accounts for
@@ -132,26 +136,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Measuring returns}
-    \framesubtitle{Holding Period Return and Annual Percentage Rate}
-
-    Holding Period Return (HPR):\\
-    $$\text{HPR} = r(T) = \frac{\text{Price Increase + Income}}{\text{Initial Price}}$$
-
-    Effective Annual Rate (EAR)\\
-    $$\text{EAR} = (1+\text{HPR})^{1/T} - 1$$\\
-    \begin{itemize}
-        \item Where T is the length of time the investment was held in years\\
-        \item Express total return as a \textit{rate} of return over a year\\
-        \item Notice this assumes annual compounding\\
-        \item T could be positive number, greater than 1 or a fraction
-    \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{3. Income}
+    \frametitle{2. Income}
     \framesubtitle{Types of Income}
 
     \begin{table}
@@ -168,12 +153,12 @@
         \end{tabular}
     \end{table}
     \vspace{1em}
-    ETF distributions are often composed of dividends or coupons of the underlying assets, but occassionally will include capital gains as well.
+    ETF distributions are often composed of dividends or coupons of the underlying assets, but occasionally will include capital gains as well.
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Income}
+    \frametitle{2. Income}
     \framesubtitle{Treasury Bond: Note the ``coupons'' at the bottom}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/intro_b_fig3.png}
@@ -183,7 +168,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Income}
+    \frametitle{2. Income}
     \framesubtitle{Timing of Income}
 
     Be careful with the timing of income.   
@@ -197,7 +182,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Income}
+    \frametitle{2. Income}
     \framesubtitle{Example: AAPL}
 
     \vspace{-1em}
@@ -228,14 +213,14 @@
 
     The price of AAPL was 185.64 on January 2, 2024.   
     The price of AAPL rose to 250.42 on December 31, 2024.  
-    What was the Holding Period Return from owning AAPL stock throughout 2024?
+    What was the Total Return from owning AAPL stock throughout 2024?
 
     \blfootnote{Data source: Yahoo finance}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Income}
+    \frametitle{2. Income}
     \framesubtitle{Example: S\&P Total Return}
 
     \centering
@@ -245,27 +230,61 @@
 
 \end{frame}
 
+\begin{frame}
+    \frametitle{3. Measurement Issues}
+    \section{Measurement Issues}
+    \subsection{HPR}
+    \framesubtitle{Holding Period Return}
+
+    Holding Period Return (HPR):\\
+    $$\text{HPR} = r(T) = \frac{\text{Price Increase + Income}}{\text{Initial Price}}$$
+
+\end{frame}
+
 \begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Compounding: APR}
+    \frametitle{3. Measurement Issues}
+    \subsection{EAR}
+    \framesubtitle{Effective Annual Return}
 
-    Annual Percentage Rates of Return\\
-    $$(1 + \text{EAR}) = \left(1+\frac{APR}{n}\right)^n$$\\
-    $$\text{APR} = n \times [(1+\text{EAR})^{1/n} - 1]$$
+    The Effective Annual Rate (EAR) expresses the total return as a \textit{rate} of return over a year.   The EAR makes an adjustment for cases when the holding period was not equal to one year\\
+    \vspace{1em}
 
+    Effective Annual Rate (EAR)\\
+    $$\text{EAR} = (1+\text{HPR})^{1/T} - 1$$\\
     \begin{itemize}
-        \item Where $n$ is the number of compounding periods per year\\
-        \item After calculating the rate ($\frac{APR}{n}$) then compound to get annual rate\\
-        \item This is the convention used in short term investments\\
-        \item Bonds typically have semi annual compounding (2 times per year), and the coupon
-        is given by $\frac{\text{Coupon Rate}}{2}$
+        \item Where T is the length of time the investment was held in years.  
+        \item T could be less than one, and could include fractions of years.   For example, a holding period of one and a half years would have $T=1.5$\\
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Compounding: Definition of e}
+    \frametitle{3. Measurement Issues}
+    \subsection{APR}
+    \framesubtitle{Annual Percentage Rates}
+
+    The Annual Percentage Rate of Return (APR) is a convention often used for short term instruments.   For example, for a credit card with monthly compounding, each monthly payment is equal to the APR divided by twelve.  The APR does not itself account for the effect of compounding, it is only used to determine the size of the monthly payments. 
+    
+    \vspace{1em}
+
+    The relationship between the APR and the EAR is given by:\\
+    $$(1 + \text{EAR}) = \left(1+\frac{APR}{n}\right)^n$$\\
+    $$\text{APR} = n \times [(1+\text{EAR})^{1/n} - 1]$$
+
+    \begin{itemize}
+        \item The APR will be lower than the EAR because the EAR \textit{does} account for compounding.\\
+
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}[t]
+    \frametitle{3. Measurement Issues}
+    \subsection{$r_{cc}$}
+    \framesubtitle{Definition of e}
 
         The exponential function $e^x$ can be defined as a limit:
     \[
@@ -279,8 +298,8 @@
 \end{frame}    
 
 \begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Compounding}
+    \frametitle{3. Measurement Issues}
+    \framesubtitle{Continuous Compounding}
 
     Continuously compounded rate of return $(r_{cc})$:
     $$1 + \text{EAR} = exp(r_{cc}) = e^{r_{cc}}$$
@@ -288,61 +307,55 @@
     \begin{itemize}
         \item If you are given $e^{r_{cc}}$, then with a little rearranging you can find $EAR$: $\text{EAR} = e^{r_{cc}} - 1$
         \item Conversely, if you are given $EAR$ then you can take $ln()$ of both sides to find $r_{cc}$
+        \item Note that the $r_{cc}$ will be lower than the EAR because the $r_{cc}$ has more compounding.
     \end{itemize}
     \vspace{1em}
 
-    Most of the time in Econ 457 the compounding is either annual, or at the same frequency as the income (e.g. coupons, dividends).  
-    Occassionally we'll use continous compounding makes the math easier (e.g. option pricing).
-
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Compounding: Log scale}
-
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{figures/ch5_1_sp500.png}
-        \end{column}
-        \begin{column}{0.55\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{figures/ch5_1_sp500_logscale.png}
-        \end{column}
-    \end{columns}
-
-    \blfootnote{\raggedright Data Source: Robert Shiller, www.shillerdata.com}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Measurment Issues}
-    \framesubtitle{Compounding: Reinvestment}
-    What did you do with the income?   The initial expression for HPR assumed you did nothing.\\
-    \vspace{1em}
-    The expressions for EAR and APR assumed income was reinvested regularly.\\
-    \vspace{1em}
-    The correct choice depends on the context.  It's easy to reinvest income from an ETF, it may be harder in a privately held stock.
-
-\end{frame}
+\begin{practiceframe}
+    \frametitle{3. Measurement Issues}
+    
+    \begin{enumerate}
+        \item You purchase a security on January 1st for \$98.  The security produces quarterly income of \$2.  You sell the security after 9 months for \$105.   Calculate the following:
+    \begin{itemize}
+        \item HPR
+        \item EAR
+    \end{itemize}
+    \item An instrument has a APR of 15\% and makes monthly payments.  Calculate the following:
+        \begin{itemize}
+        \item Monthly interest rate (in \%)
+        \item EAR
+        \item $r_{cc}$
+    \end{itemize}
+    \item An investment has an EAR of 10\% and compounds monthly. Calculate the following:
+    \begin{itemize}
+        \item APR
+        \item $r_{cc}$
+        \item The monthly interest rate
+    \end{itemize}
+    \end{enumerate}
+    
+\end{practiceframe}
 
 \begin{frame}[t]
-    \frametitle{4. Measuring returns}
+    \frametitle{3. Measurement Issues}
+    \subsection{Geometric v Arithmetic mean}
     \framesubtitle{Geometric v. Arithmetic Mean}
 
     For a series of returns, the \textit{arithmetic} average is:
-    $$r_{ave} = \frac{1}{T}\times\sum_{i=1}^{T}(1 + r_i)$$
+    $$1+ r_{ave} = \frac{1}{T}\times\sum_{i=1}^{T}(1 + r_i)$$
 
     The \textit{geometric} average is:
-    $$r_{geo-ave} = \sqrt[T]{\prod_{i=1}^{T} (1 + r_i)}$$
+    $$1+ r_{geo-ave} = \sqrt[T]{\prod_{i=1}^{T} (1 + r_i)}$$
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Measuring returns}
+    \frametitle{3. Measuring returns}
     \framesubtitle{Geometric v. Arithmetic Mean}
 
-    The arithmetic average is \underline{always greater} than the geometric average.\\
+    The arithmetic average is \underline{greater than or equal to} the geometric average.  Equality occurs when all of the observations are the same.\\
     \vspace{1em}
     You can show this using the fact that the $ln()$ function is concave (next slide).\\
     
@@ -352,7 +365,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Measuring returns}
+    \frametitle{3. Measuring returns}
     \framesubtitle{Geometric v. Arithmetic Mean}
 
     \footnotesize
@@ -370,7 +383,31 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Measuring returns}
+    \frametitle{3. Measuring returns}
+    \framesubtitle{Geometric v. Arithmetic Mean}
+
+    \footnotesize
+
+    Alternative proof that the Geometric Mean $<$ the Arithmetic Mean in the case of only two observations
+    \vspace{1em}
+    
+    Definitions: Geometric Mean: $\sqrt{XY}$, Arithmetic Mean $\frac{X+Y}{2}$
+    
+    \vspace{1em}
+    
+    Show $$\frac{X+Y}{2} \geq \sqrt{XY}$$
+    \begin{align*}
+        \left(\frac{X+Y}{2}\right)^2 \geq XY \\
+         X - 2\sqrt{XY} + Y \geq 0 \\
+        \text{let } a = \sqrt{X}, b = \sqrt{Y} \\
+        a^2 - 2ab + b^2 \geq 0 \\
+        (a - b)^2 \geq 0 \\
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Measuring returns}
     \framesubtitle{Geometric v. Arithmetic Mean, Example}
 
     Stock ABC doesn't pay dividends.   In year 1 the price of ABC declines by 20\%.   
@@ -382,41 +419,11 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Total Return Series}
 
-    A total return series reflects the growth of an investment due to both price changes and income.\\
-    \vspace{1em}
-    The convention is to incorporate the income in the period that it is received.   
-    This is most appropriate for monthly series.   May consider alternatives for a daily series.\\
-    \vspace{1em}
-    Bonds have a different convention, which we will discuss later.
-
-\end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Total Return Series}
-
-    Constructing a total return index:
-    \begin{enumerate}
-      \item Start: 
-      $$index_{t0} = 100$$
-      \item Calculate holding period return: 
-      $$\text{HPR}_{t1} = \frac{(\text{income} + \text{price change})}{\text{Initial Price}}-1$$
-      \item The value for the next period is given by: 
-      $$index_{t+1} = (1+\text{HPR}_{t1}) \cdot index_{t}$$
-      \item Repeat...
-    \end{enumerate}
-
-\end{frame}
-
-{
-\setbeamertemplate{footline}{}
-\begin{frame}[t]
-    \frametitle{4. Measurement Issues}
-    \framesubtitle{Total Return Series, Arthmetic v. Geometric Mean}
+    \frametitle{3. Measurement Issues}
+    \framesubtitle{Arithmetic v. Geometric Mean}
     
     \vspace{-1em}
     \scriptsize
@@ -449,27 +456,45 @@
     \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
 
 \end{frame}
-}
 
-\begin{practiceframe}[t]
-    \frametitle{5. Excel}
-    \framesubtitle{Some basic commands}
+\begin{frame}[t]
+    \frametitle{3. Measurement Issues}
+    \subsection{Log Scale}
+    \framesubtitle{Log scale}
 
-    vlookup(): Used to match data from different tabs\\
-    \vspace{1em}
+    In a log-linear graph, $ln(y)$ is plotted against time.  
+    The slope is the average continuously compounded growth rate per unit of time.
 
-    isna(): Tell Excel how to treat missing values\\
-    \vspace{1em}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch5_1_sp500.png}
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ch5_1_sp500_logscale.png}
+        \end{column}
+    \end{columns}
 
-    \$: Used to 'freeze' the cell row or column
-    \vspace{1em}
+    \blfootnote{\raggedright Data Source: Robert Shiller, www.shillerdata.com}
 
-    Excel dates: can change the format
-    \vspace{1em}
+\end{frame}
 
-    Charts: mostly use line chart in this class
-    \vspace{1em}
+\begin{frame}[t]
+    \frametitle{3. Measurement Issues}
+    \framesubtitle{Things to pay attention to}
 
-\end{practiceframe}
+    \begin{itemize}
+        \item Income
+        \item Frequency of compounding
+        \item Relationship between EAR and APR.
+        \item Relationship between EAR and $r_{cc}$
+        \item When are APR and $r_{cc}$ similar?
+        \item Geometric or Arithmetic mean?
+    \end{itemize}
+    
+    \blfootnote{What is the correct treatment of income?  Does it get compounded or not?  It depends on the context.  It's easy to reinvest income from an ETF, it may be harder in a privately held stock.}
+
+\end{frame}
 
 \end{document}
