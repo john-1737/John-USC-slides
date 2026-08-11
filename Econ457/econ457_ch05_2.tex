@@ -40,9 +40,9 @@
 
     \begin{enumerate}
         \item The Normal Distribution
-        \item Distributions of Financial Market Returnts
-        \item Annualizing Weekly Returns
-        \item Forecasting
+        \item Historical Distributions of Market Returns
+        \item Computing Returns and Standard Deviations
+        \item Annualized Distributions
         \item Problems with Using the Normal Distribution
         \item Risk management enhancements
     \end{enumerate}
@@ -148,11 +148,11 @@
 
     https://youtu.be/EvHiee7gs9Y
 
-
 \end{foundframe}
 
 \begin{frame}[t]
-    \frametitle{2. Distributions of Financial Market Returns}
+    \frametitle{2. Historical Distributions of Market Returns}
+    \section{Historical Distribution of Financial Market Returns}
     \framesubtitle{S\&P 500}
 
     \centering
@@ -168,7 +168,7 @@
 {
 \setbeamertemplate{footline}{}
 \begin{frame}[t]
-    \frametitle{2. Distributions of Financial Market Returns}
+    \frametitle{2. Historical Distributions of Market Returns}
     \framesubtitle{S\&P 500 Total Returns}
     
     \vspace{-1em}
@@ -205,7 +205,7 @@
 }
 
 \begin{frame}[t]
-    \frametitle{2. Distributions of Financial Market Returns}
+    \frametitle{2. Historical Distributions of Market Returns}
     \framesubtitle{US Treasury Bonds, 10-year US Treasury}
 
     \centering
@@ -220,7 +220,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Distributions of Financial Market Returns}
+    \frametitle{2. Historical Distributions of Market Returns}
     \framesubtitle{US T-Bills, 1-month}
 
     \centering
@@ -234,7 +234,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Distributions of Financial Market Returns}
+    \frametitle{2. Historical Distributions of Market Returns}
     \framesubtitle{MXN}
 
     \centering
@@ -249,55 +249,121 @@
 
 \end{frame}
 
+
 \begin{frame}[t]
-    \frametitle{3. Annualizing Weekly Returns}
+    \frametitle{3. Computing Returns and Standard Deviations}
+    \section{Computing Returns and Standard Deviations}
+    \framesubtitle{Historical Returns and Standard Deviations}
+
+    Historical returns and variances are often the best place to start.  The historical mean and variance are easy to calculate:
+
+    $$\mu_r = \frac{1}{T} \sum_{i=1}^T r_i$$ 
+    
+    $$\sigma^2_r = \frac{1}{T} \sum_{i=1}^T (r_i - \mu_r)^2$$
+    
+    where $r_i$ is a return observed over $T$ periods.  Remember that, by convention, we often refer to the standard deviation rather than the variance.   $\sigma_r = \sqrt{\sigma^2_r}$
+
+    \blfootnote{Technically these are the "empirical" mean and variance.  The implicit assumption is that realized observations are a useful reflection of the underlying distribution.}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Computing Returns and Standard Deviations}
+    \framesubtitle{An Alternative}
+
+    You may not have a historical series at your disposal.  As an alternative you can specify a distribution of possible outcomes.  In order to do so, you need a series of returns ($r_i$) and the probabilities associated with each outcome ($p_i$).   
+    \vspace{1em}
+
+    The expected return and variance are then given by:
+    
+    $$\mu_r = \sum_i p_i \cdot r_i$$
+    
+    $$\sigma^2_r = \sum_i p_i \cdot (r_i - \mu_r)^2$$
+
+    Remember that $\sigma_r = \sqrt{\sigma^2_r}$.  Also, note that you must specify all possible outcomes, so that $\sum_{i}p_i = 1$.
+
+    \blfootnote{Notice the similarity with the empirical mean and standard deviation on the previous slide.}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+  \frametitle{3. Computing Returns and Standard Deviations}
+  \framesubtitle{}
+
+  \begin{enumerate}
+  \setcounter{enumi}{0}
+    \item Your expectations regarding the stock price are as follows:
+      \begin{table}
+        \begin{tabular}{lrrr}
+          \toprule
+          Market & Probability & Ending Price & HPR\\
+          \midrule
+          Boom & 0.35 & \$140 & 44.5\%\\
+          Normal & 0.3 & 110 & 14\\
+          Recession & 0.35 & 0.8 & -16.5\\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    Using your expectations, compute the mean and standard deviation of the HPR for this stock
+  \end{enumerate}
+
+\end{practiceframe}
+
+
+\begin{frame}[t]
+    \frametitle{4. Annualized Distributions}
+    \section{Annualized Distributions}
     \framesubtitle{}
 
-    If you are given a data at a higher frequency it is often convenient to 
-    convert the mean and standard deviation to annual equivalents.\\
-    \vspace{1em}
-    In order to do so, imagine that each year is made up of \textit{independent} sub-periods.
-    Then we can use the following property of the normal distribution:
+    For higher frequency data it is often convenient to 
+    convert the mean and standard deviation to annual equivalents.  Assume that each period is \textit{independent} and identically distributed with the distribution given by $N(\mu_x$, $\sigma_x^2)$.  Then we can use the following property of the normal distribution:
     \begin{align*}
     x_1 +... + x_T &\sim N(\mu_x+...+\mu_x,\sigma_x^2 +...+ \sigma_x^2)\\
                     &\sim N(T\mu_x,T\sigma_x^2)
     \end{align*}
-    Where $x_1$ through $x_T$ are indpendent sub-periods, and T is the number 
-    of sub-periods that make up the longer period.  (i.e. 52 weeks in a year, so T=52)  
-    We assume the distrubtions of each sub-period 
-    are identical and equal to $N(\mu_x$, $\sigma_x^2$).\\
+
+    Notice the variance grows in proportion to time, and the standard deviation grows in proportion to the square root of time. 
+    \blfootnote{Technically this works for continuously compounded log returns.   In the equation above, let $x_i = ln(1+r_i)$ where $r_i$ is the return for period $i$.  In practice, $ln(1+r_i)\approx r_i$ so the distinction doesn't matter all that much.}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Annualizing Weekly Returns}
+    \frametitle{4. Annualized Distributions}
     \framesubtitle{}
 
-    To compute annual returns from a series of weekly returns (52 weeks in a year):
+    To compute annualized returns and standard deviations from a series of higher frequency returns:
     \begin{enumerate}
-        \item Compute the mean and standard deviation of the weekly returns
-        \item Multiply the estimated mean by 52
-        \begin{itemize}
-            \item An alternative would be to account for compounding and use $(1+\mu_x)^{52}-1$.
-        \end{itemize}
-        \item Multiply the standard deviation by $\sqrt{52}$
+        \item Let $T$ be the number of periods in a year, and $r_i$ is the return observed in each period. (For weekly returns $T=52$, monthly returns $T=12$, etc). 
+        \item Compute the mean ($\mu_r$) and standard deviation ($\sigma_r$) of the higher frequency returns
+        \item Compute the annualized return as $(1+\mu_r)^T - 1$
+        \item Compute the annualized standard deviation as: $\sqrt{T}*\sigma_r$
         \begin{itemize}
             \item Be careful here, this is because the variance increases by $T$,
             so standard deviation increases by $\sqrt{T}$
         \end{itemize}
-        
     \end{enumerate}
     \vspace{1em}
-    Easy to do something similar for daily returns 
-    (multiply standard deviation by $\sqrt{250}$, number of trading days in a year), 
-    or monthly returns (multiply standard deviation by $\sqrt{12}$), 
-     or quarterly returns (multiply standard deviation by 2).
 
 \end{frame}
 
+\begin{practiceframe}[t]
+    \frametitle{4. Annualized Distributions}
+    \framesubtitle{}
+
+    The same concept can be used to calculate the distribution of returns over longer time periods.
+    \vspace{1em}
+
+  \begin{enumerate}
+  \setcounter{enumi}{0}
+    \item A real-estate property is expected to yield 2\% per quarter with a 
+    standard deviation of the quarterly rate of 10\%.  What is the estimated return and standard deviation on the real estate investment after 10 years?  
+    \item Assuming a normal distribution, what is the probability of loss on the real estate investment after 10 years?
+  \end{enumerate}
+
+\end{practiceframe}
+
 \begin{frame}[t]
-    \frametitle{3. Annualizing Weekly Returns}
-    \section{Annualizing Weekly Returns}
+    \frametitle{4. Annualized Distributions}
     \framesubtitle{}
 
     \begin{table}
@@ -321,64 +387,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Forecasting}
-    \section{Forecasting}
-    \framesubtitle{}
-
-    Note that the discussion up to now has been about measuring historical returns.  
-    In contrast, the questions we usually care about concern expected future 
-    returns.\\
-    \vspace{1em}
-
-    In general, you should be very careful about using historical returns and 
-    distributions to forecast future returns and distributions.\\
-    
-    \vspace{1em}
-    But forecasting is an inescapable requirement for many things in financial markets, 
-    so you have to come up with something.  Much of the next few weeks will be focused on 
-    how to think about \textit{expected} returns and prices for different securities.
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{4. Forecasting}
-    \framesubtitle{If you think history is a good guide...}
-
-    If you can convince yourself that history is a good guide for future 
-    returns (or if you can find a historical period that is a good guide),
-    then can use the empirical mean and standard deviation:
-
-    $$\mathbb{E}(r) = \frac{1}{T} \sum_i^T r_i$$
-    
-    $$\text{Var}(r) = \frac{1}{T} \sum_i^T (r_i - \mathbb{E}[r])^2$$
-
-    where $r_i$ are \textit{historical} returns measured over $T$ periods.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Forecasting}
-    \framesubtitle{If you can guess the probability of scenarios...}
-
-    If we start with a set of estimates for returns in different scenarios and 
-    the probabilities of those scenarios, then we can compute the 
-    expected value and expected variance as follows:\\
-
-    $$\mathbb{E}(r) = \sum_i p_i \cdot r_i$$
-    
-    $$\text{Var}(r) = \sum_i p_i \cdot (r_i - \mathbb{E}[r])^2$$
-    
-    where $p_i$ is the probability and $r_i$ is the return in scenario $i$.\\
-    \vspace{1em}
-    Note these are analogous to the empirical estimates of the mean and the variance discussed earlier.
-
-\end{frame}
-
-
-\begin{frame}[t]
     \frametitle{5. Problems with Using the Normal Distribution}
-    \section{Problems with Using the Normal Distribution}
     \framesubtitle{}
 
     While it may be convenient to use the normal distribution 

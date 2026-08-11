@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 3-a}
+\newcommand{\week}{Capital Allocation - 1}
 
 \title{Capital Allocation}
 \subtitle{Reference: Bodie et al, Ch 6}
@@ -35,42 +35,13 @@
 
 \frame{\titlepage}
 
-\begin{frame}[t]
-    \frametitle{Economics 457}
-    \framesubtitle{Course Outline Covered}
-
-    \vspace{-1em}
-
-        \begin{table}
-        \centering
-        \footnotesize  % Global font size for the table
-        \begin{tblr}{
-            colspec = {Q[l,wd=2cm] Q[c,wd=2cm] Q[l,wd=6cm]}
-        }
-        \toprule
-        Subject & Weeks & Sub-topics \\
-        \midrule
-        Intro & 1 \& 2 & Measuring Returns, Distribution of Returns, Evaluating Returns \\
-        \textcolor{red}{Portfolio Construction} 
-            & \textcolor{red}{3, 4, 5}
-            & \textcolor{red}{Capital Allocation, Diversification, Index Model} \\
-        Market Equilibrium & 6 \& 7 & CAPM, Fama-French Factors \\
-        Fixed Income & 8 \& 9 & Prices, Yields, Yield Curve, Duration and Convexity \\
-        Equity & 10 \& 11 & Dividend Discount Models, Price-Earnings Ratios, Efficient Markets, Equity Risk Premium\\
-        Derivatives & 12, 13, 14 & Futures, Swaps, Options \\
-        Financial Crisis of 2008 & 15 & Causes, What Happened, Aftermath\\
-        \bottomrule
-        \end{tblr}
-    \end{table}
-
-\end{frame}
-
 \begin{frame}
     \frametitle{Outline}
 
     \begin{enumerate}
         \item Utility and Indifference Curves
         \item Preferences over Return and Risk
+        \item Expected Return and Standard Deviation of a two asset portfolio
         \item Capital Allocation Line (budget constraint)
         \item Optimization
         \item Practice
@@ -79,6 +50,7 @@
 
 \begin{foundframe}[t]
     \frametitle{1. Utility and Indifference Curves}
+    \section{Utility and Indifference Curves}
     \framesubtitle{Concave Utility}
 
     Utility functions are generally \textit{concave} with respect to wealth.\\
@@ -149,10 +121,11 @@
 
     The charts in this lecture assume the following:
     \begin{itemize}
-      \item Expected excess returns of the S\&P: 8.5\% 
+      \item Risk-free rate: 4\%
+      \item Expected excess returns of the S\&P: 8.5\%
+      \item Expected return of the S\&P: 12.5\%
       \item Expected standard deviation of the S\&P: 12.5\%
       \item Expected Sharpe Ratio of S\&P: ~0.7   
-      \item Risk-free rate: 4\%
     \end{itemize}
     \vspace{1em}
     These expectations are roughly in-line with the historic S\&P returns and volatility since 2004.\\
@@ -165,12 +138,13 @@
 
 \begin{frame}[t]
     \frametitle{2. Preferences over Return and Risk}
+    \section{Preferences over Return and Risk}
     \framesubtitle{Preferences and Utility}
 
-    Standard preferences prefer more return and less volatility.   
+    For the purposes of this lecture, all investments are characterized by their expected return ($E[r]$) and standard deviation ($\sigma$).   These can be plotted on a two-dimensional graph.   For example, here is where the S\&P 500 would be located:  
 
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/ch6_1_util1.png}
+    \includegraphics[width=0.65\textwidth]{figures/ch6_1_util1.png}
 
 \end{frame}
 
@@ -178,27 +152,73 @@
     \frametitle{2. Preferences over Return and Risk}
     \framesubtitle{Indifference Curves}
 
-    An indifference curves trace the risk-return combinations that yield the same utility.  
+    Typically investors prefer more returns and less risk.   For this lecture, we assume the following equation describes an investor's preferences (or their utility):
+    $$U = E[r] - 0.5 \cdot A \cdot \sigma^2$$ 
+
+    \begin{itemize}
+        \item Utility is increasing in $E[r]$ and decreasing in $\sigma^2$.   
+        \item The risk term in this equation is the variance ($\sigma^2$), whereas typically we refer to an investment's standard deviation ($\sigma$).   The variance is the \textit{square} of the standard deviation.  This is an important detail.
+    \end{itemize}
+
+\end{frame}
+
+\begin{practiceframe}
+    \frametitle{2. Preferences over Return and Risk}
+
+    Assume that an investor's utility is
+        $$U = E[r] - 0.5 \cdot A \cdot \sigma^2$$ 
+
+    A portfolio has an expected rate of return of 15\% and a standard deviation of 30\%.  T-bills offer a safe rate of return of 2\%.   
+    \begin{itemize}
+        \item Would an investor with a risk-aversion parameter of $A=4$ prefer to invest in T-bills or the risky portfolio?   
+        \item What if $A=2$?
+    \end{itemize}
+
+\end{practiceframe}
+
+\begin{frame}[t]
+    \frametitle{2. Preferences over Return and Risk}
+    \framesubtitle{Indifference Curves}
+
+    An indifference curves trace the risk-return combinations that yield the same utility.  To draw an indifference curve, set $U$ equal to a constant, then plot the function $E[R] = U - 0.5 \cdot A \cdot \sigma^2$\\
 
     \centering
     \includegraphics[width=0.75\textwidth]{figures/ch6_1_util2.png}
 
 \end{frame}
 
-\begin{frame}[t]
+\begin{practiceframe}
     \frametitle{2. Preferences over Return and Risk}
     \framesubtitle{Indifference Curves}
 
-    Assume the following equation for utility:
-    $$U = E[r] - 0.5 \cdot A \cdot \sigma^2$$ 
+        Assume that an investor's utility is
+        $$U = E[r] - 0.5 \cdot A \cdot \sigma^2$$ 
 
-    Utility is increasing in $E[r]$ and decreasing in $\sigma^2$.   The convexity comes from the squared-term.\\
-    \vspace{1em}
-    To get an indifference curve, set $U$ equal to a constant, then plot the function $E[R] = U - 0.5 \cdot A \cdot \sigma^2$\\
-    \vspace{1em}
-    What happens for larger (smaller) values of A?   How do the indifference curves change?   
+    and that they currently hold a risky portfolio with an expected rate of return of 15\% and a standard deviation of 30\%. 
+    \begin{itemize}
+        \item Plot the risky portfolio on a graph of $E[r]$ vs. $\sigma$
+        \item Assume $A=4$.   How much less return does this investor require to be indifferent between the risky portfolio and an alternative portfolio that has a standard deviation of 25\%?
+        \item Assume $A=4$.   How much additional risk is this investor willing to bear in order to be indifferent between the risky portfolio and an alternative portfolio that has an expected return of 20\%.  
+        \item Sketch the indifference curves for $A=4$
 
-\end{frame}
+    \end{itemize}
+    
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{2. Preferences over Return and Risk}
+    \framesubtitle{Indifference Curves}
+
+    Continued...
+    \vspace{1em}
+    
+    \begin{itemize}
+        \item How would the indifference curve change for $A=2$
+        \item For which value of $A$ is the investor more "risk averse"
+        \item Think about the intuition behind the coefficient $A$ and an investor's risk aversion.
+    \end{itemize}
+
+\end{practiceframe}
 
 \begin{frame}[t]
     \frametitle{2. Preferences over Return and Risk}
@@ -211,79 +231,88 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{3. Capital Allocation Line}
+\begin{foundframe}
+    \frametitle{3. Two Asset Portfolio: No Correlation}
     \framesubtitle{}
 
-    Assume, for the moment, that you have two options: cash or a broad portfolio of risky assets.  
-    Accordingly, your only decision is how much of your portfolio to allocate to the risky asset.\\
+    Let $X$ and $Y$ be two assets with expected returns $E[r_x]$ and $E[r_y]$ and standard deviations $\sigma_x$ and $\sigma_y$.  
     \vspace{1em}
-    The \textbf{Capital Allocation Line (CAL)}  depicts all possible combiations in risk-return space available from this decision.\\
+    
+    Assume that the two assets are uncorrelated.   (This is an important assumption that we will revisit soon).
     \vspace{1em}
-    The CAL intersects the y-axis at $y=r_{risk-free}$ and goes through the point $(x=\sigma_{risky},y=(r_{risky}+r_{risk-free}))$
+
+    A portfolio with $w_x$ invested in $X$ and $w_y$ invested in $Y$ will have:
+    \begin{itemize}
+        \item $E[r_p] = w_x E[r_x] + w_y E[r_y]$
+        \item $\sigma_p^2 = w_x^2 \sigma_x^2 + w_y^2 \sigma_y^2$
+        \item $\sigma_p = \sqrt{ w_x^2 \sigma_x^2 + w_y^2 \sigma_y^2}$
+    \end{itemize}
+
+    \blfootnote{We touched on the additive properties of independent (uncorrelated) random variables briefly in an earlier lecture on the normal distribution.}
+    
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{3. Capital Allocation Line}
+    \section{Capital Allocation Line}
+    \framesubtitle{Set up}
+
+    Assume, for the moment, that as an investor you have two options
+    \begin{itemize}
+        \item A risky asset with expected return $E[r_{risky}]$ and standard deviation $\sigma_{risky}$
+        \item A risk-free asset (e.g. cash) with expected return $r_f$ and standard deviation $\sigma_{r_f} = 0$
+    \end{itemize}
+    Your only decision is how much of your portfolio to allocate to the risky asset.   Let the amount invested in the risky portfolio be $w$, leaving $(1-w)$ invested in cash.\\
+    \vspace{1em}
+    The expected return of your porfolio is $E[r_p] = wr_{risky} + (1+w)r_f$.   The standard deviation of your portfolio is $\sigma_p = w\sigma_{risky}$.   The fact that $\sigma_{r_f} = 0$ simplifies the standard deviation term.
+    \vspace{1em}
 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{3. Capital Allocation Line}
-    \framesubtitle{Capital Markets Line and the Sharpe Ratio}
+    \section{Capital Allocation Line}
+    \framesubtitle{Definition}
+
+    The \textbf{Capital Allocation Line (CAL)}  depicts all possible combiations in risk-return space available from this decision.\\
+    \vspace{1em}
+    \begin{itemize}
+    \item When $w=0$, the portfolio is entirely in cash with $E[r_p] = r_f$ and $\sigma_p = 0$.   Thus the CAL intersects the y-axis at the risk-free rate of return $r_f$.
+    \item When $w=1$, the portfolio is entirely invested in the risky asset with $E[r_p] = wr_{risky} + (1-w)r_f$ and $\sigma_p = \sigma_{risky}$. The CAL thus goes through and goes the point $(x=\sigma_{risky},y=(r_{risky}+r_{risk-free}))$
+    \end{itemize}
+     
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Capital Allocation Line}
+    \framesubtitle{The Sharpe Ratio}
+
+    Note that the slope of the Capital Allocation Line is the Sharpe ratio of the risky asset
+    $$\frac{E[r_{risky}] - r_f}{\sigma_{r_f}}$$
+
+\end{frame}
+
+\begin{practiceframe}
+    \frametitle{3. Capital Allocation Line}
+    \framesubtitle{The Sharpe Ratio}
+
+    \begin{itemize}
+        \item Can the Sharpe Ratio of any combination of the risky asset and the risk-free asset be different from the ratio of the risky asset taken alone?
+        \item The Sharpe Ratio is also referred to as the reward-to-volatility ratio.  Holding the risk-free asset reduces both expected excess return and volatility, but does not change the reward-to-volatility ratio.  Why, then, might an investor choose to hold some of their wealth in the risk-free asset?
+    \end{itemize}
+    
+\end{practiceframe}
+
+\begin{frame}[t]
+    \frametitle{3. Capital Allocation Line}
+    \framesubtitle{Capital Markets Line}
 
     When the portfolio of risky assets is a basket of broad-based stocks, the CAL has a specific name: \textbf{Capital Markets Line (CML)}.\\
     \vspace{1em}
-    Note that the slope of the CML is the Sharpe Ratio.
 
     \centering
     \includegraphics[width=0.65\textwidth]{figures/ch6_1_cml.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Optimization}
-    \framesubtitle{}
-
-    We can now solve for the optimal portfolio using standard maximization techniques:
-    $$\max_{w} \quad U = E[r] - 0.5 \cdot A \cdot \sigma^2$$
-    
-    Subject to:
-    $$E[r] = w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f$$
-    $$\sigma^2 = w^2 \cdot \sigma_{\text{risky}}^2$$
-    
-    where $w$ is the weight in the risky asset.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Optimization}
-    \framesubtitle{}
-
-    To solve this, take the first derivative with respect to $w$:
-
-    \begin{align*}
-    \frac{dU}{dw} &= w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f - 0.5 A \cdot w^2 \cdot \sigma_{\text{risky}}^2\\
-    &= 0
-    \end{align*}
-    
-    Solving for $w$:
-    $$w^* = \frac{E[r_{\text{risky}}] - r_f}{A \cdot \sigma_{\text{risky}}^2}$$
-    Be careful: this is not the Sharpe Ratio.   The denominator has a $\sigma^2$ and also the cofficient $A$.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Optimization}
-    \framesubtitle{}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch6_max_w.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Optimization}
-    \framesubtitle{}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch6_1_opt.png}
 
 \end{frame}
 

@@ -6,7 +6,7 @@
 \subtitle{Evaluation \\ Reference: Bodie et al, Ch 5}
 \author{Econ 457}
 \date{\week}
-
+  
 % Reference the shared preamble
 \input{preamble}
 
@@ -38,9 +38,7 @@
 \begin{frame}[t]
     \frametitle{Outline}
 
-    Previously we covered measuring total returns (HPR, EAR, etc).   
-    Today we will talk about evaluating those returns.   
-    The first step is to compare the returns with something.
+    Previously we covered measuring total returns (HPR, EAR, etc).  Today we will talk about evaluating those returns.   The first step is to compare the returns with something.
 
     \vspace{2em}
 
@@ -48,8 +46,7 @@
         \item Inflation \& Real Returns
         \item Risk-free Returns \& Excess Returns (Sharpe Ratio)
         \item Index Returns \& Excess Returns (Information Ratio)
-        \item Excel - Pivot Tables
-        \item Practice
+        \item Excel
     \end{enumerate}
 \end{frame}
 
@@ -171,21 +168,39 @@
     $$\mathbb{E}[r_\text{real}] \approx \mathbb{E}[r_{\text{nominal}}] - \pi^e$$
     Where $\pi^e$ is expected inflation.\\
     \vspace{1em}
-    Remember that the realized return will almost never equal the expected return, as that happens 
-    only when the expectations are exactly correct, which is rare.  
-  
+
+    The Fisher Equation is most commonly used in the context of bonds, where the expected return is equal to the interest rate (much more on this later).  With a little rearranging, we have:
+    $$i_{\text{nominal}} \approx i_{\text{real}} + \pi^e$$
+    Where $i_{\text{nom}}$ is the nominal interest rate and $i_{\text{real}}$ is the real interest rate. 
+    
 \end{frame}
+
+\begin{practiceframe}[t]
+  \frametitle{1. Inflation and Real Returns}
+
+  \begin{enumerate}
+    \item The Fisher equation tells us that the real interest rate approximately
+    equals the nominal rate minus the inflation rate.   Suppose the inflation 
+    rate increases from 3\% to 5\%.   Does the Fisher equation imply that this 
+    increase will result in a fall in the real interest rate?   Explain.
+    \item Suppose the expected inflation rate rises to 10\%, but the real rate is unchanged.   What happens to the nominal interest rate?
+    \end{enumerate}
+
+\end{practiceframe}
 
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
     \framesubtitle{Fisher Equation}
+    
+    Realized returns equal the expected returns only when the expectations are exactly correct, which they almost never are.
+    \vspace{1em}
 
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch5_3_ust_infl.png}
+    \includegraphics[width=0.7\textwidth]{figures/ch5_3_ust_infl.png}
 
     \blfootnote{Data Source: Federal Reserve, BLS, FRED}
 
-\end{frame}
+  \end{frame}
 
 {
 \setbeamertemplate{footline}{}
@@ -226,7 +241,6 @@
 \end{frame}
 }
 
-
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
     \framesubtitle{Observations}
@@ -242,7 +256,7 @@
         \item {\footnotesize For example, "The target return for Harvard's endowed funds is 8\%, which accounts for roughly a 5\% distribution and 3\% growth to maintain purchasing power over time."}
         \item When they report returns, do they report real returns?
       \end{itemize}
-      \item Straightforward to measure historic real returns.   Prospective real returns are harder.   Specifically, difficult to measure expected inflation.
+      \item Straightforward to measure historical real returns.   Prospective real returns are harder.   Specifically, difficult to measure expected inflation.
       \begin{itemize}
         \item {\footnotesize TIPS are very useful.   Will return to TIPS later in the semester}
       \end{itemize}
@@ -252,17 +266,48 @@
 \begin{frame}[t]
     \frametitle{2. Risk-free rates \& Excess Returns}
     \section{Risk-free Returns and Excess Returns}
-    Another way to evaluate returns is to compare them against an alternative investment.\\
-    \vspace{1em}  
-    A natural alternative is the "risk-free rate".  
-    One convention is to use the return on Trasury Bills (T-Bills) as the risk-free rate, because 
-    T-bills returns have very low volatiliy.\\
+    Another way to evaluate returns is to compare them against an alternative investment.  A natural comparison is the "risk-free rate of return."  
+    
     \vspace{1em}
-    Note that Treasury \textit{bonds} have price risk, 
-    and are therefore not good measures of 'risk-free rates'.
+    The \textit{Excess Return} of an investment is simply:
+    $$\text{Excess Return} = \text{Actual Rate of Return} - \text{Risk-Free Rate of Return}$$
+    
+      
+    One convention is to use the return on Trasury Bills (T-Bills) as the risk-free rate, because T-bills returns have very low volatiliy.\\
+    \vspace{1em}
+
+
+    
+    \blfootnote{Note that Treasury \textit{bonds} have price risk, 
+    and are therefore not good measures of 'risk-free rates'.  More on this later in the class.}
     
 
 \end{frame}
+
+\begin{practiceframe}
+    \frametitle{2. Risk-free rates \& Excess Returns}
+
+\footnotesize
+You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.   Over the coming year, the bond will pay interest of \$75 per \$1,000 par value.   The price of the bond at the end of the year will depend on the level of interest rate prevailing at that time.   You construct the following scenario analysis:
+
+    \begin{table}
+        \centering
+        \begin{tabular}{lcc}
+            \toprule
+             Interest Rates & Probability  & Bond Price \\
+             \midrule
+             Higher & 0.2 & \$850\\
+             Unchanged & 0.5 & 915\\
+             Lower & 0.3 & 985\\
+             \bottomrule
+        \end{tabular}
+    \end{table}
+
+Your alternative investment is a T-bill that yields a sure rate of 5\%.   Calculate the HPR for each scenario, the expected rate of return, and the excess rate of return.   What is the expected excess return of the corporate bond?
+
+\blfootnote{The book defines the expected excess return as the "risk premium".}
+    
+\end{practiceframe}
 
 \begin{frame}[t]
     \frametitle{2. Risk-free rates \& Excess Returns}
@@ -453,10 +498,27 @@
 
 \begin{frame}[t]
   \frametitle{3. Index Returns \& Excess Returns}
+
+    Another natural comparison is an index.  An index is usually a collection of financial assets with weights determined in an objective way (usually by market value).   Most active money managers are evaluated relative to an index.  
+    
+    \vspace{1em}
+    Common indices include:
+    \begin{itemize}
+    \item S\&P 500
+    \item Russell 2000
+    \item MSCI EM Stocks
+    \item Bloomberg U.S. Aggregate Bond Index
+    \item Bloomberg U.S. Corporate Bond Index
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{3. Index Returns \& Excess Returns}
   \section{Index Returns}
   \framesubtitle{}
 
-  PIMCO's Total Return Fund (PTTRX) is a \$40bn active bond fund that is benchmarked to the Barclay's Aggregate Index.\\
+  PIMCO's Total Return Fund (PTTRX) is a \$40bn active bond fund that is benchmarked to the Bloomberg U.S. Aggregate Index.\\
   \vspace{0.5em}
   \centering
   \includegraphics[width=0.6\textwidth]{figures/ch5_3_pttrx.png}
@@ -488,8 +550,29 @@
 \end{frame}
 
 \begin{excelframe}[t]
-  \frametitle{4. Excel Pivot Tables}
-  \framesubtitle{}
+    \frametitle{4. Excel}
+    \framesubtitle{Some basic commands}
+
+    vlookup(): Used to match data from different tabs\\
+    \vspace{1em}
+
+    isna(): Tell Excel how to treat missing values\\
+    \vspace{1em}
+
+    \$: Used to 'freeze' the cell row or column
+    \vspace{1em}
+
+    Excel dates: can change the format
+    \vspace{1em}
+
+    Charts: mostly use line chart in this class
+    \vspace{1em}
+
+\end{excelframe}
+
+\begin{excelframe}[t]
+  \frametitle{4. Excel}
+  \framesubtitle{Pivot Tables}
 
     \begin{itemize}
       \item Insert: Pivot Table (I prefer separate sheet)
@@ -501,30 +584,19 @@
 \end{excelframe}
 
 \begin{excelframe}[t]
-  \frametitle{4. Excel Pivot Tables}
-  \framesubtitle{}
+  \frametitle{4. Excel}
+  \framesubtitle{Pivot Tables}
 
   \centering
   \includegraphics[width=0.8\textwidth]{figures/ch5_3_pivot.png}
 
 \end{excelframe}
 
-\begin{practiceframe}[t]
-  \frametitle{5. Practice Problems}
-  \framesubtitle{Review: HPR, EAR, APR and $r_{cc}$}
 
-  \begin{itemize}
-    \item Holding Period Return (HPR)
-    $$\frac{\text{Price Change} + \text{Income}}{\text{Initial Price}}$$
-    \item Effective Annual Rate (EAR)
-    $$(1 + EAR)^T = 1 + HPR$$
-    \item Annual Percentage Rate (APR)
-    $$1+EAR = \left(1 + \frac{APR}{n}\right)^n$$
-    \item Continuously Compounded Rate of Return ($r_{cc}$)
-    $$1+EAR = e^{r_{cc}}$$
-  \end{itemize}
 
-\end{practiceframe}
+\end{document}
+
+
 
 \begin{practiceframe}[t]
   \frametitle{5. Practice Problems}
@@ -562,70 +634,7 @@
 
   \end{practiceframe}
 
-\begin{practiceframe}[t]
-  \frametitle{5. Practice Problems}
-  \framesubtitle{}
 
-  \begin{enumerate}
-    \item The Fisher equation tells us that the real interest rate approximately
-    equals the nominal rate minus the inflation rate.   Suppose the inflation 
-    rate increases from 3\% to 5\%.   Does the Fisher equation imply that this 
-    increase will result in a fall in the real interest rate?   Explain.
-    \item You have \$5,000 to invest for the next year and are considering three 
-    alternatives:
-      \begin{itemize}
-        \item A money market fund with an average maturity of 30 days, current yield of 3\% per year.
-        \item A 1-year savings deposit at a bank offering an interest rate of 4\%
-        \item A 20-year US Treasury bond offering a yield to maturity of 5\% per year.
-      \end{itemize}
-    What role does your forecast for future interest rates play in your decision?
-  \end{enumerate}
 
-  \blfootnote{Practice Problems from Bodi et al, page 77}
-
-\end{practiceframe}
-
-\begin{practiceframe}[t]
-  \frametitle{5. Practice Problems}
-  \framesubtitle{}
-
-  \begin{enumerate}
-  \setcounter{enumi}{2}
-    \item Your expectations regarding the stock price are as follows:
-      \begin{table}
-        \begin{tabular}{lrrr}
-          \toprule
-          Market & Probability & Ending Price & HPR\\
-          \midrule
-          Boom & 0.35 & \$140 & 44.5\%\\
-          Normal & 0.3 & 110 & 14\\
-          Recession & 0.35 & 0.8 & -16.5\\
-          \bottomrule
-        \end{tabular}
-      \end{table}
-    Compute the mean and standard deviation of the HPR on stocks (see equations 5.11 and 5.12 in book)
-    \item The continuously compounded annual return on a stock is normally 
-    distributed with mean of -20\% and standard deviation of 30\%.   With 
-    95.44\% confidence, we should expect its actual return in any particular 
-    year to be between what two values?
-  \end{enumerate}
-
-\end{practiceframe}
-
-\begin{practiceframe}[t]
-  \frametitle{5. Practice Problems}
-  \framesubtitle{}
-
-  \begin{enumerate}
-  \setcounter{enumi}{4}
-    \item A real-estate property is expected to yield 2\% per quarter (nominal) with a 
-    standard deviation of the (effective) quarterly rate of 10\%.  What is the probability 
-    of loss on the real estate investment after 10 years?
-    \item You invest \$1 million at the beginning of 2028 in a stock-index fund. 
-    If the rate of return in 2028 is -40\%, what rate of return in 2029 will be necessary 
-    for your portfolio to recover to its original value.
-  \end{enumerate}
-
-\end{practiceframe}
 
 \end{document}

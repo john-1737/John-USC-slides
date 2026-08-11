@@ -50,7 +50,6 @@
             \item Geometric v. Arithmetic Mean
             \item Log Scale
         \end{itemize}
-        \item Log Scale
     \end{enumerate}
 \end{frame}
 
@@ -263,16 +262,24 @@
     \subsection{APR}
     \framesubtitle{Annual Percentage Rates}
 
-    The Annual Percentage Rate of Return (APR) is a convention often used for short term instruments.   For example, for a credit card with monthly compounding, each monthly payment is equal to the APR divided by twelve.  The APR does not itself account for the effect of compounding, it is only used to determine the size of the monthly payments. 
+    The Annual Percentage Rate of Return (APR) is a convention often used for short term instruments.   The rate of return for a single period is equal to $\frac{APR}{n}$, where $n$ is the number of periods in a year. \\
     
     \vspace{1em}
+    
+    For example, for a credit card with monthly compounding, the monthly rate is equal to the APR divided by twelve.  The APR does not itself account for the effect of compounding, it is only used to determine the size of the monthly payments. 
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Measurement Issues}
+    \framesubtitle{Annual Percentage Rates}
 
     The relationship between the APR and the EAR is given by:\\
     $$(1 + \text{EAR}) = \left(1+\frac{APR}{n}\right)^n$$\\
     $$\text{APR} = n \times [(1+\text{EAR})^{1/n} - 1]$$
 
     \begin{itemize}
-        \item The APR will be lower than the EAR because the EAR \textit{does} account for compounding.\\
+        \item The APR does not explicitly account for the effects of compounding.   The APR will be lower than the EAR because the EAR \textit{does} account for compounding.\\
 
     \end{itemize}
 
@@ -352,7 +359,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Measuring returns}
+    \frametitle{3. Measurement Issues}
     \framesubtitle{Geometric v. Arithmetic Mean}
 
     The arithmetic average is \underline{greater than or equal to} the geometric average.  Equality occurs when all of the observations are the same.\\
@@ -365,11 +372,11 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Measuring returns}
+    \frametitle{3. Measurement Issues}
     \framesubtitle{Geometric v. Arithmetic Mean}
 
     \footnotesize
-    Showing that the Geometric Mean $<$ the Arithmetic Mean
+    Showing that the Geometric Mean $<$ the Arithmetic Mean.  Let $r_i$ be the return, and $x_i = 1+r_i$.
     \begin{align}
         \text{Geometric Mean} = \sqrt[T]{\prod_{i=1}^{T} x_i}\\
         \ln(\text{Geometric Mean}) = \frac{1}{T} \sum_{i=1}^{T} \ln(x_i)\\
@@ -383,7 +390,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Measuring returns}
+    \frametitle{3. Measurement Issues}
     \framesubtitle{Geometric v. Arithmetic Mean}
 
     \footnotesize
@@ -407,7 +414,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Measuring returns}
+    \frametitle{3. Measurement Issues}
     \framesubtitle{Geometric v. Arithmetic Mean, Example}
 
     Stock ABC doesn't pay dividends.   In year 1 the price of ABC declines by 20\%.   
@@ -418,6 +425,20 @@
     Which measure is more appropriate?
 
 \end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{3. Measurement Issues}
+    \framesubtitle{Geometric v. Arithmetic Mean}
+
+    We can use the same concept to compute the distrubtion for a longer time period.
+
+  \begin{enumerate}
+  \setcounter{enumi}{1}
+    \item You invest \$1 million at the beginning of 2028 in a stock-index fund. 
+    If the rate of return in 2028 is -40\%, what rate of return in 2029 will be necessary for your portfolio to recover to its original value.
+  \end{enumerate}
+
+\end{practiceframe}
 
 
 
@@ -491,10 +512,28 @@
         \item Relationship between EAR and $r_{cc}$
         \item When are APR and $r_{cc}$ similar?
         \item Geometric or Arithmetic mean?
+        \item For longer time series, better to visualize in ln(y)?
     \end{itemize}
     
     \blfootnote{What is the correct treatment of income?  Does it get compounded or not?  It depends on the context.  It's easy to reinvest income from an ETF, it may be harder in a privately held stock.}
 
 \end{frame}
+
+\begin{practiceframe}[t]
+  \frametitle{Review: HPR, EAR, APR and $r_{cc}$}
+  \framesubtitle{}
+
+  \begin{itemize}
+    \item Holding Period Return (HPR)
+    $$\frac{\text{Price Change} + \text{Income}}{\text{Initial Price}}$$
+    \item Effective Annual Rate (EAR)
+    $$(1 + EAR)^T = 1 + HPR$$
+    \item Annual Percentage Rate (APR)
+    $$1+EAR = \left(1 + \frac{APR}{n}\right)^n$$
+    \item Continuously Compounded Rate of Return ($r_{cc}$)
+    $$1+EAR = e^{r_{cc}}$$
+  \end{itemize}
+
+\end{practiceframe}
 
 \end{document}
