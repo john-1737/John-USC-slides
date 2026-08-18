@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 4-a}
+\newcommand{\week}{Diversification - 1}
 
 \title{Diversification}
 \subtitle{Reference: Bodie et al, Ch 7}
@@ -39,17 +39,216 @@
     \frametitle{Outline}
 
     \begin{enumerate}
-        \item Review: Data Construction
-        \item Sum of Two Random Variables
+        \item Correlations
+        \item The Benefit of Diversification
+        \item Estimating Correlations
         \item SPY and TLT
         \item Optimization: SPY, TLT and Cash
     \end{enumerate}
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Review: Data Construction}
+    \frametitle{Diversification}
+
+    Last week we considered the problem of constructing an optimal portfolio from a single risky asset and cash.   This set-up simplified things because (a) cash is uncorrelated with the risky asset, and (b) there was only one choice variable (namely, the weight $w$ in the risky asset), which made maximization pretty easy.\\
+    \vspace{1em}
+    This week we consider the more general problem of constructing an optimal portfolio from many assets.   We first need to think about correlations (today) and then come up with an approach for maximization (next lecture).
+
+\end{frame}
+
+
+\begin{foundframe}[t]
+    \frametitle{1. Correlations}
+    \section{Correlations}
     \framesubtitle{}
 
+    $x$ and $y$ are two assets with normally distributed returns.  $r_x \sim N(\mu_x,\sigma_x^2)$ and $r_y \sim N(\mu_y,\sigma_y^2)$.\\
+    \vspace{1em}
+    A portfolio constructed by combining $x$ and $y$, with weights $w_X$ and $w_Y$ has the following distributions \\
+    \vspace{1em}
+    
+    \textbf{Case 1:} The returns of $X$ and $Y$ are \textit{uncorrelated}
+    $$w_xr_y + w_yr_y \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2)$$
+     
+    \textbf{Case 2:} The returns of $X$ and $Y$ are \textit{correlated} 
+    $$w_xr_y + w_yr_y \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2 + 2w_xw_yCov(X,Y))$$
+    
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Correlations}
+    \framesubtitle{Correlation Coefficient}
+
+    The \textit{correlation coefficient} is defined as:
+    $$\rho_{x,y} = \frac{\text{Cov}(x,y)}{\sigma_x\sigma_y}$$
+
+    Note that we can rewrite \textbf{Case 2} from the previous slide using the correlation coefficient:
+    $$w_xr_y + w_yr_y \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2 + 2w_xw_y\sigma_x\sigma_y\rho_{x,y})$$
+    
+    It is mostly a matter of convenience whether you use the correlation coefficient or the covariance.   They convey similar information, just scaled differently.
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{2. The Benefit of Diversification}
+    \section{The Benefit of Diversification}
+
+    Diversification reduces the variance of a portfolio.   Consider two assets $x$ and $y$ that have returns with the same variance: $\sigma^2_X = \sigma^2_Y = \sigma^2$.   A portfolio composed of either asset by itself has a standard deviation equal to $\sigma$.\\
+    \vspace{1em}
+    Consider a portfolio that is $\frac{1}{2}$ asset $x$ and $\frac{1}{2}$ asset $y$.
+    \begin{itemize}
+    \item If the two assets are uncorrelated, the variance of the portfolio will be:
+    $$0.5^2\sigma + 0.5^2\sigma^2 = 0.25\sigma^2 + 0.25\sigma^2 = 0.5\sigma^2$$  
+    The standard deviation will be $\sqrt{0.5}\sigma = 0.7\sigma$.   That is a $\approx30\%$ reduction in the standard deviation, relative to a portfolio composed of only one of the assets!
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Benefit of Diversification}
+
+    Continued
+    \begin{itemize}
+    \item If the two assets are correlated, the variance of the portfolio will be:
+    \begin{align*}
+        0.5^2\sigma &+ 0.5^2\sigma^2 + 2\cdot0.5\cdot0.5\cdot \text{Cov}(x,y) \\
+        &=0.5^2\sigma + 0.5^2\sigma^2 + 2\cdot0.5\cdot0.5\cdot\sigma^2\rho_{x,y} \\
+    &= 0.25\sigma^2 + 0.25\sigma^2 + 0.5 \sigma^2\rho_{x,y}\\
+    &=0.5\sigma^2 + 0.5 \sigma^2 \rho_{x,y}
+    \end{align*}
+    The amount of reduction in the standard deviation depends on $\rho_{x,y}$.  
+    \end{itemize}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{2. The Benefit of Diversification}
+        \section{Practice - The Benefit of Diversification}
+
+    \begin{enumerate}
+        \item The correlation coefficients between pairs of stocks are as follows: Corr(A,B) = 0.85,
+        Corr(A,C) = 0.6, Corr(A,D) = 0.45.   Each stock has an expected return of 8\% and a standard 
+        deviation of 20\%. 
+        \begin{itemize}
+            \item If your entire portfolio is now composed of stock A and you can add one stock to your portfolio, which do you add?
+            \item If you compose of portfolio of 0.5 stock A and 0.5 of the stock you chose above, what is the standard deviation of that portfolio?
+            \item How much did adding this additional stock lower the standard deviation on your portfolio?
+            \item Would the answer change for more risk averse investors?
+            \item Suppose that you could also add T-Bills, which have a rate of 8\%.   How would your portfolio look now?
+        \end{itemize}
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{practiceframe}
+    \frametitle{2. The Benefit of Diversification}
+    
+    \begin{enumerate}[2]
+        \item True or false: The standard deviation of the portfolio is always equal to the weighted average of the standard deviations of the assets in the portfolio.
+    \end{enumerate}
+    
+\end{practiceframe}
+
+\begin{practiceframe}[t]
+    \frametitle{2. The Benefit of Diversification}
+
+    \vspace{-1em}
+    \footnotesize{
+        \begin{enumerate}[1]
+        \item Abigail Grace starts with \$900k and then inherits \$100k in 
+        portfolio ABC stock.   She has the following estimates:
+              \begin{table}
+                \caption{Risk and Return Characteristics}
+                \begin{tabular}{lrr}
+                \toprule
+                    & $E[r]$, monthly & $\sigma$\\
+                \midrule
+                    Original Portfolio & 0.67\% & 2.37\%\\
+                ABC & 1.25 & 2.95\\
+                \bottomrule
+                \end{tabular}
+                \end{table}
+       The correlation coefficient of ABC with her original portfolio is 0.4.  Answer the following questions:
+        \begin{itemize}
+            \item Calculate the expected return of the new portfolio, the Covariance of ABC stock returns with her original portfolio, and the standard deviation of her new portfolio.
+            \item Grace sells ABC stock and buys T-Bills at a rate of 0.42\% monthly.   Recalculate the expected return and standard deviation.
+            \item Grace is considering selling ABC and buying XYZ, which has the same  
+            expected return and standard deviation as ABC.   Does it matter whether Grace owns ABC 
+            or XZY?   Why or why not?
+        \end{itemize}
+    \end{enumerate}
+    }
+\end{practiceframe}
+
+\begin{foundframe}[t]
+    \frametitle{3. Estimating Correlations}
+    \section{Estimating Correlations}
+    \framesubtitle{Variance-Covariance Matrix}
+
+    The \textbf{Variance-Covariance matrix} of $X$ and $Y$ is as follows:
+    $$\boldsymbol{\Sigma} = \begin{pmatrix}
+    \sigma_x^2 & \text{Cov}(X,Y) \\
+    \text{Cov}(X,Y) & \sigma_y^2
+    \end{pmatrix}$$
+
+    where:
+    \begin{itemize}
+        \item $\sigma_x^2$ is the variance of $X$
+        \item $\sigma_y^2$ is the variance of $Y$  
+        \item $\text{Cov}(X,Y)$ is the covariance between $X$ and $Y$
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{3. Estimating Correlations}
+    \framesubtitle{Empirical Variance-Covariance Matrix}
+
+    \footnotesize
+
+    Given observations $(x_1, y_1), (x_2, y_2), \ldots, (x_T, y_T)$, the empirical variance-covariance matrix is:
+
+    $$\hat{\boldsymbol{\Sigma}} = \begin{pmatrix}
+    \hat{\sigma}_x^2 & \widehat{\text{Cov}}(X,Y) \\
+    \widehat{\text{Cov}}(X,Y) & \hat{\sigma}_y^2
+    \end{pmatrix}$$
+
+    where:
+    \begin{align}
+    \hat{\mu}_x^2 &= \frac{1}{T}\sum_{t=1}^{T}(x)\\
+    \hat{\sigma}_x^2 &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \hat{\mu})^2\\
+    \widehat{\text{Cov}}(X,Y) &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \hat{\mu_x})(y_t - \hat{\mu_y})
+    \end{align}
+
+\end{foundframe}
+
+
+\begin{practiceframe}
+    \frametitle{3. Estimating Correlations}
+    \section{Practice - Estimating Correlations}
+    
+\end{practiceframe}
+
+\begin{frame}[t]
+    \frametitle{4. SPY and TLT}
+    \framesubtitle{Risk Premium}
+
+    A note on terminology: The \textit{risk premium} is the expected 
+    excess return of a security: $$\mathbb{E}[r_{SPY}] - r_{f}$$\\
+    \vspace{1em}
+    
+    The historic average excess returns is often used as an estimate of the risk premium.\\
+    \vspace{1em}
+    Note that the risk premium is the numerator of the Sharpe Ratio.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. SPY and TLT}
+    \framesubtitle{Data Construction}
+
+    Review from first homework:\\
+    \vspace{1em}
     Total Return (\%) = Price Return (\%) + Dividend Yield (\%)\\
     \vspace{1em}
     Where the Dividend Yield = Income / (Initial Price).\\
@@ -65,7 +264,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Review Data Construction}
+    \frametitle{4. SPY and TLT}
     \framesubtitle{Dividend Yield}
 
     \begin{columns}
@@ -86,129 +285,10 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{1. Review: Data Construction}
-    \framesubtitle{Sharpe Ratio}
 
-    \textbf{Sharpe Ratio} = Excess Returns / Std Dev of Excess Returns\\
-    $$\frac{E[r] - r_f}{\sigma}$$
-    Where $E[r] - r_f$ is the \textit{excess} return of the asset and $\sigma$ is the standard deviation.\\
-    \vspace{1em}
-    Compute Historical Sharpe Ratios:
-    \begin{enumerate}
-      \item Match Total Return Series to Risk-free Return Series
-      \item For each period, compute Excess Returns = Total Return (\%) - Risk-Free Return (\%)
-      \item Compute Mean and Standard Deviation of Excess Returns
-      \item Sharpe Ration = Mean / Standard Deviation
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Review: Data Construction}
-    \framesubtitle{Sharpe Ratio}
-
-    \footnotesize
-    \begin{table}
-        \caption{ETF Performance Statitics - Excess Returns}
-        \begin{tabular}{llrrr}
-        \toprule
-        & Start Date & Mean (\%) & Std Dev (\%) & Sharpe Ratio \\
-        Ticker &  &  &  &  \\
-        \midrule
-        SPY & 1993-01 & 8.440 & 14.820 & 0.569 \\
-        TLT & 2002-07 & 3.090 & 13.660 & 0.226 \\
-        GLD & 2004-11 & 9.180 & 16.680 & 0.550 \\
-        EWW & 1996-03 & 9.420 & 26.570 & 0.355 \\
-        EWD & 1996-03 & 8.640 & 24.470 & 0.353 \\
-        EWH & 1996-03 & 4.630 & 24.100 & 0.192 \\
-        EWI & 1996-03 & 6.440 & 23.820 & 0.271 \\
-        EWJ & 1996-03 & 1.170 & 17.700 & 0.066 \\
-        EWL & 1996-03 & 6.350 & 16.610 & 0.382 \\
-        EWP & 1996-03 & 7.980 & 23.650 & 0.338 \\
-        \bottomrule
-        \end{tabular}
-    \end{table}
-
-\end{frame}
-
-\begin{foundframe}[t]
-    \frametitle{2. Sum of Two Random Variable}
-    \framesubtitle{}
-
-    Adding two normally distributed variables $X$ and $Y$:\\
-    \vspace{1em}
-    
-    \textbf{Case 1:} $X$ and $Y$ are \textit{independent}
-    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2)$$
-     
-    \textbf{Case 2:} $X$ and $Y$ are \textit{correlated} 
-    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2Cov(X,Y))$$
-    
-    \vfill
-    Note, in a previou lecture we saw this using the correlation coefficient: $\rho_{x,y} = \frac{\text{Cov}(X,Y)}{\sigma_x\sigma_y}$.   
-
-\end{foundframe}
-
-\begin{foundframe}[t]
-    \frametitle{2. Sum of Two Random Variable}
-    \framesubtitle{Variance-Covariance Matrix}
-
-    The \textbf{Variance-Covariance matrix} of $X$ and $Y$ is as follows:
-    $$\boldsymbol{\Sigma} = \begin{pmatrix}
-    \sigma_x^2 & \text{Cov}(X,Y) \\
-    \text{Cov}(X,Y) & \sigma_y^2
-    \end{pmatrix}$$
-
-    where:
-    \begin{itemize}
-        \item $\sigma_x^2$ is the variance of $X$
-        \item $\sigma_y^2$ is the variance of $Y$  
-        \item $\text{Cov}(X,Y)$ is the covariance between $X$ and $Y$
-    \end{itemize}
-
-\end{foundframe}
-
-\begin{foundframe}[t]
-    \frametitle{2. Sum of Two Random Variable}
-    \framesubtitle{Empirical Variance-Covariance Matrix}
-
-    \footnotesize
-
-    Given observations $(x_1, y_1), (x_2, y_2), \ldots, (x_T, y_T)$, the empirical variance-covariance matrix is:
-
-    $$\hat{\boldsymbol{\Sigma}} = \begin{pmatrix}
-    \hat{\sigma}_x^2 & \widehat{\text{Cov}}(X,Y) \\
-    \widehat{\text{Cov}}(X,Y) & \hat{\sigma}_y^2
-    \end{pmatrix}$$
-
-    where:
-    \begin{align}
-    \hat{\sigma}_x^2 &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2\\
-    \hat{\sigma}_y^2 &= \frac{1}{T-1}\sum_{t=1}^{T}(y_t - \bar{y})^2\\
-    \widehat{\text{Cov}}(X,Y) &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})(y_t - \bar{y})
-    \end{align}
-
-    and $\bar{x} = \frac{1}{T}\sum_{t=1}^{T}x_t$, $\bar{y} = \frac{1}{T}\sum_{t=1}^{T}y_t$
-
-\end{foundframe}
-
-\begin{frame}[t]
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction}
-
-    You are constructing a portfolio with SPY and TLT.   
-    For the moment, your only choice is how much to allocate to SPY.   
-    The remainder is allocated to TLT.\\
-    \vspace{1em}
-    A note on terminology: The \textit{risk premium} is the expected 
-    excess return of a security: $\mathbb{E}[r_{SPY}] - r_{f}$ The historic 
-    average excess returns is often used as an estimate of the risk premium.
-
-\end{frame}
 
 \begin{frame}
-    \frametitle{SPY and TLT}
+    \frametitle{4. SPY and TLT}
     \framesubtitle{Total Returns}
 
     \centering
@@ -217,7 +297,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{SPY and TLT}
+    \frametitle{4. SPY and TLT}
     \framesubtitle{Empirical Means, Variance-Covariance Matrix}
 
     \textbf{Summary Statistics:}
@@ -238,7 +318,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{SPY and TLT}
+    \frametitle{4. SPY and TLT}
     \framesubtitle{Empirical Means, Variance-Covariance Matrix}
 
     In words...\\
@@ -255,137 +335,6 @@
         \item Covariance: $\widehat{\text{Cov}}(SPY,TLT) = -21.09$
         \item Correlation: $\hat{\rho}_{SPY,TLT} = -0.104$
     \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_std.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_cov.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er_cov.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
-
-    Maximize the Sharpe ratio of the portfolio, which is given by
-    $$
-    \max_{w_i} S_p = \frac{\mathbb{E}(r_p) - r_f}{\sigma_p}
-    $$
-    s.t.
-    $$
-    w_{SPY} + w_{TLT} = 1
-    $$
-    \footnotesize
-    Substitute expressions for $\mathbb{E}(r_p)$, $\sigma_p$ and $w_{TLT}$ 
-    $$
-    \max_{w_{SPY}} = \frac{w_{SPY}*\mathbb{E}(R_{SPY})+(1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
-    $$
-    and then take the derivative with respect to $w$, set the derivative equal to zero, and finally solve for $w$.
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
-
-    Note that the Sharpe Ratio of the portfolio with $w = 0.67$ is \textit{higher}
-    than the Sharpe Ratio of the S\&P:
-
-    \begin{table}
-        \caption{Sharpe Ratios}
-        \begin{tabular}{lrrr}
-            \toprule
-            & Risk Premium & Std Dev & Sharpe Ratio\\
-            \midrule
-            SPY & 9.4 & 14.8 & 0.63\\
-            TLT & 3.1 & 13.6 & 0.22\\
-            \midrule
-            67\% SPY & & &\\
-            + 33\% TLT & 7.35 & 10.51 & 0.69 \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 2: Decide on Cash Allocation}
-
-    Now that you have determined the optimal mix of SPY and TLT, 
-    the next decision is how much risk you want to take in your 
-    portfolio.   This is accomplished using the capital allocation 
-    process we discussed last week, with the only difference being that 
-    you are now allocating between cash and the optimal portfolio, 
-    rather than cash and the S\&P.\\
-    \vspace{1em}
-    Note that the allocation line is once again the \textit{capital allocation line (CAL)}, 
-    as the Capital Markets Line (CML) only referred to the case where the 
-    risky portfolio was the S\&P.
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 2: Decide on Cash Allocation}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Review}
-
-    In order to find the optimal allocation between three assets (SPY, TLT, and cash), follow these steps:
-
-    \begin{enumerate}
-        \item Estimate return and risk characteristics
-        \item Find optimal allocation between SPY and TLT, maximize the Sharpe Ratio
-        \item Find optimal allocation to cash, using indifference curves
-    \end{enumerate}
 
 \end{frame}
 

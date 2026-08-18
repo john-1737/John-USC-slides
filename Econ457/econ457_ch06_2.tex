@@ -39,57 +39,132 @@
     \frametitle{Outline}
 
     \begin{enumerate}
-        \item Optimization
-        \item Optimization of Capital Allocation
-        \item Leverage and Extending the CAL
-        \item Leverage in Practice
+        \item Constrained Maximization
+        \item Maximization and Capital Allocation
+        \item Capital Allocation - Practice
+        \item Extending the CAL: Leverage
         \item Margin Calls
-        \item LTCM 1998
         \item Excel
     \end{enumerate}
 \end{frame}
 
 \begin{foundframe}
+    \frametitle{1. Maximization}
+    \section{Maximization}
+    \framesubtitle{}    
+
+    Maximization is a standard problem from calculus that involves finding the highest value of a function.
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch6_max_EXAMPLE.png}
+
     
+\end{foundframe}
+
+\begin{foundframe}
+    \frametitle{1. Maximization}
+    \framesubtitle{Adding a Constraint}    
+
+    Constrained maximization problems involve finding the highest value of a function, subject to some constraint.
+    \vspace{1em}
+
+    Procedure 1: Tangency / Equate Slopes
+    \begin{enumerate}
+    \item Find the slope of the function being optimized and the slope of the constraint
+    \item Set the slopes equal 
+    \item Solve
+    \end{enumerate}
 
 \end{foundframe}
 
+\begin{foundframe}
+    \frametitle{1. Maximization}
+    \framesubtitle{Power Rule from Calculus}    
 
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch6_max_EXAMPLE_2.png}
+
+\end{foundframe}
+
+\begin{foundframe}
+    \frametitle{1. Maximization}
+    \framesubtitle{Adding a Constraint}    
+
+    Procedure 2: Substitution
+    \begin{enumerate}
+    \item Substitute the constraint into the original function, hopefully there is only one variable left
+    \item Find the slope of the resulting function 
+    \item Set the slope equal to zero
+    \item Solve
+    \end{enumerate}
+
+\end{foundframe}
+
+\begin{foundframe}
+    \frametitle{1. Maximization}
+    \framesubtitle{Calculus}    
+
+    First derivative of function with an exponent:
+    $$\frac{d}{dx}(x^n) = nx^{n-1}$$
+
+    For example:
+    $$\frac{d}{dx}(x^2) = 2x$$
+
+\end{foundframe}
 
 \begin{frame}[t]
-    \frametitle{2. Optimization of Capital Allocation}
-    \framesubtitle{}
+    \frametitle{2. Maximization and Capital Allocation}
+    \section{Maximization and Capital Allocation}
+    \framesubtitle{Set-up}
 
-    We can now solve for the optimal portfolio using standard maximization techniques:
-    $$\max_{w} \quad U = E[r] - 0.5 \cdot A \cdot \sigma^2$$
+    From last class:
+    \begin{itemize}
+    \item Construct a portfolio with cash and a risky asset
+    \item The weight of the risky asset is $w$, the weight of cash is $(1-w)$
+    \item The expected return of your portfolio is $E[r_p] = wr_{risky} + (1+w)r_f$.   
+    \item The standard deviation of your portfolio is $\sigma_p = w\sigma_{risky}$.   
+    \vspace{1em}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Maximization and Capital Allocation}
+    \framesubtitle{Maximization}
+
+    Finding the optimal portfolio is now a maximization problem.   The investor needs to choose $w$ so that they get the highest utility from their portfolio.
+    \vspace{1em}
+    The mathematical way to write that is:
+    $$\max_{w} \quad U = E[r_p] - 0.5 \cdot A \cdot \sigma_p^2$$
     
     Subject to:
-    $$E[r] = w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f$$
-    $$\sigma^2 = w^2 \cdot \sigma_{\text{risky}}^2$$
+    $$E[r_p] = w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f$$
+    $$\sigma_p^2 = w^2 \cdot \sigma_{\text{risky}}^2$$
     
     where $w$ is the weight in the risky asset.
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Optimization of Capital Allocation}
-    \framesubtitle{}
+    \frametitle{2. Maximization and Capital Allocation}
+    \framesubtitle{Maximization}
 
-    To solve this, take the first derivative with respect to $w$:
+    In order to maximize, use Procedure 2: Substitution, as described above.   Substitute the expressions for $E[r_p]$ and $\sigma_p$, then you'll have an equation with a single variable of interest ($w$).   To solve, take the first derivative with respect to $w$:
 
     \begin{align*}
     \frac{dU}{dw} &= w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f - 0.5 A \cdot w^2 \cdot \sigma_{\text{risky}}^2\\
     &= 0
     \end{align*}
     
-    Solving for $w$:
+    Use the Power Rule and the rearrange to solve for $w$:
     $$w^* = \frac{E[r_{\text{risky}}] - r_f}{A \cdot \sigma_{\text{risky}}^2}$$
-    Be careful: this is not the Sharpe Ratio.   The denominator has a $\sigma^2$ and also the cofficient $A$.
+    \blfootnote{Be careful: the denominator is \textit{not} the Sharpe Ratio.   It has a $\sigma^2$ and also the cofficient $A$.}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Optimization of Capital Allocation}
+    \frametitle{2. Maximization and Capital Allocation}
     \framesubtitle{}
 
     \centering
@@ -98,7 +173,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Optimization of Capital Allocation}
+    \frametitle{2. Maximization and Capital Allocation}
     \framesubtitle{}
 
     \centering
@@ -108,17 +183,17 @@
 
 
 \begin{practiceframe}[t]
-    \frametitle{2. Capital Allocaiton: Practice}
+    \frametitle{3. Capital Allocation - Practice}
+    \section{Capital Allocation - Practice}
 
     \vspace{-1em}
-    You manage a risky portfolio with expected rate of return of 12\% and a standard deviation of 28\%. 
-    The T-Bill rate is 2\%.
+    You manage a risky portfolio with expected rate of return of 12\% and a standard deviation of 28\%.  The T-Bill rate is 2\%.
     \begin{enumerate}
-        \item You clinet chooses to invest 70\% of a portfolio in your fund and 30\% in a risk-free money 
+        \item Your client chooses to invest 70\% of a portfolio in your fund and 30\% in a risk-free money 
         market fund.   What are the expected return and standard deviation on her portfolio?
         \item What is the reward-to-volatility (Sharpe) ratio of her portfolio?   Of your risky portfolio?   (Hint: draw the CAL, what is the slope?  Where is your client's portfolio?)
         \item Suppose your client instead chooses to invest a proportion $y$ that maximizes the expected return, 
-        subject to the constraint that the complete portfolio standard deviation will not exeed 12\%.   What is in the invested proportion $y$?   What is the 
+        subject to the constraint that the complete portfolio standard deviation will not exceed 12\%.   What is in the invested proportion $y$?   What is the 
         expected return?
         \item Your client's degree of risk aversion is $A = 3.5$.   What proportion $y$ should they invest in your fund?
     \end{enumerate}
@@ -126,15 +201,13 @@
 \end{practiceframe}
 
 \begin{practiceframe}[t]
-    \frametitle{2. Capital Allocaiton: Practice}
+    \frametitle{3. Capital Allocation - Practice}
 
     \vspace{-1em}
     Consider a risky portfolio with $\mathbb{E}[r_p]=8\%$ and $\sigma_p=15\%$.   The risk free rate is 2\%.
     \begin{enumerate}
     \setcounter{enumi}{4}
-        \item Your client wants to invest a proportion of her budget in this fund to get a 
-        a rate of return on her overall portfolio of 5\%.   What proportion of her total portfolio 
-        should she invest in the risky fund?
+        \item Your client wants to invest a proportion of her budget in this fund to get a rate of return on her overall portfolio of 5\%.   What proportion of her total portfolio should she invest in the risky fund?
         \item What will the standard deviation be on her total portfolio?
         \item Another client wants the highest return possible, subject to the constraint that you 
         limit the standard deviation to be no more than 12\%.   Which client is more risk averse?
@@ -144,7 +217,8 @@
 
 
 \begin{frame}[t]
-    \frametitle{3. Leverage and Extending the CAL}
+    \frametitle{4. Extending the CAL: Leverage}
+    \section{Extending the CAL: Leverage}
     \framesubtitle{Risk Lovers}
 
     \centering
@@ -153,7 +227,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Leverage and Extending the CAL}
+    \frametitle{4. Extending the CAL: Leverage}
     \framesubtitle{Risk Lovers}
 
     \centering
@@ -162,7 +236,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Leverage and Extending the CAL}
+    \frametitle{4. Extending the CAL: Leverage}
     \framesubtitle{Cost of Leverage}
 
     Leverage involves borrowing money in order purchase more assets.
@@ -176,7 +250,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Leverage and Extending the CAL}
+    \frametitle{4. Extending the CAL: Leverage}
     \framesubtitle{Cost of Leverage}
 
     The slope of the line to the right of the CML is $\frac{E[r_{risky}] - 2 \cdot r_f}{\sigma_{risky}}$,
@@ -188,7 +262,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Leverage and Extending the CAL}
+    \frametitle{4. Extending the CAL: Leverage}
     \framesubtitle{Graphic Representation and Optimization}
 
     Extending the CAL matters for risk-loving prefernces (low $A$ values).
@@ -200,7 +274,7 @@
 \end{frame}
 
 \begin{cautionframe}[t]
-    \frametitle{3. Leverage and Extending the CAL}
+    \frametitle{4. Extending the CAL: Leverage}
     \framesubtitle{Assumptions in CAL Model}
 
     Be careful, the capital allocation process described so far makes 
@@ -219,7 +293,8 @@
 
 
 \begin{frame}[t]
-    \frametitle{4. Leverage in Practice}
+    \frametitle{4. Margin Calls}
+    \section{Margin Calls}
     \framesubtitle{Buying Assets on Margin}
 
     When investors borrow money to purchase asssets,  the lender (often a broker) typically requires them to post collateral or 'margin', which acts as surety for the lender.\\
@@ -231,8 +306,8 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{5. Margin Calls}
-    \framesubtitle{Buying Assets on Margin}
+    \frametitle{4. Margin Calls}
+    \framesubtitle{Margin Calls}
 
     Margin is calculated as the owners' equity divided by the value of the assets owned in the account.\\
     \vspace{1em}
@@ -245,7 +320,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{5. Margin Calls}
+    \frametitle{4. Margin Calls}
     \framesubtitle{Buying Assets on Margin, example}
 
     \footnotesize
@@ -270,7 +345,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{6. LTCM in 1998}
+    \frametitle{4. LTCM in 1998}
     \framesubtitle{}
 
     \centering
@@ -280,72 +355,13 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{6. LTCM in 1998}
-    \framesubtitle{}
-
-    \vspace{-2em}
-
-    \begin{table}
-    \caption{LTCM Losses by Position}
-    \begin{tabular}{lc}
-    \toprule
-    Trade & Loss\\
-    \midrule
-    Russia and Emerging Markets & \$430 million\\
-    Directional Trades & \$371 million\\
-    Equity Pairs & \$286 million\\
-    Yield Curve & \$215 million\\
-    S\&P Stocks & \$203 million\\
-    High Yield Bond Arbitrage & \$100 million\\
-    Merger Arbitrage & roughly even\\
-    \midrule
-    Swap Spreads & \$1,600 million\\
-    Equity Volatility & \$1,300 million\\
-    \bottomrule
-    \end{tabular}
-    \end{table}
-
-    \blfootnote{Source: \textit{When Genius Failed}, Roger Lowenstein, Random House, 2000, page 235}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{6. LTCM in 1998}
-    \framesubtitle{}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch6_vix.png}
-
-    \blfootnote{VIX Index is calculated by the CBOE.  Data from Yahoo Finance}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{6. LTCM in 1998}
-    \framesubtitle{}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch6_vix_ltcm.png}
-
-    \blfootnote{VIX Index is calculated by the CBOE.  Data from Yahoo Finance}
-
-\end{frame}
-
-
-
 
 \begin{excelframe}[t]
-    \frametitle{7. Excel}
-    \framesubtitle{}
+    \frametitle{5. Excel}
+    \framesubtitle{Maximization}
 
-    \begin{itemize}
-        \item AVERAGE()
-        \item STDEV()
-        \item VAR.P()
-        \item COVARIANCE.P()
-        \item SUMPRODUCT()
-    \end{itemize}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_excel.png}
 
 \end{excelframe}
 

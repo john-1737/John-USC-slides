@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 4-b}
+\newcommand{\week}{Diversification - 2}
 
 \title{Diversification}
 \subtitle{Reference: Bodie et al, Ch 7}
@@ -39,6 +39,12 @@
     \frametitle{Outline}
 
     \begin{enumerate}
+        \item Optimal Portfolio: SPY, TLT and Cash
+        \item Optimal Portfolio: General Case
+        
+    \end{enumerate}
+    
+    \begin{enumerate}
         \item Diversification - Review
         \begin{itemize}
             \item Set-up
@@ -57,6 +63,39 @@
     \end{enumerate}
 \end{frame}
 
+
+\begin{frame}[t]
+    \frametitle{1. Optimal Portfolio: SPY, TLT, and Cash}
+    \framesubtitle{Empirical Means, Variance-Covariance Matrix}
+
+    In words...\\
+    \vspace{1em}
+
+    \textbf{Summary Statistics:}
+    \begin{itemize}
+        \item Risk Premium (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 9.4\%$
+        \item Risk Premium (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 3.1\%$
+         \item Expected Return (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 13.4\%$
+        \item Expected Return (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 7.1\%$
+        \item Standard Deviation (SPY): $\hat{\sigma}_{SPY} = 14.8\%$
+        \item Standard Deviation (TLT): $\hat{\sigma}_{TLT} = 13.6\%$
+        \item Covariance: $\widehat{\text{Cov}}(SPY,TLT) = -21.09$
+        \item Correlation: $\hat{\rho}_{SPY,TLT} = -0.104$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Optimal Portfolio: SPY, TLT, and Cash}
+    \framesubtitle{Define the optimization problem}
+
+    Start by finding the optimal combination of SPY and TLT.   Once we have that, the problem is the same as the capital allocation problems we did last week.
+    \vspace{1em}
+    The optimal combination of SPY and TLT will be the one that maximizes the Sharpe Ratio:
+    
+
+\end{frame}
+
 \begin{frame}[t]
     \frametitle{1. Diversification - Review}
     \framesubtitle{Set up}
@@ -66,6 +105,143 @@
     \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
 
 \end{frame}
+
+
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_std.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_cov.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{SPY and TLT}
+    \framesubtitle{Portfolio Construction, cont'd}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er_cov.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+
+    Maximize the Sharpe ratio of the portfolio, which is given by
+    $$
+    \max_{w_i} S_p = \frac{\mathbb{E}(r_p) - r_f}{\sigma_p}
+    $$
+    s.t.
+    $$
+    w_{SPY} + w_{TLT} = 1
+    $$
+    \footnotesize
+    Substitute expressions for $\mathbb{E}(r_p)$, $\sigma_p$ and $w_{TLT}$ 
+    $$
+    \max_{w_{SPY}} = \frac{w_{SPY}*\mathbb{E}(R_{SPY})+(1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
+    $$
+    and then take the derivative with respect to $w$, set the derivative equal to zero, and finally solve for $w$.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+
+    Note that the Sharpe Ratio of the portfolio with $w = 0.67$ is \textit{higher}
+    than the Sharpe Ratio of the S\&P:
+
+    \begin{table}
+        \caption{Sharpe Ratios}
+        \begin{tabular}{lrrr}
+            \toprule
+            & Risk Premium & Std Dev & Sharpe Ratio\\
+            \midrule
+            SPY & 9.4 & 14.8 & 0.63\\
+            TLT & 3.1 & 13.6 & 0.22\\
+            \midrule
+            67\% SPY & & &\\
+            + 33\% TLT & 7.35 & 10.51 & 0.69 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 2: Decide on Cash Allocation}
+
+    Now that you have determined the optimal mix of SPY and TLT, 
+    the next decision is how much risk you want to take in your 
+    portfolio.   This is accomplished using the capital allocation 
+    process we discussed last week, with the only difference being that 
+    you are now allocating between cash and the optimal portfolio, 
+    rather than cash and the S\&P.\\
+    \vspace{1em}
+    Note that the allocation line is once again the \textit{capital allocation line (CAL)}, 
+    as the Capital Markets Line (CML) only referred to the case where the 
+    risky portfolio was the S\&P.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Step 2: Decide on Cash Allocation}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Optimization: SPY, TLT, and Cash}
+    \framesubtitle{Review}
+
+    In order to find the optimal allocation between three assets (SPY, TLT, and cash), follow these steps:
+
+    \begin{enumerate}
+        \item Estimate return and risk characteristics
+        \item Find optimal allocation between SPY and TLT, maximize the Sharpe Ratio
+        \item Find optimal allocation to cash, using indifference curves
+    \end{enumerate}
+
+\end{frame}
+
+
+
+
+
 
 \begin{frame}[t]
     \frametitle{1. Diversification - Review}
@@ -361,14 +537,7 @@
 
 \end{excelframe}
 
-\begin{excelframe}[t]
-    \frametitle{5. Excel}
-    \framesubtitle{Maximization (this week's homework)}
 
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_excel.png}
-
-\end{excelframe}
 
 \begin{practiceframe}[t]
     \frametitle{6. Practice}
@@ -384,60 +553,57 @@
             \item Could the set of assumptions in the second part (where correlation equals 1) 
             be an equilibrium?   Why or why not?
         \end{itemize}
-        \item True or false: The standard deviation of the portfolio is always 
-        equal to the weighted average of the standard deviations of the assets in the portfolio.
+
     \end{enumerate}
 
 \end{practiceframe}
 
-\begin{practiceframe}[t]
-    \frametitle{6. Practice}
+\begin{frame}[t]
+    \frametitle{Appendix: Data Construction}
+    \framesubtitle{Sharpe Ratio}
 
-    \begin{enumerate}[3]
-        \item The correlation coefficients between pairs of stocks are as follows: Corr(A,B) = 0.85,
-        Corr(A,C) = 0.6, Corr(A,D) = 0.45.   Each stock has an expected return of 8\% and a standard 
-        deviation of 20\%. 
-        \begin{itemize}
-            \item If your entire portfolio is now composed of stock A and you can 
-            add one stock to your portfolio, which do you add?
-            \item Would the answer change for more risk averse investors?
-            \item Suppose that you could also add T-Bills, which have a rate of 8\%.   How would 
-            your portfolio look now?
-        \end{itemize}
+    \textbf{Sharpe Ratio} = Excess Returns / Std Dev of Excess Returns\\
+    $$\frac{E[r] - r_f}{\sigma}$$
+    Where $E[r] - r_f$ is the \textit{excess} return of the asset and $\sigma$ is the standard deviation.\\
+    \vspace{1em}
+    Compute Historical Sharpe Ratios:
+    \begin{enumerate}
+      \item Match Total Return Series to Risk-free Return Series
+      \item For each period, compute Excess Returns = Total Return (\%) - Risk-Free Return (\%)
+      \item Compute Mean and Standard Deviation of Excess Returns
+      \item Sharpe Ration = Mean / Standard Deviation
     \end{enumerate}
 
-\end{practiceframe}
+\end{frame}
 
-\begin{practiceframe}[t]
-    \frametitle{6. Practice}
+\begin{frame}[t]
+    \frametitle{Appendix: Data Construction}
+    \framesubtitle{Sharpe Ratio}
 
-    \vspace{-1em}
-    \footnotesize{
-        \begin{enumerate}[4]
-        \item Abigail Grace starts with \$900k and then inherits \$100k in 
-        portfolio ABC stock.   She has the following estimates:
-              \begin{table}
-                \caption{Risk and Return Characteristics}
-                \begin{tabular}{lrr}
-                \toprule
-                    & $E[r]$, monthly & $\sigma$\\
-                \midrule
-                    Original Portfolio & 0.67\% & 2.37\%\\
-                ABC & 1.25 & 2.95\\
-                \bottomrule
-                \end{tabular}
-                \end{table}
-       The correlation coefficient of ABC with her original portfoio is 0.4.  Answer the following questions:
-        \begin{itemize}
-            \item Calculate the expected return of the new portfolio, the Covariance of ABC stock returns with her original portfolio, and the 
-            standard deviation of her new portfolio.
-            \item Grace sells ABC stock and buys T-Bills at a rate of 0.42\% monthly.   Recalculate the expected return and standard deviation.
-            \item Grace is considering selling ABC and buying XYZ, which has the same  
-            expected return and standard deviation as ABC.   Does it matter whether Grace owns ABC 
-            or XZY?   Why or why not?
-        \end{itemize}
-    \end{enumerate}
-    }
-\end{practiceframe}
+    \footnotesize
+    \begin{table}
+        \caption{ETF Performance Statitics - Excess Returns}
+        \begin{tabular}{llrrr}
+        \toprule
+        & Start Date & Mean (\%) & Std Dev (\%) & Sharpe Ratio \\
+        Ticker &  &  &  &  \\
+        \midrule
+        SPY & 1993-01 & 8.440 & 14.820 & 0.569 \\
+        TLT & 2002-07 & 3.090 & 13.660 & 0.226 \\
+        GLD & 2004-11 & 9.180 & 16.680 & 0.550 \\
+        EWW & 1996-03 & 9.420 & 26.570 & 0.355 \\
+        EWD & 1996-03 & 8.640 & 24.470 & 0.353 \\
+        EWH & 1996-03 & 4.630 & 24.100 & 0.192 \\
+        EWI & 1996-03 & 6.440 & 23.820 & 0.271 \\
+        EWJ & 1996-03 & 1.170 & 17.700 & 0.066 \\
+        EWL & 1996-03 & 6.350 & 16.610 & 0.382 \\
+        EWP & 1996-03 & 7.980 & 23.650 & 0.338 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+
 
 \end{document}
