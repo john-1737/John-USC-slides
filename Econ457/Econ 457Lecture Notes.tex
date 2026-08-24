@@ -58,5 +58,127 @@
 \end{itemize}
 
 
+\section{Lecture 2: Measurement}
+
+
+    \begin{shaded}
+    \subsection{Practice: EAR, APR, $r_{cc}$}
+    \begin{enumerate}
+        \item You purchase a security on January 1st for \$98.  The security produces quarterly income of \$2.  You sell the security after 9 months for \$105.   Calculate the following:
+    \begin{itemize}
+        \item HPR: ($2\times3 + (105-98)) / 98 = 13\%$
+        \item EAR: $(1+13\%)^{\frac{1}{0.75}} - 1 = 17\%$
+    \end{itemize}
+    \item An instrument has a APR of 15\% and compounds monthly.  Calculate the following:
+        \begin{itemize}
+        \item Monthly compounding rate (in \%): $15/12 = 1.25\%$
+        \item EAR: $(1+1.25\%)^{12} -1 = 16\%$
+        \item $r_{cc}: e^{r_{cc}} = 1.16 \\ r_{cc} = ln(1.16) = 14.8\%$
+    \end{itemize}
+    \item An investment has an EAR of 10\% and compounds monthly. Calculate the following:
+    \begin{itemize}
+        \item APR: $10/12 = 0.88\%$
+        \item $r_{cc}:$ 
+    \end{itemize}
+    \end{enumerate}
+    \end{shaded}
+
+    \begin{shaded}
+    \subsection{Practice: Geomtric v Arithmetic Mean}
+    \begin{enumerate}
+    \item Stock ABC doesn't pay dividends.   In year 1 the price of ABC declines by 20\%.   
+    In year 2 the price rebounds by 20\%. What is the arithmetic average of the annual returns?   What is the geometric average?      Which measure is more appropriate?\\
+    \vspace{1em}
+    
+   \textit{ Arithmetic average = $0\%$
+    Geometric average = $\sqrt{(1+0.2) \times (1-0.2)} = \sqrt{1.2 \times 0.8} = \sqrt{0.96} = 0.98 - 1 = -2\%$}
+    \vspace{1em}
+
+    \item   You invest \$1 million at the beginning of 2028 in a stock-index fund. 
+    If the rate of return in 2028 is -40\%, what rate of return in 2029 will be necessary for your 
+    portfolio to recover to its original value.\\
+    \vspace{1em}
+    
+    \textit{Answer: $\$400,000 / \$600,000 = 1.66 \implies 66\%$ return}
+    \end{enumerate}
+
+    \end{shaded}
+
+    \subsection{Logs}
+    In finance the analysis is often of the natural log of the price.   Here are a few considerations:
+    \begin{itemize}
+    \item The difference in the log price series is equal to the log of the gross return series
+    \begin{align*}
+    ln(P_t) - ln(P_{t-1}) &= ln\left(\frac{P_t}{P_{t-1}}\right)\\
+    &= ln(1+r_t)
+    \end{align*}
+    \item In practice, the difference of the logs is very close to the returns.   
+    $$ln(1+r_t) \approx r_t$$
+    This is due to the Taylor Rule.   The Taylor Expansion of $f(x)$ evaluated at $x=a$ is
+    \begin{align*}
+        f(x) &= \sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^2 \\
+            &= f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \dots \\
+    \end{align*}
+    For the special case that $a=0$
+        $$f(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \dots$$
+    When $f(x) = ln(1+x)$, then $f'(x) = \frac{1}{1+x}$ and $f''(x) = \frac{-1}{(1+x)^2}$, etc
+    \begin{align*}
+        ln(1+x) &= ln(1) + x -\frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots\\
+         &= x
+    \end{align*}
+    \item One reason to prefer the log of the price is that the logs are added, which is needed for the normal distribution results
+    \item A second reason to prefer the log of the price is that the distribution of future (log) of price will also be normally distributed.
+    \item A final reason to prefer the log of the price is that this linearizes graphs, which makes it easier to see trends.
+    \begin{itemize}
+    \item If the y-axis is in a log scale, then an increment of 1 represents an increase of 171\%.  This follows because if $ln(P_1) - ln(P_0) = 1$ then $ln(\frac{P_1}{P_0}) = 1$ then $ \frac{P_1}{P_0} = e = 2.71$ then $P_1 = 2.71P_0$ and $P_1 - P_0  = 1.71P_0$.   Note that an increase of 171\% is the same as a continuously compounded return of 100\%.
+    \item The slope of the log-price graph is equal to the average continuously compounded return.
+    \end{itemize}
+    \end{itemize}
+
+
+\section{Lecture 3: Distributions}
+
+    \begin{shaded}
+    \subsection{Practice: Computing Mean and Std Dev}
+      \begin{enumerate}
+      \setcounter{enumi}{0}
+          \item Determine the standard deviation of a random variable $q$ with the following probability distribution:
+
+        \begin{tabular}{lr}
+          \toprule
+          Value of $q$ & Probability \\
+          \midrule
+          0 & 0.25 \\
+          1 & 0.25 \\
+          2 & 0.5 \\
+          \bottomrule
+        \end{tabular}
+
+        \item Your expectations regarding the stock price are as follows:\\
+        \vspace{1em}
+        
+            \begin{tabular}{lrrr}
+              \toprule
+              Market & Probability & Ending Price & HPR\\
+              \midrule
+              Boom & 0.35 & \$140 & 44.5\%\\
+              Normal & 0.3 & 110 & 14\\
+              Recession & 0.35 & 0.8 & -16.5\\
+              \bottomrule
+            \end{tabular}
+            
+        Using your expectations, compute the mean and standard deviation of the HPR for this stock
+      \end{enumerate}
+  \end{shaded}
+
+    \begin{shaded}
+    \subsection{Practice: Annualizing Returns}
+      \begin{enumerate}
+      \setcounter{enumi}{0}
+        \item A real-estate property is expected to yield 2\% per quarter with a 
+        standard deviation of the quarterly rate of 10\%.  What is the estimated return and standard deviation on the real estate investment after 10 years?  Assuming a normal distribution, what is the probability of loss on the real estate investment after 10 years?
+        \item The continuously compounded annual return on a stock is normally distributed with a mean of 20\% and standard deviation of 30\%.   With 95.44\% confidence, what pair of values should we expect its actual return in any particular to be?
+      \end{enumerate}
+    \end{shaded}
 
 \end{document}

@@ -91,27 +91,16 @@
 
 \end{foundframe}
 
-\begin{foundframe}[t]
-    \frametitle{1. Exponential and Logarithm}
-    \framesubtitle{Some basic facts, cont'd}
-
-    Two more useful facts about logarithms:
-    \begin{enumerate}
-    \item  In a log-linear graph the scale of the y-axis is $log(y)$ or $ln(y)$.  
-    The slope of the log-linear graph is the average (continuously compounded) growth rate.
-    \item Logarithm is a concave function:\\
-    $$log((a+b)/2) > (log(a) + log(b))/2$$
-    \end{enumerate}
-
-\end{foundframe}
-
 
 \begin{foundframe}[t]
     \frametitle{1. Exponential and Logarithm}
     \framesubtitle{Some basic facts, cont'd}
 
+    Logarithm is a concave function: $log((a+b)/2) > (log(a) + log(b))/2$\\
+    \vspace{1em}
+    
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch5_1_lnexp.png}
+    \includegraphics[width=0.7\textwidth]{figures/ch5_1_lnexp.png}
 
 \end{foundframe}
 
@@ -229,7 +218,7 @@
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
     \frametitle{3. Measurement Issues}
     \section{Measurement Issues}
     \subsection{HPR}
@@ -329,17 +318,16 @@
         \item HPR
         \item EAR
     \end{itemize}
-    \item An instrument has a APR of 15\% and makes monthly payments.  Calculate the following:
+    \item An instrument has a APR of 15\% and compounds monthly.  Calculate the following:
         \begin{itemize}
-        \item Monthly interest rate (in \%)
-        \item EAR
+        \item Monthly compounding rate (in \%):
+        \item EAR: 
         \item $r_{cc}$
     \end{itemize}
     \item An investment has an EAR of 10\% and compounds monthly. Calculate the following:
     \begin{itemize}
         \item APR
         \item $r_{cc}$
-        \item The monthly interest rate
     \end{itemize}
     \end{enumerate}
     
@@ -413,33 +401,23 @@
 
 \end{frame}
 
-\begin{frame}[t]
+\begin{practiceframe}[t]
     \frametitle{3. Measurement Issues}
-    \framesubtitle{Geometric v. Arithmetic Mean, Example}
+    \framesubtitle{Practice}
 
+    \begin{enumerate}
+    \item
     Stock ABC doesn't pay dividends.   In year 1 the price of ABC declines by 20\%.   
     In year 2 the price rebounds by 20\%.\\ 
     \vspace{1em} 
     What is the arithmetic average of the annual returns?   What is the geometric average?
     \vspace{1em}
     Which measure is more appropriate?
-
-\end{frame}
-
-\begin{practiceframe}[t]
-    \frametitle{3. Measurement Issues}
-    \framesubtitle{Geometric v. Arithmetic Mean}
-
-    We can use the same concept to compute the distrubtion for a longer time period.
-
-  \begin{enumerate}
-  \setcounter{enumi}{1}
-    \item You invest \$1 million at the beginning of 2028 in a stock-index fund. 
+    \item   You invest \$1 million at the beginning of 2028 in a stock-index fund. 
     If the rate of return in 2028 is -40\%, what rate of return in 2029 will be necessary for your portfolio to recover to its original value.
-  \end{enumerate}
+    \end{enumerate}
 
 \end{practiceframe}
-
 
 
 \begin{frame}[t]
@@ -478,12 +456,33 @@
 
 \end{frame}
 
+
+
 \begin{frame}[t]
     \frametitle{3. Measurement Issues}
     \subsection{Log Scale}
     \framesubtitle{Log scale}
 
-    In a log-linear graph, $ln(y)$ is plotted against time.  
+    In finance it is common to take the natural log of the price series before conducting analysis.\\
+    \vspace{1em}
+    Using the rules about logarithms, this has a few nice properties, including that log returns are additive across time
+    \[
+    \ln\left(\frac{P_T}{P_0}\right)
+    =
+    \sum_{t=1}^T \ln(1+r_t).
+    \]
+
+    For small returns, the log of the gross return is very close to the simple return.   
+    $$ln(1+r_t) \approx r_t$$
+    And, because it doesn't matter that much, this class we generally don't take natural logs.   Still it's a good thing to know about.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Measurement Issues}
+    \framesubtitle{Log scale}
+
+    One place where are likely to see log prices is in very long time series graphs.  In a log-linear graph, $ln(y)$ is plotted against time.  
     The slope is the average continuously compounded growth rate per unit of time.
 
     \begin{columns}
