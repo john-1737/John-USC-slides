@@ -38,7 +38,7 @@
 \begin{frame}[t]
     \frametitle{Outline}
 
-    Previously we covered measuring total returns (HPR, EAR, etc).  Today we will talk about evaluating those returns.   The first step is to compare the returns with something.
+    Previously we covered measuring total returns (HPR, EAR, etc).   Then we covered how those returns are distributed.   Today we will talk about evaluating those returns.   Evaluation requires comparing the returns with something.
 
     \vspace{2em}
 
@@ -75,6 +75,62 @@
 
 \end{frame}
 
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Returns}
+    \section{Real v Nominal Returns}
+    \framesubtitle{What Is Inflation?}
+
+    \begin{itemize}
+        \item Inflation is a sustained increase in the general
+        price level of goods and services in an economy.
+
+        \item Inflation reduces the purchasing power of money:
+        a dollar buys fewer goods and services when prices are higher.
+
+        \item Inflation is typically measured using a price index,
+        which tracks the cost of a representative basket of goods and services.
+
+        \item The inflation rate is the percentage change in the
+        price index over time:
+        \[
+        \pi_t = \frac{P_t-P_{t-1}}{P_{t-1}}
+        \]
+
+        \item In the U.S., common measures include the
+        Consumer Price Index (CPI) and the
+        Personal Consumption Expenditures (PCE) price index.
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Returns}
+    \framesubtitle{Definitions}
+
+    \textbf{Definitions}
+
+    \begin{itemize}
+        \item \textbf{Nominal returns}: the percentage change in the value of an investment measured in current dollars.   Not adjusted for inflation.
+        \item \textbf{Real returns}: Returns that are adjusted for inflation.   Real returns are the equivalent to the change in purchasing power.
+        \begin{itemize}
+            \item If prices increase, the real returns will be less than the nominal returns.   Think about an investment account that increases in value.   That's good!   You may be able to buy more stuff.  But, if prices also increase, then you will be able to buy less stuff than you otherwise would, which is less good.
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Returns}
+    
+    \centering
+    \includegraphics[width=1\textwidth]{Econ357/figures/02_mkts_1_cpi.png}
+
+
+\end{frame}
+
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
     \framesubtitle{1970}
@@ -98,6 +154,8 @@
     \blfootnote{Data Source: Robert Shiller}
 
 \end{frame}
+
+
 
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
@@ -135,13 +193,14 @@
       \item Dividing a price series by $\text{CPI}/100$ puts everything in "1983 dollars"
       \item For each element in a series, construct a real value:
       $$\text{Real Price (1983 Dollars)}_t = \frac{\text{Price}_t}{\text{CPI}_t/100}$$
-      \item Construct a return series first, then adjust to get real values
+      \item Construct a price series first, then adjust to get real values.   In most cases you can also use a total return series, like the one you created in homework, and after a similar adjustment you would have the "real" value of an investment in that asset.   
     \end{enumerate}
   
   \end{frame}
 
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
+    \subsection{Fisher Equation}
     \framesubtitle{Fisher Equation}
     A common approximation* is:
     $$r_\text{real} \approx r_{\text{nominal}} - \pi$$
@@ -149,6 +208,8 @@
     $r_{\text{nominal}}$ is the annualized nominal rate of return, 
     and $\pi$ is the inflation rate over the relevant period.\\
     \vspace{1em}
+
+    Note that this approximation does not work well for large inflations.   In the case of a very high inflation, it is necessary to calculate the real yield explicitly by adjusting the price series.
     
     \vfill
     \footnotesize
@@ -164,19 +225,27 @@
     \framesubtitle{Fisher Equation}
 
     When used for \textit{expected returns}, this approximation is commonly known as the \textit{Fisher Equation}.\\
-    \vspace{1em}
     $$\mathbb{E}[r_\text{real}] \approx \mathbb{E}[r_{\text{nominal}}] - \pi^e$$
     Where $\pi^e$ is expected inflation.\\
     \vspace{1em}
 
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Inflation \& Real Returns}
+    \framesubtitle{Fisher Equation}
+
     The Fisher Equation is most commonly used in the context of bonds, where the expected return is equal to the interest rate (much more on this later).  With a little rearranging, we have:
     $$i_{\text{nominal}} \approx i_{\text{real}} + \pi^e$$
-    Where $i_{\text{nom}}$ is the nominal interest rate and $i_{\text{real}}$ is the real interest rate. 
+    Where $i_{\text{nom}}$ is the nominal interest rate and $i_{\text{real}}$ is the real interest rate. \\
     
+    Note that \textit{both} nominal bond yields may change in response to a change in inflation.
+
 \end{frame}
 
 \begin{practiceframe}[t]
   \frametitle{1. Inflation and Real Returns}
+  \subsection{Practice: Fisher Equation}
 
   \begin{enumerate}
     \item The Fisher equation tells us that the real interest rate approximately
@@ -184,13 +253,15 @@
     rate increases from 3\% to 5\%.   Does the Fisher equation imply that this 
     increase will result in a fall in the real interest rate?   Explain.
     \item Suppose the expected inflation rate rises to 10\%, but the real rate is unchanged.   What happens to the nominal interest rate?
+    \item The Narnian stock market had a rate of return of 45\% last year, but the inflation rate was 30\%. Using the Fisher Equation, what is the estimated real rate of return for investors.   What was the \textit{actual} real rate of return to Narnian investors?
     \end{enumerate}
 
 \end{practiceframe}
 
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
-    \framesubtitle{Fisher Equation}
+    \subsection{Historical Record}
+    \framesubtitle{Historical Record}
     
     Realized returns equal the expected returns only when the expectations are exactly correct, which they almost never are.
     \vspace{1em}
@@ -272,10 +343,9 @@
     The \textit{Excess Return} of an investment is simply:
     $$\text{Excess Return} = \text{Actual Rate of Return} - \text{Risk-Free Rate of Return}$$
     
-      
-    One convention is to use the return on Trasury Bills (T-Bills) as the risk-free rate, because T-bills returns have very low volatiliy.\\
-    \vspace{1em}
 
+    One convention is to use the return on Treasury Bills (T-Bills) as the risk-free rate.  This is appropriate because T-bills have no default risk and returns have very low volatility.\\
+    \vspace{1em}
 
     
     \blfootnote{Note that Treasury \textit{bonds} have price risk, 
@@ -286,6 +356,7 @@
 
 \begin{practiceframe}
     \frametitle{2. Risk-free rates \& Excess Returns}
+    \subsection{Practice: Excess Returns}
 
 \footnotesize
 You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.   Over the coming year, the bond will pay interest of \$75 per \$1,000 par value.   The price of the bond at the end of the year will depend on the level of interest rate prevailing at that time.   You construct the following scenario analysis:

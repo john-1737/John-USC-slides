@@ -78,8 +78,8 @@
             \item Total Return Definition
             \item Measurement
         \end{itemize}
-        \item Real Returns
-        \item History
+        \item Real v. Nominal Returns
+        \item Historical Distribution of Returns
     \end{enumerate}
 \end{frame}
 
@@ -188,6 +188,17 @@
 
 \end{frame}
 
+\begin{frame}[t]
+    \frametitle{1. Financial Market Returns}
+    \framesubtitle{Example: S\&P Total Return}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ457/figures/ch5_1_sp500_tr.png}
+
+    \blfootnote{Data source: Interactive Brokers (SPX and SPXT).   It many cases it is easiest to work with Total Return series, which already include income.   In homework assignment \#1 you will construct a total return series.}
+
+\end{frame}
+
 \begin{practiceframe}[t]
     \frametitle{1. Financial Market Returns}
     \framesubtitle{Measurement}
@@ -281,6 +292,25 @@
 
 \begin{frame}[t]
     \frametitle{2. Real v. Nominal Returns}
+    \framesubtitle{Observations}
+
+    Some observations about real returns.\\
+    \begin{itemize}
+      \item The appropriate price index may vary by investor
+        \begin{itemize}        
+        \item {\footnotesize For example, endowments may face higher price inflation if the price of health care (what they buy) increases faster than CPI.}
+      \end{itemize}
+      \item Often investment goals are expressed in real terms.  
+      \begin{itemize}        
+        \item {\footnotesize For example, "The target return for Harvard's endowed funds is 8\%, which accounts for roughly a 5\% distribution and 3\% growth to maintain purchasing power over time."}
+        \item When they report returns, do they report real returns?
+      \end{itemize}
+      \item Straightforward to measure historical real returns.   \textbf{Expected} real returns are harder.   Specifically, it is very difficult to measure expected inflation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Returns}
 
     \textbf{Be careful!}
     \vspace{1em}
@@ -290,8 +320,25 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
-    \section{History}
+    \frametitle{3. Historical Distribution of Returns}
+    \section{Historical Distribution}
+
+    The distribution of historical financial returns often looks
+    approximately normal.
+
+    \begin{itemize}
+        \item The mean (or $\mu$) is the average return. This is where
+        the distribution is centered.
+
+        \item The standard deviation (or $\sigma$) measures the
+        volatility of returns. It determines how widely the returns
+        are dispersed around the mean.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Historical Distribution of Returns}
 
     \centering
     \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_1_sp_monthly.png}
@@ -299,7 +346,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
+    \frametitle{3. Historical Distribution of Returns}
 
     \centering
     \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_1_ust_monthly.png}
@@ -307,7 +354,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
+    \frametitle{3. Historical Distribution of Returns}
 
     \centering
     \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_1_tbills_monthly.png}
@@ -315,8 +362,8 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
-    \framesubtitle{Using historical returns}
+    \frametitle{3. Historical Distribution of Returns}
+    \framesubtitle{Concerns about using the historical distribution to forecast}
 
     Often people use historical returns to predict expected returns.   This can be problematic.
     \begin{itemize}
@@ -329,7 +376,8 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
+    \frametitle{3. Historical Distribution of Returns}
+        \framesubtitle{Concerns about using the historical distribution to forecast}
 
     \centering
     \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_1_sp_table.png}
@@ -337,7 +385,8 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
+    \frametitle{3. Historical Distribution of Returns}
+        \framesubtitle{Concerns about using the historical distribution to forecast}
 
     \centering
     \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_1_housing1.png}
@@ -345,10 +394,24 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. History}
+    \frametitle{3. Historical Distribution of Returns}
+    \framesubtitle{Concerns about using the historical distribution to forecast}
 
     \centering
     \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_1_housing2.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Historical Distribution of Returns}
+    \framesubtitle{What to do?}
+
+    How financial market participants address these problems:
+    \begin{enumerate}
+        \item Use a distribution with fatter tails
+        \item Value at Risk (VaR)
+        \item Scenario Analysis / Stress Tests
+    \end{enumerate}
 
 \end{frame}
 

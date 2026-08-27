@@ -144,13 +144,26 @@
 
     \begin{shaded}
     \subsection{Practice: Log Scale}
-    If the natural log of a total return series increase by 1 point over a 2-year period, what is the HPR for that period?   What is the EAR?\\
-    \vspace{1em}
-    $$ln{\frac{P_2}{P_0}} = 1$$
-    Exponential of both sides
-    $$\frac{P_2}{P_0} = e$$
-    $$HPR = e - 1 = 171\%$$
-    $$EAR = \sqrt{1+1.71} - 1 = 64.9\%$$
+    \begin{itemize}
+        \item If the natural log of a total return series increase by 1 point over a 1-year period, what is the HPR for that period?   What is the EAR?\\
+            \vspace{1em}
+            $$ln{\frac{P_2}{P_0}} = 1$$
+            Exponential of both sides
+            $$\frac{P_2}{P_0} = e$$
+            $$HPR = e - 1 = 171\%$$
+            $$EAR = HPR$$
+            \item If the natural log of a total return series increase by 1 point over a 10-year period, what is the HPR for that period?   What is the EAR?  What is the $r_{cc}$\\
+            \vspace{1em}
+            $$ln{\frac{P_{10}}{P_0}} = 1$$
+            Exponential of both sides
+            $$\frac{P_{10}}{P_0} = e$$
+            $$HPR = e - 1 = 171\%$$
+            $$EAR = (1+1.71)^{1/10} - 1 = 10.5\%$$
+             $$\frac{P_{10}}{P_0} = e^{10r_{cc}}$$
+             $$ln(\frac{P_{10}}{P_0}) = 10r_{cc}$$
+             $$1 = 1r_{cc}$$
+             $$r_{cc} = 10\%$$
+    \end{itemize}
     \end{shaded}
 
 
@@ -215,6 +228,53 @@
         $$20 \pm 2\cdot30 = -30,+80$$
         
       \end{enumerate}
+    \end{shaded}
+
+\section{Lecture 4: Evaluation}
+
+    \begin{shaded}
+        \subsection{Practice: Fisher Approximation}
+        
+        \begin{enumerate}
+        \item The Fisher equation tells us that the real interest rate approximately
+        equals the nominal rate minus the inflation rate.   Suppose the inflation 
+        rate increases from 3\% to 5\%.   Does the Fisher equation imply that this 
+        increase will result in a fall in the real interest rate?   Explain.\\
+         
+        \textit{It depends on what happens to nominal interest rates.   If nominal interest rates are unchanged, then yes the real rate must decrease by about 2\%.   However, nominal interest rates are likely to go up a bit, which means real interest rates will fall by less.}
+        
+        \item Suppose the expected inflation rate rises to 10\%, but the real rate is unchanged.   What happens to the nominal interest rate?\\
+        
+        \textit{The nominal interest rate must increase.}
+        \item The Narnian stock market had a rate of return of 45\% last year, but the inflation rate was 30\%. Using the Fisher Equation, what is the estimated real rate of return for investors.   What was the \textit{actual} real rate of return to Narnian investors?\\
+        
+        Fisher Approximation: $45\% - 30\% = 15\%$\\
+        Actual = $1.45/1.3 = 11\%$
+        \end{enumerate}
+    \end{shaded}
+
+    \begin{shaded}  
+       \subsection{Practice: Excess Returns}
+
+You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.   Over the coming year, the bond will pay interest of \$75 per \$1,000 par value.   The price of the bond at the end of the year will depend on the level of interest rate prevailing at that time.   You construct the following scenario analysis:
+
+        \begin{tabular}{lcc}
+            \toprule
+             Interest Rates & Probability  & Bond Price \\
+             \midrule
+             Higher & 0.2 & \$850\\
+             Unchanged & 0.5 & 915\\
+             Lower & 0.3 & 985\\
+             \bottomrule
+        \end{tabular}
+
+        Your alternative investment is a T-bill that yields a sure rate of 5\%.   Calculate the HPR for each scenario, the expected rate of return, and the excess rate of return.   What is the expected excess return of the corporate bond?\\
+        
+        $$\text{Higher: HPR} =  \frac{75-50}{900} = +2.7\% \text{;  excess} = -2.3\%$$
+        $$\text{Unchanged: HPR} = \frac{75+15}{900} = 10\% \text{;  excess} =5\%$$
+        $$\text{Lower: HPR} = \frac{75+85}{900} = 17.7\% \text{;  excess} =12.7\%$$
+        $$\text{Expected Excess} = -2.3\cdot0.2 + 5\cdot0.5 + 12.7\cdot0.3 = 5.85\%$$
+
     \end{shaded}
 
 \end{document}
