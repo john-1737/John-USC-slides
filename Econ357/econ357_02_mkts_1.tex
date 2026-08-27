@@ -80,7 +80,6 @@
         \end{itemize}
         \item Real Returns
         \item History
-        \item Reading - Black Swans
     \end{enumerate}
 \end{frame}
 
@@ -133,15 +132,42 @@
 \end{frame}
 
 \begin{frame}[t]
+    \frametitle{2. Income}
+    \framesubtitle{Treasury Bond: Note the ``coupons'' at the bottom}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/intro_b_fig3.png}
+
+    \blfootnote{Source: The Joe I. Herbstman Memorial Collection of American Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Income}
+    \framesubtitle{Timing of Income}
+
+    Be careful with the timing of income.   
+    \begin{itemize}
+      \item In order to receive a dividend, you must purchase the stock
+    before the ``ex-dividend'' date.
+    \item If you purchase a stock on or after the ``ex-dividend'' date,
+    you will not receive the upcoming dividend; the seller retains the
+    right to the dividend.
+    \item A problem for this class may say "you purchase a stock that just paid a dividend." 
+    Do NOT count that dividend in the total return, as you purchased it \textit{after} the dividend was paid.
+    \end{itemize}
+
+\end{frame}
+
+\begin{practiceframe}[t]
     \frametitle{1. Financial Market Returns}
     \framesubtitle{Measurement}
 
-    \textbf{Example}: Stock X just paid a dividend of \$10.  You then buy Stock X for \$100, hold it for one year during which time it pays 4 more dividends of the same amount.   After one year you then sell the stock for \$110.  What was your return?
+      Stock X just paid a dividend of \$10.  You then buy Stock X for \$100, hold it for one year during which time it pays 4 more dividends of the same amount.   After one year you then sell the stock for \$110.  What was your total return?
 
     \centering
     \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_1_timeline.png}
 
-\end{frame}
+\end{practiceframe}
 
 \begin{frame}[t]
     \frametitle{1. Financial Market Returns}
@@ -162,13 +188,12 @@
 
 \end{frame}
 
-\begin{frame}[t]
+\begin{practiceframe}[t]
     \frametitle{1. Financial Market Returns}
     \framesubtitle{Measurement}
-
-    \textbf{Example}:  Coca-Cola (KO)
-    \vspace{1em}
     
+    \begin{enumerate}
+    \item Based on the information below, what is the total return for an investor in Coca-Cola (KO) that purchased the stock on Jan 1, 2025 and sold it one year later.   What was the capital gain or loss?   What was the income return?\\
     Price:
         \begin{itemize}
             \item Jan 1, 2025:  \$61.87
@@ -176,43 +201,55 @@
         \end{itemize}
 	Dividends: 
         \begin{itemize}
-            \item \$0.51 per quarter x 4 quarters = \$2.04
+            \item \$0.51 per quarter 
         \end{itemize}
 
-	Total Return: 
-         \begin{itemize}
-             \item (\$2.04 + (\$69.93-61.87)) / \$61.87 = 16.4\%
-         \end{itemize}
+    \item Consider a 10-year Treasury bond that has a 4.25\% coupon, which is paid semi-annually.   An investor purchases this bond for \$97.26 on Jan 1, 2025.   She sells the bond one year later and realizes a total return of 8.2\%.   What price did she sell the bond for?
+    \end{enumerate}
 
-\end{frame}
+\end{practiceframe}
+
 
 \begin{frame}[t]
-    \frametitle{1. Financial Market Returns}
-    \framesubtitle{Measurement}
+    \frametitle{2. Real v. Nominal Returns}
+    \section{Real v Nominal Returns}
+    \framesubtitle{What Is Inflation?}
 
-    \textbf{Example 2}:  10-year Treasury bond, 4.25\% coupon
-    \vspace{1em}
-    
-    Price:
-        \begin{itemize}
-            \item Jan 1, 2025:  \$97.26
-            \item Dec 31, 2025: \$101.00
-        \end{itemize}
-	Coupon Payments: 
-        \begin{itemize}
-            \item \$2.125 semi-annually x 2 = \$4.25
-        \end{itemize}
+    \begin{itemize}
+        \item Inflation is a sustained increase in the general
+        price level of goods and services in an economy.
 
-	Total Return: 
-         \begin{itemize}
-             \item (\$4.25 + (\$101-97.26)) / \$97.26 = 8.2\%
-         \end{itemize}
+        \item Inflation reduces the purchasing power of money:
+        a dollar buys fewer goods and services when prices are higher.
+
+        \item Inflation is typically measured using a price index,
+        which tracks the cost of a representative basket of goods and services.
+
+        \item The inflation rate is the percentage change in the
+        price index over time:
+        \[
+        \pi_t = \frac{P_t-P_{t-1}}{P_{t-1}}
+        \]
+
+        \item In the U.S., common measures include the
+        Consumer Price Index (CPI) and the
+        Personal Consumption Expenditures (PCE) price index.
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{2. Real v. Nominal Returns}
-    \section{Real v Nominal Returns}
+    
+    \centering
+    \includegraphics[width=1\textwidth]{Econ357/figures/02_mkts_1_cpi.png}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Real v. Nominal Returns}
+    \framesubtitle{Definitions}
 
     \textbf{Definitions}
 
@@ -220,7 +257,7 @@
         \item \textbf{Nominal returns}: the percentage change in the value of an investment measured in current dollars.   Not adjusted for inflation.
         \item \textbf{Real returns}: Returns that are adjusted for inflation.   Real returns are the equivalent to the change in purchasing power.
         \begin{itemize}
-            \item If prices increase, the real returns will be less than the nominal returns.   Think about an investment account that increases in value.   That's good!  But, if prices increase by the same amount, then you can only still buy the same amount of stuff with your larger investment account.
+            \item If prices increase, the real returns will be less than the nominal returns.   Think about an investment account that increases in value.   That's good!   You may be able to buy more stuff.  But, if prices also increase, then you will be able to buy less stuff than you otherwise would, which is less good.
         \end{itemize}
     \end{itemize}
 
@@ -254,6 +291,7 @@
 
 \begin{frame}[t]
     \frametitle{3. History}
+    \section{History}
 
     \centering
     \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_1_sp_monthly.png}

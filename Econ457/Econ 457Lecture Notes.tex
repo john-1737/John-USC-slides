@@ -135,6 +135,17 @@
     \end{itemize}
     \end{itemize}
 
+    \begin{shaded}
+    \subsection{Practice: Log Scale}
+    If the natural log of a total return series increase by 1 point over a 2-year period, what is the HPR for that period?   What is the EAR?\\
+    \vspace{1em}
+    $$ln{\frac{P_2}{P_0}} = 1$$
+    Exponential of both sides
+    $$\frac{P_2}{P_0} = e$$
+    $$HPR = e - 1 = 171\%$$
+    $$EAR = \sqrt{1+1.71} - 1 = 64.9\%$$
+    \end{shaded}
+
 
 \section{Lecture 3: Distributions}
 
@@ -154,6 +165,10 @@
           \bottomrule
         \end{tabular}
 
+        $$\mu_q = 0\cdot0.25 + 1\cdot0.25 + 2\cdot0.5 = 1.25$$
+        $$\sigma^2_q = (0-1.25)^2\cdot0.25 + (1-1.25)^2\cdot0.25 + (2-1.25)^2 \cdot 0.5 = 0.6875$$
+        $$\sigma = \sqrt{0.6875} = 0.829$$
+
         \item Your expectations regarding the stock price are as follows:\\
         \vspace{1em}
         
@@ -163,11 +178,16 @@
               \midrule
               Boom & 0.35 & \$140 & 44.5\%\\
               Normal & 0.3 & 110 & 14\\
-              Recession & 0.35 & 0.8 & -16.5\\
+              Recession & 0.35 & 80 & -16.5\\
               \bottomrule
             \end{tabular}
             
         Using your expectations, compute the mean and standard deviation of the HPR for this stock
+
+        $$\mu = 44.5\cdot0.35 + 14\cdot0.3 + -16.5\cdot0.35 = 14\%$$
+        $$\sigma^2 = (30.5)^2\cdot0.35 + 30.5^2\cdot0.35 = 930\cdot0.70 = 651$$
+        $$\sigma = \sqrt{651} = 25.52\%$$
+        
       \end{enumerate}
   \end{shaded}
 
@@ -177,7 +197,16 @@
       \setcounter{enumi}{0}
         \item A real-estate property is expected to yield 2\% per quarter with a 
         standard deviation of the quarterly rate of 10\%.  What is the estimated return and standard deviation on the real estate investment after 10 years?  Assuming a normal distribution, what is the probability of loss on the real estate investment after 10 years?
-        \item The continuously compounded annual return on a stock is normally distributed with a mean of 20\% and standard deviation of 30\%.   With 95.44\% confidence, what pair of values should we expect its actual return in any particular to be?
+
+        $$\mu = (1+0.02)^{40} = 2.2 = 120\%$$
+        $$\sigma = \sqrt{40}\cddot10 = 6.32\cdot10 = 63.2$$
+        $$z=\frac{0-120.8}{63.25}=-1.91$$
+        $$P(R<0)=P(Z<-1.91)\approx2.8\%$$
+        
+        \item The continuously compounded annual return on a stock is normally distributed with a mean of 20\% and standard deviation of 30\%.   With 95.44\% confidence, what pair of values should we expect its actual return in any particular year to be?
+
+        $$20 \pm 2\cdot30 = -30,+80$$
+        
       \end{enumerate}
     \end{shaded}
 
