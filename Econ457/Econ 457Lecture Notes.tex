@@ -32,6 +32,12 @@
 \newtheorem{reg}{Rule}
 \newtheorem{exer}{Exercise}
 \newtheorem{note}{Note}
+
+% Each lecture starts on a new page
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+
 \begin{document}
 \setcounter{section}{0}
 \title{Econ 457 Lecture Notes}
@@ -43,6 +49,7 @@
 % Notes: \begin{note}
 % Shaded area: \begin{shaded}
 % Definition: \begin{defn}
+
 
 
 \begin{center}
@@ -199,7 +206,7 @@
         standard deviation of the quarterly rate of 10\%.  What is the estimated return and standard deviation on the real estate investment after 10 years?  Assuming a normal distribution, what is the probability of loss on the real estate investment after 10 years?
 
         $$\mu = (1+0.02)^{40} = 2.2 = 120\%$$
-        $$\sigma = \sqrt{40}\cddot10 = 6.32\cdot10 = 63.2$$
+        $$\sigma = \sqrt{40}\cdot10 = 6.32\cdot10 = 63.2$$
         $$z=\frac{0-120.8}{63.25}=-1.91$$
         $$P(R<0)=P(Z<-1.91)\approx2.8\%$$
         
