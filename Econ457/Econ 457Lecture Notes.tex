@@ -277,4 +277,127 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
 
     \end{shaded}
 
+\section{Lecture 5: Capital Allocation}
+
+    \begin{shaded}
+    \subsection{Practice: Indifference Curves}
+    Assume that an investor's utility is
+        $$U = E[r] - 0.5 \cdot A \cdot \sigma^2$$ 
+
+    A portfolio has an expected rate of return of 15\% and a standard deviation of 30\%.  T-bills offer a safe rate of return of 2\%.   
+    \begin{itemize}
+        \item Would an investor with a risk-aversion parameter of $A=4$ prefer to invest in T-bills or the risky portfolio?   \\
+        
+        \textit{For $A=4$, investing in the risky portfolio gives a utility of $U = 0.15 - 0.5\cdot 4 \cdot \ 0.30^2 = -0.03$, whereas investing in T-Bills gives $U = 0.02$.   T-Bills are preferred.\\}
+        \item What if $A=2$?\\
+        
+        \textit{For $A=2$, investing in the risky portfolio gives a utility of $U = 0.15 - 0.5\cdot 2 \cdot \ 0.30^2 = 0.06$, whereas investing in T-Bills gives $U = 0.02$.   Risky assets are preferred}
+
+        \item Plot the risky portfolio on a graph of $E[r]$ vs. $\sigma$
+        \item Assume $A=4$.   How much less return does this investor require to be indifferent between the risky portfolio and an alternative portfolio that has a standard deviation of 25\%?\\
+
+        \textit{5\% less standard deviation, should require less return.   $-2*0.25^2 = -0.125$ v. $-2*0.3^2 = -0.18$.   So need $5.5\%$ less return}
+        \item Assume $A=4$.   How much additional risk is this investor willing to bear in order to be indifferent between the risky portfolio and an alternative portfolio that has an expected return of 20\%.\\  
+
+        \textit{First solve for U in the base case.   $U = 0.15 - 0.18 = -0.03$   Now if $E[r]=0.2$ for the same U we can rearrange: $-0.03 = 0.2 - 2*\sigma^2$ then $\sigma^2 = 0.115$ and take a square root, $\sigma=33.9\%$, so an increase of $3.9$ percentage points in standard deviation}
+        \item Sketch the indifference curves for $A=4$
+
+        \item How would the indifference curve change for $A=2$\\
+    
+        \textit{For $A=2$, in the last question, it would take a \textbf{larger} change in the standard deviation for a given change in the expected return.   The indifference curve would be flatter (less curved)}
+        
+        \item For which value of $A$ is the investor more "risk averse"\\
+
+        \textit{The higher A, the more risk averse}
+        
+        \item Think about the intuition behind the coefficient $A$ and an investor's risk aversion.
+    \end{itemize}
+
+    \end{shaded}
+
+    \begin{shaded}
+    \subsection{Practice: Sharpe Ratios}
+        \begin{itemize}
+        \item Can the Sharpe Ratio of any combination of the risky asset and the risk-free asset be different from the ratio of the risky asset taken alone?\\
+
+        \textit{No.  Rewrite the numerator of the Sharpe Ratio as $w(E[r] - r_f)$, and note that the denominator is $w\sigma$.    The intuition is that scaling the amount invested in the risky asset introduces a $w$ in both the numerator and the denominator of the Sharpe Ratio.   Those $w$s cancel. }
+        
+        \item The Sharpe Ratio is also referred to as the reward-to-volatility ratio.  Holding the risk-free asset reduces both expected excess return and volatility, but does not change the reward-to-volatility ratio.  Why, then, might an investor choose to hold some of their wealth in the risk-free asset?\\
+
+        \textit{Utility may be higher, even if the Sharpe Ratio is not.   The Sharpe Ratio is the trade off between risk and volatility.   Every investor may value risk and volatility differently.}
+    \end{itemize}
+
+    \end{shaded}
+
+\section{Lecture 6: Capital Allocation, Cont'd}   
+
+    \begin{shaded}
+    \subsection{Practice: Capital Allocation Problem}
+    You manage a risky portfolio with expected rate of return of 12\% and a standard deviation of 28\%.  The T-Bill rate is 2\%.
+    \begin{enumerate}
+        \item Your client chooses to invest 70\% of a portfolio in your fund and 30\% in a risk-free money 
+        market fund.   What are the expected return and standard deviation on her portfolio?
+        \begin{align*}
+            E[r] &= 0.7 \cdot 0.12 + 0.3 \cdot 0.02 = 0.09 \\
+            \sigma &= 0.7 \cdot 0.28  = 0.196
+        \end{align*}
+        \item What is the reward-to-volatility (Sharpe) ratio of her portfolio?   Of your risky portfolio?   (Hint: draw the CAL, what is the slope?  Where is your client's portfolio?)\\
+        $$\text{Sharpe Ratio} = \frac{E[r] - r_f}{\sigma} = \frac{0.07}{0.196} = 0.357$$
+        \item Suppose your client instead chooses to invest a proportion $y$ that maximizes the expected return, 
+        subject to the constraint that the complete portfolio standard deviation will not exceed 12\%.   What is in the invested proportion $y$?   What is the expected return?
+        \begin{align*}
+            0.12 &= w*0.28 \implies w=0.428 \\
+            E[r] &= 0.428 \cdot 12 + (1-0.428) \cdot 2 = 5.136 + 1.144 = 6.306
+        \end{align*}
+        \item Your client's degree of risk aversion is $A = 3.5$.   What proportion $y$ should they invest in your fund?
+
+        \begin{align*}
+            U &= E[r] - 0.5 \cdot 3.5 \cdot \sigma^2 \\
+              &= wE[r_{risky}] + (1-w)r_f - 0.5 \cdot 3.5 w^2\cdot \sigma^2 \\
+            &\text{First Derivative wrt w, set equal to 0} \\
+             0 &= E[r_{risky}] - r_f - 3.5 \cdot w \cdot \sigma^2 \\
+            &\text{Fill in values}\\
+             0 &= 0.12 - 0.02 - 3.5 \cdot 0.28^2 \cdot w \\
+             w &= \frac{0.10}{3.5*0.28^2}\\
+             &= 0.364
+        \end{align*}
+        
+    \end{enumerate}
+    \end{shaded}
+
+    \begin{shaded}
+    Consider a risky portfolio with $\mathbb{E}[r_p]=8\%$ and $\sigma_p=15\%$.   The risk free rate is 2\%.
+    \begin{enumerate}
+        \item Your client wants to invest a proportion of her budget in this fund to get a rate of return on her overall portfolio of 5\%.   What proportion of her total portfolio should she invest in the risky fund?
+        $$0.05 = w\cdot0.08 + (1-w)\cdot0.02 \implies 0.03 = w \cdot 0.06 \implies w = 0.5$$
+        \item What will the standard deviation be on her total portfolio?
+        $$7.5\%$$
+        \item Another client wants the highest return possible, subject to the constraint that you 
+        limit the standard deviation to be no more than 12\%.   Assuming the clients have the same utility functions, except for the parameter $A$, which client is more risk averse?\\
+        \textit{The first client is more risk averse (optimal portfolio has less risk)}
+    \end{enumerate}
+    \end{shaded}
+
+    \begin{shaded}
+        \subsection{Practice: Margin Calls}
+            Suppose an investor initially pays \$6,000 toward the purchase of \$10,000 worth of stock.   They borrowed the remaining \$4,000 from a broker.  
+    \begin{enumerate}
+        \item How much equity does the investor begin with in their margin account?   The margin is defined as the $\frac{\text{Equity}}{\text{Value of Stock}}$.   How much margin do they have?\\
+            $$\$6,000, 60\%$$
+        \item If the stock falls by 30\%, how much margin does the investor have now?\\
+            $$\frac{\text{Equity in Account}}{\text{Value of Stock}} = \frac{\$7,000 - \$4,000}{\$7,000} = 42\%$$
+        \item If the investor has a maintenance margin of 30\%, what is the maximum amount the stock can fall before they need to post additional margin?   What if there was 50\% maintenance margin?
+            \begin{align*}
+                &\frac{\$10,000 * (1+r) - \$4,000}{\$10,000 * (1+r)} = 30\% \\
+                & -\$4,000 = -\$7,000 \cdot (1+r) \\
+                & \implies (1+r) = 0.57 \implies r = -43\%\\
+                &\text{For a 50\% maintenance margin}\\
+                &\frac{\$10,000 * (1+r) - \$4,000}{\$10,000 * (1+r)} = 50\% \\
+                & -\$4,000 = -\$5,000 \cdot (1+r) \\
+                & \implies (1+r) = 0.8 \implies r = -20\%\\
+            \end{align*}
+    \end{enumerate}
+
+    \end{shaded}
+
 \end{document}

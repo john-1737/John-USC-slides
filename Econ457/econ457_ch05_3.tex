@@ -184,19 +184,41 @@
 
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
-    \framesubtitle{Some Math}
+    \framesubtitle{Computing Real Returns}
 
-    Measure Real Returns as Follows:\\
-    \vspace{1em}
-    \begin{enumerate}
-      \item CPI is an Index where Aug 1983 = 100
-      \item Dividing a price series by $\text{CPI}/100$ puts everything in "1983 dollars"
-      \item For each element in a series, construct a real value:
-      $$\text{Real Price (1983 Dollars)}_t = \frac{\text{Price}_t}{\text{CPI}_t/100}$$
-      \item Construct a price series first, then adjust to get real values.   In most cases you can also use a total return series, like the one you created in homework, and after a similar adjustment you would have the "real" value of an investment in that asset.   
-    \end{enumerate}
-  
-  \end{frame}
+    \vspace{-0.5em}
+    Two approaches to calculating real returns for a monthly series:
+    \vspace{0.5em}
+
+    \textbf{1. Adjust all dollar values to be ``real''}
+    \begin{itemize}
+        \item For a dollar value recorded in month $y$, convert it to a
+        ``real'' value by dividing by
+        $\frac{\text{CPI}_y}{\text{CPI}_{initial}}$, where
+        $\text{CPI}_y$ is the CPI index on the date the value was recorded
+        and $\text{CPI}_{initial}$ is the CPI index in the initial period.
+
+        \item Do this for both prices and dividends.
+
+        \item Calculate total returns now using these ``real''  series.
+    \end{itemize}
+
+    \textbf{2. Calculate the real total return each month}
+    \begin{itemize}
+        \item Calculate the nominal total return in the normal way.
+
+        \item Convert the gross return to a real gross return:
+        \[
+        1+r_t^{real}
+        =
+        \frac{1+r_t^{nominal}}
+        {\text{CPI}_t/\text{CPI}_{t-1}}
+        \]
+
+        \item The result is the ``real'' total return for that month.
+    \end{itemize}
+
+\end{frame}
 
 \begin{frame}[t]
     \frametitle{1. Inflation \& Real Returns}
@@ -281,31 +303,31 @@
     
     \vspace{-1em}
     \scriptsize
-   \begin{table}
-    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
-    \begin{tabular}{lrrr}
-    \toprule
-    Decade & Return & CPI Inflation & Real Return \\
-    \midrule
-    1870s & 8.11 & -2.59 & 10.92 \\
-    1880s & 6.29 & -2.38 & 8.52 \\
-    1890s & 6.24 & 0.58 & 6.08 \\
-    1900s & 10.62 & 2.49 & 8.30 \\
-    1910s & 4.99 & 6.65 & -1.31 \\
-    1920s & 15.46 & -1.11 & 16.46 \\
-    1930s & 4.39 & -1.98 & 6.33 \\
-    1940s & 9.47 & 5.39 & 4.30 \\
-    1950s & 18.24 & 2.27 & 16.01 \\
-    1960s & 8.05 & 2.55 & 5.57 \\
-    1970s & 6.56 & 7.16 & -0.53 \\
-    1980s & 16.88 & 4.89 & 11.87 \\
-    1990s & 17.19 & 2.81 & 14.29 \\
-    2000s & 0.38 & 2.50 & -2.12 \\
-    2010s & 13.02 & 1.73 & 11.25 \\
-    2020s & 13.72 & 4.08 & 9.55 \\
-    \bottomrule
-    \end{tabular}
-    \end{table}
+        \begin{table}
+        \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+        \begin{tabular}{lrrr}
+        \toprule
+        Decade & Return & CPI Inflation & Real Return \\
+        \midrule
+        1870s & 8.42 & -2.56 & 11.48 \\
+        1880s & 6.47 & -2.36 & 8.86 \\
+        1890s & 6.42 & 0.59 & 6.25 \\
+        1900s & 11.16 & 2.52 & 8.63 \\
+        1910s & 5.10 & 6.85 & -1.31 \\
+        1920s & 16.61 & -1.11 & 17.76 \\
+        1930s & 4.48 & -1.96 & 6.52 \\
+        1940s & 9.89 & 5.53 & 4.39 \\
+        1950s & 19.84 & 2.29 & 17.23 \\
+        1960s & 8.35 & 2.58 & 5.71 \\
+        1970s & 6.77 & 7.40 & -0.53 \\
+        1980s & 18.25 & 5.00 & 12.54 \\
+        1990s & 18.61 & 2.85 & 15.26 \\
+        2000s & 0.38 & 2.53 & -2.10 \\
+        2010s & 13.82 & 1.74 & 11.85 \\
+        2020s & 16.16 & 3.86 & 12.05 \\
+        \bottomrule
+        \end{tabular}
+        \end{table}
 
     \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
 
@@ -411,50 +433,23 @@ Your alternative investment is a T-bill that yields a sure rate of 5\%.   Calcul
 
 \begin{frame}[t]
     \frametitle{2. Risk-free rates \& Excess Returns}
-    \framesubtitle{Excess Returns of Risky Assets}
+    \framesubtitle{Computing Excess Returns}
 
+    In order to calculate the excess monthly return for an asset:
     \begin{enumerate}
       \item Calculate the monthly return for the risk-free asset (T-Bills)
       \begin{itemize}
-        \item The return each month is determined by the T-Bill rate at the \textit{beginning} of the month.
+        \item Be careful to adjust any annualized rates, as discussed on the previous slide, to get the monthly return.
       \end{itemize}
       \item Create the monthly total return for the risky asset 
         \begin{itemize}
-        \item Can use total return series from previous class.  Remember to include income.   Price change reflects the price at the \textit{end} of the month.
+        \item Remember to include income
       \end{itemize}
-      \item For each period, subtract the risk-free return from the return for the risky asset
-       to get the "excess return" of the risky asset.
-      \item Use the "excess return" in each period to construct a new series for the risky asset
-      \item \textit{Note:} Be careful to use the same frequency (e.g. monthly) 
+      \item For each period, subtract the risk-free return from the return for the risky asset to get the "excess return" of the risky asset.\\
+
+
     \end{enumerate}
     
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Risk-free rates \& Excess Returns}
-    \framesubtitle{Excess Returns of Stocks, cont'd}
-
-    \vspace{2em}
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      % Table
-      \includegraphics[width=\textwidth]{figures/ch5_2_fig5.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      % Chart
-      \includegraphics[width=\textwidth]{figures/ch5_2_fig6.png}
-    \end{minipage}
-\end{frame}
-  
-\begin{frame}[t]
-  \frametitle{2. Risk-free rates \& Excess Returns}
-  \framesubtitle{Excess Returns of Stocks, cont'd}
-
-  \centering
-  \includegraphics[width=0.9\textwidth]{figures/ch5_3_ereturns.png}
-
 \end{frame}
 
 {
@@ -466,30 +461,24 @@ Your alternative investment is a T-bill that yields a sure rate of 5\%.   Calcul
     \vspace{-1em}
     \scriptsize
     \begin{table}
-    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
-    \begin{tabular}{lrrr}
-    \toprule
-    Decade & Return & Risk Free Return & Excess Return \\
-    \midrule
-    1870s & 8.11 & NaN & NaN \\
-    1880s & 6.29 & NaN & NaN \\
-    1890s & 6.24 & NaN & NaN \\
-    1900s & 10.62 & NaN & NaN \\
-    1910s & 4.99 & NaN & NaN \\
-    1920s & 15.46 & 3.66 & 13.95 \\
-    1930s & 4.39 & 0.55 & 5.46 \\
-    1940s & 9.47 & 0.41 & 9.92 \\
-    1950s & 18.24 & 1.86 & 15.72 \\
-    1960s & 8.05 & 3.81 & 4.94 \\
-    1970s & 6.56 & 6.14 & 1.18 \\
-    1980s & 16.88 & 8.55 & 8.56 \\
-    1990s & 17.19 & 4.82 & 12.79 \\
-    2000s & 0.38 & 2.72 & -1.70 \\
-    2010s & 13.02 & 0.51 & 13.13 \\
-    2020s & 13.72 & 2.48 & 10.72 \\
-    \bottomrule
-    \end{tabular}
-    \end{table}
+        \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+        \begin{tabular}{lrrr}
+        \toprule
+        Decade & Return & Risk Free Return & Excess Return \\
+        \midrule
+        1930s & 4.48 & 0.55 & 3.91 \\
+        1940s & 9.89 & 0.41 & 9.44 \\
+        1950s & 19.84 & 1.87 & 17.67 \\
+        1960s & 8.35 & 3.88 & 4.32 \\
+        1970s & 6.77 & 6.31 & 0.43 \\
+        1980s & 18.25 & 8.89 & 8.65 \\
+        1990s & 18.61 & 4.93 & 13.09 \\
+        2000s & 0.38 & 2.75 & -2.31 \\
+        2010s & 13.82 & 0.51 & 13.25 \\
+        2020s & 16.16 & 2.72 & 13.14 \\
+        \bottomrule
+        \end{tabular}
+        \end{table}
 
     \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
 
@@ -537,31 +526,25 @@ Your alternative investment is a T-bill that yields a sure rate of 5\%.   Calcul
     
     \vspace{-1em}
     \scriptsize
-    \begin{table}
-    \caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
-    \begin{tabular}{lrrr}
-    \toprule
-    Decade & Excess Return & Standard Deviation & Sharpe Ratio \\
-    \midrule
-    1870s & NaN & 10.86 & NaN \\
-    1880s & NaN & 9.62 & NaN \\
-    1890s & NaN & 11.84 & NaN \\
-    1900s & NaN & 12.70 & NaN \\
-    1910s & NaN & 10.51 & NaN \\
-    1920s & 13.95 & 15.08 & 0.93 \\
-    1930s & 5.46 & 30.63 & 0.18 \\
-    1940s & 9.92 & 13.23 & 0.75 \\
-    1950s & 15.72 & 10.08 & 1.56 \\
-    1960s & 4.94 & 10.31 & 0.48 \\
-    1970s & 1.18 & 13.23 & 0.09 \\
-    1980s & 8.56 & 12.98 & 0.66 \\
-    1990s & 12.79 & 10.45 & 1.22 \\
-    2000s & -1.70 & 14.68 & -0.12 \\
-    2010s & 13.13 & 9.55 & 1.38 \\
-    2020s & 10.72 & 14.15 & 0.76 \\
-    \bottomrule
-    \end{tabular}
-    \end{table}
+\begin{table}
+\caption{S\&P 500 Total Returns by Decade, (\% Annualized)}
+\begin{tabular}{lrrr}
+\toprule
+Decade & Excess Return & Standard Deviation & Sharpe Ratio \\
+\midrule
+1930s & 3.91 & 30.63 & 0.13 \\
+1940s & 9.44 & 13.23 & 0.71 \\
+1950s & 17.67 & 10.08 & 1.75 \\
+1960s & 4.32 & 10.31 & 0.42 \\
+1970s & 0.43 & 13.23 & 0.03 \\
+1980s & 8.65 & 12.98 & 0.67 \\
+1990s & 13.09 & 10.45 & 1.25 \\
+2000s & -2.31 & 14.68 & -0.16 \\
+2010s & 13.25 & 9.55 & 1.39 \\
+2020s & 13.14 & 13.96 & 0.94 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
     \blfootnote{Data Source: Robert Shiller, Ken French.  Monthly data annualized.}
 

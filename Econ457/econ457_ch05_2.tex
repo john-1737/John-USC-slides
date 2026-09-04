@@ -54,8 +54,8 @@
     \framesubtitle{Some basic facts}
 
     Notation: 
-    $$X \sim N(\mu, \sigma^2)$$
-    Where $\mu$ is the mean, $\sigma^2$ is the variance, and $\sigma$ is the standard deviation.\\   
+    $$X \sim N(\mu_x, \sigma_x^2)$$
+    Where $\mu_x$ is the mean, $\sigma_x^2$ is the variance, and $\sigma_x$ is the standard deviation.\\   
     \vspace{1em}
     The distribution can be characterized by either the variance or the standard deviation.  
     In finance it is common to use the standard deviation, because it is in the same units as the returns, whereas the variance is squared.\\
@@ -66,16 +66,72 @@
     \frametitle{1. The Normal Distribution}
     \framesubtitle{Some basic facts}
 
+    \vspace{-1em}
+    In order to estimate these parameters, use the empirical mean and variance.\\
+    \vspace{1em}
+
     Empirical mean:
-    $$\bar{x} = \frac{1}{T}\sum_{t=1}^{T}x_t$$
+    $$\hat{\mu}_x = \frac{1}{T}\sum_{t=1}^{T}x_t$$
 
     Empirical variance:
-    $$s^2 = \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2$$
+    $$\hat{\sigma}^2 = \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2$$
 
-    Empirical standard deviation:
-    $$s = \sqrt{s^2} = \sqrt{\frac{1}{T-1}\sum_{t=1}^{T}(x_t - \bar{x})^2}$$
+    Empirical standard deviation:  $\hat{\sigma} = \sqrt{\hat{\sigma}^2}$
+
+    \blfootnote{The "$\hat{}$" are used to signify that this is an estimate.   The $T-1$ term in the empirical variance accounts for the degrees of freedom.   In practice, when $T$ is often quite large, this adjustment doesn't matter, and in later slides I may drop it.}
+
 
 \end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    Adding two normally distributed variables $X$ and $Y$, where $X \sim N(\mu_x,\sigma_x^2)$ and $Y \sim N(\mu_y,\sigma_y^2)$ \\
+    \vspace{1em}
+    
+    \textbf{Case 1:} $X$ and $Y$ are \textit{independent}
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2)$$
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    Adding two normally distributed variables $X$ and $Y$, where $X \sim N(\mu_x,\sigma_x^2)$ and $Y \sim N(\mu_y,\sigma_y^2)$\\
+    \vspace{1em}
+     
+    \textbf{Case 2:} $X$ and $Y$ are \textit{correlated} 
+    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2\sigma_x\sigma_y\rho_{x,y})$$
+    
+    where $\rho_{x,y} = \frac{\text{Cov}(X,Y)}{\sigma_x\sigma_y}$ is the correlation coefficient.\\
+    \vspace{1em}
+
+    Notes:
+    \begin{itemize}
+    \item We will discuss correlations and the correlation coefficient in more depth in the section on diversification.
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+    
+    Adding many independent and identically distributed random variables, where $X_i \sim N(\mu_x,\sigma_x^2)$, results in the following:
+    $$\sum_{i=1}^{T}X_i \sim N(T\mu,T\sigma^2)$$
+
+    Notes:
+    \begin{itemize}
+    \item "Independent and identically distributed" means that the correlation between the variable is zero \textbf{and} $\mu$s and $\sigma^2$s are all the same for each variable.
+    \item The mean and variance both scale by the number of variables being added together.
+    \item Remember that often we are interested in the standard deviation, which will scale by $\sqrt{T}$
+    \end{itemize}
+  
+\end{foundframe}
+
+
 
 \begin{foundframe}[t]
     \frametitle{1. The Normal Distribution}
@@ -86,24 +142,13 @@
 
     Multiplying $X$ by a constant $C$:
     $$C \cdot X \sim N(C\mu_x,C^2\sigma_x^2)$$
-    (notice the $C^2$ in the variance term)
 
-\end{foundframe}
+    Notes:
+    \begin{itemize}
+    \item Notice the $C^2$ in the variance term
+    \item This is \textit{not} the same as when we add multiple independent random variables.   In the case where we add $T$ independent random variables, as we saw in a previous slide, the variance is multiplied by $T$
+    \end{itemize}
 
-\begin{foundframe}[t]
-    \frametitle{1. The Normal Distribution}
-    \framesubtitle{Some basic facts, cont'd}
-
-    Adding two normally distributed variables $X$ and $Y$:\\
-    \vspace{1em}
-    
-    \textbf{Case 1:} $X$ and $Y$ are \textit{independent}
-    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2)$$
-     
-    \textbf{Case 2:} $X$ and $Y$ are \textit{correlated} 
-    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2\sigma_x\sigma_y\rho_{x,y})$$
-    
-    where $\rho_{x,y} = \frac{\text{Cov}(X,Y)}{\sigma_x\sigma_y}$ is the correlation coefficient.
 
 \end{foundframe}
 
@@ -116,6 +161,8 @@
 
 \end{foundframe}
 
+
+
 \begin{foundframe}[t]
     \frametitle{1. The Normal Distribution}
     \framesubtitle{Some basic facts, cont'd}
@@ -124,6 +171,48 @@
         \includegraphics[width=0.8\textwidth]{figures/ch5_2_ndist_1m.png}
 
 \end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+        \centering
+        \includegraphics[width=\textwidth]{Econ457/figures/ch5_2_pdf_cdf.png}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. The Normal Distribution}
+    \framesubtitle{Some basic facts, cont'd}
+
+    Steps to calculate probability of event $X$:
+    \begin{enumerate}
+        \item Calculate the mean ($\mu$) and standard deviation ($\sigma$) of the relevant distribution
+        \item Calculate the z-score: $z = \frac{X-\mu}{\sigma}$
+        \item Use the normal cdf function to get the probability. 
+    \end{enumerate}
+      Excel \textit{=NORM.DIST(x,mean,std-dev,TRUE)} 
+     
+
+
+    
+    \footnotesize
+    \begin{table}
+        \caption{Standard Normal CDF Values}
+        \begin{tabular}{rl}
+        \toprule
+        z & Normal CDF \\
+        \midrule
+        -1 & 15.8655\% \\
+        -2 & 2.2750\% \\
+        -3 & 0.1350\% \\
+        -4 & 0.0032\% \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{foundframe}
+
 
 \begin{foundframe}[t]
     \frametitle{1. The Normal Distribution}
@@ -439,7 +528,7 @@
     \frametitle{5. Problems with Using the Normal Distribution}
     \framesubtitle{Fat Tails}
 
-    \vspace{-1.5em}
+    \vspace{-2em}
 
     \footnotesize
     \begin{columns}
@@ -450,17 +539,17 @@
                 \toprule
                 Date & Return \% & Probability \% \\
                 \midrule
-                    2009-04 & 12.32 & 0.05 \\
-                    1982-09 & 12.10 & 0.07 \\
-                    1991-02 & 11.61 & 0.11 \\
-                    1998-11 & 10.97 & 0.19 \\
-                    1975-02 & 10.81 & 0.23 \\
-                    \midrule
-                    1962-06 & -11.41 & 0.02 \\
-                    1987-10 & -11.85 & 0.01 \\
-                    1987-11 & -12.30 & 0.01 \\
-                    2020-03 & -18.92 & 0.00 \\
-                    2008-10 & -20.19 & 0.00 \\
+                 2009-04 & 12.3 & 0.054 \% \\
+                1982-09 & 12.1 & 0.067 \\
+                1991-02 & 11.6 & 0.109 \\
+                1998-11 & 11.0 & 0.198 \\
+                1975-02 & 10.8 & 0.230 \\
+                \midrule
+                1962-06 & -11.4 & 0.018 \% \\
+                1987-10 & -11.9 & 0.011 \\
+                1987-11 & -12.3 & 0.006 \\
+                2020-03 & -18.9 & 0.000 \\
+                2008-10 & -20.2 & 0.000 \\
                 \bottomrule
                 \end{tabular}
                 \end{table}
@@ -473,17 +562,17 @@
                 \toprule
                 Date & Return \% & Probability \% \\
                 \midrule
-                1981-11 & 11.23 & 0.00 \\
-                1982-10 & 9.86 & 0.00 \\
-                2008-12 & 9.74 & 0.00 \\
-                1980-05 & 9.15 & 0.00 \\
-                1980-04 & 8.87 & 0.00 \\
-                \midrule
-                2022-09 & -5.18 & 0.16 \\
-                2003-07 & -5.30 & 0.13 \\
-                2022-04 & -5.42 & 0.10 \\
-                1979-10 & -5.85 & 0.05 \\
-                1980-02 & -9.56 & 0.00 \\
+                    1981-11 & 11.2 & 0.000 \% \\
+                    1982-10 & 9.9 & 0.000 \\
+                    2008-12 & 9.7 & 0.000 \\
+                    1980-05 & 9.2 & 0.000 \\
+                    1980-04 & 8.9 & 0.000 \\
+                    \midrule
+                    2022-09 & -5.2 & 0.150 \% \\
+                    2003-07 & -5.3 & 0.120 \\
+                    2022-04 & -5.4 & 0.100 \\
+                    1979-10 & -5.9 & 0.040 \\
+                    1980-02 & -9.6 & 0.000 \\
                 \bottomrule
                 \end{tabular}
             \end{table}
@@ -492,7 +581,7 @@
 
 
     \blfootnote{Probabilities are based on estimated normal distribution.  
-    n = 900 months, S\&P: $\mu=0.96$ and $\sigma=3.4$, 
+    1950-2025, n = 900 months.  \n S\&P: $\mu=0.96$ and $\sigma=3.4$, 
     10y UST: $\mu=0.42$ and $\sigma=1.9$}
 \end{frame}
 
