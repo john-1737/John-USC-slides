@@ -1,0 +1,103 @@
+\documentclass{beamer}
+
+\newcommand{\week}{LTCM}
+
+\title{Long Term Capital Management}
+\subtitle{}
+
+\author{Econ 357}
+\date{\week}
+
+% Reference the shared preamble
+\input{preamble}
+
+% Set the footer -- change 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \vspace{2ex}
+  \hbox{%
+    % Left box: Econ 457
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Econ 357
+    \end{beamercolorbox}%
+    % Middle box: Week
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \centering\week
+    \end{beamercolorbox}%
+    % Right box: Slide numbers
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+      \hfill\insertframenumber{} 
+    \end{beamercolorbox}%
+  }%
+
+    \vskip0pt%
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[t]
+    \frametitle{LTCM in 1998}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ltcm.jpg}
+
+    \blfootnote{Source: \textit{When Genius Failed}, Roger Lowenstein, Random House, 2000}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{LTCM in 1998}
+    \framesubtitle{}
+
+    \vspace{-2em}
+
+    \begin{table}
+    \caption{LTCM Losses by Position}
+    \begin{tabular}{lc}
+    \toprule
+    Trade & Loss\\
+    \midrule
+    Russia and Emerging Markets & \$430 million\\
+    Directional Trades & \$371 million\\
+    Equity Pairs & \$286 million\\
+    Yield Curve & \$215 million\\
+    S\&P Stocks & \$203 million\\
+    High Yield Bond Arbitrage & \$100 million\\
+    Merger Arbitrage & roughly even\\
+    \midrule
+    Swap Spreads & \$1,600 million\\
+    Equity Volatility & \$1,300 million\\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: \textit{When Genius Failed}, Roger Lowenstein, Random House, 2000, page 235}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. LTCM in 1998}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch6_vix.png}
+
+    \blfootnote{VIX Index is calculated by the CBOE.  Data from Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{6. LTCM in 1998}
+    \framesubtitle{}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch6_vix_ltcm.png}
+
+    \blfootnote{VIX Index is calculated by the CBOE.  Data from Yahoo Finance}
+
+\end{frame}
+
+\end{document}

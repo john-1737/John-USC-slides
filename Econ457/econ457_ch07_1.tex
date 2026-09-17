@@ -42,58 +42,116 @@
         \item Correlations
         \item The Benefit of Diversification
         \item Estimating Correlations
+        \item Many assets
         \item SPY and TLT
-        \item Optimization: SPY, TLT and Cash
     \end{enumerate}
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{Diversification}
 
-    Last week we considered the problem of constructing an optimal portfolio from a single risky asset and cash.   This set-up simplified things because (a) cash is uncorrelated with the risky asset, and (b) there was only one choice variable (namely, the weight $w$ in the risky asset), which made maximization pretty easy.\\
+    In the previous section we considered the problem of constructing an optimal portfolio from a single risky asset and cash.   This set-up simplified things because (a) cash is uncorrelated with the risky asset, and (b) there was only one choice variable (namely, the weight $w$ in the risky asset), which made maximization pretty easy.\\
     \vspace{1em}
     This week we consider the more general problem of constructing an optimal portfolio from many assets.   We first need to think about correlations (today) and then come up with an approach for maximization (next lecture).
 
 \end{frame}
 
 
-\begin{foundframe}[t]
-    \frametitle{1. Correlations}
+\begin{foundframe}
+    \frametitle{Correlations}
     \section{Correlations}
-    \framesubtitle{}
+    \framesubtitle{Definitions}
 
-    $x$ and $y$ are two assets with normally distributed returns.  $r_x \sim N(\mu_x,\sigma_x^2)$ and $r_y \sim N(\mu_y,\sigma_y^2)$.\\
+    For two variables $X$ and $Y$ the Expected Value, Variance, and Covariance are defined as follows:\\
+
+    \begin{itemize}
+        \item   \textbf{Expected Value}: $E[X]$
+        \item   \textbf{Variance of X}: $\operatorname{Var}(X) = E[(X-E[X])^2]$
+        \item   \textbf{Covariance of X and Y}: $\operatorname{Cov}(X) = E[(X-E[X])(Y-E[Y])]$
+    \end{itemize}
+
+    It simplifies the math a bit to subtract the expected value from all of the variables.   Let $\tilde{X}$ be the de-meaned value of $X$: $\tilde{X} = X - E[X]$.   Using $\tilde{X}$ the definitions become:
+        \begin{itemize}
+        \item   \textbf{Expected Value}: $E[\tilde{X}] = 0$
+        \item   \textbf{Variance of X}: $\operatorname{Var}(X) = E[\tilde{X}^2]$
+        \item   \textbf{Covariance of X and Y}: $\operatorname{Cov}(X,Y) = E[\tilde{X}\tilde{Y}]$
+    \end{itemize}
+
+    \blfootnote{In practice, demeaning the variable requires first estimating the mean (average) and then subtracting that from all of the observations.}
+
+\end{foundframe}
+
+\begin{foundframe}
+    \frametitle{Correlations}
+    \framesubtitle{The Sum of Two Variables}
+
+    We are now in position to write down the Expected Value and Variance of a sum of two variables.   Let $P=X+Y$ then using the rules of expected values and the definitions from the previous slide, we have:\\
     \vspace{1em}
-    A portfolio constructed by combining $x$ and $y$, with weights $w_X$ and $w_Y$ has the following distributions \\
-    \vspace{1em}
+
+    \textbf{Expected Value}: $E[P] = E[X+Y] = E[X] + E[Y]$
+    \begin{align*}
+     \textbf{Variance}:   \operatorname{Var}(P) &= E[\tilde{P}^2]\\
+                &= E[(\tilde{X} + \tilde{Y})^2] \\
+                &= E[(\tilde{X}^2 + 2\tilde{X}\tilde{Y} + \tilde{Y}^2]\\
+                &= E[\tilde{X}^2] + E[2\tilde{X}\tilde{Y}] + E[\tilde{Y}^2]\\
+                &= \operatorname{Var}(X) + 2\operatorname{Cov}(X,Y)+\operatorname{Var}(Y)
+    \end{align*}
     
-    \textbf{Case 1:} The returns of $X$ and $Y$ are \textit{uncorrelated}
-    $$w_xr_y + w_yr_y \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2)$$
-     
-    \textbf{Case 2:} The returns of $X$ and $Y$ are \textit{correlated} 
-    $$w_xr_y + w_yr_y \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2 + 2w_xw_yCov(X,Y))$$
-    
+
 \end{foundframe}
 
 \begin{foundframe}[t]
     \frametitle{1. Correlations}
-    \framesubtitle{Correlation Coefficient}
+    \framesubtitle{Two Asset Portfolio}
 
+    Now we are ready to calculate the expected value and variance of two asset portfolio.  Let $X$ and $Y$ are two assets returns given by $r_x$ and $r_y$.   The expected value of the returns is $E[r_x]$ and $E[r_y]$ and variance of the returns is $\sigma_x^2$ and $\sigma_y^2$\\
+    \vspace{1em}
+    A portfolio constructed by combining $X$ and $Y$, with weights $w_X$ and $w_Y$ has the following expected value and variance \\
+    \vspace{1em}
+    
+    \textbf{Case 1:} The returns of $X$ and $Y$ are \textit{uncorrelated}
+    \begin{align*}
+        E[r_p] &= E[w_xr_x + w_yr_y] = E[w_xr_x] + E[w_yr_y]\\
+        \operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y\sigma_y^2
+    \end{align*}
+    Note the $w_x^2$ and $w_y^2$ terms, which are a result of the definition of variance on the previous slide.
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Correlations}
+    \framesubtitle{Two Asset Portfolio, Continued}
+    
+    \textbf{Case 2:} The returns of $X$ and $Y$ are \textit{correlated} 
+      \begin{align*}
+            E[r_p] &= E[w_xr_x + w_yr_y] = E[w_xr_x] + E[w_yr_y]\\
+        \operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y\sigma_y^2 +2\operatorname{Cov}(X,Y)
+    \end{align*}
     The \textit{correlation coefficient} is defined as:
     $$\rho_{x,y} = \frac{\text{Cov}(x,y)}{\sigma_x\sigma_y}$$
 
-    Note that we can rewrite \textbf{Case 2} from the previous slide using the correlation coefficient:
-    $$w_xr_y + w_yr_y \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2 + 2w_xw_y\sigma_x\sigma_y\rho_{x,y})$$
+    We can rewrite the Variance of a two asset portfolio using $\rho_{x,y}$
+    $$\operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y\sigma_y^2 +2\sigma_x\sigma_y\rho_{x,y}$$
     
-    It is mostly a matter of convenience whether you use the correlation coefficient or the covariance.   They convey similar information, just scaled differently.
+    It is mostly a matter of convenience whether you use the correlation coefficient or the covariance.
+    
+\end{foundframe}
 
+
+\begin{foundframe}[t]
+    \frametitle{1. Correlations}
+    \framesubtitle{Two Asset Portfolio}
+
+    A note of caution before we proceed: everything in the lecture up to this point has referenced the \textit{variance}.   In most applications, we are going to be interested in the \textit{standard deviation}, so we will need to take a square root.
+    $$\sigma_p = \sqrt{\sigma_p^2}$$
+    
 \end{foundframe}
 
 \begin{frame}[t]
     \frametitle{2. The Benefit of Diversification}
     \section{The Benefit of Diversification}
 
-    Diversification reduces the variance of a portfolio.   Consider two assets $x$ and $y$ that have returns with the same variance: $\sigma^2_X = \sigma^2_Y = \sigma^2$.   A portfolio composed of either asset by itself has a standard deviation equal to $\sigma$.\\
+    Diversification reduces the standard deviation of a portfolio.   Consider two assets $x$ and $y$ that have returns with the same variance: $\sigma^2_X = \sigma^2_Y = \sigma^2$.   A portfolio composed of either asset by itself has a standard deviation equal to $\sigma$.\\
     \vspace{1em}
     Consider a portfolio that is $\frac{1}{2}$ asset $x$ and $\frac{1}{2}$ asset $y$.
     \begin{itemize}
@@ -180,7 +238,7 @@
     }
 \end{practiceframe}
 
-\begin{foundframe}[t]
+\begin{frame}[t]
     \frametitle{3. Estimating Correlations}
     \section{Estimating Correlations}
     \framesubtitle{Variance-Covariance Matrix}
@@ -198,9 +256,9 @@
         \item $\text{Cov}(X,Y)$ is the covariance between $X$ and $Y$
     \end{itemize}
 
-\end{foundframe}
+\end{frame}
 
-\begin{foundframe}[t]
+\begin{frame}[t]
     \frametitle{3. Estimating Correlations}
     \framesubtitle{Empirical Variance-Covariance Matrix}
 
@@ -220,17 +278,96 @@
     \widehat{\text{Cov}}(X,Y) &= \frac{1}{T-1}\sum_{t=1}^{T}(x_t - \hat{\mu_x})(y_t - \hat{\mu_y})
     \end{align}
 
-\end{foundframe}
+\end{frame}
 
+\begin{frame}[t]
+    \frametitle{3. Estimating Correlations}
+    \framesubtitle{Variance-Covariance Matrix}
+
+    An alternative to using historical data is to use estimated probabilities for the various outcomes. 
+    \begin{itemize}
+        \item The historical data implicitly gives equal weight to each observation (each observation gets a weight of $\frac{1}{N}$)
+        \item If you instead use estimated probabilities, the weights of each outcome will be equal to the probability of that outcome occurring.   Be careful to ensure the sum of the weights equal one.
+    \end{itemize}
+    For example, if there are 2 outcomes $(x_1,y_1)$ and $(x_2,y_2)$ which occur with probability $p_1$ and $p_2$, then the estimated covariance would be:
+    $$\widehat{\text{Cov}}(X,Y) = p_1(x_1 - \hat{\mu_x})(y_1 - \hat{\mu_y}) + p_2(x_2 - \hat{\mu_x})(y_2 - \hat{\mu_y})$$
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{4. Many Assets}
+    \framesubtitle{Standard Deviation - COV term}
+
+    \vspace{1em}
+    The general formula for the variance of a portfolio composed of $n$ risky assets:
+    $$\sigma_p^2 = \sum_{i=1}^{n}\sum_{j=1}^{n}w_iw_jCov(r_i,r_j)$$
+    In the case that the portfolio is equally weighted (all $w=1/n$) this becomes:
+    $$\sigma_p^2 = \sum_{i=1}^{n}\frac{1}{n^2}\sigma_i^2 + 
+     \sum_{j=1, j \neq i}^{n}\sum_{i=1}^{n}\frac{1}{n^2}Cov(r_i,r_j)$$
+
+\end{frame}
 
 \begin{practiceframe}
-    \frametitle{3. Estimating Correlations}
+    \frametitle{4. Many Assets}
     \section{Practice - Estimating Correlations}
+
+    Consider the following data on Stocks A, B, and C:
+
+    \begin{table}
+        \begin{tabular}{lcccc}
+        \toprule
+        Scenario & Probability & Stock A & Stock B & Stock C\\
+        \midrule
+        Low & 25\% & 5 & 0 & 12 \\
+        High &75\% & 25 & 40 & 24 \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \begin{enumerate}
+        \item	What is the expected rate of return for each stock?
+        \item	What is the Variance-Covariance Matrix for Stock A, Stock B, and Stock C (hint: 3x3 matrix)
+        \item What is the variance of a portfolio that is composed of 1/3 of each of these stocks?
+    \end{enumerate}
     
 \end{practiceframe}
 
+
 \begin{frame}[t]
-    \frametitle{4. SPY and TLT}
+    \frametitle{5. SPY and TLT}
+    \framesubtitle{Total Returns}
+
+    \textbf{SPY: SPDR S\&P 500 ETF Trust}
+    \begin{itemize}
+        \item Tracks the S\&P 500 Index.
+        \item Provides exposure to large-cap U.S. stocks across many industries.
+    \end{itemize}
+
+    \vspace{0.5em}
+
+    \textbf{TLT: iShares 20+ Year Treasury Bond ETF}
+    \begin{itemize}
+        \item Tracks an index of U.S. Treasury bonds
+        with maturities greater than 20 years.
+        \item Provides exposure to long-duration U.S. government bonds.
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{5. SPY and TLT}
+    \framesubtitle{Total Returns}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_sp_tlt_totalreturn.png}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{5. SPY and TLT}
     \framesubtitle{Risk Premium}
 
     A note on terminology: The \textit{risk premium} is the expected 
@@ -244,60 +381,27 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. SPY and TLT}
-    \framesubtitle{Data Construction}
+    \frametitle{5. SPY and TLT}
+    \framesubtitle{Empirical Means, Variance-Covariance Matrix}
 
-    Review from first homework:\\
-    \vspace{1em}
-    Total Return (\%) = Price Return (\%) + Dividend Yield (\%)\\
-    \vspace{1em}
-    Where the Dividend Yield = Income / (Initial Price).\\
     \vspace{1em}
 
-    Compute Total Return Index:
-    \begin{enumerate}
-      \item Match income series to price series
-      \item Compute Total Return for Each Period: $r_{tr}$
-      \item Create an Index starting at 100, subsequent periods = $i_t = (1+r_{tr}) \cdot i_{t-1}$
-    \end{enumerate}
+    \textbf{Summary Statistics:}
+    \begin{itemize}
+        \item Risk Premium (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 9.4\%$
+        \item Risk Premium (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 3.1\%$
+         \item Expected Return (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 13.4\%$
+        \item Expected Return (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 7.1\%$
+        \item Standard Deviation (SPY): $\hat{\sigma}_{SPY} = 14.8\%$
+        \item Standard Deviation (TLT): $\hat{\sigma}_{TLT} = 13.6\%$
+        \item Covariance: $\widehat{\text{Cov}}(SPY,TLT) = -21.09$
+        \item Correlation: $\hat{\rho}_{SPY,TLT} = -0.104$
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. SPY and TLT}
-    \framesubtitle{Dividend Yield}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=1.1\textwidth]{figures/ch7_1_SPY_pdiv}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=1.1\textwidth]{figures/ch7_1_TLT_pdiv}
-        \end{column}
-    \end{columns}
-
-    \vfill
-    \footnotesize
-    Data Source: Yahoo finance\\
-    Dividend yield is calculated using the 12-month \textit{trailing} dividends and the current price.   While this is standard practice, it is also not great. 
-
-\end{frame}
-
-
-
-\begin{frame}
-    \frametitle{4. SPY and TLT}
-    \framesubtitle{Total Returns}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_sp_tlt_totalreturn.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. SPY and TLT}
+    \frametitle{5. SPY and TLT}
     \framesubtitle{Empirical Means, Variance-Covariance Matrix}
 
     \textbf{Summary Statistics:}
@@ -312,29 +416,6 @@
     -21.09 & 186.68
     \end{pmatrix}$$
 
-    \vspace{2em}
-    Assume that the risk-free rate is 4\%.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. SPY and TLT}
-    \framesubtitle{Empirical Means, Variance-Covariance Matrix}
-
-    In words...\\
-    \vspace{1em}
-
-    \textbf{Summary Statistics:}
-    \begin{itemize}
-        \item Risk Premium (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 9.4\%$
-        \item Risk Premium (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 3.1\%$
-         \item Expected Return (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 13.4\%$
-        \item Expected Return (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 7.1\%$
-        \item Standard Deviation (SPY): $\hat{\sigma}_{SPY} = 14.8\%$
-        \item Standard Deviation (TLT): $\hat{\sigma}_{TLT} = 13.6\%$
-        \item Covariance: $\widehat{\text{Cov}}(SPY,TLT) = -21.09$
-        \item Correlation: $\hat{\rho}_{SPY,TLT} = -0.104$
-    \end{itemize}
 
 \end{frame}
 

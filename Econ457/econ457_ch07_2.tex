@@ -39,19 +39,13 @@
     \frametitle{Outline}
 
     \begin{enumerate}
-        \item Optimal Portfolio: SPY, TLT and Cash
-        \item Optimal Portfolio: General Case
-        
-    \end{enumerate}
-    
-    \begin{enumerate}
-        \item Diversification - Review
+        \item Step 1: Maximize the Sharpe Ratio
         \begin{itemize}
-            \item Set-up
-            \item Standard Deviation - Cov term
+            \item Intuition
+            \item Excess Returns and Standard Deviation
             \item Maximization - Sharpe Ratio
         \end{itemize}
-        \item Optimization
+        \item Step 2: Decide on Cash Allocation
         \item Three Asset Optimization: SPY, TLT, and GLD
         \item Many Asset Optimization
         \item Excel
@@ -59,16 +53,164 @@
             \item Correlations (last week's homework)
             \item Solver (this week's homework)
         \end{itemize}
-        \item Practice
     \end{enumerate}
 \end{frame}
 
 
 \begin{frame}[t]
-    \frametitle{1. Optimal Portfolio: SPY, TLT, and Cash}
-    \framesubtitle{Empirical Means, Variance-Covariance Matrix}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \section{Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Intuition}
 
-    In words...\\
+    What is the optimal combination of two assets?
+    \begin{itemize}
+        \item It is \textit{not} necessarily the combination that minimizes the variance
+        \item Instead, we define the optimal combination as the one that \textit{maximizes the Sharpe Ratio}, which is defined as the expected excess return per unit of volatility:
+        $$\frac{\mathbb{E}[r_p] - r_f}{\sigma_p}$$
+        \item Intuitively, the Sharpe Ratio is a measure of the efficiency of the portfolio.   The optimal portfolio is therefore the most efficient portfolio.
+    \end{itemize}    
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Expected Excess Returns}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_std.png} 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_cov.png} 
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Expected Excess Return and Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er_cov.png} 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Minimum Variance Portfolio}
+
+    \begin{itemize}
+        \item The \textbf{minimum variance portfolio} is constructed by finding weights $w$ that minimize the standard deviation of the portfolio.   
+        \item Graphically, it is the leftmost point on the graph in the previous slide. This requires some additional calculus, which we won't do in this class. 
+        \item For a portfolio with assets $X$ and $Y$, the weight on $X$ in the minimum variance portfolio is given by
+        \footnotesize
+        $$w_x = \frac{\sigma_y^2 - Cov(X,Y)}{\sigma_x^2 + \sigma_y^2 -2Cov(X,Y)}$$
+        \normalsize
+        \item For more assets, we have to use Excel or Python.
+        \item The minimum variance portfolio is NOT the optimal portfolio.  The optimal portfolio is the one that maximize the Sharpe Ratio.
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Maximization Problem}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ457/figures/ch7_1_spytlt_sharpe_no_lables.png} 
+
+    \blfootnote{The orange line is the "Capital Allocation Line"}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Maximization Problem}
+
+    Maximize the Sharpe Ratio of the portfolio:
+    $$
+    \max_{w_i} S_p = \frac{\mathbb{E}(r_p) - r_f}{\sigma_p}
+    $$
+    s.t.
+    $$
+    w_{SPY} + w_{TLT} = 1
+    $$
+
+    As we did in the capital allocation problem, the approach is to substitute the expressions $\mathbb{E}(r_p)$, $\sigma_p$ and $w_{TLT}$.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Maximization Problem}
+
+    After substitution, the Sharpe Ratio is:
+    \footnotesize
+    $$
+    \frac{w_{SPY}*\mathbb{E}(R_{SPY})+(1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
+    $$
+    \vspace{1em}
+    \normalsize
+
+    Then proceed in the same way:
+     \begin{itemize}
+         \item Take the derivative with respect to $w$
+         \item Set the derivative equal to zero
+         \item Finally solve for $w$.
+    \end{itemize}
+    You will not be asked to do this maximization on a midterm or final.   However, you should understand what is being maximized and why.   See the following practice problem.
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Maximization Problem}
+
+    \footnotesize
+    You are constructing a portfolio that uses risky assets A and B.   You can also include T-Bills.   The data are as follows:
+
+    \begin{table}
+    \begin{tabular}{lcc}
+    \toprule
+    & Expected Return & Standard Deviation \\
+    \midrule
+    A & 10\% & 20\% \\
+    B & 30\% & 60\% \\
+    T-Bills & 5 & 0 \\
+    \bottomrule
+    \end{tabular}  
+    \end{table} 
+    The correlation between A and B is -0.2
+    \begin{enumerate}
+        \item Sketch the opportunity set for a risky portfolio that only combines A and B.  (Hint: The minimum variance portfolio is given by $\frac{\sigma_y^2 - Cov(X,Y)}{\sigma_x^2 + \sigma_y^2 -2Cov(X,Y)}$)
+        \item Sketch the Capital Allocation Line and identify the optimal portfolio
+    \end{enumerate}
+    
+\end{practiceframe}
+
+
+\begin{frame}[t]
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{SPY and TLT}
+
+    Using the actual data on SPY and TLT
     \vspace{1em}
 
     \textbf{Summary Statistics:}
@@ -85,98 +227,19 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{1. Optimal Portfolio: SPY, TLT, and Cash}
-    \framesubtitle{Define the optimization problem}
-
-    Start by finding the optimal combination of SPY and TLT.   Once we have that, the problem is the same as the capital allocation problems we did last week.
-    \vspace{1em}
-    The optimal combination of SPY and TLT will be the one that maximizes the Sharpe Ratio:
-    
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Set up}
-
-    \vspace{-1em}
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
-
-\end{frame}
-
-
-
 \begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_std.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_cov.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{SPY and TLT}
-    \framesubtitle{Portfolio Construction, cont'd}
-
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_er_cov.png} 
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
-
-    Maximize the Sharpe ratio of the portfolio, which is given by
-    $$
-    \max_{w_i} S_p = \frac{\mathbb{E}(r_p) - r_f}{\sigma_p}
-    $$
-    s.t.
-    $$
-    w_{SPY} + w_{TLT} = 1
-    $$
-    \footnotesize
-    Substitute expressions for $\mathbb{E}(r_p)$, $\sigma_p$ and $w_{TLT}$ 
-    $$
-    \max_{w_{SPY}} = \frac{w_{SPY}*\mathbb{E}(R_{SPY})+(1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
-    $$
-    and then take the derivative with respect to $w$, set the derivative equal to zero, and finally solve for $w$.
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{SPY and TLT}
 
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe.png}
 
 \end{frame}
 
+
 \begin{frame}[t]
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 1: Maximize the Sharpe Ratio}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{SPY and TLT}
 
     Note that the Sharpe Ratio of the portfolio with $w = 0.67$ is \textit{higher}
     than the Sharpe Ratio of the S\&P:
@@ -199,25 +262,26 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Optimization: SPY, TLT, and Cash}
+    \frametitle{Step 2. Decide on Cash Allocation}
+    \section{Step 2. Decide on Cash Allocation}
     \framesubtitle{Step 2: Decide on Cash Allocation}
 
-    Now that you have determined the optimal mix of SPY and TLT, 
-    the next decision is how much risk you want to take in your 
-    portfolio.   This is accomplished using the capital allocation 
+    \begin{itemize}
+    \item The next decision is how much risk you want to take in your 
+    portfolio.  
+    \item This is accomplished using the capital allocation 
     process we discussed last week, with the only difference being that 
     you are now allocating between cash and the optimal portfolio, 
-    rather than cash and the S\&P.\\
-    \vspace{1em}
-    Note that the allocation line is once again the \textit{capital allocation line (CAL)}, 
-    as the Capital Markets Line (CML) only referred to the case where the 
-    risky portfolio was the S\&P.
+    rather than cash and the S\&P.
+    \item Note that the allocation line is once again the \textit{capital allocation line (CAL)}, 
+    as the Capital Markets Line (CML) only referred to the case where the risky portfolio was the S\&P.
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Step 2: Decide on Cash Allocation}
+    \frametitle{Step 2. Decide on Cash Allocation}
+    \framesubtitle{SPY and TLT, with some indifference curves}
 
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe_opt.png}
@@ -225,164 +289,26 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Optimization: SPY, TLT, and Cash}
-    \framesubtitle{Review}
+    \frametitle{Summary: Optimal SPY and TLT Portfolio}
+    \framesubtitle{For a given investor}
 
-    In order to find the optimal allocation between three assets (SPY, TLT, and cash), follow these steps:
+    In order to find the optimal allocation between three assets (SPY, TLT, and cash) for a given investor, follow these steps:
 
     \begin{enumerate}
-        \item Estimate return and risk characteristics
-        \item Find optimal allocation between SPY and TLT, maximize the Sharpe Ratio
+        \item Estimate return and risk characteristics of the risky assets and the risk-free asset
+        \item Find optimal allocation between SPY and TLT by maximizing the Sharpe Ratio.  
         \item Find optimal allocation to cash, using indifference curves
     \end{enumerate}
-
-\end{frame}
-
-
-
-
-
-
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Standard Deviation - COV term}
-
-    \textbf{Generic Case:}\\
-    $X$ and $Y$ are \textit{correlated} 
-    $$X + Y \sim N(\mu_x+\mu_y,\sigma_x^2 + \sigma_y^2 + 2Cov(X,Y))$$
-
-    \textbf{Specific Case for Portfolio Diversification:}\\
-    Combining two assets in a portfolio, $X$ and $Y$,
-    where the weights of each asset ($w_x$ and $w_y$) sums to one.
-    $$w_xX + w_yY \sim N(w_x\mu_x+w_y\mu_y,w_x^2\sigma_x^2 + w_y^2\sigma_y^2 + 2 w_x w_y Cov(X,Y))$$
-    Notice how the weights get treated in the variance term.  Continued...
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Standard Deviation - COV term}
-
-    ...Continued\\
     \vspace{1em}
-    The general formula for the variance of a portfolio composed of $n$ risky assets:
-    $$\sigma_p^2 = \sum_{i=1}^{n}\sum_{j=1}^{n}w_iw_jCov(r_i,r_j)$$
-    In the case that the portfolio is equally weighted (all $w=1/n$) this becomes:
-    $$\sigma_p^2 = \sum_{i=1}^{n}\frac{1}{n^2}\sigma_i^2 + 
-     \sum_{j=1, j \neq i}^{n}\sum_{i=1}^{n}\frac{1}{n^2}Cov(r_i,r_j)$$
+
+    Note that all investors will use same weights for SPY and TLT within their allocation to risky assets.  These weights maximize the Sharpe Ratio and produce the most efficient risky portfolio.   Investors will then have different allocations to cash, depending on their personal indifference curves.
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Standard Deviation - COV term}
-
-    There is a benefit to diversification for any correlation coefficient $\rho_{x,y}<1$.
-    Remember that $\rho_{x,y} = \frac{COV(X,Y)}{\sigma_x \sigma_y}$\\
-    \vspace{1em}  
-    Consider the case when $w_x = w_y = 0.5$ and $\sigma_x = \sigma_y = \sigma$.   The variance is then given by
-    $$0.5^2\sigma^2 + 0.5^2\sigma^2 + 2 * 0.5 * 0.5 * COV(X,Y)$$
-    If $\rho_{x,y}=1$ then this evaluates to $0.25\sigma^2 + 0.25\sigma^2 + \frac{\sigma^2}{0.5} = \sigma^2$ 
-    and there is no benefit from diversification.\\
-    \vspace{1em}
-    It follows that if $\rho_{x,y}<1$ then 
-    the variance term will be smaller, and therefore will be smaller and there will be 
-    a benefit from diversification.\\
-    
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Standard Deviation - COV term}
-
-    Also note that if $w_x = w_y = 0.5$, $\sigma_x = \sigma_y = \sigma$, and $\rho_{x,y}=0$ then the variance 
-    term is given by\\
-     $$0.25\sigma^2 + 0.25\sigma^2 = 0.5\sigma^2$$  
-    And the standard deviation is given by $\sqrt{0.5}\sigma$.\\
-    \vspace{1em}
-     Any correlation less than 0 will further reduce the variance and standard deviation terms.
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Standard Deviation - COV term}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch7_1_spytlt_cov.png} 
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Diversification - Review}
-    \framesubtitle{Maximization - Sharpe Ratio}
-
-    We define the objective function that we are maximizing to be the Sharpe Ratio of the portfolio:
-    $$\frac{\mathbb{E}[r_p] - r_f}{\sigma_p}$$
-    How to think about this?  The Sharpe ratio is the expected excess return per unit of volatility.  
-    Alternatively, the Sharpe ratio is a measure of the efficiency of the portfolio.\\
-    \vspace{1em}
-    You could imagine defining the objective function differently, but the Sharpe ratio is standard.
-
-\end{frame}
-
-\begin{foundframe}[t]
-    \frametitle{2. Optimization Review}
-
-    \vspace{-1em}
-    \textbf{Typical Optimization Steps}
-    \begin{enumerate}
-        \item Define the objective function 
-            (e.g., maximize the Utility or Sharpe Ratio).
-        \item Specify constraints 
-            (e.g., weights sum to 1, no short selling, minimum/maximum allocations).
-        \item If possible, rewrite the objective function in terms of the variables you are choosing 
-            (e.g. rewrite $U(E[r],\sigma)$ as $U(w)$ where $w$ is the weight of the risky asset in the portfolio.)
-        \item Use optimization tools:
-        \begin{itemize}
-            \item Take first derivative with respect to choice variable, set derivative to zero, solve for choice variable.
-            \item Use Lagrange multipliers
-            \item Excel Solver, Python's \texttt{scipy.optimize}, R's \texttt{optim}, etc.
-        \end{itemize}
-        \item Analyze and interpret the resulting portfolio.
-    \end{enumerate}
-
-\end{foundframe}
-
-\begin{foundframe}[t]
-    \frametitle{2. Optimization Review}
-    \framesubtitle{Maximize Utility in Capital Allocation Problem}
-
-    Rewrite utility as a function of the weight in the risky asset ($w$):
-    $$U(w) = w \cdot E[r_{\text{risky}}] + (1-w) \cdot r_f - 0.5 A \cdot w^2 \cdot \sigma_{\text{risky}}^2$$
-
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch6_max_w.png}
-
-\end{foundframe}
-
-\begin{foundframe}[t]
-    \frametitle{2. Optimization Review}
-    \framesubtitle{Maximize Sharpe Ratio in Diversification Problem}
-
-    For a problem with only two assets, we can rewrite Sharpe Ratio as a function of the weight in the SPY ($w_{SPY}$):
-    \footnotesize
-    \begin{align*}
-    &\text{Sharpe Ratio}(w_{SPY}) = \\
-    &= \frac{w_{SPY}*\mathbb{E}(R_{SPY}) + (1-w_{SPY})\mathbb{E}(R_{TLT}) - r_f}{w_{SPY}^{2}*\sigma^{2}_{SPY} + (1-w_{SPY})^{2}*\sigma^{2}_{TLT} + 2*(w_{SPY})*(1-w_{SPY})*Cov(r_{SPY},r_{TLT})}
-    \end{align*}
-
-    \normalsize
-    Then take the first derivative with respect to $w_{SPY}$ and set equal to zero.\\
-    \vspace{1em}
-    For a portfolio with many assets, you can't simplify the problem in the same way.   
-    Need to use a solver (or Lagrange multipliers)
-
-\end{foundframe}
 
 \begin{frame}[t]
     \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \section{Three Asset Optimization: SPY, TLT, and GLD}
     \framesubtitle{Total Return Series}
 
     \centering
@@ -394,6 +320,69 @@
 
 \begin{frame}[t]
     \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Expected Return}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld_er.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld_std.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Expected Return and Standard Deviation}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld_er_std.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
+    \framesubtitle{Capital Allocation Line}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld_er_std_with_cal.png}
+
+    \blfootnote{Data Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{3. Three Asset Optimization}
+    \framesubtitle{Practice}
+
+    \begin{enumerate}
+        \item Stocks offer an expected rate of return of 18\% with a standard deviation of 22\%.   Gold offers an expected return of 10\% with a standard 
+        deviation of 30\%.   
+        \begin{itemize}
+            \item Would anyone hold gold? Demonstrate why or why not with a graph.
+            \item Reanswer the question above if the correlation coefficient between gold and stocks equal 1.
+            \item Could the set of assumptions in the second part (where correlation equals 1) be an equilibrium?   Why or why not?   (To be covered in the next section of the class, but think about it now)
+        \end{itemize}
+
+    \end{enumerate}
+
+\end{practiceframe}
+
+
+\begin{frame}[t]
+    \frametitle{4. Many Asset Optimization}
+    \section{Many Asset Optimization}
     \framesubtitle{Sharpe Ratios}
 
     \footnotesize
@@ -421,50 +410,6 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
-    \framesubtitle{Expected Return}
-
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er.png}
-
-    \blfootnote{Data Source: Yahoo Finance}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
-    \framesubtitle{Standard Deviation}
-
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_std.png}
-
-    \blfootnote{Data Source: Yahoo Finance}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
-    \framesubtitle{Expected Return and Standard Deviation}
-
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er_std.png}
-
-    \blfootnote{Data Source: Yahoo Finance}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Three Asset Optimization: SPY, TLT, and GLD}
-    \framesubtitle{Capital Allocation Line}
-
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch7_2_spytltgld_er_std_with_cal.png}
-
-    \blfootnote{Data Source: Yahoo Finance}
-
-\end{frame}
-
-\begin{frame}[t]
     \frametitle{4. Many Asset Optimization}
     \framesubtitle{Expected Return and Standard Deviations}
 
@@ -486,6 +431,7 @@
 
 \end{frame}
 
+
 \begin{frame}[t]
     \frametitle{4. Many Asset Optimization}
     \framesubtitle{Capital Allocation Line and Optimal Portfolio}
@@ -498,21 +444,49 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Many Asset Optimization}
-    \framesubtitle{Review}
+\frametitle{4. Many-Asset Optimization}
+\framesubtitle{Procedure}
 
-    Steps for finding the optimal portfolio with many assets:
+Steps for constructing an optimal portfolio with many risky assets:
+
     \begin{enumerate}
-        \item Estimate expected returns and Var-Cov matrix
-        \item (Optional: plot various portfolios, find the Global Minimum Variance Portfolio)
-        \item Maximize the Sharpe Ratio
-        \item Draw the Capital Allocation Line
+        \item Estimate the vector of expected returns and the
+        variance--covariance matrix.
+        
+        \item Construct the feasible set and identify the mean--variance
+        efficient frontier. The Global Minimum-Variance Portfolio is the
+        leftmost point on this frontier.
+        
+        \item Given the risk-free rate, identify the risky portfolio that
+        maximizes the Sharpe ratio. This is the tangency portfolio.
+        
+        \item Draw the Capital Allocation Line through the risk-free asset
+        and the tangency portfolio.
+        
+        \item Choose the point on the Capital Allocation Line that is tangent
+        to the investor's highest attainable indifference curve. This
+        determines the allocation between the tangency portfolio and cash.
     \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{4. Many-Asset Optimization}
+\framesubtitle{Procedure}
+
+    \begin{itemize}
+        \item The framework described on the previous slide is known as
+    \textit{Markowitz mean--variance analysis}
+    \item This is the foundation of
+    "Modern Portfolio Theory". 
+    \item Harry Markowitz received the 1990 Nobel Prize in Economics for developing the theory of portfolio choice.
+    \end{itemize}
 
 \end{frame}
 
 \begin{excelframe}[t]
     \frametitle{5. Excel}
+    \section{Excel}
     \framesubtitle{Correlations (last week's homework)}
 
     \centering
@@ -537,72 +511,11 @@
 
 \end{excelframe}
 
+\begin{excelframe}[t]
+    \frametitle{5. Excel}
+    \framesubtitle{Optimization}
 
-
-\begin{practiceframe}[t]
-    \frametitle{6. Practice}
-
-    \begin{enumerate}
-        \item Stocks offer an expected rate of return of 18\% with a standard 
-        deviation of 22\%.   Gold offers an expected return of 10\% with a standard 
-        deviation of 30\%.   
-        \begin{itemize}
-            \item Would anyone hold gold? Demonstrate why or why not with a graph.
-            \item Reanswer the question above if the correlation coefficient between gold and 
-            stocks equal 1.
-            \item Could the set of assumptions in the second part (where correlation equals 1) 
-            be an equilibrium?   Why or why not?
-        \end{itemize}
-
-    \end{enumerate}
-
-\end{practiceframe}
-
-\begin{frame}[t]
-    \frametitle{Appendix: Data Construction}
-    \framesubtitle{Sharpe Ratio}
-
-    \textbf{Sharpe Ratio} = Excess Returns / Std Dev of Excess Returns\\
-    $$\frac{E[r] - r_f}{\sigma}$$
-    Where $E[r] - r_f$ is the \textit{excess} return of the asset and $\sigma$ is the standard deviation.\\
-    \vspace{1em}
-    Compute Historical Sharpe Ratios:
-    \begin{enumerate}
-      \item Match Total Return Series to Risk-free Return Series
-      \item For each period, compute Excess Returns = Total Return (\%) - Risk-Free Return (\%)
-      \item Compute Mean and Standard Deviation of Excess Returns
-      \item Sharpe Ration = Mean / Standard Deviation
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{Appendix: Data Construction}
-    \framesubtitle{Sharpe Ratio}
-
-    \footnotesize
-    \begin{table}
-        \caption{ETF Performance Statitics - Excess Returns}
-        \begin{tabular}{llrrr}
-        \toprule
-        & Start Date & Mean (\%) & Std Dev (\%) & Sharpe Ratio \\
-        Ticker &  &  &  &  \\
-        \midrule
-        SPY & 1993-01 & 8.440 & 14.820 & 0.569 \\
-        TLT & 2002-07 & 3.090 & 13.660 & 0.226 \\
-        GLD & 2004-11 & 9.180 & 16.680 & 0.550 \\
-        EWW & 1996-03 & 9.420 & 26.570 & 0.355 \\
-        EWD & 1996-03 & 8.640 & 24.470 & 0.353 \\
-        EWH & 1996-03 & 4.630 & 24.100 & 0.192 \\
-        EWI & 1996-03 & 6.440 & 23.820 & 0.271 \\
-        EWJ & 1996-03 & 1.170 & 17.700 & 0.066 \\
-        EWL & 1996-03 & 6.350 & 16.610 & 0.382 \\
-        EWP & 1996-03 & 7.980 & 23.650 & 0.338 \\
-        \bottomrule
-        \end{tabular}
-    \end{table}
-
-\end{frame}
+\end{excelframe}
 
 
 

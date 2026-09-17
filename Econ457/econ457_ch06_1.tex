@@ -264,7 +264,7 @@
     \end{itemize}
     Your only decision is how much of your portfolio to allocate to the risky asset.   Let the amount invested in the risky portfolio be $w$, leaving $(1-w)$ invested in cash.\\
     \vspace{1em}
-    The expected return of your portfolio is $E[r_p] = wr_{risky} + (1+w)r_f$.   The standard deviation of your portfolio is $\sigma_p = w\sigma_{risky}$.   The fact that $\sigma_{r_f} = 0$ simplifies the standard deviation term.
+    The expected return of your portfolio is $E[r_p] = wE[r_{risky}] + (1-w)r_f$.   The standard deviation of your portfolio is $\sigma_p = w\sigma_{risky}$.   The fact that $\sigma_{r_f} = 0$ simplifies the standard deviation term.
     \vspace{1em}
 
 \end{frame}
@@ -277,7 +277,7 @@
     \vspace{1em}
     \begin{itemize}
     \item When $w=0$, the portfolio is entirely in cash with $E[r_p] = r_f$ and $\sigma_p = 0$.   Thus the CAL intersects the y-axis at the risk-free rate of return $r_f$.
-    \item When $w=1$, the portfolio is entirely invested in the risky asset with $E[r_p] = wr_{risky} + (1-w)r_f$ and $\sigma_p = \sigma_{risky}$. The CAL thus goes through and goes the point $(x=\sigma_{risky},y=(r_{risky}+r_{risk-free}))$
+    \item When $w=1$, the portfolio is entirely invested in the risky asset with $E[r_p] = E[r_{risky}]$ and $\sigma_p = \sigma_{risky}$. The CAL thus goes through and goes the point $(x=\sigma_{risky},y=E[r_{risky}])$
     \end{itemize}
      
 

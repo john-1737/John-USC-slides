@@ -193,6 +193,49 @@ Information Costs
         
         \end{shaded}
 
+\subsection{Why do bonds initially price at par?}
+
+Following Winston, p 89.   The generic bond pricing equation is:
+
+$$P = \sum_{i=0}^{T}\frac{c_i}{(1+r)^t} + \frac{1,000}{(1+r)^T}$$
+
+Let $y_i=(1+r)^i$.   Then use the algebra trick of rewriting infinite sums to get:
+\begin{align*}
+    \sum_{i=0}^{\infty}\frac{c_i}{(1+r)^t} &= \sum_{i=0}^{\infty}c_iy_i\\
+        &= \frac{c_i}{1-y_i}    
+\end{align*}
+And 
+\begin{align*}
+    \sum_{i=0}^{T}\frac{c_i}{(1+r)^t} &= \sum_{i=0}^{\infty}c_iy_i - \sum_{i=T+1}^{\infty}c_iy_i\\
+        &= \frac{c_i}{1-y_i} - y_T\frac{c_i}{1-y_i}  \\
+        &= (1-y_T) \frac{c_i}{1-y_i} 
+\end{align*}
+
+\section{Lecture 5: Bond Supply and Demand}
+
+\section{Lecture 6: Market for Money}
+
+\section{Lecture 7: Bond Characteristics}
+
+\section{Lecture 8: Equities and DDM}
+
+\textit{Gordon Growth Model}
+    \begin{align*}
+        V_0 &= \sum_{i=1}^{\infty} \frac{(1+g)D_0}{(1+k)} \\
+        \text{let } a = \frac{(1+g)}{(1+k)} \\
+            &= \sum_{i=1}^{\infty} Da^i \\
+        \text{multiply by a, subtract from both sides, terms cancel}\\
+        V_0 - aV_0 &= Da \\
+        (1-a)V_0 &= Da \\ 
+        V_0 &= \frac{Da}{1-a} \\
+        \text{substituting} \\
+        V_0 &= D \frac{\frac{(1+g)}{(1+k)}}{1-\frac{(1+g)}{(1+k)}}\\
+         &= D \frac{\frac{(1+g)}{(1+k)}}{\frac{(k-g)}{(1+k)}}\\
+         &= D \frac{1+g}{k-g} = \frac{D_1}{k-g}\\
+    \end{align*}
+
+
+
 \section{Readings Questions}
 \subsection{Reading 1: Black Swans}
 \begin{itemize}
@@ -214,6 +257,28 @@ Information Costs
 \item "For domestic politics in the rich world, the pandemic represents a challenge to the status quo. Unlike the financial crisis, this is not Wall Street's fault. But the juxtaposition of a weak economy with high asset prices that result from low interest rates could provoke public anger, especially if it coincides with unemployment concentrated among poorly paid service-sector worker"
 \end{itemize}
 
+\end{itemize}
+
+
+\subsection{Reading 2: LTCM and Situational Awareness}
+
+\subsection{Reading 3: Venture Capital}
+
+\begin{itemize}
+\item Why are there persistent excess returns in Venture Capital?   Why doesn't more money come in, drive down prices, and then lower returns?   There was a huge inflow of capital in 2022 to Venture.   Won't know for years what it will do to returns.   \textit{Important point here about valuations and returns.}  
+\item What is scarce?   Capital?  NO.   Skills?  Maybe.   Networks?   YES!
+\item "Fewer than 1 percent of companies that get formed every year receive venture capital backing, but if you look at the years since 1995, half of all the companies that go public got venture backing, and three-quarters of the market cap from those companies derived from venture-backed companies. Tiny share get the money less than 1 percent but three-quarters of the market cap is the result."
+\item Why the clustering?
+\item The Power Law: " They didn’t call it the power law, but they had the idea that one or two bets in a portfolio of ten would make all their money.  The logic of the power law is that, if all of your money will come from a couple of outlier bets, you better bet on outliers. It’s no good betting on something that looks normal because then everybody else will be doing a similar thing. You won’t be differentiated. You won’t have a moat around your company, and you won’t make supernormal returns."
+\item Mallaby criticisms of venture:
+\begin{itemize}
+    \item Too white/male
+    \item move fast and break things -- not socially productive
+    \item mostly in tech, social media, not necessarily good for society
+    \item enables bubbles 
+    \item limits on what can be done w venture.  CRISPR came out of a university, need basic science functioning.   Chip fobs need very high fixed costs.
+\end{itemize}
+\item "The interesting thing about Long-Term Capital Management, which people forget, is that the Fed convened the creditors of Long-Term Capital Management at the Fed offices in New York, but it refused to provide any taxpayer money whatsoever to backstop Long-Term Capital Management. That was salutary."
 \end{itemize}
 
 \end{document}

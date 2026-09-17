@@ -72,7 +72,7 @@
     \begin{itemize}
         \item Bond prices and yields are inversely related
         \item When the bond yield is equal to the coupon, the bond price is equal to \$100.   Bonds are typically priced at \$100 when they are issued, then the prices rise (fall) as yields fall (rise).  The yield is an indication of the expected return on the bond.
-        \item A premium bond (price > \$100) has a yield below the coupon rate, and is one that you prefer to have bought when it was issued (because you would have benefitted from the price appreciated).   A discount bond (price <\$100) has a yield above the coupon rate, is one that you prefer to buy now (because the price is lower, and the prospective returns are therefore higher.)
+        \item A premium bond (price $>\$100$) has a yield below the coupon rate, and is one that you prefer to have bought when it was issued (because you would have benefitted from the price appreciated).   A discount bond (price $<\$100$) has a yield above the coupon rate, is one that you prefer to buy now (because the price is lower, and the prospective returns are therefore higher.)
     \end{itemize}
 
 
@@ -132,28 +132,123 @@
 
 \begin{frame}[t]
     \frametitle{1. Default Risk}
+    \framesubtitle{Credit Rating Agencies}
+
+    \begin{itemize}
+        \item Credit rating agencies assess the \textbf{creditworthiness} of
+        corporations, governments, and other borrowers.
+
+        \item The three major U.S. rating agencies are:
+        \begin{itemize}
+            \item \textbf{Moody's}
+            \item \textbf{S\&P Global Ratings}
+            \item \textbf{Fitch Ratings}
+        \end{itemize}
+
+        \item Ratings summarize the agency's assessment of the likelihood
+        that a borrower will meet its debt obligations.
+
+        \item Ratings range from \textbf{investment grade} to
+        \textbf{speculative grade} (``junk'').
+
+        \item Lower-rated bonds generally must offer \textbf{higher yields}
+        to compensate investors for greater perceived credit risk.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Default Risk}
     \framesubtitle{Credit Ratings}
 
     \vspace{-2em}
     \begin{center}
     \end{center}
     \begin{tblr}{
-      colspec = { Q[l,wd=3cm, font=\footnotesize] Q[c,wd=3cm, font=\footnotesize] Q[c,wd=4cm, font=\footnotesize] }
+      colspec = { Q[l,wd=3cm, font=\footnotesize] |Q[c,wd=3cm, font=\footnotesize] | Q[c,wd=4cm, font=\footnotesize] }
     }
     Moody's & S\&P and Fitch & Examples \\
     \midrule
-    \SetCell[c=3]{c} Investment Grade \\
+    \SetCell[c=3]{c}\textbf{ Investment Grade} \\
     Aaa, Aa1, Aa2, Aa3 & AAA, AA+, AA & Microsoft, J\&J \\
     A1, A2, A3 & A+, A, A- & JPM, UBS \\
     Baa1, Baa2, Baa3 & BBB+, BBB & Boeing, Occidental Petroleum \\
-    \SetCell[c=3]{c} High Yield \\
-    \SetCell[c=3]{c} High Yield (also: Below Investment Grade or Junk) \\
+    \SetCell[c=3]{c} \textbf{High Yield (also: Below Investment Grade or Junk)} \\
     Ba1, Ba2, Ba3 & BB+, BB, BB- & Carnival Corporation \\
     B1, B2, B3 & B+, B, B- & Caesars Entertainment \\
     \bottomrule
     \end{tblr}
 
 \end{frame}
+
+
+
+
+\begin{frame}[t]
+    \frametitle{1. Default Risk}
+    \framesubtitle{Default Premium}
+
+    A bond's \textbf{default premium} is defined as the difference between the bond yield and the yield on a similar maturity US Treasury bond.
+
+    $$\text{Default Premium} = \text{Bond Yield} - \text{US Treasury Yield}$$
+
+    \begin{itemize}
+        \item Be careful to only compare bonds with similar maturities
+        \item The default premium is not equal to the default risk. 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Default Risk }
+    \framesubtitle{Fallen Angels and Rising Stars}
+
+    \begin{itemize}
+        \item Bond yields tend to increase when a company's ratings are downgraded.   A company that is downgraded from investment grade to high yield is known as a "fallen angel".  
+        \item Conversely, bond yields tend to fall when a company's ratings are upgraded.  A company that is upgraded from high yield to investment grade is known as a "rising star."
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Example}: Occidental Petroleum was initially an investment grade company (rated A in 2017), it was then downgraded to high yield (BB) in 2020, and was subsequently upgraded back to investment grade (BBB-) in 2023.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Default Risk}
+    \framesubtitle{Occidental Petroleum, 4.625\% of 2045}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_5_oxy.png}
+    % https://www.tradingview.com/chart/?symbol=SWB%3AOPCC
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Default Risk }
+
+     % https://fixedincome.fidelity.com/ftgw/fi/FIYieldTable?popupMode=Y&yldTabSelected=H
+
+    Yields and Default Premiums
+    (Indictative, not exact)
+
+    \vspace{-2em}
+    \begin{center}
+    \end{center}
+    \begin{tblr}{
+      colspec = { Q[l,wd=5cm] Q[c,wd=2cm] Q[c,wd=2cm] }
+    }
+    \toprule
+    Index & Yields & Default Premium \\
+    \midrule
+    US Treasury, 5y & 4.9\% &  na\\
+    AA Rated Corp Bonds & 5.4\% & ? \\ 
+    Baa / BBB Rated Corp Bonds & 7.2\% & ? \\
+    BB Rated & 8\% & ? \\
+    CCC Rated & 13\% & ? \\
+    \bottomrule
+    \end{tblr}
+    
+\end{frame}    
 
 \begin{frame}[t]
     \frametitle{1. Default Risk }
@@ -180,31 +275,6 @@
     \includegraphics[width=0.8\textwidth]{figures/ch14_sp_downgrade.png}
 
 \end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Default Risk }
-
-    Yields and Default Premiums
-    (Indictative, not exact)
-
-    \vspace{-2em}
-    \begin{center}
-    \end{center}
-    \begin{tblr}{
-      colspec = { Q[l,wd=5cm] Q[c,wd=2cm] Q[c,wd=2cm] }
-    }
-    \toprule
-    Index & Yields & Default Premium \\
-    \midrule
-    US Treasury, 5y & 3.5\% &  na\\
-    AA Rated Corp Bonds & 4.5\% & ? \\ 
-    Baa / BBB Rated Corp Bonds & 5.5\% & ? \\
-    BB Rated & 7.5\% & ? \\
-    CCC Rated & 11\% & ? \\
-    \bottomrule
-    \end{tblr}
-    
-\end{frame}    
 
 \begin{frame}[t]
     \frametitle{2. Tax-exempt Bonds }
@@ -236,11 +306,11 @@
     \toprule
     Index & Yields & Comment \\
     \midrule
-    UST, 5y & 3.5\% &  na\\
-    CA & 2.5\% & The tax exemption leads to lower yields, relative to USTs \\ 
-    NY & 2.7\% & - \\
-    IL & 3.7\% & The default risk outweighs the benefit of the tax exemption \\
-    PR & 5.7\% &  - \\
+    UST, 5y & 4.9\% &  na\\
+    CA & 4\% & The tax exemption leads to lower yields, relative to USTs \\ 
+    NY & 4\% & - \\
+    IL & 5.2\% & The default risk outweighs the benefit of the tax exemption \\
+    PR & 7\% &  - \\
     \bottomrule
     \end{tblr}
     
@@ -251,7 +321,49 @@
     \section{Treasury Yield Curve}
 
     \centering
-    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_5_yieldcurve.png}
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/yc_2026-09-11.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. The Treasury Yield Curve}
+    \framesubtitle{Duration}
+
+    The prices of bonds with longer time to maturity are more volatile than the prices of bonds with a shorter time to maturity.  (The bond industry jargon is that longer maturity bonds have more "duration.")\\
+    \vspace{1em}
+
+    \textbf{Intuition}
+    \begin{itemize}
+        \item Look again at the bond price equation.   Note that for the final term, the $(1+y)$ in the denominator is raised to the power $T$, where $T$ is years to maturity.   For the same change in $y$, bonds with a larger $T$ will therefore have a larger change in price.
+        \item If yields on alternative bonds increase, then the value of a low coupon bond will decrease.  Intuitively, holders of the low coupon bonds are missing out.  For a shorter maturity bonds, this is not good.   But for a longer maturity bond it is very bad, because the investors will be missing out for potentially 30 years.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. The Treasury Yield Curve}
+    \section{Treasury Yield Curve}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/yc_2026_ytd.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. The Treasury Yield Curve}
+    \section{Treasury Yield Curve}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_5_2s30s_history.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. The Treasury Yield Curve}
+    \section{Treasury Yield Curve}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_5_tlt.png}
 
 \end{frame}
 

@@ -65,7 +65,7 @@
 \end{itemize}
 
 
-\section{Lecture 2: Measurement}
+\section{Lecture 2: Ch 5, 1: Measurement}
 
 
     \begin{shaded}
@@ -167,7 +167,7 @@
     \end{shaded}
 
 
-\section{Lecture 3: Distributions}
+\section{Lecture 3: Ch 5, 2: Distributions}
 
     \begin{shaded}
     \subsection{Practice: Computing Mean and Std Dev}
@@ -230,7 +230,7 @@
       \end{enumerate}
     \end{shaded}
 
-\section{Lecture 4: Evaluation}
+\section{Lecture 4: Ch 5, 3: Evaluation}
 
     \begin{shaded}
         \subsection{Practice: Fisher Approximation}
@@ -277,7 +277,7 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
 
     \end{shaded}
 
-\section{Lecture 5: Capital Allocation}
+\section{Lecture 5: Ch 6, 1: Capital Allocation}
 
     \begin{shaded}
     \subsection{Practice: Indifference Curves}
@@ -329,7 +329,7 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
 
     \end{shaded}
 
-\section{Lecture 6: Capital Allocation, Cont'd}   
+\section{Lecture 6: Ch 6, 2: Capital Allocation, Cont'd}   
 
     \begin{shaded}
     \subsection{Practice: Capital Allocation Problem}
@@ -395,9 +395,203 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
                 &\frac{\$10,000 * (1+r) - \$4,000}{\$10,000 * (1+r)} = 50\% \\
                 & -\$4,000 = -\$5,000 \cdot (1+r) \\
                 & \implies (1+r) = 0.8 \implies r = -20\%\\
+            \end{align*}  
+        \item What if the investor posts additional margin of 20\% and there is a 10\% maintenance margin?   What \% change in the stock will lead to a margin call?
+            \begin{align*}
+                &\frac{\$100,000(1+r) - \$80,000}{\$100,000(1+r)} > 0.1\\
+                &\$100,000(1+r) - \$80,000 > \$10,000(1+r) \\
+                &\$90,000(1+r) > \$80,000\\
+                & (1+r) > 8/9\\
+                & 1+r > 0.88 \implies r = -12\%
             \end{align*}
     \end{enumerate}
 
+    \end{shaded}
+
+\section{Lecture 7: Ch 7, 1: Diversification}
+
+    \subsection{$E[r]$ and $\sigma$ of a Two Asset Portfolio}
+
+    Construct a portfolio with assets $X$ and $Y$ with returns $r_x$ and $r_y$.  The portfolio is constructed with weights $w_x$ and $w_y$, such that $w_x + w_y = 1$.\\
+     
+    \textbf{Expected Return: $E[r_p]$}
+    \begin{align*}
+        E[r_p] &= E[w_xr_x + w_yr_y]\\
+                &= E[w_xr_x] + E[w_yr_y]\\
+                &= w_xE[r_x] + w_yE[r_y]
+    \end{align*}
+
+    \textbf{Standard deviation: $\sigma_p$}\\
+    Note that the Variance of X is $Var(X) = E[(X-E[X])^2]$ and $Cov(X,Y) = E[(X-E[X])(Y-E[Y])]$
+        \begin{align*}
+           \sigma_p^2 = E[(r_p - E[r_p])^2] &= E[(w_xr_x + w_yr_y - E[w_xr_x + w_yr_y])^2]\\
+                    &= E[(w_xr_x - E[w_xr_x] + w_yr_y - E[w_yr_y])^2]\\
+                    &= E[(w_x(r_x - E[r_x]) + w_y(r_y - E[r_y]))^2]\\
+            \text{Let } \tilde{r_x} = r_x - E[r_x] \text{ be the de-meaned return of x}\\
+                    & = E[(w_x\tilde{r_x} + w_y\tilde{r_y})^2]\\
+                    & = E[w_x^2\tilde{r_x}^2 + 2w_xw_y\tilde{r_x}\tilde{r_y} + w_y^2\tilde{r_y}^2] \\
+                \sigma_p^2    & = w_x^2 \operatorname{Var}(r_x) + 2w_xw_y\operatorname{Cov}(r_x,r_y) + w_y^2Var(r_y) \\
+                \sigma_p &= \sqrt{w_x^2 \operatorname{Var} + 2w_xw_y\operatorname{Cov}(r_x,r_y) + w_y^2\operatorname{Var}(r_y)}\\
+                \text{The correlation coefficient is defined as: }\rho_{x,y} = \frac{\operatorname{Cov}(X,Y)}{\sigma_x\sigma_y}\\
+                \sigma_p &= \sqrt{w_x^2 \operatorname{Var} + 2w_xw_y\sigma_x\sigma_y\rho_{x,y} + w_y^2\operatorname{Var}(r_y)}\\
+        \end{align*}
+
+
+    \begin{shaded}
+        \begin{enumerate}
+        \item The correlation coefficients between pairs of stocks are as follows: Corr(A,B) = 0.85,
+        Corr(A,C) = 0.6, Corr(A,D) = 0.45.   Each stock has an expected return of 8\% and a standard 
+        deviation of 20\%. 
+        \begin{itemize}
+            \item If your entire portfolio is now composed of stock A and you can add one stock to your portfolio, which do you add?\\
+            
+            \textit{Stock D, lower correlation coefficient means more benefit of diversification}
+            \item If you compose of portfolio of 0.5 stock A and 0.5 of the stock you chose above, what is the standard deviation of that portfolio?
+            $$\sqrt{0.25\sigma_x^2 + 0.25\sigma_y^2 + 2\cdot0.25\sigma_x\sigma_y\rho_{x,y}$$
+            $$\sqrt{0.25\cdot0.04 + 0.25\cdot0.04 + 2\cdot0.25\cdot.04\cdot0.45$$
+            $$ = \sqrt{0.02+0.19} = 0.17$$
+            \textit{Answer: 17\%}
+            \item How much did adding this additional stock lower the standard deviation on your portfolio?\\
+
+            \textit{From 20\% to 19.2\%.   Not much}            
+            \item Would the answer change for more risk averse investors?\\
+
+            \textit{No, this is not about risk aversion}
+            \item Suppose that you could also add T-Bills, which have a rate of 8\%.   How would your portfolio look now?\\
+
+            \textit{All in T-Bills}
+        \end{itemize}
+    \end{enumerate}
+    \end{shaded}
+
+    \begin{shaded}
+    \begin{enumerate}
+        \item True or false: The standard deviation of the portfolio is always equal to the weighted average of the standard deviations of the assets in the portfolio.\\
+
+        \textit{False, need the covariance term}
+    \end{enumerate}
+    \end{shaded}
+
+
+    \begin{shaded}
+
+        \begin{enumerate}
+            \item Abigail Grace begins with \$900,000 invested in her original
+            portfolio and then inherits \$100,000 of ABC stock. She has the
+            following estimates:
+            
+            \begin{center}
+            \begin{tabular}{lrr}
+            \toprule
+            & $E[r]$, monthly & $\sigma$ \\
+            \midrule
+            Original Portfolio & 0.67\% & 2.37\% \\
+            ABC                 & 1.25\% & 2.95\% \\
+            \bottomrule
+            \end{tabular}
+            \end{center}
+            
+            The correlation coefficient between ABC and her original portfolio is
+            0.40. Answer the following questions:
+            
+            \begin{itemize}
+            
+                \item Calculate the expected return of the new portfolio, the
+                covariance of ABC's returns with the original portfolio, and the
+                standard deviation of the new portfolio.
+            
+                \textit{The portfolio weights are 0.90 in the original portfolio
+                and 0.10 in ABC. The expected return is}
+                \[
+                    E[r_p]
+                    =0.90(0.67\%)+0.10(1.25\%)
+                    =0.728\%.
+                \]
+            
+                \textit{The covariance between ABC and the original portfolio is}
+                \[
+                    \operatorname{Cov}(O,ABC)
+                    =\rho_{O,ABC}\sigma_O\sigma_{ABC}
+                    =(0.40)(0.0237)(0.0295)
+                    =0.00027966.
+                \]
+            
+                \textit{The variance and standard deviation of the new portfolio are}
+                \[
+                \begin{aligned}
+                    \sigma_p^2
+                    &=(0.90)^2(0.0237)^2
+                    +(0.10)^2(0.0295)^2 \\
+                    &\quad
+                    +2(0.90)(0.10)(0.00027966)\\
+                    &=0.00051401,
+                \end{aligned}
+                \]
+                \[
+                    \sigma_p=\sqrt{0.00051401}
+                    \approx 0.02267.
+                \]
+            
+                \item Grace sells ABC and invests the proceeds in T-bills that earn
+                0.42\% per month. Recalculate the expected return and standard
+                deviation of her portfolio.
+            
+                \textit{Because T-bills are risk-free, their standard deviation and
+                covariance with the original portfolio are zero. Therefore,}
+                \[
+                    E[r_p]
+                    =0.90(0.67\%)+0.10(0.42\%)
+                    =0.645\%,
+                \]
+                \[
+                    \sigma_p
+                    =0.90(2.37\%)
+                    =2.133\%.
+                \]
+            
+                \textit{Answer: The portfolio has an expected monthly return of
+                0.645\% and a monthly standard deviation of approximately 2.13\%.}
+            
+                \item Grace is considering selling ABC and buying XYZ, which has the
+                same expected return and standard deviation as ABC. Does it matter
+                whether Grace owns ABC or XYZ? Why or why not?
+            
+                \textit{Yes. Expected return and standard deviation alone are not
+                sufficient to determine how a security affects a portfolio. Grace
+                must also know XYZ's correlation, or covariance, with her original
+                portfolio. If XYZ has a lower correlation with the original
+                portfolio than ABC does, XYZ will provide a greater diversification
+                benefit and produce a lower portfolio standard deviation. If their
+                correlations are identical, the two choices will have the same
+                portfolio-level expected return and standard deviation.}
+            
+            \end{itemize}
+    \end{enumerate}
+
+    \end{shaded}
+
+        \begin{shaded}
+        Consider the following data on Stocks A, B, and C:
+    
+            \begin{tabular}{lcccc}
+            \toprule
+            Scenario & Probability & Stock A & Stock B & Stock C\\
+            \midrule
+            Low & 25\% & 5 & 0 & 12 \\
+            High &75\% & 25 & 40 & 24 \\
+            \bottomrule
+            \end{tabular}
+    
+        \begin{enumerate}
+            \item	What is the expected rate of return for each stock?
+
+            $$E[A] = 0.25\cdot5 + 0.75\cdot25$$, etc
+            \item	What is the Variance-Covariance Matrix for Stock A, Stock B, and Stock C (hint: 3x3 matrix)
+
+            $$Cov(A,B) = 0.25\cdot(5-E[A])(0-E[B]) + 0.75\cdot(25-E[A])(40-E[B])$$
+            
+            \item What is the variance of a portfolio that is composed of 1/3 of each of these stocks?
+        \end{enumerate}
     \end{shaded}
 
 \end{document}
