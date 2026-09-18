@@ -217,8 +217,8 @@
     \begin{itemize}
         \item Risk Premium (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 9.4\%$
         \item Risk Premium (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 3.1\%$
-         \item Expected Return (SPY): $\mathbb{E}[r_{SPY}] - r_{f} = 13.4\%$
-        \item Expected Return (TLT): $\mathbb{E}[r_{TLT}] - r_{f} = 7.1\%$
+         \item Expected Return (SPY): $\mathbb{E}[r_{SPY}] = 13.4\%$
+        \item Expected Return (TLT): $\mathbb{E}[r_{TLT}] = 7.1\%$
         \item Standard Deviation (SPY): $\hat{\sigma}_{SPY} = 14.8\%$
         \item Standard Deviation (TLT): $\hat{\sigma}_{TLT} = 13.6\%$
         \item Covariance: $\widehat{\text{Cov}}(SPY,TLT) = -21.09$
@@ -226,6 +226,8 @@
     \end{itemize}
 
 \end{frame}
+
+
 
 \begin{frame}
     \frametitle{1. Step 1: Maximize the Sharpe Ratio}
@@ -235,6 +237,15 @@
     \includegraphics[width=0.9\textwidth]{figures/ch7_1_spytlt_sharpe.png}
 
 \end{frame}
+
+\begin{excelframe}[t]
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+    \framesubtitle{Excel Optimization}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ457/figures/ch7_2_excel.png}
+
+\end{excelframe}
 
 
 \begin{frame}[t]
@@ -260,6 +271,38 @@
     \end{table}
 
 \end{frame}
+
+
+\begin{practiceframe}
+    \frametitle{1. Step 1: Maximize the Sharpe Ratio}
+
+    \footnotesize
+    The universe of available securities includes two risky stock funds, A  and B, and T-bills.   The data for the universe are as follows:
+
+    \begin{table}
+        \caption{Sharpe Ratios}
+        \begin{tabular}{lrrr}
+            \toprule
+            & Expected Return & Std Dev\\
+            \midrule
+            A & 10\% & 20\%\\
+            B & 30\% & 60\%\\
+            T-bills & 5\% & \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    The correlation between A and B is -0.2
+
+    \begin{enumerate}
+        \item Draw the opportunity set of funds A and B
+        \item Find the optimal risky portfolios, P, and its expected return and standard deviation
+        \item Find the slop of the CAL supported by T-bills and portfolio P
+    \end{enumerate}
+
+
+    \blfootnote{We will not solve this in class, but the strategy is identical to the example we did with SPY and TLT.   You should try to replicate this, for practice}
+
+\end{practiceframe}
 
 \begin{frame}[t]
     \frametitle{Step 2. Decide on Cash Allocation}
@@ -323,9 +366,9 @@
     \framesubtitle{Expected Return}
 
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld_er.png}
+    \includegraphics[width=0.75\textwidth]{figures/ch7_2_spytltgld_er.png}
 
-    \blfootnote{Data Source: Yahoo Finance}
+    \blfootnote{Data Source: Yahoo Finance, $E[r_{spy}]= 13\%$, $E[r_{tlt}] = 6.7\%$, $E[r_{gld}] = 13.1\%$}
 
 \end{frame}
 
@@ -334,9 +377,9 @@
     \framesubtitle{Standard Deviation}
 
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch7_2_spytltgld_std.png}
+    \includegraphics[width=0.75\textwidth]{figures/ch7_2_spytltgld_std.png}
 
-    \blfootnote{Data Source: Yahoo Finance}
+    \blfootnote{Data Source: Yahoo Finance, $\sigma_{spy}$ = 15\%, $\sigma_{tlt}$=14\%, $\sigma_{gld}$=16.6\%}
 
 \end{frame}
 
@@ -511,11 +554,7 @@ Steps for constructing an optimal portfolio with many risky assets:
 
 \end{excelframe}
 
-\begin{excelframe}[t]
-    \frametitle{5. Excel}
-    \framesubtitle{Optimization}
 
-\end{excelframe}
 
 
 
