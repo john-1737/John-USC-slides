@@ -55,12 +55,15 @@
     \frametitle{Outline for Today's Lecture}
     \begin{enumerate}
         \item Review: Stocks and Monetary Policy
+        \item Income Statement
         \item P/E Ratio
+        \item Growth and the P/E Ratio
         \item Uses of P/E Ratios:
         \begin{itemize}
             \item Compare Prices Across Similar Companies
-            \item Compare Prices Across Time
+            \item Prices for IPOs / acquisitions
         \end{itemize}
+        \item Is the stock market expensive?
     \end{enumerate}
 
 \end{frame}
@@ -116,7 +119,76 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. P/E Ratio}
+    \frametitle{2. The Income Statement}
+    \section{Income Statement}
+    \framesubtitle{}
+
+    The \textbf{income statement} summarizes a company's revenues,
+    expenses, and profits over a period of time.
+
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textbf{Revenue}: money earned from selling goods and services.
+
+        \item \textbf{Expenses}: costs incurred to generate revenue.
+
+        \item \textbf{Gross profit}: revenue minus the direct costs of
+        producing the goods or services sold.
+
+        \item \textbf{Operating income}: gross profit minus operating
+        expenses such as R\&D, sales, and administration.
+
+        \item \textbf{Net income}: profit remaining after operating expenses,
+        interest, taxes, and other non-operating items.
+
+        \item The income statement measures \textbf{flows over a period},
+        unlike the balance sheet, which is a snapshot at a point in time.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Income Statement}
+    \framesubtitle{Example: Apple Income Statement, Q2-FY26}
+
+    
+    
+    \begin{table}
+        \centering
+    \footnotesize
+    \begin{tabular}{lr}
+            \toprule
+            \textbf{Three Months Ended March 28, 2026} & \textbf{\$ billions} \\
+            \midrule
+            Net sales & 111.2 \\
+            Cost of sales & (56.4) \\
+            \midrule
+            \textbf{Gross profit} & \textbf{54.8} \\
+            Research \& development & (11.4) \\
+            Selling, general \& administrative & (7.5) \\
+            \midrule
+            \textbf{Operating income} & \textbf{35.9} \\
+            Other income/(expense) & (0.1) \\
+            \midrule
+            Income before taxes & 35.8 \\
+            Income tax expense & (6.3) \\
+            \midrule
+            \textbf{Net income} & \textbf{29.6} \\
+            Earnings per share (EPS) & 2.02 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \vspace{0.5em}
+
+    \blfootnote{Source: Apple, Condensed Consolidated Statements of
+    Operations, quarter ended March 28, 2026.}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. P/E ratio}
     \section{P/E Ratio}
 
     Question: Consider a company that expects to earn \$100 billion in the coming year. Assume the company has no debt and pays all its earning to shareholders via dividends.
@@ -135,7 +207,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. P/E Ratio}
+    \frametitle{3. P/E ratio}
 
     Answer: You would likely be willing to pay \textbf{more} than \$100 billion to own that company.
 
@@ -149,7 +221,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. P/E Ratio}
+    \frametitle{3. P/E ratio}
     \subtitle{Value of company with no growth}
 
     To illustrate the first point, consider the case of a company with no expected growth ($g=0$).   Using the Gordon growth model, and assuming $D=E$ because all earnings are paid as dividends, we have:
@@ -164,7 +236,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. P/E Ratio}
+    \frametitle{3. P/E ratio}
     \framesubtitle{P/E Ratios of Some Large Companies}
 
     % Requires: \usepackage{array}
@@ -190,7 +262,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. P/E Ratio}
+    \frametitle{3. P/E ratio}
     \framesubtitle{}
 
     Note companies with higher expected growth (i.e. Nvidia) have higher P/E ratios.   That should be intuitive, based on the Gordon Growth Model.
@@ -205,9 +277,109 @@
 
 \end{frame}
 
+
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
-    \framesubtitle{}
+    \frametitle{4. Growth and the P/E Ratio}
+    \section{Growth and the P/E Ratio}
+
+    \begin{itemize}
+        \item The price of stocks (and the P/E ratio) necessarily require forecasts for future growth.
+        \item Specifically, companies with high P/E ratios are generally expected to have high growth rates
+        \begin{itemize} 
+            \item Theoretically high P/E ratios could also be due to low discount rates, but usually growth rates are the more important driver.
+        \end{itemize}
+        \item As the next example shows, sometimes markets and investors get it right, sometimes they don't.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Growth and the P/E Ratio}
+
+    \textbf{Software and Chip (Semiconductor) PE Ratios in January 2025}
+        \begin{itemize}
+        \item At the beginning of 2025, software and semiconductor sectors both had very high forward PE ratios (above 50).
+        \item These high PE ratios corresponded with very high growth expectations (above 20\% for five years)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Growth and the P/E Ratio}
+
+    \centering
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_7_damadoaran.png}
+
+    \blfootnote{Source: Aswath Damodaran's website, January 2025}
+
+\end{frame}
+
+% https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/pedata.html
+
+\begin{frame}[t]
+    \frametitle{4. Growth and the P/E Ratio}
+    \framesubtitle{NVDA}
+
+    \begin{itemize}
+        \item Nvidia (NVDA) had an extremely high PE in 2023.
+        \item NVDA earnings growth has been astounding since.  
+        \item NVDA price has continued to increase, although the PE ratio has come down.
+    \end{itemize}
+    \vspace{1em}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_7_nvda.png}
+
+    \blfootnote{Source: Marketwatch, Google Finance}
+
+\end{frame}
+
+% https://docs.google.com/spreadsheets/d/18M0LUbKakHxFRbQy0rqCKJI-eFjZkZu4SkjLEp2maCA/edit?gid=1620244217#gid=1620244217
+
+\begin{frame}[t]
+    \frametitle{4. Growth and the P/E Ratio}
+    \framesubtitle{ADBE}
+
+    \begin{itemize}
+        \item Software stocks had high PEs at the beginning of 2025.
+        \item Since then, EPS for ADBE has continued to grow.
+        \item Future growth expectations have come down, however, and so has the P/E ratio.
+    \end{itemize}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_adbe.png}
+
+    \blfootnote{Source: Marketwatch, Google Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Growth and the P/E Ratio}
+    \framesubtitle{NVDA v ADBE}
+
+    \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_igv.png}
+
+    \blfootnote{Source: Yahoo Finance}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Growth and the P/E Ratio}
+    \framesubtitle{Comparing Indices}
+
+ \centering
+    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_7_wsj.png}
+
+    \blfootnote{Source: Wall Street Journal, September 2026}
+
+\end{frame}
+
+% https://www.wsj.com/market-data/stocks/peyields?mod=md_usstk_view_pe_yield_full
+
+\begin{frame}[t]
+    \frametitle{5. Uses of the P/E Ratio}
+    \section{Uses of the P/E Ratio}
 
     In contrast to the Gordon Growth Model, which we used to estimate the value of company, the P/E ratio is used to make \textit{relative} statements about prices.   
     \vspace{1em}
@@ -215,60 +387,58 @@
     In particular, P/E ratios are often used to:
     \begin{enumerate}
         \item Compare the prices of similar companies
-        \item Compare prices across time
+        \item Price IPOs or acquisitions
     \end{enumerate}
     \vspace{1em}
-
-    When making comparisons it's important to remember what the P/E ratio represents.   Companies with high P/E ratios are expected to have high growth rates (or low discount rates, but usually growth rates are the more important driver).   The expectations reflected in the price may or may not come to pass.   Whether they are a good estimates is for you, the investor, to decide.   
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Uses of P/E Ratios}
-    \section{Uses of P/E Ratios}
-    \framesubtitle{Comparing Sectors}
-
-    \centering
-    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_7_damadoaran.png}
-
-    \blfootnote{Source: Aswath Damodaran's website, January 2025}
+   
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
-    \framesubtitle{Comparing Indices}
 
- \centering
-    \includegraphics[width=\textwidth]{Econ357/figures/02_mkts_7_wsj.png}
-
-    \blfootnote{Source: Wall Street Journal, February 2026}
-
-\end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{5. Uses of the P/E ratio}
     \framesubtitle{Comparing Prices of Similar Companies}
 
- \centering
-    \includegraphics[width=0.4\textwidth]{Econ357/figures/02_mkts_7_banks.png}
+    % Requires: \usepackage{booktabs}
+    \begin{table}[h]
+        \caption{Bank PE Ratios, Sep 2026}
+        \label{tab:placeholder_label}
+        \centering
+        \begin{tabular}{lrr}
+            \toprule
+            Company & P/E (TTM) \\
+            \midrule
+            JPMorgan Chase \& Co. & 14.98 \\
+            Bank of America Corp.  & 13.29 \\
+            Wells Fargo \& Co. & 12.51 \\
+            Royal Bank of Canada  & 17.94 \\
+            Toronto-Dominion Bank  & 18.39 \\
+            Citigroup Inc. & 14.22 \\
+            HSBC Holdings PLC  & 14.53 \\
+            BNP Paribas S.A.  & 8.72 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
 
-    \blfootnote{Source: Wall Street Journal, February 2026}
+    \blfootnote{Source: Wall Street Journal, September 2026}
 
 \end{frame}
 
+% https://www.wsj.com/market-data/quotes/US/XNYS/JPM
+
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{5. Uses of the P/E ratio}
     \framesubtitle{Comparing Prices of Similar Companies}
 
     % Requires: \usepackage{booktabs}
     \begin{table}[h]
         \centering
-        \caption{PE Ratios of Automakers}
+        \caption{Automaker PE Ratios, July 2025}
         \begin{tabular}{lrrrr}
             \toprule
             & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Market\\ Cap\\ \$ bn\end{tabular}} &
-            \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Share Price,\\ \$\\ (as of 7-16)\end{tabular}} &
+            \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Share Price, \$\\ (as of 7-16)\end{tabular}} &
             \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EPS,\\ TTM\end{tabular}} &
             \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}PE Ratio,\\ TTM\end{tabular}} \\
             \midrule
@@ -286,18 +456,35 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
-    \framesubtitle{Comparing Prices Across Time}
+\frametitle{5. Uses of the P/E Ratio}
 
- \centering
-    \includegraphics[width=0.8\textwidth]{Econ357/figures/02_mkts_7_jpm.png}
+The P/E ratio can be used to estimate the value of a company:
 
-    \blfootnote{Source: JP Morgan Asset Management, Guide to the Markets, January 2025}
+\[
+P/E=\frac{\text{Price}}{\text{Earnings}}
+\]
+
+\begin{itemize}
+    \item Use the P/E ratios of comparable companies to select an
+    appropriate multiple.
+
+    \item For an IPO:
+    \[
+    \text{Implied Price}
+    =
+    \text{P/E Multiple}\times\text{EPS}.
+    \]
+
+
+    \item The appropriate multiple depends on factors such as growth,
+    risk, and etc.
+    \item \textbf{Example}: Jersey Mike's did an IPO in 2026.   The P/E ratio on their IPO was around 30x.
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{6. Is the Stock Market Expensive?}
     \framesubtitle{Comparing Prices Across Time}
 
     \textbf{Cyclically Adjusted PE Ratio ("CAPE")}
@@ -311,7 +498,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{6. Is the Stock Market Expensive?}
     \framesubtitle{Comparing Prices Across Time}
 
     \centering
@@ -320,16 +507,16 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{5. Uses of the P/E ratio}
     \framesubtitle{Comparing Prices Across Time}
 
     \centering
-    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_7_shiller1.png}
+    \includegraphics[width=0.9\textwidth]{Econ357/figures/02_mkts_7_shiller2.png}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{6. Is the Stock Market Expensive?}
     \framesubtitle{Comparing Prices Across Time}
 
     Is the CAPE a useful signal for when stocks are expensive or cheap?
@@ -343,7 +530,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Uses of the P/E Ratio}
+    \frametitle{6. Is the Stock Market Expensive?}
     \framesubtitle{Comparing Prices Across Time}
 
     \centering

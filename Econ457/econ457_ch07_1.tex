@@ -294,19 +294,81 @@
 
 \end{frame}
 
-
 \begin{frame}[t]
-    \frametitle{4. Many Assets}
-    \framesubtitle{Standard Deviation - COV term}
+\frametitle{4. Many Assets}
+\framesubtitle{Portfolio Variance}
 
-    \vspace{1em}
-    The general formula for the variance of a portfolio composed of $n$ risky assets:
-    $$\sigma_p^2 = \sum_{i=1}^{n}\sum_{j=1}^{n}w_iw_jCov(r_i,r_j)$$
-    In the case that the portfolio is equally weighted (all $w=1/n$) this becomes:
-    $$\sigma_p^2 = \sum_{i=1}^{n}\frac{1}{n^2}\sigma_i^2 + 
-     \sum_{j=1, j \neq i}^{n}\sum_{i=1}^{n}\frac{1}{n^2}Cov(r_i,r_j)$$
+    \footnotesize
+    The general formula for the variance of a portfolio composed of
+    $n$ risky assets is:
+    
+    \[
+    \sigma_p^2
+    =
+    \sum_{i=1}^{n}\sum_{j=1}^{n}
+    w_iw_j\operatorname{Cov}(r_i,r_j)
+    \]
+    
+    For an equally weighted portfolio, $w_i=\frac{1}{n}$, so:
+    
+    \[
+    \sigma_p^2
+    =
+    \frac{1}{n^2}
+    \sum_{i=1}^{n}\sum_{j=1}^{n}
+    \operatorname{Cov}(r_i,r_j)
+    \]
+    
+    Separating the variance terms from the covariance terms:
+    
+    \[
+    \sigma_p^2
+    =
+    \underbrace{\frac{1}{n^2}\sum_{i=1}^{n}\sigma_i^2}
+    _{\text{Variance terms}}
+    +
+    \underbrace{
+    \frac{1}{n^2}
+    \sum_{i=1}^{n}
+    \sum_{\substack{j=1\\j\neq i}}^{n}
+    \operatorname{Cov}(r_i,r_j)
+    }_{\text{Covariance terms}}
+    \]
 
 \end{frame}
+
+
+\begin{frame}[t]
+\frametitle{4. Many Assets}
+\framesubtitle{Three Securities}
+
+    For three securities, the expected return is:
+    
+        \[
+        E[r_p]
+        =
+        w_1E[r_1]
+        +w_2E[r_2]
+        +w_3E[r_3]
+        \]
+        
+    and the variance is:
+    
+        \[
+        \begin{aligned}
+        \sigma_p^2
+        ={}&
+        w_1^2\sigma_1^2
+        +w_2^2\sigma_2^2
+        +w_3^2\sigma_3^2\\
+        &+2w_1w_2\operatorname{Cov}(r_1,r_2)\\
+        &+2w_1w_3\operatorname{Cov}(r_1,r_3)\\
+        &+2w_2w_3\operatorname{Cov}(r_2,r_3).
+        \end{aligned}
+        \]
+
+\end{frame}
+
 
 \begin{practiceframe}
     \frametitle{4. Many Assets}

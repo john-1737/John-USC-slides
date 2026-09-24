@@ -594,4 +594,87 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
         \end{enumerate}
     \end{shaded}
 
+\section{Ch 9: CAPM}
+
+    \begin{shaded}
+        Assume the risk-free rate is 6\% and the expected return on the market is 16\%.
+        A stock sells for \$50 today.   
+        It will pay a dividend of \$6 per share at the end of the year.   
+        Its beta is 1.2.\\
+        \vspace{1em}
+        Questions:\\
+        \begin{enumerate}
+            \item What is the expected return for this stock?
+
+            \begin{align*}
+                E[r_i] &= r_f + \beta(E[r_m]-r_f) \\
+                 &= 6 + 12 = 18\% \\
+            \end{align*}
+            
+            \item What do investors expect the price to be at the end of the year?
+
+            \begin{align*}
+                \text{Dividend Return} = 6/50 = 12\%\\
+                \text{Expected Return} = 18\%\\
+                \text{Capital Gain} = 6\%\\
+                \text{Price at end of year} = \$53\\
+            \end{align*}
+
+            \item Assuming no change in the expectations for dividends or the end of year price, if you are offered the stock for \$48 what should you do?   If you receive a bid for the stock at \$54 what should you do?
+
+            \textit{Buy at \$48, sell at \$54.}
+            
+        \end{enumerate}
+    \end{shaded}
+
+
+
+    \begin{shaded}
+        Consider the following\\
+        
+        \begin{tabular}{cccc}
+        \toprule
+        \textbf{Scenario} & \textbf{Market Return} & \textbf{Aggressive Stock} & \textbf{Defensive Stock} \\
+        \midrule
+        Low & 5\% & -2\% & 6\% \\
+        \hline
+        High & 25\% & 38\% & 12\% \\
+        \bottomrule
+        \end{tabular}
+        \vspace{1em}
+        
+        Questions:
+        \begin{enumerate}
+            \item What is the expected rate of return for each stock, if the two scenarios are equally likely?
+            \begin{align*}
+                E[r_A] &= -2*0.5 + 38*0.5 = 18 \\
+                E[r_D] &= 6*0.5 + 12*0.5 = 9\\
+                E[r_M] &= 5*0.5 + 25*0.5 = 15\\
+            \end{align*}
+            \item What is the Var-Cov matrix, if the two scenarios are equally likely?
+            \begin{align*}
+                Var[r_A] &= 0.5(-20)^2 + 0.5(20)^2 = 400 \\
+                Var[r_D] &= 0.5(3)^2 + 0.5(3)^2 = 9\\
+                Var[r_M] &= 0.5(10)^2 + 0.5(10)^2 = 100\\
+                Cov(r_A,r_M) = 0.5(20)(10) + 0.5(20)(10) = 200\\
+                Cov(r_A,r_D) = 20*3 = 60\\
+                Cov(r_D,r_M) = 10*3 = 30\\
+            \end{align*}
+            \item What are the betas of the aggressive and defensive stock?
+                \begin{align*}
+                    \beta_A =  \frac{Cov(r_A,r_M)}{Var(r_M)} = \frac{200}{100} = 2\\
+                    \beta_D =  \frac{Cov(r_D,r_M)}{Var(r_M)} = \frac{30}{100} = 0.3\\
+                \end{align*}
+            \item Draw the SML if T-Bill rate is 6\% and the two scenarios are equally likely.
+            \item Plot the two securities relative to the SML. What is the alpha?
+            \begin{align*}
+                    A_{SML} = 6+2*9 = 24 \implies \text{A is below the SML}\\
+                    D_{SML} = 6+0.3*9 = 8.7 \implies \text{D is slightly above to the SML}\\
+                \end{align*}
+            \item What is likely to happen to the \textit{price} of the two stocks?
+        \end{enumerate}
+
+    \end{shaded}
+
+
 \end{document}

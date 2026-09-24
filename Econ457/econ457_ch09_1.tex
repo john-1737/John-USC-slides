@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 5-a}
+\newcommand{\week}{CAPM - 1}
 
 \title{Capital Asset Pricing Model (CAPM)}
 \subtitle{Reference: Bodie et al, Ch 9}
@@ -46,9 +46,8 @@
         1 & Intro  &  - \\
         2 & Measuring Returns & 5 \\
         3 & Capital Allocation & 6 \\
-        4 & Optimal Portfolios & 7 \\
+        4 & Diversification & 7 \\
         \textcolor{red}{5} & \textcolor{red}{CAPM} & \textcolor{red}{9} \\
-        6 & Index Model & 8 \\
         \bottomrule
         \end{tabular}
     \end{table}
@@ -59,28 +58,104 @@
     \frametitle{Outline}
 
     \begin{enumerate}
-        \item The Market Portfolio and Equilibriumm
+        \item The Market Portfolio and Equilibrium
+        \item The Equilibrium Condition for Expected Returns
         \item Implications of CAPM Equilibrium
         \begin{itemize}
-            \item Equilibrium Condition for Expected Returns
+            \item Define $\beta_i$
             \item Prices adjust
         \end{itemize}
-        \item A Linear Model
-        \item Practice: Applications of CAPM
+        \item Practice
     \end{enumerate}
+\end{frame}
+
+
+
+\begin{foundframe}[t]
+    \frametitle{Some Useful Facts}
+
+    \framesubtitle{Var and Cov}
+
+    \begin{itemize}
+        \item $\operatorname{Cov}(X,X) = \operatorname{Var}(X)$
+        \item $\operatorname{Var}(X+Y) \neq \operatorname{Var}(X) + \operatorname{Var}(Y)$, in general
+        \item $\operatorname{Cov}(X+Y,Z) = \operatorname{Cov}(X,Z) + \operatorname{Cov}(Y,Z)$
+        \item  The variance of a portfolio is the weighted sum of all the covariance terms: 
+        $$\sigma_p^2 = \sum_{i=1}^{n}\sum_{j=1}^{n}
+                w_iw_j\operatorname{Cov}(r_i,r_j)$$
+        \item Using the fact that $\operatorname{Cov}(X,X) = \operatorname{Var}(X)$, this can be written:
+        $$\sigma_p^2 = \sum_{i=1}^{n}w_i^2\sigma_i^2 + 2\sum_{i=1}^{n}
+    \sum_{\substack{j=1\\j\neq i}}^{n} w_iw_j\operatorname{Cov}(r_i,r_j)$$
+        
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{Some Useful Facts}
+    \framesubtitle{Calculus}
+
+    \begin{itemize}
+        \item Chain rule: 
+        $$\frac{d}{dx}f(g(x)) = f'(g(x))*g'(x)$$
+        \item Product rule: 
+        $$\frac{d}{dx}f(x)g(x) = f'(x)g(x) + f(x)g'(x)$$
+        \item Quotient rule: 
+        \begin{align*}
+            \frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}f(x)g(x)^{-1}\\
+            &= f'(x)g(x)^{-1} - f(x)g'(x)g(x)^{-2} \\
+            &= \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+        \end{align*} 
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \section{The Market Portfolio and Equilibrium}
+    \framesubtitle{Markowitz Portfolio Optmization}
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch9_cml.png}
+
+    \blfootnote{When the optimal portfolio includes all the assets it becomes the "market portfolio" and the tangency line becomes the "Capital Markets Line"}
+
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{1. The Market Portfolio and Equilibrium}
-    \framesubtitle{Markowitz Portfolio Optmization (Bodi, Ch 7)}
+    \framesubtitle{Markowitz Portfolio Optimization}
 
-    \vspace{-1em}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch9_cml.png}
+    Notes:
+    \begin{itemize}
+        \item If all investors are mean-variance optimizers and have the same expectations about returns, variances, and covariances, they will choose the same optimal portfolio of risky assets.
+        
+        \begin{itemize}
+            \item The optimal risky portfolio is the portfolio that maximizes
+            the Sharpe Ratio.
+        \end{itemize}
+    
+        \item Investors may have different allocations between the risky portfolio and the risk-free asset because they have different levels of risk aversion.
+    
+        \item If all investors hold the same risky portfolio, and all investors have access to the same assets, then in equilibrium that portfolio must be the \textbf{market portfolio}. \item Thus, the market portfolio must itself be mean-variance efficient.
 
-    \blfootnote{The Markwotiz model determines optimal weights $w_i$, given 
-    $\mathbb{E}[r_i]$, $r_i$, and $\sigma_i$, for securities $i=1...n$.   Markowitz says nothing about
-     what the security prices \textit{should} be.   That is where CAPM comes in.}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. The Market Portfolio and Equilibrium}
+    \framesubtitle{Markowitz Portfolio Optimization}
+
+        Continued...
+
+        \begin{itemize}
+        \item Mean-variance optimization tells investors which portfolios are
+        optimal given expected returns, variances, and covariances, but does not
+        by itself determine equilibrium expected returns.
+    
+        \item The observation that the market portfolio must be optimal has strong implications for the \textit{relationship between the expected returns of different assets}. This is the basis of the \textbf{Capital Asset Pricing Model (CAPM)}.
+    \end{itemize}
 
 \end{frame}
 
@@ -95,8 +170,9 @@
             \item Investors have the same expectations for asset characteristics (means, variances, correlations)
             \item Investors have the same time horizons
         \end{itemize}
-    \item Markets are complete
+    \item Markets are frictionless
         \begin{itemize} 
+            \item All assets are publicly traded and available to all investors.
             \item No taxes
             \item No trading costs
             \item Unlimited leverage available at the risk-free rate
@@ -111,60 +187,226 @@
 
 \begin{frame}[t]
     \frametitle{1. The Market Portfolio and Equilibrium}
-    \framesubtitle{Equilibrium}
+    \framesubtitle{CAPM Conclusion: Equilibrium}
 
-    Under these assumptions, we can conclude that:
-    \begin{itemize}
-        \item The market portfolio is optimal.   No portfolio exists with better reward-to-risk.
-        \item The market portfolio is an equilibrum.   
-    \end{itemize}
-    \vspace{1em}
+        \begin{itemize}
+            \item All investors hold the same optimal risky portfolio.
+            
+            \item Because investors collectively own all traded securities, this
+            portfolio is the \textbf{market portfolio}.
+            
+            \item Therefore, the market portfolio must be mean-variance efficient.
+            
+            \item This places a restriction on the expected return of every
+            individual security.
+            
+            \item If a security's expected return deviates from this restriction,
+            investors will buy or sell the security. This changes its price and,
+            therefore, its expected return.
+            
+            \item This process continues until an \textbf{equilibrium} is reached:
+            expected returns satisfy the equilibrium relationship and investors
+            are willing to hold the market portfolio.
+        \end{itemize}
 
-    The \textbf{expected return of the market} is determined by economic factors 
-    (wealth, average risk aversion, risk-free rate).\\
-    \vspace{1em}
+    \blfootnote{The \textbf{expected return of the entire market} is determined by economic factors (wealth, average risk aversion, risk-free rate).   We'll have more to say about that in later classes}
 
-    Moreover, if the market portfolio is an equilibrium, this has strong implications for 
-    \textbf{expected return of individual securities}, which is the next part of the lecture.
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{2. The Equilibrium Condition for Expected Returns}
+    \section{The Equilibrium Condition for Expected Returns}
+\framesubtitle{Approach 1: Derivative of the Sharpe Ratio w.r.t. $w_i$}
+
+\begin{itemize}
+    \item If the market portfolio is optimal, then the derivative of the Sharpe Ratio of the market portfolio with respect to a single security $i$ will be zero.  
+    \item Start with the numerator of the Sharpe Ratio.  An increase in $w_i$ must be financed by an equal decrease in the allocation to the risk-free asset.   Therefore, the derivative of the numerator with respect to $w_i$ is 
+    \[
+    \frac{\partial (E[r_m]-r_f)}{\partial w_i}
+    =
+    E[r_i]-r_f.
+    \]
+    The $-r_f$ is the risk-free return lost when the allocation to
+    asset $i$ is increased, or equivalently the cost of leverage if the investor borrows money to increase $w_i$
+
+
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. The Market Portfolio and Equilibrium}
-    \framesubtitle{Market Price of Risk}
+\frametitle{2. The Equilibrium Condition for Expected Returns}
+\framesubtitle{Approach 1: Derivative of the Sharpe Ratio w.r.t. $w_i$}
 
-    Define the \textbf{market price of risk} as the reward-to-risk for investment in the market portfolio:
+\begin{itemize}
+    \item The denominator is the standard deviation of the portfolio
+    \[
+    \sigma_m
+    =
+    \sqrt{
+        \sum_j w_j^2\sigma_j^2
+        +
+        2\sum_{j<k}w_jw_k
+        \operatorname{Cov}(r_j,r_k)
+    }.
+    \]
+    \item Differentiating with respect to $w_i$ gives (use the Chain Rule)
+    
+    \[
+    \frac{\partial \sigma_m}{\partial w_i}
+    =
+    \frac{
+        w_i\sigma_i^2
+        +
+        \sum_{j\ne i}w_j\operatorname{Cov}(r_i,r_j)
+    }{\sigma_m}.
+    \]
 
-    $$\frac{\text{Market Risk Premium}}{\text{Market Variance}} = \frac{\mathbb{E}[R_m]}{\sigma_m^2}$$
-    Where $\mathbb{E}[R_m] = \mathbb{E}[r_m] - r_f$ is the risk premium and $\sigma_m^2$ is the variance 
-    of the market portfolio.\\
+    \item By the linearity of covariance we can rewrite the top as:
+    \[
+    \operatorname{Cov}(r_i,r_m)
+    =
+    w_i\sigma_i^2
+    +
+    \sum_{j\ne i}w_j\operatorname{Cov}(r_i,r_j).
+    \]
+
+    \item Therefore:
+    \[
+    \frac{\partial \sigma_m}{\partial w_i}
+    =
+    \frac{\operatorname{Cov}(r_i,r_m)}{\sigma_m}.
+    \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{2. The Equilibrium Condition for Expected Returns}
+\framesubtitle{Approach 1: Derivative of the Sharpe Ratio w.r.t. $w_i$}
+
+\begin{itemize}
+    \item Now we have the derivative of the numerator and the derivative of the denominator.   Next we use the quotient rule to get the derivative of the ratio:
+    \[
+    \frac{\partial}{\partial w_i}
+    \left(
+        \frac{E[r_m]-r_f}{\sigma_m}
+    \right)
+    =
+    \frac{
+        (E[r_i]-r_f)\sigma_m
+        -
+        (E[r_m]-r_f)
+        \dfrac{\operatorname{Cov}(r_i,r_m)}{\sigma_m}
+    }{\sigma_m^2}.
+    \]
+
+    \item Set this derivative equal to zero:
+    \[
+    (E[r_i]-r_f)\sigma_m
+    -
+    (E[r_m]-r_f)
+    \frac{\operatorname{Cov}(r_i,r_m)}{\sigma_m}
+    =0.
+    \]
+
+    \item Rearranging gives
+    \[
+    \frac{E[r_i]-r_f}
+         {\operatorname{Cov}(r_i,r_m)}
+    =
+    \frac{E[r_m]-r_f}{\sigma_m^2}.
+    \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{2. The Equilibrium Condition for Expected Returns}
+\framesubtitle{Approach 1: Derivative of the Sharpe Ratio w.r.t. $w_i$}
+
+\textbf{Summary}
+
+\begin{itemize}
+    \item If the market portfolio is the optimal risky portfolio, then
+    a marginal increase in the weight of any security, financed by a
+    decrease in the risk-free asset, cannot increase the market
+    portfolio's Sharpe ratio. Therefore,
+    \[
+    \frac{\partial S_m}{\partial w_i}=0.
+    \]
+
+    \item This first-order condition implies
+    \[
+    \frac{E[r_i]-r_f}
+         {\operatorname{Cov}(r_i,r_m)}
+    =
+    \frac{E[r_m]-r_f}
+         {\sigma_m^2}.
+    \]
+
+    \item Equivalently,
+    \[
+    E[r_i]-r_f
+    =
+    \frac{\operatorname{Cov}(r_i,r_m)}
+         {\operatorname{Var}(r_m)}
+    \bigl(E[r_m]-r_f\bigr).
+    \]
+\end{itemize}
+    
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Equilibrium Condition for Expected Returns}
+    \framesubtitle{Approach 2: The Market Price of Risk}
+
+    \textbf{Approach 2: The Market Price of Risk}\\
+    \textit{Note: this follows the presentation in the textbook}\\
     \vspace{1em}
-    Notice that this is \textit{not} the same as the Sharpe Ratio, which has the standard deviation in the denominator.  
-    Using variance instead makes the math cleaner when we consider the contribution of a single security to a portfolio risk.\\
+
+    Define the reward-to-risk for investment in the market portfolio as follows:
+
+    $$\frac{\text{Market Risk Premium}}{\text{Market Variance}} = \frac{E[r_m]-r_f}{\operatorname{Var}(r_m)}$$
+
+    This is referred to as the "market price of risk".
+  
+    \vspace{1em}
+    \blfootnote{Notice that this is \textit{not} the same as the Sharpe Ratio, which has the standard deviation in the denominator.  Using variance instead makes this comparable to the covariance, which will be relevant when we consider the contribution of one particular security to the market portfolio, as we do in the next slide.}
     \vspace{1em} 
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. The Market Portfolio and Equilibrium}
-    \framesubtitle{Contribution of a single security to market risk}
+    \frametitle{2. The Equilibrium Condition for Expected Returns}
+    \framesubtitle{Approach 2: The Market Price of Risk}
 
-    The contribution of a security $xyz$ to the variance of the market portfolio is given by:
-    $$\sum_{i=1}^{n}w_i Cov(R_{xyz},R_i)$$
-    for all $i$ in the market portfolio.  
-    Using standard rules of variances and covariances, this can be rewritten as:
-    $$w_{xyz}Cov(R_{xyz},R_m)$$
-    where $R_m$ is the return of the market portfolio.  
-    In words, the contribution of security $xyz$ to the variance 
-    of the market portfolio is 
-    the Covariance of $xyz$ with the market portfolio (multiplied by the weight, $w_{xyz}$).
+    Single securities are evaluated by their contribution to the market portfolio because, under CAMP assumptions,  all investors already hold the market portfolio.\\
+    \vspace{1em}
+
+    The contribution of security $i$ to the reward from the market portfolio is the expected excess return:
+    $$w_i(E[r_i] - r_f)$$
+    The  contribution of a security $i$ to the risk of the market portfolio is given by:
+    $$\sum_{j=1}^{n}w_i w_jCov(r_i,r_j) = w_{i}Cov(r_i,r_m)$$
+    This uses the fact that the Covariances are additive.
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. The Equilibrium Condition for Expected Returns}
+    \framesubtitle{Approach 2: The Market Price of Risk}
+
+    The reward-to-risk for a single security $i$ is therefore:
+     $$\frac{w_i(E[r_i] - r_f)}{ w_{i}Cov(r_i,r_m)}$$
+     The $w_i$ cancel out, leaving
+    $$\frac{E[r_i] - r_f}{Cov(r_i,r_m)}$$
 
 \end{frame}
 
-
 \begin{frame}[t]
     \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Equilibrium Condition for Expected Returns}
+    \framesubtitle{Approach 2: The Market Price of Risk}
 
     From Bodi et al, p 119:
     \vspace{1em}
@@ -176,63 +418,80 @@
     \textbf{Therefore, we conclude that the reward-to-risk for each security is equal to the reward-to-risk for the market portfolio.}
     \end{quote}
 
-    This provides a nice equilibrium condition that can 
-    be used to determine the expected returns of a security.
 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Equilibrium Condition for Expected Returns}
+    \framesubtitle{Approach 2: The Market Price of Risk}
 
 
-    The equilibrium condition says that overweighting stock $xyz$ relative to the market portfolio should neither improve or detract the reward-to-risk, therefore we it must be the case that:\\
+    Using our definitions and the previous slide implies the following equilibrium condition:
 
-    $$\frac{\mathbb{E}[R_{xyz}]}{Cov(R_{xyz},R_m)} = \frac{\mathbb{E}[R_m]}{\sigma_m^2}$$
+    $$\frac{E[r_{i}]-r_f}{\operatorname{Cov}(r_i,r_m)} = \frac{E[r_m]-r_f}{\operatorname{Var}(r_m)}$$
     
-    \vspace{1em}
-    The denominator on left hand side is the contribution of $xzy$ to the 
-    risk of the market portfolio.   
-    The right hand side of the equation is the reward-to-risk for the entire market.\\
-    \vspace{1em}
-    Continued...
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Equilibrium Condition for Expected Returns}
-
-    ...Continued.   Rearranging:
-    $$\mathbb{E}[R_{xyz}] = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}\mathbb{E}[R_m]$$
+    Rearranging:
+    $$E[r_i] - r_f = \frac{\operatorname{Cov}(r_i,r_m)}{\operatorname{Var}(r_m)}(E[r_m]-r_f)$$
     \vspace{1em} 
 
-    The first term on the right hand side is the contribution of $xyz$ to 
-    variance of the market portfolio, 
-    as a share of the total variance of the market portfolio.\\
-    \vspace{1em}
-    This term is often referred to as $\beta_{xyz}$.
+    In words, the reward-to-risk for every security is equal to the market price of risk.  Also note that this is the same equilibrium condition as we derived in Approach 1.
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Equilibrium Condition for Expected Returns}
+    \frametitle{3. Implications of CAPM Equilibrium}
+    \section{Implications of CAPM Equilibrium}
+    \framesubtitle{Defining $\beta$}
 
     Define the Beta of a security as as:
-    $$\beta_{xyz} = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}$$
-    Beta has two valid interpretations:
+    $$\beta_i = \frac{\operatorname{Cov}(r_i,r_m)}{\operatorname{Var}(r_m)}$$
+    A few different ways to think about $\beta_i$:
     \begin{enumerate}
-        \item The risk each dollar invested in security $xyz$ contributes to the risk of the market portfolio.
-        \item The regression coefficient for $R_{xyz}$ on $R_m$, or the sensitivity of the 
-        excess returns of security $xyz$ to variation in the market excess returns.
+        \item This comes straight out of the equilibrium conditions we have been deriving.
+        \item $\beta_i$ is risk each dollar invested in security $i$ contributes to the risk of the market portfolio, as a share of the overall risk of the market portfolio.
+        \item It's a regression coefficient.   Specifically, it's the regression coefficient for $E[r_i]-r_f$ on $E[r_m]-r_f$.   Regression coefficients measure the sensitivity of the 
+        excess returns of security $i$ to variation in the market excess returns.
     \end{enumerate}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
+    \frametitle{3. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    Draw the Security Market Line (SML) using the following considerations:
+    \begin{itemize}
+        \item If a security is uncorrelated with the market, then overweighting that 
+        security will reduce the variance of the resulting portfolio.   
+        The return on this security must be equal to the risk-free return, 
+        otherwise it would be possible to construct a better portfolio than the market, 
+        thereby violating the equilibrium condition.
+        \item If a security is perfectly correlated with the market and had a better 
+        expected return than the market portfolio, then that would also violate the 
+        equilibrium assumption.   Conclude the return on a security with $\beta=1$ must 
+        be the same as the market portfolio
+        \item The excess return for a security with $\beta \neq 1$ is given 
+        by the equilibrium condition to be $\beta (E[r_m]-r_f)$
+    \end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    \textit{CAPM: All securities must lie on the Security Market Line (SML)!}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch9_sml.png}
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{3. Implications of CAPM Equilibrium}
     \framesubtitle{Prices Adjust}
 
     From Bodi et al, p 119:\\
@@ -250,40 +509,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Prices Adjust}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch9_sml.png}
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Prices Adjust}
-
-    Draw the Security Market Line using the following considerations:
-    \begin{itemize}
-        \item If a security is uncorrelated with the market, then overweighting that 
-        security will reduce the variance of the resulting portfolio.   
-        The return on this security must be equal to the risk-free return, 
-        otherwise it would be possible to construct a better portfolio than the market, 
-        thereby violating the equilibrium condition.
-        \item If a security is perfectly correlated with the market and had a better 
-        expected return than the market portfolio, then that would also violate the 
-        equilibrium assumption.   Conclude the return on a security with $\beta=1$ must 
-        be the same as the market portfolio
-        \item The excess return for a security with $\beta \neq 1$ is given 
-        by the equilibrium condition to be $\beta \mathbb{E}[R_M]$
-    \end{itemize}
-    
-    \textit{All securities must lie on the Security Market Line (SML)!}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
+    \frametitle{3. Implications of CAPM Equilibrium}
     \framesubtitle{Prices Adjust}
 
     What if a security lies off the SML?
@@ -294,26 +520,71 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
+    \frametitle{3. Implications of CAPM Equilibrium}
     \framesubtitle{Prices Adjust}
 
-    What is the reward-to-risk of overweighting security $xyz$ in the market portfolio?
+    Let's say Stock A lies \textit{above} the SML.  What is the reward-to-risk of this security?
     
     $$
     \begin{aligned}
-    \text{Reward:} &\quad \mathbb{E}[R_{xyz}] = \alpha_{xyz} + \beta \cdot \mathbb{E}[R_m] \\
-    \text{Risk:} &\quad Cov(R_{xyz},R_m) 
+    \text{Reward:} &\quad E[r_{A}]-r_f = \beta_{A}(E[r_m]-r_f) + \alpha\text{, where }\alpha>0 \\
+    \text{Risk:} &\quad Cov(r_{A},r_m) 
     \end{aligned}
     $$
 
-    Note that the risk is the Covariance with the market portfolio.   
-    The risk is NOT the variance of $r_{xyz}$.   
-    This is a key component of the CAPM assumptions.   
-    The market portfolio is optimal, investors hold that already, 
-    everything else is compared to holding the market portfolio.
+    Notes:
+    \begin{itemize}
+        \item Because A is above the SML: $E[r_{A}]-r_f = \beta_i(E[r_m]-r_f) + \alpha\text{, where }\alpha>0$
+        \item The investor is already assumed to hold the market portfolio, therefore security A is evaluated from the perspective of how it would change the investors risk, which is given by the Covariance of A with the market (not by the Variance of A)
+    \end{itemize}
+   
+\end{frame}
 
-    \vspace{1em}
-    Continued...
+\begin{frame}[t]
+    \frametitle{3. Implications of CAPM Equilibrium}
+    \framesubtitle{Prices Adjust}
+
+    \footnotesize
+    The reward-to-risk ratio of security A is
+
+\[
+\frac{E[r_A]-r_f}
+     {\operatorname{Cov}(r_A,r_m)}.
+\]
+
+Using
+
+\[
+\beta_A
+=
+\frac{\operatorname{Cov}(r_A,r_m)}
+     {\operatorname{Var}(r_m)},
+\]
+
+and then using the fact that A is above the SML, we obtain
+
+\[
+\frac{E[r_A]-r_f}
+     {\operatorname{Cov}(r_A,r_m)}
+=
+\frac{E[r_m]-r_f}{\operatorname{Var}(r_m)}
++
+\frac{\alpha}
+     {\operatorname{Cov}(r_A,r_m)}.
+\]
+
+Therefore, when $\alpha>0$,
+
+\[
+\frac{E[r_A]-r_f}
+     {\operatorname{Cov}(r_A,r_m)}
+>
+\frac{E[r_m]-r_f}
+     {\operatorname{Var}(r_m)}.
+\]
+
+
+    Therefore, if $\alpha > 0$, A has \textit{better} reward-to-risk than the market.   Investors will \textit{buy} security A.
 
 \end{frame}
 
@@ -321,22 +592,13 @@
     \frametitle{2. Implications of CAPM Equilibrium}
     \framesubtitle{Prices Adjust}
 
-    \footnotesize
-    ...Continued As above, let $\beta = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}$
-
-    \begin{align*}
-    \left(\frac{\text{reward}}{\text{risk}}\right)_{xyz}   &= \frac{\mathbb{E}[\alpha_{xyz}] + \beta \cdot \mathbb{E}[R_m]}{Cov(R_{xyz},R_m)}\\
-                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
-                                            \frac{\beta \cdot \mathbb{E}[R_m]}{Cov(R_{xyz},R_m)}\\
-                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
-                                            \frac{\frac{Cov(R_{xyz},R_m)}{\sigma_m^2} \cdot \mathbb{E}[R_m]}{Cov(R_{xyz},R_m)}\\
-                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
-                                            \frac{\mathbb{E}[R_m]}{\sigma_m^2}\\
-                                        &= \frac{\mathbb{E}[\alpha_{xyz}]}{Cov(R_{xyz},R_m)} +
-                                            \left(\frac{\text{reward}}{\text{risk}}\right)_m
-    \end{align*}
-
-    Therefore, if $\alpha_{xyz} < 0$, then adding $xyz$ will decrease the reward-to-risk of an investor's portfolio.   Continued...
+    Eventually all securities end up back on the SML:
+    \begin{itemize}
+    \item If a security lies \textit{above} the SML, then it has \textit{better} reward-to-risk than the market portfolio.   Investors will \textit{buy} that security.   As investors buy, this will cause the price to \textit{rise}.   As the price rises, the expected return on the security will \textit{decline}.   It will continue declining until the security lies on the SML and investors have no further incentive to buy or sell.
+    \item The converse happens if a security is \textit{below} the SML.   Investors will sell this security, prices will fall and expected returns will increase until it lies on the SML.
+    \end{itemize}
+    The adjustment of security prices until expected returns are consistent with
+    the SML is what characterizes the CAPM \textbf{equilibrium}.
 
 \end{frame}
 
@@ -349,58 +611,27 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{2. Implications of CAPM Equilibrium}
-    \framesubtitle{Prices Adjust}
 
-    But, prices adjust! \\
+
+
+\begin{practiceframe}[t]
+    \frametitle{4. Practice: Applications of CAPM}
+    \section{Practice}
+    \framesubtitle{Expected Stock Price}
+
+    Assume the risk-free rate is 6\% and the expected return on the market is 16\%.
+    A stock sells for \$50 today.   
+    It will pay a dividend of \$6 per share at the end of the year.   
+    Its beta is 1.2.\\
     \vspace{1em}
-    If $\alpha_{xyz} < 0$ in expectation, then investors will sell $xyz$.   
-    Selling $xyz$ lowers the price (raises the expected return).   
-    This will happen until $\alpha_{xyz} = 0$ in expectation.\\
-    \vspace{1em}
-
-    Conclude that, in expectation, we must have $\alpha_{xyz} = 0$.
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{3. A Linear Model}
-    \framesubtitle{}
-
-    The equilibrium condition for CAPM, with a bit of rearranging, gives the following 
-    expression for expected excess returns of security $xyz$:
-    $$\mathbb{E}[R_{xyz}] = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}\mathbb{E}[R_m]$$
-
-    Substituting $\beta_{xyz} = \frac{Cov(R_{xyz},R_m)}{\sigma_m^2}$ 
-    and $\mathbb{E}[R_m] = \mathbb{E}[r_m] - r_f$, gives the standard 
-    formulation of CAPM for expected returns of security $xyz$:\\
-    $$\boxed{\mathbb{E}[r_{xyz}] = r_f + \beta_{xyz}(\mathbb{E}[r_m] - r_f)}$$\\
-    \vspace{1em} 
-
-
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. A Linear Model}
-    \framesubtitle{}
-
-
-    $$\boxed{\mathbb{E}[r_{xyz}] = r_f + \beta_{xyz}(\mathbb{E}[r_m] - r_f)}$$
-    \vspace{1em}
-
-    This expression gives the expected return of stock $xyz$ as a function of the following:\\
+    Questions:\\
     \begin{enumerate}
-        \item Risk-free rate ($r_f$)
-        \item Expected excess market return ($\mathbb{E}[R_m] = \mathbb{E}[r_m] - r_f$)
-        \item $\beta_{xyz}$
+        \item What is the expected return for this stock?
+        \item What do investors expect the price to be at the end of the year?
+        \item Assuming no change in the expectations for dividends or end of year prices, if you are offered the stock for \$52 what should you do?   If you receive a bid for the stock at \$54 what should you do?
     \end{enumerate}
-    \vspace{1em}
-    Note that all three of those inputs are needed to estimate $\mathbb{E}[r_{xyz}]$
 
-\end{frame}
+\end{practiceframe}
 
 \begin{practiceframe}[t]
     \frametitle{1. Practice from Last Class}
@@ -433,43 +664,6 @@
 
     \blfootnote{Example from Bodi et al, p308}
 
-\end{practiceframe}
-
-\begin{practiceframe}[t]
-    \frametitle{4. Practice: Applications of CAPM}
-    \framesubtitle{Expected Stock Price}
-
-    Assume the risk-free rate is 6\% and the expected return on the market is 16\%.
-    A stock sells for \$50 today.   
-    It will pay a dividend of \$6 per share at the end of the year.   
-    Its beta is 1.2.\\
-    \vspace{1em}
-    Questions:\\
-    \begin{enumerate}
-        \item What is the expected return for this stock?
-        \item What do investors expect the price to be at the end of the year?
-    \end{enumerate}
-
-\end{practiceframe}
-
-\begin{practiceframe}[t]
-    \frametitle{4. Practice: Applications of CAPM}
-    \framesubtitle{Expected return of a specific project}
-
-    The risk-free rate is 8\% and the expected return on the market portfolio is 16\%. 
-    A firm considers a project that is expected to have a beta of 1.3.\\
-    \vspace{1em}
-    Questions:
-    \begin{enumerate}
-        \item What is the required rate of return on the project?
-        \item If the expected IRR of the project is 19\%, should the project be accepted?
-    \end{enumerate}
-    \vfill
-    
-    \blfootnote{The expected IRR is the discount rate 
-    that sets the present discounted value of the project 
-    (including both costs and returns) equal to zero.}
- 
 \end{practiceframe}
 
 \end{document}
