@@ -677,4 +677,215 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
     \end{shaded}
 
 
+\begin{shaded}
+
+    If the simple CAPM is valid, which of the following situations are possible:
+
+    \footnotesize
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Beta\\
+                \midrule
+                A & 20\% & 1.4\\
+                B & 25\% & 1.2\\
+                \bottomrule
+            \end{tabular}
+
+            \textit{Not possible, expected return must be increasing in $\beta$}
+
+
+
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Std Dev\\
+                \midrule
+                Risk-free & 10\% & 0\\
+                Market & 18\% & 24\%\\
+                A & 16\% & 22\%\\
+                \bottomrule
+            \end{tabular}
+
+            \textit{Possible, we don't know $Cov(r_m,r_A)$, it's possible for A to have a better Sharpe ratio}
+
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Std Dev\\
+                \midrule
+                Risk-free & 10\% & 0\\
+                Market & 18\% & 24\%\\
+                A & 20\% & 22\%\\
+                \bottomrule
+            \end{tabular}
+
+            \textit{We don't know $Cov(r_m,r_A)$, it's possible for A to have a better Sharpe ratio.   What about $\beta$?   Note that $\beta_A = \frac{20-10}{18-10} = 1.25$  Is this possible with these Std Deviations?   $\beta=\frac{Cov(r_m,r_A)}{\sigma_m^2}$  Rewriting using $\rho$ we have $\beta=\frac{\sigma_A\sigma_M\rho_{A,m}}{\sigma_m^2}=\frac{\sigma_a\rho}{\sigma_m}$ Remember that $\rho<1$ so if $\frac{\sigma_a}{\sigma_m}<1$ Then $\beta<1$   Not possible.}
+
+            \begin{tabular}{lcc}
+                \toprule
+                Portfolio & Expected Return & Beta\\
+                \midrule
+                Risk-free & 10\% & 0\\
+                Market & 18\% & 1.0\\
+                A & 16\% & 0.9\\
+                \bottomrule
+            \end{tabular}
+
+            \textit{Not possible, expected return on A is not proportional to the beta}
+
+\end{shaded}
+
+
+    \begin{shaded}
+    
+    \begin{enumerate}
+        \item Suppose that the risk premium on the market portfolio is estimated at 8\% with 
+        a standard deviation of 22\%.   What is the risk premium on a portfolio invested 25\% 
+        in Toyota and 75\% in Ford, if they have betas of 1.1 and 1.25, respectively?
+
+        $$E[r_p] = 0.25*1.1*8 + 0.75*1.25*8 = 9.7\%$$
+        
+        \item Stock XYZ has an expected return of 12\% and risk of $\beta=1$.   Stock ABC 
+        has expected return of 13\% and $\beta=1.5$.   The market's expected retun is 11\% 
+        and $r_f=5\%$.   According to CAPM, which stock is a better buy?   What is the alpha 
+        of each stock?   Plot the SML and each stock on one graph, show the alpha for each 
+        stock.
+        
+    \end{enumerate}
+
+    \end{shaded}
+
+    \begin{shaded}
+    Two investment advisers are comparing performance.   One averaged a 19\% rate of return and the other a 16\% rate of return.   However, the beta of the first investor was 1.5 whereas the beta of the second investor was 1.
+    \begin{enumerate}
+        \item Can you tell which investor was a better selected of individual stocks?
+
+        \textit{No, need know how much risk they were taking, so need to know T-Bills}
+        
+        \item If the T-Bill rate was 6\% and the market return was 10\%, which investor would be considered the better investor?
+
+        \begin{align*}
+            \alpha_1 = 19-6 - (10-6)*1.5 = 7\\
+            \alpha_1 = 16-6 - (10-6)*1 = 6\\
+        \end{align*}
+        \textit{Investor 1 was better}
+        
+        \item What if the T-Bill rate was 6\% and the market return was 14\%?
+       \begin{align*}
+            \alpha_1 = 19-6 - (14-6)*1.5 = 1\\
+            \alpha_1 = 16-6 - (14-6)*1 = 2\\
+        \end{align*}
+        \textit{Investor 2 was better}
+        
+    \end{enumerate}
+    
+    \end{shaded}
+
+    \begin{shaded}
+
+    Suppose the risk-free rate is 5\%.   Suppose that the expected rate of return 
+    required by the market for a portfolio with beta of 1.2 is 14\%.  According to CAPM:
+    \begin{enumerate}
+        \item What is the expected rate of return on the market portfolio?
+        \begin{align*}
+            14 -5 = 1.2(E[r_m] - 5)\\
+            9 = 1.2(E[r_m] - 5)\\
+            7.5 = E[r_m] - 5\\
+            E[r_m] = 12.5\\
+        \end{align*}
+        \item What is the expected return of a stock with $\beta=0$
+        \textit{5\%}
+        \item Suppose you consider buying a share of stock at \$40.  
+        The stock is expected to pay a \$3 dividend next year. 
+        You expect to sell the stock for \$41 next year.  
+        You estimate the stock has $\beta=0.5$.   Is the stock overpriced or 
+        underpriced?
+        \begin{align*}
+            E[r] = \frac{3+1}{40} = 10\%\\
+            E[r] = r_f + \beta(E[r_m]-r_f) = 5 + 0.5(7.5) = 8.75\\
+        \end{align*}
+        \textit{E[r] is too high, stock is underpriced}
+    \end{enumerate}
+    \end{shaded}
+
+    \begin{shaded}
+    The risk-free rate is 8\% and the expected return on the market portfolio is 16\%. A firm considers a project that is expected to have a beta of 1.3.\\
+    \vspace{1em}
+    Questions:
+    \begin{enumerate}
+        \item What is the required rate of return on the project?
+            $$E[r] = 8+1.3(8) = 18.4$$
+        \item If the expected IRR of the project is 19\%, should the project be accepted?
+        \textit{Yes, $IRR > E[r]$}
+    \end{enumerate}
+    \vfill
+ 
+    \end{shaded}
+
+\section{Lecture: Equities 1}
+
+\begin{shaded}
+\subsection{SmileWhite: 2 Stage DDM}
+
+    Use a two-stage dividend discount model to value the company SmileWhite.   
+    \begin{itemize}
+        \item The beta of SmileWhite to the market is 1.15, the risk-free rate is 4.5\%,
+     and the expected market return is 14.5\%. 
+        \item SmileWhite just paid a dividend of \$1.72 per share.  SmileWhite is expected to increase its dividend by 12\% per year for the next three years.  
+        \item After that SmileWhite is expected to increase its dividend by 9\% per year.\\
+    \end{itemize}
+
+      Approach:
+      \begin{enumerate}
+        \item Use CAPM to estimate the required rate of return on equity.
+        \item Value the dividends during the high growth period
+        \item Value the mature stage (horizon value) using the Gordon Growth Model
+        \item The value of the company is the sum of the present value of dividends during high growth and the \textit{discounted} horizon value.
+      \end{enumerate}
+
+    Use CAPM to estimate the required return on equity.
+    Inputs:
+    \begin{itemize}
+        \item $\beta_{SmileWhite} = 1.15$
+        \item $r_f = 0.045$
+        \item $E[r_M] = 0.145$
+    \end{itemize}
+    \vspace{1em}
+
+    CAPM:
+    \begin{align*}
+    r_{\text{SmileWhite}} &= r_f + \beta_{SmileWhite} * [E[r_M] - r_f]\\
+     &= 0.045 + 1.15*0.1\\
+     &= 0.16
+    \end{align*}
+
+    Value the dividends during the high growth period, making sure to apply the correct discount rate to each one.
+
+    \begin{align*}
+    \text{PV of divs} &= \\
+     &=\frac{D_0*(1+0.12)}{(1+0.16)} + \frac{D_0(1+0.12)^2}{(1+0.16)^2} + \frac{D_0(1+0.12)^3}{(1+0.16)^3}\\
+     &= \frac{\$1.72*(1+0.12)}{(1+0.16)} + \frac{\$1.72(1+0.12)^2}{(1+0.16)^2} + \frac{\$1.72(1+0.12)^3}{(1+0.16)^3}\\
+     &= 1.66 + 1.60 + 1.55\\
+    &= 4.81
+    \end{align*}
+
+    Use the Gordon Growth Model to determine the value once dividend growth stabilizes 
+    (i.e. once the Gordon Growth Model assumptions have been satisfied).   
+    This is the Horizon Value $V_H$.
+    \begin{align*}
+    V_H &= \frac{D_3(1+g)}{k-g}\\
+    V_H &= \frac{\$2.63}{0.16-0.09}\\
+    V_H &= \frac{\$2.63}{0.7}\\
+    V_H &= \$37.57 = \text{Horizon Value}
+    \end{align*}
+
+
+    Today's present value is the sum of the present value of the dividends 
+    during the high growth period AND the \textit{discounted} horizon value.
+    \begin{align*}
+    V_0 &= \text{PV of high growth dividends} + \frac{Horizon Value}{(1+k)^3}\\
+    V_0 &= \$4.81 + \frac{\$37.57}{1.16^3}\\
+    V_0 &= \$4.81 + \$24.07 = \$28.89
+    \end{align*}
+
+\end{shaded}
+
 \end{document}

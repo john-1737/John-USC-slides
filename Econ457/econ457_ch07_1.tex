@@ -111,8 +111,8 @@
     
     \textbf{Case 1:} The returns of $X$ and $Y$ are \textit{uncorrelated}
     \begin{align*}
-        E[r_p] &= E[w_xr_x + w_yr_y] = E[w_xr_x] + E[w_yr_y]\\
-        \operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y\sigma_y^2
+        E[r_p] &= E[w_xr_x + w_yr_y] = w_xE[r_x] + w_yE[r_y]\\
+        \operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y^2\sigma_y^2
     \end{align*}
     Note the $w_x^2$ and $w_y^2$ terms, which are a result of the definition of variance on the previous slide.
 
@@ -124,14 +124,14 @@
     
     \textbf{Case 2:} The returns of $X$ and $Y$ are \textit{correlated} 
       \begin{align*}
-            E[r_p] &= E[w_xr_x + w_yr_y] = E[w_xr_x] + E[w_yr_y]\\
-        \operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y\sigma_y^2 +2\operatorname{Cov}(X,Y)
+            E[r_p] &= E[w_xr_x + w_yr_y] = w_xE[r_x] + w_yE[r_y]\\
+        \operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y^2\sigma_y^2 +2w_xw_y\operatorname{Cov}(r_x,r_y)
     \end{align*}
     The \textit{correlation coefficient} is defined as:
-    $$\rho_{x,y} = \frac{\text{Cov}(x,y)}{\sigma_x\sigma_y}$$
+    $$\rho_{x,y} = \frac{\text{Cov}(r_x,r_y)}{\sigma_x\sigma_y}$$
 
     We can rewrite the Variance of a two asset portfolio using $\rho_{x,y}$
-    $$\operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y\sigma_y^2 +2\sigma_x\sigma_y\rho_{x,y}$$
+    $$\operatorname{Var}(r_p) &= w_x^2\sigma_x^2 + w_y^2\sigma_y^2 +2w_xw_y\sigma_x\sigma_y\rho_{x,y}$$
     
     It is mostly a matter of convenience whether you use the correlation coefficient or the covariance.
     
@@ -156,7 +156,7 @@
     Consider a portfolio that is $\frac{1}{2}$ asset $x$ and $\frac{1}{2}$ asset $y$.
     \begin{itemize}
     \item If the two assets are uncorrelated, the variance of the portfolio will be:
-    $$0.5^2\sigma + 0.5^2\sigma^2 = 0.25\sigma^2 + 0.25\sigma^2 = 0.5\sigma^2$$  
+    $$0.5^2\sigma^2 + 0.5^2\sigma^2 = 0.25\sigma^2 + 0.25\sigma^2 = 0.5\sigma^2$$  
     The standard deviation will be $\sqrt{0.5}\sigma = 0.7\sigma$.   That is a $\approx30\%$ reduction in the standard deviation, relative to a portfolio composed of only one of the assets!
     \end{itemize}
 

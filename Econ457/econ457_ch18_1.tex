@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 11-a}
+\newcommand{\week}{Equities-1}
 
 \title{Equity Valuation}
 \subtitle{Reference: Bodie et al, Ch 18}
@@ -35,35 +35,128 @@
 
 \frame{\titlepage}
 
+
 \begin{frame}
     \frametitle{Outline}
 
     \begin{enumerate}
+        \item Time Value of Money
         \item Dividend Discount Model (DDM) 
             \begin{itemize}
+                \item Model Details: Dividends, Discount Rate, Growth
                 \item Special Case: Gordon Growth Model
             \end{itemize}
+        \item DDM In Practice
+            \begin{itemize}
+                \item CAPM for the required return
+                \item Multi-stage Dividend Discount Models
+            \end{itemize}
+        \item Practice
         \item DDM Observations:
             \begin{itemize}
                 \item Expected capital gain rate $=g$
                 \item If $g=0$, then DDM gives present value of no growth (like a perpetuity)
             \end{itemize}
-        \item DDM Details:
-            \begin{itemize}
-                \item Dividends
-                \item Discount Rate
-                \item Growth
-            \end{itemize}
-        \item Multi-stage Dividend Discount Models
-        \item Practice
     \end{enumerate}
 
 \end{frame}
 
+\begin{foundframe}[t]
+    \frametitle{1. Time Value of Money}
+    \section{Time Value of Money}
+    \framesubtitle{Basic Concept}
+
+    A dollar today is worth more than a dollar tomorrow.\\
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textit{Opportunity Cost:} Money can be invested to earn returns
+        \item \textit{Risk:} Future payments are uncertain, and people value uncertain things less
+        \item \textit{Inflation:} Purchasing power decreases over time
+    \end{itemize}
+
+    $$FV = PV \times (1 + r)^t$$
+    Where:
+    \begin{itemize}
+        \item $FV$ = Future Value
+        \item $PV$ = Present Value
+        \item $r$ = Interest/discount rate
+        \item $t$ = Time periods
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{Present vs. Future Value}
+
+    \textbf{Future Value (Compounding):}
+    $$FV = PV \times (1 + r)^t$$
+    \textit{Example:} \$1,000 invested at 5\% for 3 years
+    $$FV = 1,000 \times (1.05)^3 = \$1,157.63$$
+
+    \textbf{Present Value (Discounting):}
+    $$PV = \frac{FV}{(1 + r)^t}$$
+    \textit{Example:} What is \$1,157.63 received in 3 years worth today at 5\%?
+    $$PV = \frac{1,157.63}{(1.05)^3} = \$1,000$$
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{The Rule of 72}
+
+    \textbf{The Rule of 72}: To find how long it takes for money to double at a given rate of return:
+    $$\text{Years to Double} \approx \frac{72}{\text{Rate of Return (\%)}}$$
+ 
+
+    \textbf{Examples:}
+    \begin{itemize}
+        \item At 6\% interest: $\frac{72}{6} = 12$ years to double
+        \item At 8\% interest: $\frac{72}{8} = 9$ years to double
+        \item At 12\% interest: $\frac{72}{12} = 6$ years to double
+    \end{itemize}
+    \vspace{1em}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{The Rule of 72}
+
+    For money to double: $FV = 2 \times PV$
+    $$2 \times PV = PV \times (1 + r)^t$$
+    $$2 = (1 + r)^t$$
+
+    Taking natural logarithm of both sides:
+    $$\ln(2) = t \times \ln(1 + r)$$
+    $$t = \frac{\ln(2)}{\ln(1 + r)}$$
+
+    \begin{itemize}
+        \item $\ln(2) \approx 0.693$
+        \item For small $r$: $\ln(1 + r) \approx r$
+        \item Therefore: $t \approx \frac{0.693}{r} = \frac{69.3}{r \times 100}$
+        \item Rule of 72 uses 72 instead of 69.3 for easier mental math
+    \end{itemize}
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{1. Time Value of Money}
+    \framesubtitle{The Rule of 72}
+
+    At 6\% annually:
+    $$FV = 1,000 \times (1.06)^{12} = \$2,012$$
+    Close to exactly double.\\
+    \vspace{1em}
+    Rule of 72 works best for small values of r, say below 15\%.
+
+\end{foundframe}
 
 
 \begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
+    \frametitle{2. Dividend Discount Model}
+    \section{Dividend Discount Model}
     \framesubtitle{}
 
     Generic Asset Pricing Equation:
@@ -82,232 +175,9 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{}
-
-    \textbf{Dividend Discount Model}
-
-    $$
-    V_0 = \frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \frac{D_3}{(1+k)^3} + \ldots
-    $$
-    Where $V_0 = \text{current value}$, $D_t = \text{dividend at time } t$, $k = \text{required return on equity}$\\
-    \vspace{1em}
-    In words, the dividend discount model says that the value of equity today is the present discounted value of all expected future dividends.
-
-\end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model}
-
-    A specific case of the Dividend Discount Model is the Gordon Growth Model.   
-    The Gordon Growth model makes two crucial assumptions:\\
-    \begin{enumerate}
-        \item Dividends grow at a constant rate $g$ 
-        \item The dividend growth rate is less than the discount rate: $g<k$.
-    \end{enumerate}
-
-    \begin{align*}
-    D_1 = D_0 * (1+g)\\
-    D_2 = D_1 * (1+g)\\
-    \ldots\\
-    D_t = D_{t-1} * (1+g)
-    \end{align*}
-
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model}
-
-    $$
-    V_0 = \frac{D_0(1+g)}{1+k} + \frac{D_0(1+g)^2}{(1+k)^2} + \frac{D_0(1+g)^3}{(1+k)^3} + \ldots
-    $$
-    We can rewrite this is a simpler way using the tricks from geometric series that we discussed two weeks ago.   
-    Note that rewriting as geometric series requires using some clever definitions for $a$ and $r$.\\
-    \vspace{1em}
-
-    Let $a = \frac{D_0(1+g)}{1+k}$ and $r = \frac{1+g}{1+k}$.   
-    
-    \begin{align*}
-    V_0 &= a + ar + ar^2 + \ldots\\
-    &= \sum_{t=0}^{\infty}ar^t = \frac{a}{1-r}
-    \end{align*}
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model}
-
-    Substituting back the definitions of $a = \frac{D_0(1+g)}{1+k}$ and $r = \frac{1}{1+k}$ yields:
-    
-    \begin{align*}
-    V_0 &= \frac{\frac{D_0(1+g)}{1+k}}{1-\frac{1+g}{1+k}} = \frac{\frac{D_0(1+g)}{1+k}}{\frac{1+k}{1+k}-\frac{1+g}{1+k}}\\
-    &= \frac{D_0(1+g)}{k-g}\\ 
-    &= \frac{D_1}{k-g}\\
-    \end{align*}
-    
-    Where second to last step canceled the $(1+k)$ term, and the last step used the fact that $D1 = D_0(1+g)$
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model}
-
-    This is the \textbf{Gordon Growth Model}:
-    $$\boxed{V_0 = \frac{D_1}{k-g}}$$
-
-    From this equation, note the three following intuitive facts:
-    \begin{enumerate}
-        \item A higher dividend in the next period ($D_1$) raises the value of equity
-        \item A higher growth rate of dividends ($g$) raises the value of equity
-        \item A lower required return on equity ($k$) raises the value of equity
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model - Four Notes}
-
-    Four notes on the Gordon Growth Model.
-    \begin{enumerate}
-        \item Be sure to use $D_1$ in the numerator!
-        \item The required return on equity ($k$) is an input to the Gordon Growth Model.   
-        You cannot calculate $V_0$ without it.   
-        The value for $k$ is tricky, as it may be different for different companies, 
-        due to expected volatility and correlations.   
-        In contrast, when we were valuing US Treasury bonds, we used interest rates as the discount rate.   
-        Those interest rates are relatively standard and readily observable.   
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model - Four Notes}
-
-    \begin{enumerate}
-        \item[3.] Why do we assume that $g<k$?  A geometric series does not converge if $r>1$.   
-        If the series does not converge, then the value is infinite.   
-        Intuitively, if the growth rate of the dividends is higher than discount rate, 
-        then the present value of future dividends will be 
-        increasingly large and the present value will be infinity.  
-        This assumption is crucial for the simplified representation in the Gordon Growth Model, 
-        although it is unrealistic in the real world, 
-        as there are many companies with very fast growth.   
-        \item[4.] It is straightforward to modify it to value equity for a company 
-        that does not pay dividends: use Free Cash Flow to Equity instead of dividends.   
-        It is also straightforward to modify it to value an entire company: 
-        use Free Cash Flow to the Firm and the Weighted Average Cost of Capital as the discount rate.
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. DDM Observations}
-    \framesubtitle{Capital Gains Rate}
-
-    Note that this model implies the equity price will grow at the same rate as dividends will grow.
-    $$
-    \text{Growth Rate of V} = \frac{V_1-V_0}{V_0} =   \frac{V_1}{V_0} - 1
-    $$
-    Where $V_0 = \frac{D_1}{k-g} \text{ and } V_1 = \frac{D_2}{k-g}$
-
-    \begin{align*}
-    \text{Growth Rate of V} &= \frac{\frac{D_2}{k-g}}{\frac{D_1}{k-g}} - 1\\
-    &= \frac{D_2}{D_1} - 1\\
-    &= (1+g) - 1 = g
-    \end{align*}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. DDM Observations}
-    \framesubtitle{Capital Gains Rate}
-
-    The growth rate of the equity price is the \textbf{capital gains yield} and the 
-    \textbf{dividend yield} is the dividend divided by the price.\\
-
-    We can therefore write:
-
-    \begin{align*}
-        E(r) &= \text{Dividend Yield} + \text{Capital Gain Yield}\\
-             &= \frac{D_1}{P_0} + \frac{P_1 - P_0}{P_0}\\
-             &= \frac{D_1}{P_0} + g
-    \end{align*} 
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. DDM Observations}
-    \framesubtitle{PVGO}
-
-    If there is no growth in the firm, the GGM becomes a perpetuity:
-
-    $$V_0 = \frac{E_1}{k}$$
-
-    The \textbf{present value of growth opportunities (PVGO)} is the difference between the value of the stock 
-    and the value of the perpuity that represents the no-growth scenario.
-
-    \begin{align*}
-        Price &= \text{No-growth value of firm} + PVGO\\
-        P_0 &= \frac{E_1}{k} + PVGO
-    \end{align*}
-
-\end{frame}
-
-
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Discount Rates}
-
-    Generally, we'd expect to have higher discount rates for riskier assets.   But, the exact definition of risk 
-    matters.   Riskiness of the firm?   Risk as defined by standard deviation (historic or estimated?)?\\
-    \vspace{1em}
-
-    \textit{We can use CAPM for the discount rate!}.  CAPM incorporates both the riskiness 
-    of the security and the correlation with broad market risk.   
-    Moreover, if we use CAPM as the discount rate, then the 
-    estimated value of the stock will be produce the CAPM-based expected return.   If the price is equal to this estimated value, 
-    then the price would be "fair."\\
-    \vspace{1em}
-    The discount rate for equities is therefore often referred to as the \textbf{required return}.   A common term for the consensus
-     required return is the \textbf{market capitalization rate}.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{CAPM and the Required Return on Equity}
-
-    As a reminder, the CAPM incorporates both the volatility of an asset's total 
-    returns AND the correlation of the total returns between the asset and the broad market.\\
-    \vspace{1em}
-
-    Inputs to CAPM:
-    \begin{enumerate}
-        \item Beta to the equity market, where $\beta = \frac{Cov(X,Mkt)}{\sigma_X\sigma_Mkt}$
-        \item Risk-free rate: $r_f$
-        \item Expected market excess returns: $E[r_{Mkt}] - r_f$
-    \end{enumerate}
-
-    Using these inputs, the required return $k$ is given by:
-    $$
-    k = E[r] = r_f + \beta(E[r_{Mkt} - r_f])
-    $$
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
+    \frametitle{2. Dividend Discount Model}
     \framesubtitle{Discount Rates}
 
     \begin{table}
@@ -330,13 +200,15 @@
     &< \text{Required Return for Equity} 
     \end{align*}
 
+    \blfootnote{In certain circumstances the return on equities is also referred to as the \textbf{market capitalization rate}.}
+
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. DDM Details}
+    \frametitle{2. Dividend Discount Model}
     \framesubtitle{Dividends}
 
-    \textbf{Dividends} are occassional payments made by a company to its shareholders. 
+    \textbf{Dividends} are occasional payments made by a company to its shareholders. 
     Dividends are discretionary (no contractual obligation to pay).\\
     \vspace{1em}
 
@@ -355,148 +227,147 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Bank Dividends and Regulatory Policy}
-
-    Banks face unique regulatory constraints on dividend payments, especially during crises:
-
-    \begin{table}
-        \centering
-        \begin{tabular}{|l|l|l|}
-        \hline
-        \textbf{Bank} & \textbf{Crisis Period} & \textbf{Dividend Action} \\
-        \hline
-        Bank of America & 2009-2011 & Cut from \$0.64 to \$0.01 \\
-        \hline
-        Wells Fargo & 2020-2021 & Reduced from \$0.51 to \$0.10 \\
-        \hline
-        \end{tabular}
-    \end{table}
-
-    \textbf{Federal Reserve Policy During COVID-19 (2020):}
-    \begin{itemize}
-        \item Suspended share buybacks for large banks (Q2-Q4 2020)
-        \item Capped dividend payments at previous quarter levels
-        \item Required stress testing before any dividend increases
-        \item Policy lifted gradually in 2021 as economic conditions improved
-    \end{itemize}
-
-    \textbf{Key Insight:} Bank dividends are subject to regulatory oversight, making them less predictable than typical corporate dividends.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend - Suspensions}
-
-    Many well-known companies have temporarily suspended dividends during difficult periods. 
-    They may resume dividends when conditions improve:
-
-    \begin{table}
-        \centering
-        \begin{tabular}{|l|l|l|}
-        \hline
-        \textbf{Company} & \textbf{Suspension Period} & \textbf{Reason} \\
-        \hline
-        Apple (AAPL) & 1995-2012 & Focus on growth/innovation \\
-        \hline
-        General Motors & 2008-2014 & Bankruptcy/restructuring \\
-        \hline
-        Ford Motor & 2006-2012 & Auto industry crisis \\
-        \hline
-        Delta Air Lines & 2020-2022 & COVID-19 pandemic \\
-        \hline
-        Disney (DIS) & 2020-2021 & COVID-19 pandemic \\
-        \hline
-        \end{tabular}
-    \end{table}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
-
-    Company managers choose how to use earnings.   They can distribute the earnings to 
-    the company's owners through dividends.  The share of earnings paid out as dividends 
-    is referred to as the \textbf{dividend payout ratio}.\\
-    \vspace{1em}
-    Alternatively, they can reinvest in the business.   The share of earnings reinvested 
-    in the business is referred to as either the \textbf{earnings retention ratio} or 
-    the \textbf{plowback ratio (b)}.\\
-    \vspace{1em}
-    While a higher dividend payout ratio may increase dividends in the near term, 
-    growth requires reinvestment and a higher earnings retentio ratio \textit{may} increase 
-    earnings over the long term.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch18_1_div_growth.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
-
-    How much growth is generated by reinvesting in the business?   It depends on the 
-    business.   Some businesses have really good investment opportunities, while others 
-    do not.\\
-    \vspace{1em}
-    Specifically, the \textbf{return on equity (ROE)} for some businesses is higher than 
-    others.   The amount of growth generated by investing in the business is given by:\\
-    $$g = ROE \times b$$
-    Remember that the Gordon Growth Model assumes that $g$ can be sustained indefinitely, so 
-    we are considering reinvestment opportunities that will always be available (not one-offs).  
-    For many companies this establishes an upperbound on $b$.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
-
-    Now we are in a position to evaluate how the stock price will respond to different 
-    reinvestment policies.   We can write $D_1 = E_1(1-b)$ where $E_1$ is earnings.\\
-    \vspace{1em}
-    $$P_0 = \frac{E_1(1-b)}{k - ROE \times b}$$
-    Notes:
-    \begin{enumerate}
-        \item If $ROE = k$ then the denominator becomes $k(1-b)$ 
-        and the price reduces to $P_0 = \frac{E_1}{k}$.  The price is 
-        therefore independent of $b$ and equaly to a perpetuity.   
-        Intuitively, investors are 
-        indifferent between the company reinvesting or returning the 
-        earnings, because the returns are the same either way.
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-\frametitle{3. DDM Details}
-\framesubtitle{Dividend Growth}
-
-    \begin{enumerate}
-        \item[2.] If $ROE > k$ then the company has attractive reinvestment 
-        opportunities.   Investors will prefer that it pursues those opportunities, 
-        so a higher $b$ will lead to a higher stock price (like the dashed line in the preceding chart)
-        \item[3.] If $ROE < k$ then the company does not has attractive reinvestment 
-        opportunities.   Investors will prefer that it return earnings through higher dividends, 
-        so a lower $b$ will lead to a higher stock price (like the solid line in the preceding chart)
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Multi-stage Models}
+    \frametitle{2. Dividend Discount Model}
     \framesubtitle{}
 
-    Firms move through life cycles  with different dividend profiles.\\
+    \textbf{Dividend Discount Model}
+
+    $$
+    V_0 = \frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \frac{D_3}{(1+k)^3} + \ldots
+    $$
+    Where $V_0 = \text{current value}$, $D_t = \text{dividend at time } t$, $k = \text{required return on equity}$\\
+    \vspace{1em}
+    In words, the dividend discount model says that the value of equity today is the present discounted value of all expected future dividends.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Dividend Discount Model}
+    \framesubtitle{Gordon Growth Model}
+
+    A specific case is the Gordon Growth Model.\\
+    \vspace{1em}
+    The Gordon Growth model makes two crucial assumptions:\\
+    \begin{enumerate}
+        \item Dividends grow at a constant rate $g$ 
+            \begin{align*}
+    D_1 &= D_0 * (1+g)\\
+    D_2 &= D_1 * (1+g)\\
+    \ldots\\
+    D_t &= D_{t-1} * (1+g) = D_0(1+g)^t
+    \end{align*}
+        \item The dividend growth rate is less than the discount rate: $g<k$.
+    \end{enumerate}
+
+
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Dividend Discount Model}
+    \framesubtitle{Gordon Growth Model}
+
+    $$
+    V_0 = \frac{D_0(1+g)}{1+k} + \frac{D_0(1+g)^2}{(1+k)^2} + \frac{D_0(1+g)^3}{(1+k)^3} + \ldots
+    $$
+    
+    \vspace{3em}
+    
+    We can rewrite this is a simpler way using the tricks from geometric series.   
+    This requires using some clever definitions for $a$ and $r$.  This is presented in the Appendix and will also be covered in class (although not on a test).\\
+    \vspace{1em}
+
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Dividend Discount Model}
+    \framesubtitle{Gordon Growth Model}
+
+    This is the \textbf{Gordon Growth Model}:
+    $$\boxed{V_0 = \frac{D_1}{k-g}}$$
+
+    From this equation, note the three following intuitive facts:
+    \begin{enumerate}
+        \item A higher dividend in the next period ($D_1$) raises the value of equity
+        \item A higher growth rate of dividends ($g$) raises the value of equity
+        \item A lower required return on equity ($k$) raises the value of equity
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{2. Dividend Discount Model}
+    \framesubtitle{Gordon Growth Model - Three Notes}
+
+    Three notes on the Gordon Growth Model.
+    \begin{enumerate}
+        \item Be sure to use $D_1$ in the numerator!
+        \item The required return on equity ($k$) is an input to the Gordon Growth Model.   
+        You cannot calculate $V_0$ without it.   
+        The value for $k$ is tricky, as it may be different for different companies, 
+        due to expected volatility and correlations.   
+        \item Why do we assume that $g<k$?  A geometric series does not converge if $r>1$.   
+        If the series does not converge, then the value is infinite.   
+        Intuitively, if the growth rate of the dividends is higher than discount rate, 
+        then the present value of future dividends will be 
+        increasingly large and the present value will be infinity.  
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. DDM in Practice}
+    \section{DDM in Practice}
+    \subsection{CAPM}
+    \framesubtitle{CAPM and the Required Return on Equity}
+
+    Generally, we'd expect to have higher discount rates for riskier assets. But, the exact definition of risk matters. Riskiness of the firm?   Risk as defined by standard deviation (historic or estimated?)?\\
+    \vspace{1em}
+
+    \textit{We can use CAPM for the discount rate!}
+    \vspace{1em}
+    
+    If we use CAPM as the discount rate, then the 
+    estimated value of the stock will be produce the CAPM-based expected return.   If the price is equal to this estimated value, 
+    then the price would be "fair."\\
+    \vspace{1em}
+
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. DDM in Practice}
+    \framesubtitle{CAPM and the Required Return on Equity}
+
+    CAPM incorporates both the volatility of an asset's total returns AND the correlation of the total returns between the asset and the broad market.\\
+    \vspace{1em}
+
+    Inputs to CAPM:
+    \begin{enumerate}
+        \item Beta to the equity market, where $\beta_i = \frac{\operatorname{Cov}(r_i,r_m)}{\sigma_m}$
+        \item Risk-free rate: $r_f$
+        \item Expected market excess returns: $E[r_m] - r_f$
+    \end{enumerate}
+    \vspace{1em}
+
+    Using these inputs, the required return on stock $i$, $k_i$ is given by:
+    $$
+    k_i = E[r_i] = r_f + \beta(E[r_m - r_f])
+    $$
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{3. DDM in Practice}
+    \subsection{Multi-stage models}
+    \framesubtitle{Multi-stage models}
+
+    Firms move through life cycles with different dividend profiles.\\
     \vspace{1em}
 
     \textit{Early Stage}
@@ -518,123 +389,161 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{4. Multi-stage Models}
-    \framesubtitle{}
-
+    \frametitle{3. DDM in Practice}
+    \framesubtitle{Multi-stage models}
+    
     Model the two stages separately:
-    $$
-    V_0 = [\text{PV of Dividends in Early Stage}] + [\text{PV of Mature Stage}]
-    $$
+    \begin{align*}
+    V_0 = &[\text{PV of Dividends in Early Stage}] \\
+    &+ [\text{PV of Mature Stage}]
+    \end{align*}
     Be careful to apply the correct discount rates to get the present values
-    $$
-    V_0 = \left[\frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \ldots + \frac{D_H}{(1+k)^H}\right] + [\frac{V_H}{(1+k)^H}]
-    $$
+    \begin{align*}
+    V_0 = &\left[\frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \ldots + \frac{D_H}{(1+k)^H}\right]\\
+    &+ \left[\frac{V_H}{(1+k)^H}\right]
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. DDM in Practice}
+    \framesubtitle{Multi-stage models}
+
+    
     And because the Gordon Growth Model assumptions are satisfied during the mature stage, we can use:
     $$
     V_H = \frac{D_H(1+g)}{k-g}
     $$
-    $$
-    V_0 = \left[\frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \ldots + \frac{D_H}{(1+k)^H}\right] + [\frac{\frac{D_H(1+g)}{k-g}}{(1+k)^H}]
-    $$
+    Substituting this into the equation above:
+    \begin{align*}
+    V_0 = &\left[\frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \ldots + \frac{D_H}{(1+k)^H}\right] \\
+    &+ [\frac{\frac{D_H(1+g)}{k-g}}{(1+k)^H}]
+    \end{align*}
 
 \end{frame}
 
 \begin{practiceframe}[t]
-    \frametitle{5. Practice}
+    \frametitle{4. DDM Practice}
+    \section{DDM Practice}
     \framesubtitle{Smilewhite}
 
     Use a two-stage dividend discount model to value the company SmileWhite.   
-    The beta of SmileWhite to the market is 1.15, the risk-free rate is 4.5\%,
-     and the expected market return is 14.5\%.  
-     SmileWhite just paid a dividend of \$1.72 per share.   
-     SmileWhite is expected to increase its dividend by 12\%
-      per year for the next three years.  
-      After that SmileWhite is expected to increase its dividend by 9\% per year.\\
-      \vspace{1em}
+    \begin{itemize}
+        \item The beta of SmileWhite to the market is 1.15, the risk-free rate is 4.5\%,
+     and the expected market return is 14.5\%. 
+        \item SmileWhite just paid a dividend of \$1.72 per share.  SmileWhite is expected to increase its dividend by 12\% per year for the next three years.  
+        \item After that SmileWhite is expected to increase its dividend by 9\% per year.\\
+    \end{itemize}
 
 \end{practiceframe}
 
 \begin{practiceframe}[t]
-    \frametitle{5. Practice}
+    \frametitle{4. DDM Practice}
     \framesubtitle{Smilewhite}
 
       Approach:
       \begin{enumerate}
-        \item Use CAPM to estiamte the required rate of return on equity.
+        \item Use CAPM to estimate the required rate of return on equity.
         \item Value the dividends during the high growth period
-        \item Value the mature stage using the Gordon Growth Model
-        \item Present value of dividends and the \textit{discounted} horizon value.
+        \item Value the mature stage (horizon value) using the Gordon Growth Model
+        \item The value of the company is the sum of the present value of dividends during high growth and the \textit{discounted} horizon value.
       \end{enumerate}
 
-      \blfootnote{See Bodi et al, problem 8, page 624}
+      \blfootnote{See Bodie et al, problem 8, page 624}
 
 \end{practiceframe}
 
-\begin{practiceframe}[t]
-    \frametitle{5. Practice}
-    \framesubtitle{Smilewhite - Step 1}
-    Use CAPM to estimate the required return on equity.
-    Inputs:
-    \begin{itemize}
-        \item $\beta_{SmileWhite} = 1.15$
-        \item $r_f = 0.045$
-        \item $E[r_M] = 0.145$
-    \end{itemize}
-    \vspace{1em}
+\begin{frame}[t]
+    \frametitle{5. DDM Observations}
+    \section{DDM Observations}
+    \framesubtitle{Capital Gains Rate}
 
-    CAPM:
-    \begin{align*}
-    r_{\text{SmileWhite}} &= r_f + \beta_{SmileWhite} * [E[r_M] - r_f]\\
-     &= 0.045 + 1.15*0.1\\
-     &= 0.16
-    \end{align*}
-
-\end{practiceframe}
-
-\begin{practiceframe}[t]
-    \frametitle{5. Practice}
-    \framesubtitle{Smilewhite - Step 2}
-
-    Value the dividends during the high growth period, making sure to apply the correct discount rate to each one.
+    Note that this model implies the equity price will grow at the same rate as dividends will grow.
+    $$
+    \text{Growth Rate of V} = \frac{V_1-V_0}{V_0} =   \frac{V_1}{V_0} - 1
+    $$
+    Where $V_0 = \frac{D_1}{k-g} \text{ and } V_1 = \frac{D_2}{k-g}$
 
     \begin{align*}
-    \text{PV of divs} &= \\
-     &=\frac{D_0*(1+0.12)}{(1+0.16)} + \frac{D_0(1+0.12)^2}{(1+0.16)^2} + \frac{D_0(1+0.12)^3}{(1+0.16)^3}\\
-     &= \frac{\$1.72*(1+0.12)}{(1+0.16)} + \frac{\$1.72(1+0.12)^2}{(1+0.16)^2} + \frac{\$1.72(1+0.12)^3}{(1+0.16)^3}\\
-     &= 1.66 + 1.60 + 1.55\\
-    &= 4.81
+    \text{Growth Rate of V} &= \frac{\frac{D_2}{k-g}}{\frac{D_1}{k-g}} - 1\\
+    &= \frac{D_2}{D_1} - 1\\
+    &= (1+g) - 1 = g
     \end{align*}
 
-\end{practiceframe}
+\end{frame}
 
-\begin{practiceframe}[t]
-    \frametitle{5. Practice}
-    \framesubtitle{Smilewhite - Step 3}
+\begin{frame}[t]
+    \frametitle{5. DDM Observations}
+    \framesubtitle{Capital Gains Rate}
 
-    Use the Gordon Growth Model to determine the value once dividend growth stabilizes 
-    (i.e. once the Gordon Growth Model assumptions have been satisfied).   
-    This is the Horizon Value $V_H$.
+    The growth rate of the equity price is the \textbf{capital gains yield} and the 
+    \textbf{dividend yield} is the dividend divided by the price.\\
+
+    We can therefore write:
+
     \begin{align*}
-    V_H &= \frac{D_3(1+g)}{k-g}\\
-    V_H &= \frac{\$2.63}{0.16-0.09}\\
-    V_H &= \frac{\$2.63}{0.7}\\
-    V_H &= \$37.57 = \text{Horizon Value}
-    \end{align*}
+        E(r) &= \text{Dividend Yield} + \text{Capital Gain Yield}\\
+             &= \frac{D_1}{P_0} + \frac{P_1 - P_0}{P_0}\\
+             &= \frac{D_1}{P_0} + g
+    \end{align*} 
 
-\end{practiceframe}
+\end{frame}
 
-\begin{practiceframe}[t]
-    \frametitle{5. Practice}
-    \framesubtitle{Smilewhite - Step 4}
+\begin{frame}[t]
+    \frametitle{5. DDM Observations}
+    \framesubtitle{PVGO}
 
-    Today's present value is the sum of the present value of the dividends 
-    during the high growth period AND the \textit{discounted} horizon value.
+    If there is no growth in the firm, the GGM becomes a perpetuity:
+
+    $$V_0 = \frac{E_1}{k}$$
+
+    The \textbf{present value of growth opportunities (PVGO)} is the difference between the value of the stock and the value of the perpuity that represents the no-growth scenario.
+
     \begin{align*}
-    V_0 &= \text{PV of high growth dividends} + \frac{Horizon Value}{(1+k)^3}\\
-    V_0 &= \$4.81 + \frac{\$37.57}{1.16^3}\\
-    V_0 &= \$4.81 + \$24.07 = \$28.89
+        Price &= \text{No-growth value of firm} + PVGO\\
+        P_0 &= \frac{E_1}{k} + PVGO
     \end{align*}
 
-\end{practiceframe}
+\end{frame}
+
+\begin{foundframe}[t]
+    \frametitle{Appendix}
+    \section{Appendix}
+    \framesubtitle{Gordon Growth Model Derivation}
+
+    $$
+    V_0 = \frac{D_0(1+g)}{1+k} + \frac{D_0(1+g)^2}{(1+k)^2} + \frac{D_0(1+g)^3}{(1+k)^3} + \ldots
+    $$
+    
+    Let $r = \frac{1+g}{1+k}$.   
+    
+    $$
+    V_0 &= D_0r + D_0r^2 + D_0r^3 + \ldots
+    $$
+    Multiply both sides by $r$
+        $$
+    rV_0 &= D_0r^2 + D_0r^3 + D_0r^4 + \ldots
+    $$
+    Subtract from the equation above, notice that almost all the terms cancel out
+    $$
+    V_0(1-r) = D_0r \implies V_0 = \frac{D_0r}{1-r}$$
+
+\end{foundframe}
+
+\begin{foundframe}[t]
+    \frametitle{2. Dividend Discount Model}
+    \framesubtitle{Gordon Growth Model}
+
+    Substituting back the definitions of $r = \frac{1+g}{1+k}$ yields:
+    
+    \begin{align*}
+    V_0 &= \frac{\frac{D_0(1+g)}{1+k}}{1-\frac{1+g}{1+k}} = \frac{\frac{D_0(1+g)}{1+k}}{\frac{1+k}{1+k}-\frac{1+g}{1+k}}\\
+    &= \frac{D_0(1+g)}{k-g}\\ 
+    &= \frac{D_1}{k-g}
+    \end{align*}
+    
+    Where second to last step canceled the $(1+k)$ term, and the last step used the fact that $D1 = D_0(1+g)$
+
+\end{foundframe}
 
 \end{document}
