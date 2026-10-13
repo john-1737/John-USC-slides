@@ -52,10 +52,10 @@
                 \item Multi-stage Dividend Discount Models
             \end{itemize}
         \item Practice
-        \item DDM Observations:
+        \item Gordon Growth Model Observations:
             \begin{itemize}
                 \item Expected capital gain rate $=g$
-                \item If $g=0$, then DDM gives present value of no growth (like a perpetuity)
+                \item If $g=0$, then Gordon Growth Model gives present value of no growth (like a perpetuity)
             \end{itemize}
     \end{enumerate}
 
@@ -397,7 +397,7 @@
     V_0 = &[\text{PV of Dividends in Early Stage}] \\
     &+ [\text{PV of Mature Stage}]
     \end{align*}
-    Be careful to apply the correct discount rates to get the present values
+    Be careful to apply the correct discount rates to get the present values.   Let $H$ be the time period where the company matures and $V_H$ be the horizon value.
     \begin{align*}
     V_0 = &\left[\frac{D_1}{1+k} + \frac{D_2}{(1+k)^2} + \ldots + \frac{D_H}{(1+k)^H}\right]\\
     &+ \left[\frac{V_H}{(1+k)^H}\right]
@@ -453,12 +453,14 @@
 
 \end{practiceframe}
 
+
+
 \begin{frame}[t]
-    \frametitle{5. DDM Observations}
-    \section{DDM Observations}
+    \frametitle{5. Gordon Growth Model Observations}
+    \section{Gordon Growth Model Observations}
     \framesubtitle{Capital Gains Rate}
 
-    Note that this model implies the equity price will grow at the same rate as dividends will grow.
+    Note that the Gordon Growth Model model implies the equity price will grow at the same rate as dividends will grow.
     $$
     \text{Growth Rate of V} = \frac{V_1-V_0}{V_0} =   \frac{V_1}{V_0} - 1
     $$
@@ -473,7 +475,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{5. DDM Observations}
+    \frametitle{5. Gordon Growth Model Observations}
     \framesubtitle{Capital Gains Rate}
 
     The growth rate of the equity price is the \textbf{capital gains yield} and the 
@@ -487,13 +489,44 @@
              &= \frac{D_1}{P_0} + g
     \end{align*} 
 
+    \blfootnote{Note that this result is specific to the single stage Gordon Growth Model.  As we'll see in a practice problem in a few slides, the capital gain may be different for a multi-stage Gordon Growth Model.}
+
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{5. DDM Observations}
+    \frametitle{5. Dividend Discount Model Observations}
+    \framesubtitle{Expected Return Equals Required Return}
+
+    For any Dividend Discount Model, we can write:
+
+    \[
+    V_0 = \frac{E[D_1]+E[V_1]}{1+k}
+    \]
+
+    Rearranging:
+
+    {\footnotesize
+    \begin{align*}
+        V_0(1+k) &= E[D_1]+E[V_1]\\
+        k &= \frac{E[D_1]+E[V_1]-V_0}{V_0}\\
+          &= \frac{E[D_1]}{V_0}
+          +\frac{E[V_1]-V_0}{V_0}
+    \end{align*}
+     }
+ 
+    But this is exactly the expected holding-period return: \boxed{E[r]=k}
+
+
+    This holds for any DDM when the stock is priced at its
+    intrinsic value, even if dividend growth is not constant.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{5. Dividend Discount Model Observations}
     \framesubtitle{PVGO}
 
-    If there is no growth in the firm, the GGM becomes a perpetuity:
+    If there is no growth in the firm, the Gordon Growth Model becomes a perpetuity:
 
     $$V_0 = \frac{E_1}{k}$$
 
@@ -506,6 +539,27 @@
 
 \end{frame}
 
+\begin{practiceframe}[t]
+    \frametitle{5. DDM Observations}
+    \framesubtitle{Practice}
+
+    \begin{enumerate}
+        \item[1. ] The Duo Growth Company just paid a dividend of \$1 per share.  The 
+        dividend is expected to grow at a rate of 25\% per share for the next three years 
+        and then to level off to a 5\% per year forever.   You think the appropriate 
+        market capitalization rate is 20\% per year.   
+        \begin{itemize}
+            \item What is the estimate of the intrinsic value of the stock?
+            \item If the market price is equal to this intrinsic value, what is the dividend 
+            yield?
+            \item What do you expect the price to be one year from now?
+            \item Is the implied capital gain consistent with your estimate of the dividend 
+            yield and the market capitalization rate?
+        \end{itemize}
+    \end{enumerate}
+
+\end{practiceframe}
+
 \begin{foundframe}[t]
     \frametitle{Appendix}
     \section{Appendix}
@@ -515,26 +569,25 @@
     V_0 = \frac{D_0(1+g)}{1+k} + \frac{D_0(1+g)^2}{(1+k)^2} + \frac{D_0(1+g)^3}{(1+k)^3} + \ldots
     $$
     
-    Let $r = \frac{1+g}{1+k}$.   
+    Let $q = \frac{1+g}{1+k}$.   
     
-    $$
-    V_0 &= D_0r + D_0r^2 + D_0r^3 + \ldots
-    $$
-    Multiply both sides by $r$
-        $$
-    rV_0 &= D_0r^2 + D_0r^3 + D_0r^4 + \ldots
-    $$
+    \[
+    V_0 = D_0q + D_0q^2 + D_0q^3 + \ldots
+    \]
+    Multiply both sides by $q$
+    \[
+    qV_0 &= D_0q^2 + D_0q^3 + D_0q^4 + \ldots
+    \]
     Subtract from the equation above, notice that almost all the terms cancel out
-    $$
-    V_0(1-r) = D_0r \implies V_0 = \frac{D_0r}{1-r}$$
+    $$ V_0(1-q) = D_0q \implies V_0 = \frac{D_0q}{1-q}$$
 
 \end{foundframe}
 
 \begin{foundframe}[t]
-    \frametitle{2. Dividend Discount Model}
-    \framesubtitle{Gordon Growth Model}
+    \frametitle{Appendix}
+    \framesubtitle{Gordon Growth Model Derivation, Continued}
 
-    Substituting back the definitions of $r = \frac{1+g}{1+k}$ yields:
+    Substituting back the definitions of $q = \frac{1+g}{1+k}$ yields:
     
     \begin{align*}
     V_0 &= \frac{\frac{D_0(1+g)}{1+k}}{1-\frac{1+g}{1+k}} = \frac{\frac{D_0(1+g)}{1+k}}{\frac{1+k}{1+k}-\frac{1+g}{1+k}}\\
