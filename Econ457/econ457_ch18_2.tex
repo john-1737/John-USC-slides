@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 11-b}
+\newcommand{\week}{Equities-2}
 
 \title{Equity Valuation}
 \subtitle{Reference: Bodie et al, Ch 18}
@@ -39,24 +39,184 @@
     \frametitle{Outline}
 
     \begin{enumerate}
-        \item Dividends and Buybacks
         \item Modeling Dividend Growth
+        \item Dividends and Buybacks
         \item Free Cash Flow Models
             \begin{itemize}
                 \item Modigliani and Miller
             \end{itemize}
-        \item Relative Valuation 
-            \begin{itemize}
-                \item P/E Ratio
-            \end{itemize}
-        \item Cyclically Adjusted P/E (CAPE)
-        \item Practice
+    \end{enumerate}
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \section{Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    Company managers choose how to use earnings.  They can distribute the earnings to 
+    the company's owners through dividends.  The share of earnings paid out as dividends is referred to as the \textbf{dividend payout ratio}.\\
+    \vspace{1em}
+    Alternatively, they can reinvest in the business.  The share of earnings reinvested in the business is the \textbf{earnings retention ratio} or the \textbf{plowback ratio (b)}.   (The plowback ratio is equal to one minus the dividend payout ratio.)\\
+    \vspace{1em}
+    Dividends in period $i$ are then a function of earnings $E$ and the plowback ratio ($b$):
+    $$D_i = E_i (1- b)$$
+    \vspace{1em}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    The dividend policy then determines the amount of reinvestment in the business, and therefore the amount of growth in the business.  
+    \begin{itemize}
+        \item Let the return on equity be $ROE$
+        \item The amount of equity increases each period by the amount of retained earnings.  $E\times b$
+        \item The rate at which equity increases is then $ROE \times b$
+        \item If $ROE$ and $b$ remain constant, earnings and dividends grow at the same rate as equity.
+        \item Therefore: $$g = ROE \times b$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    How does company management determine how much to pay in dividends?\\
+    \vspace{1em}
+    For a given level of earnings, consider:
+    \begin{itemize}
+        \item Higher dividends may increase the value of the company, per the Gordon Growth Model, if the growth rate rate remains constant.
+        \item However, the growth rate won't remain constant.   Instead, higher dividends mean less reinvestment in the company, which means less growth.
+        \item Optimal dividend payout ratios must balance both considerations
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch18_1_div_growth.png}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    As you can see in the previous slide, an increase in the plowback ratio decreases dividends today, but generates more growth in the future.\\
+    \vspace{1em}
+    \textit{Question:} Will that increase the value of the business?   \\
+    \vspace{1em}
+    \textit{Answer:} It depends on the business.   Some businesses have really good investment opportunities, while others do not.   Specifically, some businesses have higher $ROE$, while others do not.\\
+    \vspace{1em}
+
+\end{frame}
+
+
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    Using the same notation for $ROE$ and $b$, we can write $D_1 = E_1(1-b)$ where $E_1$ is earnings.\\
+    \vspace{1em}
+    $$P_0 = \frac{E_1(1-b)}{k - ROE \times b}$$
+    Note that $b$ is both in the numerator and in the denominator, so it is not immediately clear how changing $b$ will affect $P_0$
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{Dividend Policy}
+
+    Instead of taking a derivative to see the impact of a change of $b$ on $P_0$, we instead consider three cases:
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item \textbf{Case 1: $ROE = k$}: The denominator becomes $k(1-b)$ 
+        and the price reduces to $P_0 = \frac{E_1}{k}$.  The price is 
+        therefore independent of $b$ and equal to a perpetuity.   
+        Intuitively, investors are indifferent between the company reinvesting or returning the earnings, because the returns are the same either way.
+        \item \textbf{Case 2: $ROE > k$} This is a company has attractive reinvestment opportunities.   Investors will prefer that it pursues those opportunities, so a higher $b$ will lead to a higher stock price.
     \end{enumerate}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Dividends and Buybacks}
+\frametitle{1. Modeling Dividend Growth}
+\framesubtitle{Dividend Policy}
+
+    \begin{enumerate}
+        
+        \item[3.] \textbf{Case 3: $ROE < k$} This company does not has attractive reinvestment 
+        opportunities.   Investors will prefer that it return earnings through higher dividends, so a lower $b$ will lead to a higher stock price (like the solid line in the preceding chart)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+\frametitle{1. Modeling Dividend Growth}
+\framesubtitle{Dividend Policy}
+
+    {\footnotesize
+    \begin{enumerate}
+        \item MF Corp has an ROE of 16\% and a plowback ratio of 50\%.   If the coming 
+        year's earnings are expected to be \$2 per share, at what price will the stock 
+        sell? The market capitalization rate is 12\%.   What price do you expect it 
+        to sell at in 3 years?
+
+    \end{enumerate}
+    }
+
+\end{practiceframe}
+
+\begin{frame}[t]
+    \frametitle{1. Modeling Dividend Growth}
+    \framesubtitle{No Growth and PVGO}
+
+    If the firm pays out all of its earnings in dividends, then there will be no growth in the firm.   In that case, $D_i = E_i$ for all periods and $g=0$.  The Gordon Growth Model becomes a perpetuity:
+
+    $$V_0 = \frac{E_1}{k}$$
+
+    The \textbf{present value of growth opportunities (PVGO)}
+    is the difference between the value of the stock and its value in the no-growth scenario. 
+
+    \begin{align*}
+        Price &= \text{No-growth value of firm} + PVGO\\
+        P_0 &= \frac{E_1}{k} + PVGO
+    \end{align*}
+
+\end{frame}
+
+\begin{practiceframe}[t]
+\frametitle{1. Modeling Dividend Growth}
+\framesubtitle{Dividend Policy}
+
+    \begin{enumerate}
+        \item Sisters Corp. expects to earn \$6 per share next year.  The firm's 
+        ROE is 15\% and its plowback ratio is 60\%.   If the firm's market capitalization rate is 10\%, what is the present value of its growth opportunities?
+        \item The stock of Nogro Cop is currently selling for \$10 per share.   Earnings per share in the coming year are expected to be \$2.   The company pays 50\% of its earnings each year in dividends, and retains the rest to reinvest in projects that earn a 20\% rate of return. 
+        \begin{enumerate}
+        \footnotesize
+        \item[a. ] Assume the current market price reflects its intrinsic value as computed by a DDM, what rate of return do Nogro's investors' require?
+        \item[b. ] By how much does its value exceed what would be if all earnings were paid as dividends and nothing was reinvested?
+        \item[c. ]If Nogro were to cuts its dividend payout ratio to 25\%, what would happen to the stock price?
+        \item[d. ] What would happen if Nogro eliminated its dividend?
+        \end{enumerate}
+    \end{enumerate}
+
+\end{practiceframe}
+
+\begin{frame}[t]
+    \frametitle{2. Dividends and Buybacks}
+    \section{Dividends and Buybacks}
     \framesubtitle{Dividends}
 
     \framesubtitle{Dividends}
@@ -80,7 +240,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Dividends and Buybacks}
+    \frametitle{2. Dividends and Buybacks}
     \framesubtitle{Buybacks}
 
     Recently company managers have preferred to return earnings to shareholders 
@@ -100,7 +260,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Buybacks}
+    \frametitle{2. Dividends and Buybacks}
     \framesubtitle{Controversy and Recent Regulation}
 
     Despite some advantages, stock buybacks are controversial:\\
@@ -119,7 +279,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{1. Buybacks}
+    \frametitle{2. Dividends and Buybacks}
     \framesubtitle{Recent Trends}
 
     \centering
@@ -131,7 +291,7 @@
 
 
 \begin{frame}[t]
-    \frametitle{3. DDM Details}
+    \frametitle{2. Dividends and Buybacks}
     \framesubtitle{Bank Dividends and Regulatory Policy}
 
     Banks face unique regulatory constraints on dividend payments, especially during crises:
@@ -162,7 +322,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. DDM Details}
+    \frametitle{2. Dividends and Buybacks}
     \framesubtitle{Dividend - Suspensions}
 
     Many well-known companies have temporarily suspended dividends during difficult periods. 
@@ -189,104 +349,171 @@
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
 
-    Company managers choose how to use earnings.   They can distribute the earnings to 
-    the company's owners through dividends.  The share of earnings paid out as dividends 
-    is referred to as the \textbf{dividend payout ratio}.\\
+
+\begin{frame}[t]
+    \frametitle{3. Free Cash Flow Models}
+    \section{Free Cash Flow Models}
+    \framesubtitle{Overview}
+
+    Free cash flow models value a company by discounting its
+    expected future cash flows to the present.  Unlike the Dividend Discount Model, these models do not rely on actual dividend payments. This addresses the concern that some companies pay little or no dividends, and dividend policy may not reflect the cash
+    generated by the business.
+
     \vspace{1em}
-    Alternatively, they can reinvest in the business.   The share of earnings reinvested 
-    in the business is referred to as either the \textbf{earnings retention ratio} or 
-    the \textbf{plowback ratio (b)}.\\
+
+    \textbf{Two approaches:}
+    \begin{itemize}
+        \item \textbf{FCFF}: Cash available to debt and equity holders.
+        Discount using the weighted average cost of capital (WACC).
+        \item \textbf{FCFE}: Cash available to equity holders.
+        Discount using the cost of equity ($r_E$).
+    \end{itemize}
+
     \vspace{1em}
-    While a higher dividend payout ratio may increase dividends in the near term, 
-    growth requires reinvestment and a higher earnings retentio ratio \textit{may} increase 
-    earnings over the long term.
+
+    \textbf{Important:} The discount rate must match the type
+    of cash flow being valued.
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
+    \frametitle{3. The Income Statement}
+    \framesubtitle{Income Statement}
 
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch18_1_div_growth.png}
+    The \textbf{income statement} summarizes a company's revenues,
+    expenses, and profits over a period of time.
 
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
-
-    How much growth is generated by reinvesting in the business?   It depends on the 
-    business.   Some businesses have really good investment opportunities, while others 
-    do not.\\
     \vspace{1em}
-    Specifically, the \textbf{return on equity (ROE)} for some businesses is higher than 
-    others.   The amount of growth generated by investing in the business is given by:\\
-    $$g = ROE \times b$$
-    Remember that the Gordon Growth Model assumes that $g$ can be sustained indefinitely, so 
-    we are considering reinvestment opportunities that will always be available (not one-offs).  
-    For many companies this establishes an upperbound on $b$.
+
+    \begin{itemize}
+        \item \textbf{Revenue}: money earned from selling goods and services.
+
+        \item \textbf{Expenses}: costs incurred to generate revenue.
+
+        \item \textbf{Gross profit}: revenue minus the direct costs of
+        producing the goods or services sold.
+
+        \item \textbf{Operating income}: gross profit minus operating
+        expenses such as R\&D, sales, and administration.
+
+        \item \textbf{Net income}: profit remaining after operating expenses,
+        interest, taxes, and other non-operating items.
+
+        \item The income statement measures \textbf{flows over a period},
+        unlike the balance sheet, which is a snapshot at a point in time.
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. DDM Details}
-    \framesubtitle{Dividend Growth}
+    \frametitle{3. Free Cash Flow Models}
+    \framesubtitle{Example: Apple Income Statement, Q2-FY26}
+    
+    \begin{table}
+        \centering
+    \footnotesize
+    \begin{tabular}{lr}
+            \toprule
+            \textbf{Three Months Ended March 28, 2026} & \textbf{\$ billions} \\
+            \midrule
+            Net sales & 111.2 \\
+            Cost of sales & (56.4) \\
+            \midrule
+            \textbf{Gross profit} & \textbf{54.8} \\
+            Research \& development & (11.4) \\
+            Selling, general \& administrative & (7.5) \\
+            \midrule
+            \textbf{Operating income} & \textbf{35.9} \\
+            Other income/(expense) & (0.1) \\
+            \midrule
+            Income before taxes & 35.8 \\
+            Income tax expense & (6.3) \\
+            \midrule
+            \textbf{Net income} & \textbf{29.6} \\
+            Earnings per share (EPS) & 2.02 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
 
-    Now we are in a position to evaluate how the stock price will respond to different 
-    reinvestment policies.   We can write $D_1 = E_1(1-b)$ where $E_1$ is earnings.\\
+    \vspace{0.5em}
+
+    \blfootnote{Source: Apple, Condensed Consolidated Statements of
+    Operations, quarter ended March 28, 2026.}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. The Cash Flow Statement}
+    \framesubtitle{Cash Flow Statement}
+
+    The \textbf{cash flow statement} summarizes a company's
+    cash inflows and outflows over a period of time.
+
     \vspace{1em}
-    $$P_0 = \frac{E_1(1-b)}{k - ROE \times b}$$
-    Notes:
-    \begin{enumerate}
-        \item If $ROE = k$ then the denominator becomes $k(1-b)$ 
-        and the price reduces to $P_0 = \frac{E_1}{k}$.  The price is 
-        therefore independent of $b$ and equaly to a perpetuity.   
-        Intuitively, investors are 
-        indifferent between the company reinvesting or returning the 
-        earnings, because the returns are the same either way.
-    \end{enumerate}
+
+    \begin{itemize}
+        \item \textbf{Operating activities}: Cash generated by
+        the company's core business operations.
+
+        \item Starts with net income and adjusts for noncash
+        expenses (such as depreciation) and changes in
+        working capital.
+
+        \item \textbf{Investing activities}: Cash used for or
+        generated by investments, including purchases of
+        property, plant, and equipment (CapEx).
+
+        \item \textbf{Financing activities}: Cash raised from or
+        paid to investors, including borrowing, debt repayments,
+        dividends, and share repurchases.
+
+        \item Unlike the income statement, the cash flow statement
+        tracks \textbf{cash rather than accounting earnings}.
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{3. DDM Details}
-\framesubtitle{Dividend Growth}
+    \frametitle{3. The Cash Flow Statement}
+    \framesubtitle{Example: Apple Cash Flow Statement, Q2-FY26}
 
-    \begin{enumerate}
-        \item[2.] If $ROE > k$ then the company has attractive reinvestment 
-        opportunities.   Investors will prefer that it pursues those opportunities, 
-        so a higher $b$ will lead to a higher stock price (like the dashed line in the preceding chart)
-        \item[3.] If $ROE < k$ then the company does not has attractive reinvestment 
-        opportunities.   Investors will prefer that it return earnings through higher dividends, 
-        so a lower $b$ will lead to a higher stock price (like the solid line in the preceding chart)
-    \end{enumerate}
+    \begin{table}
+        \centering
+        \footnotesize
+        \begin{tabular}{lr}
+            \toprule
+            \textbf{Three Months Ended March 28, 2026}
+                & \textbf{\$ billions} \\
+            \midrule
+            \textbf{Operating Activities} & \\
+            Net income & 29.6 \\
+            Noncash adjustments and working capital & (0.9) \\
+            \textbf{Cash from operations} & \textbf{28.7} \\
+            \midrule
+            \textbf{Investing Activities} & \\
+            Capital expenditures & (2.0) \\
+            Other investing activities & (4.2) \\
+            \textbf{Cash from investing} & \textbf{(6.2)} \\
+            \midrule
+            \textbf{Financing Activities} & \\
+            Dividends and share repurchases & (16.1) \\
+            Debt repayments and other & (6.2) \\
+            \textbf{Cash from financing} & \textbf{(22.3)} \\
+            \midrule
+            \textbf{Net increase in cash} & \textbf{0.3} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \blfootnote{Source: Apple Q1 and Q2 FY2026 Forms 10-Q.
+    Quarterly figures calculated from cumulative cash flows.
+    Figures rounded; categories combined.}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Free Cash Flow Models}
-    \framesubtitle{Modigliani and Miller}
-
-    The Modigliani-Miller theorem states that in perfect capital markets, 
-    a firm's value is independent of its capital structure (debt vs. equity mix).
-     The formal proof relies on some key assumptons, including, for example,
-     no taxes, no bankruptcy costs, perfect information and efficient markets.\\
-    \vspace{1em}
-    For the intuition, note that debt is usually cheaper than equity.  A more 
-    leveraged firm will have more debt, which will seemingly reduce its cost of financing.
-     However, the more leveraged firm is also riskier, so the interest rate on that debt and the 
-     required return on equity will both rise, and, in the model, perfectly offsetting the initial benefit.   
-     Therefore the weighted average cost of capital is unchanged, even as the mix of debt and equity changes.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Free Cash Flow Models}
+    \frametitle{3. Free Cash Flow Models}
     \framesubtitle{Free Cash Flow to Firm (FCFF)}
 
     \textbf{Definition:} Cash flow available to all capital providers (debt and equity holders) before any financing costs.\\
@@ -297,334 +524,103 @@
          &\quad - \text{Capital Expenditures} - \text{Change in Working Capital}
     \end{align*}
     \vspace{1em}
+    \textbf{Discount Rate:} $WACC$ is the weighted average cost of capital
     \textbf{Valuation:}
     $$\text{Firm Value} = \sum_{t=1}^{\infty} \frac{FCFF_t}{(1 + WACC)^t}$$
-    Where $WACC$ is the weighted average cost of capital\\
     \vspace{1em}
     \textbf{Use Case:} Total firm valuation; subtract debt to get equity value
+
+    \blfootnote{EBIT = Earnings Before Interest and Taxes}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Free Cash Flow Models}
+    \frametitle{3. Free Cash Flow Models}
     \framesubtitle{Free Cash Flow to Equity (FCFE)}
 
     \textbf{Definition:} Cash flow available to equity holders after all expenses, taxes, debt payments, and reinvestment needs.\\
     \vspace{1em}
     \textbf{Calculation:}
     \begin{align*}
-    FCFE &= FCFF - \text{Interest Expense}(1-\text{Tax Rate}) + \text{Increases in net debt}
+    FCFE = FCFF &- \text{Interest Expense}(1-\text{Tax Rate}) \\
+        &+ \text{Increases in net debt}
     \end{align*}
     \vspace{1em}
-    \textbf{Valuation:}
+    \textbf{Discount Rate:} $r_E$ is the required return on equity (cost of equity) 
+    \textbf{Valuation:} 
     $$\text{Equity Value} = \sum_{t=1}^{\infty} \frac{FCFE_t}{(1 + r_E)^t}$$
-    Where $r_E$ is the required return on equity (cost of equity)\\
-    \vspace{1em}
+
     \textbf{Use Case:} Direct valuation of equity, particularly useful for leveraged firms
 
 \end{frame}
 
+\begin{frame}[t]
+    \frametitle{3. Free Cash Flow Models}
+    \framesubtitle{So, FCFF or FCFE?}
 
+    \textbf{FCFF versus FCFE:}
+
+    \begin{itemize}
+        \item FCFF values the entire firm; FCFE values equity directly.
+
+        \item To obtain equity value from FCFF, subtract net debt
+        (debt minus excess cash) from the enterprise value.
+
+        \item Both approaches should produce the same equity value
+        when cash flows and discount rates are consistent.
+
+        \item These are just two different approaches to the same problem.
+    \end{itemize}
+
+\end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Free Cash Flow Models}
+    \frametitle{3. Free Cash Flow Models}
     \framesubtitle{Modigliani and Miller}
 
-    Implication of Modigliani and Miller Theorem for Valuation:
+    The Modigliani-Miller theorem states that in perfect markets,
+    a firm's value is independent of its capital structure
+    (debt vs. equity mix).
+    \vspace{1em}
+
+    \textbf{Intuition:}
+
     \begin{itemize}
-        \item Firm value depends only on underlying cash flows, not financing decisions
-        \item Focus valuation on operating performance rather than capital structure
-        \item Provides foundation for free cash flow valuation methods
+        \item Debt is generally cheaper than equity, so increasing
+        leverage initially appears to reduce financing costs.
+
+        \item However, greater leverage makes equity riskier,
+        increasing the required return on equity.
+
+        \item In the MM model, this increase exactly offsets
+        the apparent benefit of cheaper debt.
+
+        \item Therefore, the \textbf{weighted average cost of capital
+        (WACC) remains unchanged} as leverage changes.
     \end{itemize}
-    \vspace{1em}
-    Note that in practice, when valuing the same firm using FCFF (discounted at WACC) 
-    versus FCFE (discounted at cost of equity), the implied equity values are rarely 
-    equal. This suggests that Modigliani Miller assumptions don't hold perfectly in 
-    practice - not surprising given the restrictive assumptions.
+
+    \blfootnote{    The formal result relies on restrictive assumptions, including
+    no taxes, no bankruptcy costs, and frictionless capital markets.}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{3. Relative Valuation}
-    \framesubtitle{}
+    \frametitle{3. Free Cash Flow Models}
+    \framesubtitle{Implications of Modigliani-Miller}
 
-    The dividend discount model valued a company based on its earnings and a discount rate.  
-    Using the modeled valuation, an investor could then determine whether the market price was 
-    too high or too low, and either sell or buy accordingly.\\
-    \vspace{1em}
-    An alternative approach would be to compare the market price of a company to the price of 
-    either other, similar companies OR compared to the price of that company over time.\\
-    \vspace{1em}
-    This approach requires \textit{normalizing} the market price by something, in order to account 
-    for observable differences across comparison companies.   A common approach is to normalize 
-    the price by \textbf{earnings}, although there are other possibilities too.
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{3. Relative Valuation}
-    \framesubtitle{P/E Ratio}
-
-    Reminder that the value of a perpetuity is given by:
-    $$P_0 = \frac{c}{k}$$
-    Where $P_0$ is the current price, $c$ is the payment amount, and $k$ is the discount rate.\\
-    \vspace{1em}
-    The value of a company that has no expected growth is similar to a perpetuity, with the 
-    payment amount equal to earnings ($E$).\\
-    $$P_0 = \frac{E}{k}$$
-    
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Relative Valuation}
-    \framesubtitle{P/E Ratio}
-
-    Still thinking about companies with no expected growth (i.e. perpetuities), 
-    the Price-Earnings Ratio is:
-    $$P_0/E = \frac{1}{k}$$
-    Because the earnings cancels out.\\
-    \vspace{1em}
-    For illustrative purposes, assume that $k=12.5\%$.   
-    Then the P-E Ratio would be $1/0.125 = 8$.
-    \vspace{1em}
-
-    In words: investors should be willing to pay \$8 billion for a company with a 
-    required return of 12.5\%, no-growth prospects, and earnings next year of \$1 billion.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Relative Valuation}
-    \framesubtitle{P/E Ratio}
-
-    Of course, companies also have growth prospects, which should increase their value.  
-    We can define the value of a company as follows:
-    \begin{align*}
-    P_0 &= \text{PV(no-growth)} + \text{PV(Growth Opportunities)}\\
-        &= \frac{E_1}{k} + PVGO
-    \end{align*}
-    Where $PVGO$ is $PV(Growth Opportunities)$\\
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{3. Relative Valuation}
-    \framesubtitle{P/E Ratio}
-
-    Dividing this by $E_1$ and doing a little rearranging 
-    gives an expression for the P/E Ratio:
-    $$
-    \frac{P_0}{E_1} = \frac{1}{k} \left(1 + \frac{PVGO}{E/k}\right)
-    $$
-    The term $\frac{PVGO}{E/k}$ is the ratio of the growth opportunities 
-    to the no-growth scenario for the firm.  And the term $\frac{1}{k}$ is 
-    what we say earlier about the PE ratio for a no-growth firm.\\
-    \vspace{1em}
-    In words, the PE ratio is the value of a perpetuity multiplied by 
-    one plus the ratio of PVGO to the no-growth value.  Firms will higher 
-    PVGOs will have higher PE ratios.   Investors are willing to pay more 
-    for companies with better growth prospects.
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{3. Relative Valuation}
-    \framesubtitle{P/E Ratio - Earnings}
-
-    In order to estimate the P-E Ratio you need to know the earnings.\\
-    \vspace{1em}
-    Ideally, you would have an estimate for forward earnings.  This could come from 
-    company guidance, or analyst consensus, or your own analysis.\\
-    \vspace{1em}
-    An often used substitute is earnings over the trailing twelve months (ttm).  While not ideal,
-     this is easily observed and readily available.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Price/Earnings Ratio}
-    \framesubtitle{PE Ratios across Industries}
-
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch18_2_pe_ind.png}
-
-    \blfootnote{Data Source: Aswath Damodaran, available on his NYU website}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Price/Earnings Ratio}
-    \framesubtitle{PE Ratios in the Auto Industry}
-
-    \footnotesize
-    \begin{table}
-    \centering
-    \caption{PE Ratios in the Auto Industry, July 2025}
-    \begin{tabular}{|m{3cm}|>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.8cm}|>{\centering\arraybackslash}p{1.3cm}|>{\centering\arraybackslash}p{1.5cm}|}
-    \hline
-    & \textbf{Market Cap} & \textbf{Share Price, \$} & \textbf{EPS, TTM} & \textbf{PE Ratio, TTM} \\
-    & \textbf{\$ bn} & \textbf{(as of 7-16)} & & \\
-    \hline
-    Ford (F) & 44.6 & 11.25 & 1.25 & 9.00 \\
-    \hline
-    General Motors (GM) & 51.1 & 53.33 & 7.16 & 7.45 \\
-    \hline
-    Honda (HMC) & 41.8 & 30.53 & 3.64 & 8.39 \\
-    \hline
-    Tesla (TSLA) & 1,037 & 321.88 & 1.74 & \textbf{184.99} \\
-    \hline
-    BYD Company (BYD) & 172.6 & 93.73 & 4.30 & 21.77 \\
-    \hline
-    \end{tabular}
-    \end{table}
-
-    \blfootnote{Data from Yahoo Finance, as of 7-16-2025.}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Price/Earnings Ratio}
-    \framesubtitle{Do PE Ratios Predict Earnings Growth?}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{figures/ch18_2_conpepsi_pe.png}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{figures/ch18_2_conpepsi.png}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_1.png}
-
-    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{Definition}
-
-    Define the Cyclically Adjusted P-E Ratio (CAPE) as the "stock price divided by 
-    average real earnings over the previous 10 year."\\
-    \vspace{1em}
     \begin{itemize}
-        \item Adjusted for inflation (real earnings)
-        \item 10 years is long enough to smooth over business cycles
+        \item In perfect capital markets, firm value depends on
+        underlying operating cash flows, not financing decisions (WACC is independent of leverage).
+
+        \item Changes in capital structure affect the risk and
+        required returns of debt and equity, but not total firm value.
+
+        \item This provides a useful theoretical foundation for
+        understanding the relationship between financing and valuation.
+
+        \textit{However, in practice, WACC may change as leverage changes, because of taxes, bankruptcy costs, and other market imperfections. Thus, capital structure may affect firm value.}
     \end{itemize}
-    \vspace{1em}
-    Accordingly, we would expect the CAPE to smoother than the PE ratio.
 
 \end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{Historical CAPE}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_2.png}
-
-    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{A Good Measure of Value?}
-
-    The inverse of the PE is the \textit{earnings yield}: $E/P$.\\
-    \vspace{1em} 
-    Define the \textit{excess CAPE yield} as 
-    $$\frac{1}{CAPE} - (\text{10y real UST yield})$$
-    \vspace{1em}
-    Is this a good measure of value?   When CAPE is high (low), the excess CAPE yield is 
-    low (high) and suggests future returns will also be low (high).\\
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{A Good Measure of Value?}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch18_2_cape_3.png}
-
-    \blfootnote{Data Source: Robert Shiller, available on his Yale website}
-
-\end{frame}
-
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{Barclays}
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/ch18_2_barclays.png}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{4. Cyclically Adjusted P/E (CAPE)}
-    \framesubtitle{Barclays}
-
-    \centering
-    \includegraphics[width=\textwidth]{figures/ch18_2_barclays2.png}
-
-\end{frame}
-
-\begin{practiceframe}[t]
-    \frametitle{5. Practice}
-    \framesubtitle{}
-
-    \begin{enumerate}
-        \item Jand, Inc. currently pays a dividend of \$1.22, which is 
-        expected to grow indefinitely at 5\%.   If the current value of 
-        Jand's shares based on the constant-growth dividend discount model 
-        is \$32.03, what is the required rate of return?
-        \item Computer stocks current provide an expected rate of return 
-        of 16\%.   MBI, a large computer company will pay a year-end dividend of \$2 
-        per share.   If the stock is selling at \$50 per share, what must be the market's 
-        expectation for the dividend growth rate?
-        \item If the dividend growth forecast is revised down to 5\%, what will have to 
-        the price of stock?  What (qualitatively) will happen to the price-earnings ratio?
-    \end{enumerate}
-
-\end{practiceframe}
-
-\begin{practiceframe}[t]
-    \frametitle{5. Practice}
-    \framesubtitle{}
-
-    \begin{enumerate}
-        \item[4. ] MF Corp has an ROE of 16\% and a plowback ratio of 50\%.   If the coming 
-        year's earnings are expected to be \$2 per share, at what price will the stock 
-        sell?   The market capitalization rate is 12\%.   What price do you expect it 
-        to sell at in 3 years?
-        \item[5. ] Sisters Copr. expects to earn \$6 per share next year.  The firm's 
-        ROE is 15\% and its plowback ratio is 60\%.   If the firm's market capitalization 
-        rate is 10\%, what is the present value of its growth opportunities?
-        \item[6. ] The FI Corporation's dividends per share are expected to 
-        grow indefinitely by 5\% per year.  If this year's year-end dividend is \$8 and 
-        the market capitalization rate is 10\% per year, what must be the current stock price?  
-        If the expected earnings per share are \$12, what is the implied value of the ROE on 
-        future investment opportunities?   How much is the market paying per share for future 
-        growth?
-    \end{enumerate}
-
-\end{practiceframe}
-
-
 
 \end{document}

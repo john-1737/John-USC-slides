@@ -57,7 +57,7 @@
 {\bf Lecture Notes}\\
 \end{center}
 
-\section{Lecture 1}
+\section{Lecture 1:}
 \subsection{GDP}
 
 \begin{itemize}
@@ -65,7 +65,7 @@
 \end{itemize}
 
 
-\section{Lecture 2: Ch 5, 1: Measurement}
+\section{ Ch 5, 1: Measurement}
 
 
     \begin{shaded}
@@ -167,7 +167,7 @@
     \end{shaded}
 
 
-\section{Lecture 3: Ch 5, 2: Distributions}
+\section{ Ch 5, 2: Distributions}
 
     \begin{shaded}
     \subsection{Practice: Computing Mean and Std Dev}
@@ -230,7 +230,7 @@
       \end{enumerate}
     \end{shaded}
 
-\section{Lecture 4: Ch 5, 3: Evaluation}
+\section{ Ch 5, 3: Evaluation}
 
     \begin{shaded}
         \subsection{Practice: Fisher Approximation}
@@ -277,7 +277,7 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
 
     \end{shaded}
 
-\section{Lecture 5: Ch 6, 1: Capital Allocation}
+\section{ Ch 6, 1: Capital Allocation}
 
     \begin{shaded}
     \subsection{Practice: Indifference Curves}
@@ -329,7 +329,7 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
 
     \end{shaded}
 
-\section{Lecture 6: Ch 6, 2: Capital Allocation, Cont'd}   
+\section{ Ch 6, 2: Capital Allocation, Cont'd}   
 
     \begin{shaded}
     \subsection{Practice: Capital Allocation Problem}
@@ -408,9 +408,9 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
 
     \end{shaded}
 
-\section{Lecture 7: Ch 7, 1: Diversification}
+\section{ Ch 7, 1: Diversification}
 
-    \subsection{$E[r]$ and $\sigma$ of a Two Asset Portfolio}
+    \subsection{E[r] and Sigma of a Two Asset Portfolio}
 
     Construct a portfolio with assets $X$ and $Y$ with returns $r_x$ and $r_y$.  The portfolio is constructed with weights $w_x$ and $w_y$, such that $w_x + w_y = 1$.\\
      
@@ -820,7 +820,7 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
  
     \end{shaded}
 
-\section{Lecture: Equities 1}
+\section{Equities 1: DDM}
 
 \begin{shaded}
 \subsection{SmileWhite: 2 Stage DDM}
@@ -917,7 +917,239 @@ You invest \$27,000 in a corporate bond selling for \$900 per \$1,000 par value.
             \textit{Yes. The dividend yield (11.2\%) plus the capital gains yield (8.8\%) equals the required return of 20\%. The capital gains yield is not equal to the dividend growth rate because the Gordon Growth Model applies only during the constant-growth period.}
 
         \end{itemize}
+
+
+
+
             
 \end{shaded}
+
+\section{Equities 2: Dividend Policy, plowback ratios}
+
+\begin{shaded}
+    \begin{enumerate}
+        \item MF Corp has an ROE of 16\% and a plowback ratio of 50\%.   If the coming 
+        year's earnings are expected to be \$2 per share, at what price will the stock 
+        sell? The market capitalization rate is 12\%.  
+        \begin{align*}
+        g &= 0.16*0.5=0.08\\
+        E_1 &= \$2 \\
+        D_1 &= \$1 \\
+        V_0 &= \frac{1}{0.12-0.08} = \$25\\
+        \end{align*}
+         What price do you expect it 
+        to sell at in 3 years?        
+        \[V_3 = V_0*(1+g)^3 = 25*(1.08)^3\]
+        
+    \end{enumerate}
+
+\end{shaded}
+
+
+
+\begin{shaded}
+    The stock of Nogro Corp is currently selling for \$10 per share.
+    Earnings per share in the coming year are expected to be \$2.
+    The company pays 50\% of its earnings each year in dividends,
+    and retains the rest to reinvest in projects that earn a 20\%
+    rate of return.
+
+    \begin{enumerate}
+        \item[a.] Assume the current market price reflects its intrinsic
+        value as computed by a DDM. What rate of return do Nogro's
+        investors require?
+
+        \begin{align*}
+            g &= ROE \times b = 0.20 \times 0.50 = 10\%\\
+            D_1 &= E_1(1-b) = 2(0.5) = 1\\
+            k &= \frac{D_1}{P_0} + g\\
+              &= \frac{1}{10} + 0.10 = 20\%
+        \end{align*}
+
+        \item[b.] By how much does its value exceed what it would be
+        if all earnings were paid as dividends and nothing was reinvested?
+
+        \begin{align*}
+            PVGO &= P_0 - \frac{E_1}{k}\\
+                 &= 10 - \frac{2}{0.20}\\
+                 &= 10 - 10 = \$0
+        \end{align*}
+
+        \textit{There is no value from growth opportunities because
+        the return on reinvested earnings equals the required
+        return ($ROE=k$).}
+
+        \item[c.] If Nogro were to cut its dividend payout ratio
+        to 25\%, what would happen to the stock price?
+
+        \begin{align*}
+            b &= 0.75\\
+            g &= 0.20 \times 0.75 = 15\%\\
+            D_1 &= 2(0.25) = 0.50\\
+            P_0 &= \frac{D_1}{k-g}\\
+                &= \frac{0.50}{0.20-0.15} = \$10
+        \end{align*}
+
+        \textit{The stock price remains unchanged. Lower dividends
+        are exactly offset by higher growth.}
+
+        \item[d.] What would happen if Nogro eliminated its dividend?
+
+        \begin{align*}
+            b &= 1\\
+            g &= 0.20 \times 1 = 20\%\\
+            D_1 &= 0
+        \end{align*}
+
+        The Gordon Growth Model becomes undefined:
+
+        \[
+            P_0 = \frac{0}{0.20-0.20} = \frac{0}{0}
+        \]
+
+        \textit{If all earnings are reinvested forever and shareholders
+        never receive any distributions, the DDM implies a value of
+        zero. However, if the firm eventually distributes its
+        accumulated earnings, the intrinsic value remains \$10,
+        since $ROE=k$ and reinvestment creates no additional value.}
+
+    \end{enumerate}
+\end{shaded}
+
+\begin{shaded}
+
+        Sisters Copr. expects to earn \$3 per share next year.  The firm's estimated growth rate is 7.5\%.   If the firm's market capitalization rate is 12\%, what is the present value of its growth opportunities?
+        \begin{align*}
+        V_0 &= \frac{3}{0.12-0.75} = \$66.667\\
+        V_0 &= \frac{E}{k} + PVGO\\
+        V_0 &= \frac{3}{0.12} + PVGO \\
+        66.667 &- 25 = PVGO \\
+        PVGO &= 41.667
+       \end{align*}
+
+    \end{shaded}
+
+\section{Equities 3: P-E Ratios}
+
+\begin{shaded}
+
+    \begin{enumerate}
+        \item Computer stocks current provide an expected rate of return 
+        of 16\%.   MBI, a large computer company will pay a year-end dividend of \$2 
+        per share.   If the stock is selling at \$50 per share, what must be the market's 
+        expectation for the dividend growth rate?
+        \[
+        50 = \frac{2}{0.16-g}\\
+        50(0.16-g) = 2\\
+        0.04 = 0.16-g \\
+        g = 0.12
+        \]
+        \begin{enumerate}
+        \item[a. ] If the dividend growth forecast is revised down to 5\%, what will have to the price of stock?  What (qualitatively) will happen to the price-earnings ratio?
+        \[ P_0 = \frac{2}{0.16-0.05} = 18.18\]
+        \textit{Lower growth leads to a lower PE ratio}
+        \end{enumerate}
+    \end{enumerate}
+
+\end{shaded}
+
+\begin{shaded}
+
+    \begin{enumerate}
+        \item The FI Corporation's dividends per share are expected to 
+        grow indefinitely by 5\% per year.  If this year's year-end dividend is \$8 and the market capitalization rate is 10\% per year, what must be the current stock price? If the expected earnings per share are \$12, what is the implied value of the ROE on future investment opportunities?   How much is the market paying per share for future growth?   What is the PE ratio?
+    \end{enumerate}
+
+    \[
+    V_0 = \frac{8}{0.1-0.05} = 160
+    \]
+    \[
+    V_0 = \frac{E}{k} + PVGO \\
+    160 = \frac{12}{0.1} + PVGO \\
+    PVGO = 40
+    \]
+    \[
+    g = ROE*b \\
+    5 = ROE * (1 - 8/12) \\
+    ROE = 5 * (3) = 15
+    \]
+    \[
+    P/E = \frac{160}{12} = 13.33
+    \]
+
+\end{shaded}
+
+\section{Equities 4: Factor Models}
+
+    \begin{shaded}
+        \begin{enumerate}
+            \item Consider the following data for a one-factor economy.   Both portfolios are 
+            well diversified.
+            
+                \begin{tabular}{ccc}
+                    \toprule
+                    Portfolio & E[r] & Beta\\
+                    \midrule
+                    A & 12\% & 1.2\\
+                    B & 6\% & 0\\
+                    \bottomrule
+                \end{tabular}
+
+            Suppose another portfolio, portfolio E, is well diversified with a beta of 0.6 and 
+            an expected return of 8\%.  Would an arbitrage opportunity exist?   If so, what would be the  arbitrage?
+        \end{enumerate}
+        \[ E[r_A] = 6\% + 1.2\cdot F = 12\\
+            \implies F = \frac{6}{1.2} = 5 \\
+            E[r_E] = 6\% + 0.6 \cdot F = 8 \\
+            \implies F = \frac{2}{0.6} = 3.3 \\
+        \]
+        Therefore this can't be true.  The return on A is higher, after adjusting for their different $\beta$, therefore we want to buy A and sell E.   But, the key is to do that riskless, which means we need to equalize the betas.   The portfolio 0.5A + 0.5B has half the beta as A.   So the arbitrage is to invest in 0.5A + 0.5B and sell E.
+        
+    \end{shaded}
+
+    \begin{shaded}
+    Consider the following APT model of returns for a particular stock:
+        \begin{table}
+            \begin{tabular}{lcc}
+                \toprule
+                Factor & Factor Beta & Factor Risk Premium \\
+                \midrule
+                Inflation   & 1.2 & 6\%\\
+                Industrial Production & 0.5 & 8\\
+                Oil Prices & 0.3 & 3\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+    If T-Bills currently yield 6\%, find the expected rate of return of this stock if the market 
+    views it as fairly valued.\\
+    \[
+    r_i = 6 + 1.2*6 + 0.5*8 + 0.3*3 = 18.1
+    \]
+    \end{shaded}
+
+    \begin{shaded}
+    Suppose that the market can be described by the following three sources of risk, each of which 
+        has an associated risk-premium: 
+        
+            \begin{tabular}{lc}
+                \toprule
+                Factor & Risk Premium\\
+                \midrule
+                Industrial Production ($I$) & 6\%\\
+                Interest Rates ($R$) & 2\\
+                Consumer Confidence ($C$) & 4\\
+                \bottomrule
+            \end{tabular}
+            
+        Assuming the T-Bill rate is 6\% You estimate the return on the stock is given by
+         $$r = 15 + 1.0 I + 0.5 R + 0.75 C + \varepsilon$$
+         Where $I$, $R$, and $C$ are \textbf{surprises} in these economic series
+         \begin{enumerate}
+        \item Find the fair rate of return on this stock using the Arbitrage Pricing Theory.
+    
+            \item Is the stock over or under valued? (hint: in expectation, surprises equal 0)
+        \end{enumerate}
+
+    \end{shaded}
 
 \end{document}

@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\newcommand{\week}{Week 8-a}
+\newcommand{\week}{Factor Models - 1}
 
 \title{Multifactor Models, Fama-French Factors}
 \subtitle{Reference: Bodie et al, Ch 10}
@@ -52,6 +52,7 @@
 
 \begin{frame}[t]
     \frametitle{1. Multifactor Models}
+    \section{Multifactor Models}
     \framesubtitle{Motivation}
 
     One takeaway from CAPM was that \textit{only systematic risk would be priced}.   
@@ -60,10 +61,8 @@
     systematic risk will it influence the expected return.\\
     \vspace{1em}
     Up to now we defined "systematic risk" as broad market risk.   
-    Idiosyncratic, or company specific, risk could be diversified away and therefore should not 
-    be rewarded with higher returns.   
-    But the risk of the broad market can not be diversified away, which is why investors should receive 
-    higher returns for bearing this risk.\\
+    Idiosyncratic, or company specific, risk could be diversified away and therefore should not be rewarded with higher returns.   
+    But the risk of the broad market can not be diversified away, which is why investors should receive higher returns for bearing this risk.\\
     \vspace{1em}
     Today we are going to extend these ideas slightly and introduce \textit{multiple factors}.
 
@@ -72,23 +71,24 @@
 
 \begin{frame}[t]
     \frametitle{1. Multifactor Models}
-    \framesubtitle{}
-
-    The Index model said that security returns were determined by 
-    one market factor and then idiosyncratic risk.  
-    Let's augment that by adding two additional factors reflecting the macroeconomic 
+    \subsection{Macroeconomic Factors}
+    \framesubtitle{Macroeconomic Factors}
+ 
+    Let's start by adding two additional factors reflecting the macroeconomic 
     environment.\\
     \vspace{1em}
     For example, add linear terms to make the risk premium of security $i$ a 
     function of macro surprises (GDP, CPI):
-    $$R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{GDP,i} \cdot GDP_t + \beta_{CPI,i} \cdot CPI_t + \epsilon_{i,t}$$
-    Where $GDP_t$ is the surprise, relative to expectations, of the GDP announcement.
+    $$R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{GDP,i} \cdot GDP_t + \beta_{CPI,i} \cdot CPI_t + \varepsilon_{i,t}$$
+    Where $GDP_t$ is the surprise, relative to expectations, of the GDP announcement in period $t$.  $CPI_t$ is the surprise, relative to expectations, of the CPI announcement in period $t$.
+
+    \blfootnote{Remember that $R_i$ is the \textit{excess} return of security $i$, that is $R_i = r_i - r_f$}
 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{1. Multifactor Models}
-    \framesubtitle{Application 1}
+    \framesubtitle{Macroeconomic Factors}
 
     Suppose this is your model for a security's returns: 
         $$R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{GDP,i} \cdot GDP_t + \beta_{CPI,i} \cdot CPI_t + \epsilon_{i,t}$$
@@ -102,35 +102,35 @@
 
 \end{frame}
 
+
 \begin{frame}[t]
     \frametitle{1. Multifactor Models}
     \framesubtitle{This isn't CAPM}
 
-    While this may look similar to CAPM, we are not yet able to make the same conclusions with regards to 
-    equilibrium pricing. 
-    CAPM was motivated by (strong) assumptions about complete markets, shared investor preferences, etc.  
-    And the market return was, by assumption in CAPM, the return on the complete portfolio of all investable 
-    assets.\\
-    \vspace{1em}
-    In contrast, here we just chose a few macro factors to include in the model.  While GDP and Inflation 
-    are reasonable choices, we could have chosen anything.   
-    Because these factors aren't based on the same set of 
-    assumptions, and as a consequence can't make the same claims to characterizing the equilibrium, 
-    multifactor models need to rely on something else to make statements about pricing.
+    \begin{itemize}
+    \item While this may look similar to CAPM, we are not yet saying anything about equilibriums. Remember that CAPM was derived as the equilibrium condition for the market portfolio, under some admittedly strong assumptions.
+    \item In contrast, here we just chose a few macro factors to include in the model.  While GDP and Inflation are reasonable choices, we could have chosen anything.   
+    \item Because these factors aren't based on the same set of 
+    assumptions, and as a consequence can't make the same claims to characterizing the equilibrium
+    \item Multifactor models need to rely on something else to make statements about pricing.   That is where Arbitrage Pricing Theory comes in (next slide)
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{1. Multifactor Models}
+    \subsection{Arbitrage Pricing Theory}
     \framesubtitle{Arbitrage Pricing Theory}
 
-    Instead of relying on a economic model with equilibrium, these multifactor models instead rely on an
-    \textit{arbitrage} argument to make a statement about expected pricing.   This is \textbf{Arbitrage Pricing Theory (APT)}\\
+    Instead of relying on an economic model with equilibrium, multifactor models instead rely on an \textit{arbitrage} argument to make a statement about expected pricing.   
     \vspace{1em}
-    An \textit{arbitrage} opportunity is when an investor can make a riskless profit without making a net 
-    investment (or exposing herself to risk).   Arbitrages should be quickly closed by traders.  So if you can 
-    find two trades with the exact same risk, it's usually safe to assume the expected returns on the two trades 
-    should be equal.
+    
+    \textbf{Arbitrage Pricing Theory (APT)}
+    \begin{itemize}
+    \item An \textit{arbitrage} opportunity is when an investor can make a riskless profit without making a net investment (or exposing herself to risk).   
+    \item Arbitrages should be quickly closed by traders.  
+    \item APT: If two well-diversified portfolios have the same factor exposures, they must have the same expected return.. 
+    \end{itemize}
     \blfootnote{Obviously it's rare that the risk are exactly the same. 
     We'll see these arguments again in the classes on options and derivatives.}
 
@@ -140,15 +140,13 @@
     \frametitle{1. Multifactor Models}
     \framesubtitle{Security Market Line}
 
-    In multifactor models, we can argue that a no-arbitrage condition leads to the following conclusion:\\ 
+    In multifactor models, a no-arbitrage condition leads to the following conclusion:\\ 
     \vspace{1em}
     \begin{quote} 
-        Portfolios with equal betas should have equal expected returns, for any beta in a 
-        multifactor model.
+        Portfolios with the same factor betas must have the same expected return.
     \end{quote}
     \vspace{1em}
-    This is similar to saying that all securities must lie on the Security Market Line (SML), but now we are 
-    talking about a multidimensional SML (harder to visualize).
+    This is similar to saying that all securities must lie on the Security Market Line (SML), but now we are talking about a multidimensional SML.   This is a little harder to visualize, but let's give it a try...
 
 \end{frame}
 
@@ -156,67 +154,106 @@
     \frametitle{1. Multifactor Models}
     \framesubtitle{Security Market Line}
     
-    To see why there must be a single SML, consider the following chart where the x-axis is the realization (surprise) of factor F.\\
+    Consider the chart below. The x-axis is the realization (surprise) of factor F, the y-axis is the expected return.  Red and blue lines are for security A and B, respectively.  Note that the two securities have the same factor exposure ($\beta_A = \beta_B$). According to APT, is this situation possible?\\
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/ch10_1_2sml.png}
+      \includegraphics[width=0.8\textwidth]{figures/ch10_1_2sml.png}
 
-    \raggedright
-    In this case, security A is always preferred to security B.   
-    An arbitrage strategy of selling B and buying A provides a riskless profit.  
-    As this arbitrage will be immediately closed by traders, prices will adjust so that both A and B 
-    eventually lie on the same line.
+\end{frame}
 
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Security Market Line}
+   
+    Under APT, is the chart on the preceding slide possible?
+    \begin{itemize}
+    \item Note that security A is always preferred to security B.   This is our first hint that something is off.   Why would anybody ever hold B?
+    \item More specifically, think about a strategy of buying A and selling B. Regardless of the realization of F, this strategy would be profitable. 
+    \item This is a riskless arbitrage. Traders will immediately close this arbitrage opportunity by buying A and selling B. 
+    \item Prices will adjust so that both A and B  eventually lie on the same line.
+    \end{itemize}
+    \textbf{Conclude}: Under APT, two well-diversified portfolios with identical factor exposures cannot have different expected returns.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Constructing Arbitrage Portfolios}
+
+    In the preceding example, it is clear that we want to buy A and sell B.   If we do that in equal size, the portfolio is riskless, because the securities have the same betas, and they are therefore offsetting.
+    \vspace{1em}
+
+    But what if the two securities have different betas?   How do we compare them?
+    \begin{itemize}
+        \item Note that we can change the beta on a portfolio by combining the security with cash.  For example, if a security has $\beta = 1.2$, then a portfolio with 1/2 in that security and 1/2 in cash will have $\beta=0.6$ 
+        \item To compare two securities, construct portfolios from those securities that have the same betas.  Does one of the portfolios have higher returns?   If yes, buy that portfolio.  
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{practiceframe}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Practice}
+
+        \begin{enumerate}
+            \item Consider the following data for a one-factor economy.   Both portfolios are 
+            well diversified.
+            \begin{table}
+                \begin{tabular}{ccc}
+                    \toprule
+                    Portfolio & E[r] & Beta\\
+                    \midrule
+                    A & 12\% & 1.2\\
+                    B & 6\% & 0\\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+            Suppose another portfolio, portfolio E, is well diversified with a beta of 0.6 and 
+            an expected return of 8\%.  Would an arbitrage opportunity exist?   If so, what would be the 
+            arbitrage?
+        \end{enumerate}
+
+\end{practiceframe}
+
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Factor Portfolios and Risk Premiums}
+    \subsection{Factor Portfolios and Risk Premiums}
+
+    \begin{itemize}
+    \item When we choose the macro factors, we should be careful to choose factors that are difficult to diversify. Idiosyncratic risk is easy to diversify, and therefore should not be rewarded with extra return. Factors that are more difficult to diversify, in contrast, could be rewarded with extra return.
+    \item If we choose the factors appropriately, then we can argue that investors bearing exposure to these macro factors will be rewarded with extra return.   
+    \item A different way to say that is that the there will be a \textbf{risk premium }associated with the macro factors.
+
+    \end{itemize}
+ 
 \end{frame}
 
 \begin{frame}[t]
     \frametitle{1. Multifactor Models}
     \framesubtitle{Factor Portfolios and Risk Premiums}
 
-    When we choose the macro factors, we should be careful to choose factors that are difficult to diversify.  
-    Idiosyncratic risk is easy to diversify, and therefore should not be rewarded with extra return.   
-    Factors that are more difficult to diversify, in contrast, could be rewarded with extra return.\\
-    \vspace{1em}
-    If we choose the factors appropriately, then we can argue that investors bearing exposure to these macro 
-    factors will be rewarded with extra return.   A different way to say that is that the there will be 
-    a risk premium associated with the macro factors.\\
-    \vspace{1em}
+    How do we measure the risk premium associated with a macro factor?
+    \begin{itemize}
+    \item Construct a ``factor portfolio.'' These portfolios may be designed to have exposure to a macroeconomic risk or to some other source of risk.
+    \begin{itemize}
+        \item Example of a macroeconomic factor portfolio: a portfolio that is particularly sensitive to unexpected inflation.
+    \end{itemize}
+    \item The risk premium associated with the factor is then the excess return on the factor portfolio:
+    \[
+        \mathbb{E}[r_F-r_f],
+    \]
+    where $r_F$ is the return on the factor portfolio.
+    \end{itemize}   
+
+    \blfootnote{We could also construct factor portfolios to capture some other aspect of risk.   For example, value vs.\ growth portfolios See Fama-French later in this lecture).}
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{1. Multifactor Models}
-    \framesubtitle{Factor Portfolios and Risk Premiums}
-    To implement the APT in a way that is similar to the CAPM, we next construct 
-    factor portfolios.   These portfolios may track the evolution of the 
-    macrovariable of interest, or perhaps some other aspect of systematic risk that should be rewarded.   
-    (We'll have some specific examples in a moment)\\
-    \vspace{1em}
-    The risk premium associated with the factor is then the excess return of the factor 
-    portfolio: $\mathbb{E}[r_F - r_f]$ where $r_F$ is the return on the factor portfolio.
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{1. Multifactor Models}
-    \framesubtitle{Two Models}
-
-    We now have two different multifactor models.  Be careful because they look similar, but they have slightly different 
-    uses.
-    \begin{enumerate}
-        \item Returns are determined by surprises in macroeconomic factors:
-        $$R_i = E(R_i) + \beta_{i1}F_1 + \beta_{i2} F_2 + \epsilon$$
-        where $F_1$ and $F_2$ are \textit{surprises} in these factors, relative to expectations.
-        \item The fair return on a security is determined by the risk-premiums associated 
-        with macroecomonic factors:
-        $$E[r_i] = r_f + \beta_{i1}\mathbb{E}[r_1 - r_f] + \beta_{i2}\mathbb{E}[r_2 - r_f]$$
-        where $\mathbb{E}[r_1 - r_f]$ is the risk premium associated with a factor portfolio.
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[t]
+\begin{practiceframe}[t]
     \frametitle{1. Multifactor Models - Macro Factors}
-    \framesubtitle{Application 2}
+    \framesubtitle{Macro Factors}
 
     Consider the following APT model of returns for a particular stock:
         \begin{table}
@@ -233,26 +270,115 @@
     If T-Bills currently yield 6\%, find the expected rate of return of this stock if the market 
     views it as fairly valued.\\
     \vspace{1em}
-    Note that the expected return may subsequently be adjusted due to \textit{surprises} in these variables.
+    
+    \blfootnote{Note that the expected returns will subsequently be adjusted due to \textit{surprises} in these variables.}
+
+\end{practiceframe}
+
+\begin{frame}[t]
+    \frametitle{1. Multifactor Models}
+    \framesubtitle{Two Models}
+
+    Be careful, there are now two different equations. They look similar, \textit{and the betas mean the same thing}, but they have different uses.
+    \begin{enumerate}
+        \item \textbf{Factor model:} Realized returns are determined by surprises in macroeconomic factors:
+        \[
+            r_i = E[r_i] + \beta_{i1}F_1 + \beta_{i2}F_2 + \epsilon_i
+        \]
+        where $F_1$ and $F_2$ are \textit{surprises} in these factors, relative to expectations.
+    
+        \item \textbf{APT pricing equation:} The fair expected return on a security is determined by the risk premiums associated with its factor exposures:
+        \[
+            E[r_i] = r_f + \beta_{i1}\lambda_1 + \beta_{i2}\lambda_2
+        \]
+        where $\lambda_1$ and $\lambda_2$ are the risk premiums associated with the factors.
+    \end{enumerate}
 
 \end{frame}
+
+\begin{practiceframe}[t]
+    \frametitle{1. Multifactor Models - Macro Factors}
+    \framesubtitle{Macro Factors}
+
+    \footnotesize
+    Suppose that the market can be described by the following three sources of risk, each of which 
+        has an associated risk-premium: 
+
+            \begin{table}
+            \begin{tabular}{lc}
+                \toprule
+                Factor & Risk Premium\\
+                \midrule
+                Industrial Production ($I$) & 6\%\\
+                Interest Rates ($R$) & 2\\
+                Consumer Confidence ($C$) & 4\\
+                \bottomrule
+            \end{tabular}
+            \end{table}
+            
+        Assuming the T-Bill rate is 6\% You estimate the return on the stock is given by
+         $$r = 15 + 1.0 I + 0.5 R + 0.75 C + \varepsilon$$
+         Where $I$, $R$, and $C$ are \textbf{surprises} in these economic series
+         \begin{enumerate}
+        \item Find the fair rate of return on this stock using the Arbitrage Pricing Theory.
+            \item Is the stock over or under valued? (hint: in expectation, surprises equal 0)
+        \end{enumerate}
+
+\end{practiceframe}
+
+
+
+
 
 \begin{frame}[t]
     \frametitle{2. Fama-French Factors}
     \framesubtitle{The Model}
 
-    The most famous multifactor model is the Fama-French model:
-    $$
-    R_{i,t} = \alpha_i + \beta_{m,i} \cdot R_{m,t} + \beta_{SMB,i} \cdot SMB_t + \beta_{HML,i} \cdot HML_t + \epsilon_{i,t}
-    $$
-    SML = return of small stocks minus return of large stocks\\
-    HML = return of value stocks minus return of growth stocks\\
+    Factors are not limited to macroeconomic variables.  Factors can also reflect other sources of risk. The most famous multifactor model is the Fama-French three-factor model:
+    \[
+    r_{i,t}-r_{f,t}
+    =
+    \alpha_i
+    +\beta_{m,i}(r_{m,t}-r_{f,t})
+    +\beta_{SMB,i}SMB_t
+    +\beta_{HML,i}HML_t
+    +\epsilon_{i,t}.
+    \]
+
+    In addition to market risk, the model includes two factor portfolios:
+    \begin{itemize}
+        \item \textbf{SMB (Small Minus Big):} return of small stocks minus return of large stocks.
+        \item \textbf{HML (High Minus Low):} return of high book-to-market (value) stocks minus return of low book-to-market (growth) stocks.
+    \end{itemize}
+
+    \vspace{0.5em}
+    The factor betas measure a stock's exposure to each source of systematic risk.
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{2. Fama-French Factors}
+    \framesubtitle{Factor Portfolios}
+
+    The basic idea is to construct portfolios that isolate exposure to a particular characteristic.
+    
     \vspace{1em}
-    Procedure for creating factor portfolios: Sort firms by size or book-to-market.  
-    Create portfolios of the bottom and top deciles.   The SML factor portfolio is the return 
-    of small companies (bottom decile) minus the return of the large companies (top decile).
-    The HML factor portfolio is the return of the 
-    value companies (top decile in book-to-market) minus the growth portfolios (bottom decile in book-to-market).
+    
+    \begin{itemize}
+        \item \textbf{SMB:} Sort firms by market capitalization. Compare the returns of portfolios of small firms with portfolios of large firms:
+        \[
+            SMB = r_{\text{Small}}-r_{\text{Big}}.
+        \]
+        
+        \item \textbf{HML:} Sort firms by book-to-market. High book-to-market firms are typically called \textit{value} stocks, while low book-to-market firms are called \textit{growth} stocks:
+        \[
+            HML = r_{\text{Value}}-r_{\text{Growth}}.
+        \]
+    \end{itemize}
+    
+    \vspace{0.5em}
+    The actual Fama-French factors are constructed from several portfolios, but these long-short portfolios capture the basic intuition.
 
 \end{frame}
 
