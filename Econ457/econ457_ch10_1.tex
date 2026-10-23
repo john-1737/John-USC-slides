@@ -45,7 +45,8 @@
                 \item Arbitrage Pricing Theory
                 \item Factor Portfolios and Risk Premiums
             \end{itemize}
-        \item Fama and French Factors 
+        \item Fama and French Factors
+        \item Value Investing
         \item Multifactor Models in Practice (Smart Beta)
     \end{enumerate}
 \end{frame}
@@ -327,11 +328,9 @@
 \end{practiceframe}
 
 
-
-
-
 \begin{frame}[t]
     \frametitle{2. Fama-French Factors}
+    \section{Fama-French Factors}
     \framesubtitle{The Model}
 
     Factors are not limited to macroeconomic variables.  Factors can also reflect other sources of risk. The most famous multifactor model is the Fama-French three-factor model:
@@ -384,126 +383,27 @@
 
 \begin{frame}[t]
     \frametitle{2. Fama-French Factors}
-    \framesubtitle{Book value v. Market value - Definitions}
+    \framesubtitle{Value Factor}
 
-    Book Value: The net worth of a common equity according to the firm's balance sheet. 
-    Can be calculated as Assets - Liabilities. (also referred to as 'Book Equity' or BE)\\
-    \vspace{1em}
-    Market Value: The net worth of a common equity according to the market price.  
-    Can be calculated by Shares Outstanding X Market Price.  (also referred to as 'Market Equity' or ME)\\
-    \vspace{1em}
-
-    Value Stock: A stock with a \textbf{high} BE/ME ratio.  Equivalently, a stock with a \textbf{low} ME/BE ratio.\\
-    \vspace{1em}
-
-    Growth Stock: A stock with a \textbf{low} BE/ME ratio.   Equivalently, a stock with a \textbf{high} ME/BE ratio.\\
-    \vspace{1em}
+    Value v. Growth, definitions:
+    \begin{itemize}
+    \item \textbf{Book Equity Value (BE)}: The of a firm's common equity according to the firm's balance sheet. 
+    Calculated as Assets - Liabilities. \\
+    \item \textbf{Market Equity Value (ME)}: The value of a firm's common equity according to the market price.
+    Can be calculated by Shares Outstanding X Market Price.\\
+    \item \textbf{Value Stock}: A stock with a \textbf{high} BE/ME ratio.  Equivalently, a stock with a \textbf{low} ME/BE ratio.\\
+    \item \textbf{Growth Stock}: A stock with a \textbf{low} BE/ME ratio.   Equivalently, a stock with a \textbf{high} ME/BE ratio.\\
+    \end{itemize}
 
 \end{frame}
 
-\begin{frame}[t]
-    \frametitle{2. Fama-French Factors}
-    \framesubtitle{Book value v. Market value - Examples}
-    
-    \vspace{-1.5em}
-    \footnotesize
-
-    \begin{table}
-    \caption{Book Equity and Market Equity}
-    \begin{tabular}{llll}
-    \toprule
-     & XOM & MSFT & KHC \\
-    \midrule
-    Assets (\$bn) & 451.90 & 562.20 & 90.27 \\
-    Liabilities (\$bn) & 182.10 & 240.70 & 40.60 \\
-    Shares Outstanding (bn) & 4.30 & 7.30 & 1.18 \\
-    Price (\$ as of 7-7-25) & 112.00 & 494.40 & 426.50 \\
-    \midrule
-    Book Equity, BE (\$bn) & 269.80 & 321.50 & 49.67 \\
-    Market Equity, ME (\$bn) & 481.60 & 3609.12 & 503.27 \\
-    \midrule
-    BE/ME & 0.56 & 0.09 & 0.10 \\
-    High or Low & High & Low & Low \\
-    Price to Book & 1.79 & 11.23 & 10.13 \\
-    Value or Growth & Value & Growth & Growth \\
-    \bottomrule
-    \end{tabular}
-    \end{table}
-
-    \vfill
-    \footnotesize
-    Data Source: Yahoo Finance as of 7-7-2025
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Fama-French Factors}
-    \framesubtitle{Book value v. Market value - Examples}
-    
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/ch_10_XOM_price.png}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/ch_10_XOM_logs.png}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Fama-French Factors}
-    \framesubtitle{Book value v. Market value - Examples}
-    
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/ch_10_MSFT_price.png}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/ch_10_MSFT_logs.png}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Fama-French Factors}
-    \framesubtitle{Book value v. Market value - Examples}
-    
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/ch_10_KHC_price.png}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/ch_10_KHC_logs.png}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-\begin{frame}[t]
-    \frametitle{2. Fama-French Factors}
-    \framesubtitle{Kraft-Heinz (KHC)}
-
-    \begin{columns}
-            \begin{column}{0.5\textwidth}
-                \centering
-                \includegraphics[width=0.6\textwidth]{figures/ch10_buffet_2019.png}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \centering
-                \includegraphics[width=0.6\textwidth]{figures/ch10_buffet_2025.png}
-            \end{column}
-    \end{columns}
-
-\end{frame}
 
 \begin{frame}[t]
     \frametitle{2. Fama-French Factors}
     \framesubtitle{Factor Portfolios}
 
     \footnotesize
-    \vspace{-1em}
+    \vspace{-2em}
 
     \begin{table}
     \caption{Average Returns for Fama-French BE/ME Portfolios, 1926-2025}
@@ -528,6 +428,8 @@
     \end{tabular}
     \end{table}
 
+    \blfootnote{BE/ME = book-to-market ratio}
+
 \end{frame}
 
 \begin{frame}[t]
@@ -535,29 +437,142 @@
     \framesubtitle{Factor Performance}
 
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch10_1_fffactors.png}
+    \includegraphics[width=0.6\textwidth]{figures/ch10_1_fffactors.png}
 
-    \raggedright
-    Conclusion: Both SML and HML are factor portfolios that have significant 
-    risk premiums associated with them.   Investors have been rewarded for bearing 
-    exposure to these factor portfolios.
+    \begin{itemize}
+    \item Portfolios of small companies (SMB) and portfolios of value companies (HML) have significant risk premiumsm.   
+    \item Investors have been rewarded for bearing 
+    exposure to the size and the value factors.
+    \end{itemize}
 
     \blfootnote{Data Source: Ken French data library}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{2. Fama-French Factors}
+    \frametitle{3.Value Investing}
+    \section{Value Investing}
+    \framesubtitle{Value Investing}
+
+    \textbf{Value investing} seeks to identify stocks that are inexpensive relative to measures of their fundamental value.
+
+    \begin{itemize}
+        \item \textbf{Benjamin Graham}: often called the ``father of value investing,'' developed the approach in the 1920s and 1930s.
+        \item Graham emphasized buying securities for less than their estimated intrinsic value, providing a ``margin of safety.''
+        \item \textbf{Warren Buffett}: a student of Graham at Columbia, became the most famous practitioner of value investing.
+        \item Buffett has long emphasized buying buying high-quality businesses at attractive prices.
+    \end{itemize}
+
+    \blfootnote{Graham and Dodd's \textit{Security Analysis} (1934) and Graham's \textit{The Intelligent Investor} (1949) helped establish the foundations of value investing.}
+
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{3. Value Investing}
+    \framesubtitle{Identifying Value Stocks}
+
+    How to identify stocks that appear inexpensive?  Need to develop an independent view of the fundamental value of the stock.  You can do that using your own model for earnings, valuations for assets, etc.   
+    \vspace{1em}
+
+    An alternative is to use a non-price measure of the firm's fundamentals:
+
+        \begin{itemize}
+            \item \textbf{Book-to-Market:} $\displaystyle \frac{\text{Book Equity}}{\text{Market Equity}}$
+            \item \textbf{Earnings-to-Price:} $\displaystyle \frac{E}{P}$ \qquad (inverse of the P/E ratio)
+            \item \textbf{Cash Flow-to-Price:} $\displaystyle \frac{CF}{P}$
+            \item \textbf{Dividend Yield:} $\displaystyle \frac{D}{P}$
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Value Investing}
+    \framesubtitle{Why does this work?}
+
+    Sometimes markets overreact, and the prices are wrong.
+    \vspace{1em}
+
+    \myquote{Be fearful when others are greedy, and greedy when others are fearful.}{Warren Buffet, 2004}
+    \vspace{1em}
+
+    \myquote{If you can see the light at the end of the tunnel, you are too late}{Sir John Templeton}
+
+    \vspace{1em}
+    \myquote{You don't get to buy good companies at good prices when the news is good}{??}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{3. Value Investing}
+    \framesubtitle{Examples}
+
+    Examples:
+    \begin{itemize}
+    \item Warren Buffet bought Coca-Cola in 1988, immediately after the 1987 stock market crash. Similarly, he bought American Express after it had a corporate scandal. Both companies had strong brands, reliable income and earnings.
+    \item But, be careful of a "value trap".  Sometimes the market is right to price companies at low levels!  More recently, Buffet bought Kraft-Heinz after it had declined in value.  It kept declining, even after Buffet purhcased it, forcing Buffet to admit he "paid to much" for the company.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Factor Model Applications}
+    \section{Factor Model Applications}
     \framesubtitle{Application}
 
-    In order to estimate the expected return for stock $i$, estimate the following model:
-    $$r_i = \alpha_i + \beta_{im}{r_m - r_f} + \beta_{i,SML} SML + \beta_{i,HML} HML + \epsilon$$
-    Then use the estimated risk premiums for $SML$ and $HML$, along with the estimated risk premium 
-    of the market, to calculate the expected return of security $r_i$.\\
-    \vspace{1em}
-    Note that just because there has been a nonzero risk premium on a factor in 
-    the past doesn't guarantee there 
-    will be a nonzero risk premium on the factor in the future.
+    We can use factor models to to estimate the expected return for stock $i$:
+    
+    \begin{enumerate}
+        \item Estimate the factor betas ($\beta_i$s) using historical returns:
+        \[
+        r_i-r_f
+        =
+        \alpha_i
+        +\beta_{im}(r_m-r_f)
+        +\beta_{i,SMB}SMB
+        +\beta_{i,HML}HML
+        +\epsilon_i.
+        \]
+        
+        \item Use the estimated betas and expected factor risk premiums to calculate the expected return:
+        \[
+        E[r_i]
+        =
+        r_f
+        +\beta_{im}E[r_m-r_f]
+        +\beta_{i,SMB}E[SMB]
+        +\beta_{i,HML}E[HML].
+        \]
+    \end{enumerate}
+
+    \vspace{0.5em}
+    \textbf{Important:} A nonzero historical risk premium on a factor does not guarantee that the factor will earn the same risk premium in the future.
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{4. Factor Model Applications}
+    \framesubtitle{Smart Beta}
+
+    \textbf{Smart beta} portfolios attempt to systematically tilt a portfolio toward particular factors or characteristics.
+
+    \begin{enumerate}
+        \item \textbf{Choose a factor:} Identify a characteristic associated with differences in expected returns.
+        \begin{itemize}
+            \item Examples: value, size, momentum, quality, low volatility.
+        \end{itemize}
+
+        \item \textbf{Rank stocks:} Measure each stock's exposure to the chosen characteristic.
+
+        \item \textbf{Construct the portfolio:} Give greater weight to stocks with the desired characteristic.
+        \begin{itemize}
+            \item For example, a value portfolio puts greater weight on stocks with high book-to-market ratios.
+        \end{itemize}
+
+        \item \textbf{Rebalance periodically:} Recalculate the characteristics and adjust portfolio weights.
+    \end{enumerate}
+
+    \textbf{Key idea:} Unlike a market-cap weighted index, portfolio weights are determined partly or entirely by the targeted factor.
 
 \end{frame}
 
